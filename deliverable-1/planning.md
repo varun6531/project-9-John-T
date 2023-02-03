@@ -7,9 +7,14 @@
 #### Q1: What is the product?
 A mobile application for understanding issues around global clean water supply. 
 The partner is Engineers Without Borders (Water for the World - WT4W). This organization is concerned with educating the world about the global clean water supply and the disparities of access to it for different parts of the world.
-The app is intended to educate people on the disparities of access to clean water through a series of questions along with an interactive module. The interactive module is a simple exercise where the user selects a country of the world, and depending on which country, is given a limited amount of in-app currency to create a virtual water filter whose parts have various costs. This simulation helps us understand both how a simple water filter is made, as well as the lack of resources some countries of the world face when required to build such systems.
+The app is intended to educate people on the disparities of access to clean water through a series of questions along with an interactive module. The interactive module is a simple exercise where the user selects a country of the world, and depending on which country, is given a limited amount of in-app currency to create a virtual water filter whose parts have various costs. This simulation helps us understand both how a simple water filter is made, as well as the lack of resources some countries of the world face when required to build such systems. The limited instructions relate to literacy rate which in turn relates to general education levels in the population of the country.
 The app helps new users understand the complicated process of setting up water filters by trying on the app first. A common use case for the app would be for students to use the app to learn about the unequal distribution of resources in the world. The app would also support educators as a teaching method while also assessing and providing information on student responses to the educator.
 
+![Flowchart - Filter build](https://user-images.githubusercontent.com/81650451/216728549-af41903c-cdd1-4654-ae12-9b2a232fe8c1.PNG)
+
+![Flowchart excluding Filter build](https://user-images.githubusercontent.com/81650451/216728536-2ce0711d-f61e-459a-9e14-059aa689ccb7.PNG)
+
+A prototype of the app can be found in the mockup.pdf in the same directory.
 
 #### Q2: Who are your target users?
 The primary target users are grade 7 - 11 students in different countries. The app aids in building a strong understanding of how water filters work and the ease or difficulty in accessing the raw materials required. While the app is specific to Canada, students will be assigned to different countries with varying literacy rates and monetary value to build the most efficient water filter possible. This will be a substitute for an in-person water filter building replicating the exact procedure and cost of materials. The app is also accessible to other people that might need it like first nations communities in Canada or even people in ghana. The main goal is to spread information about clean water and the ability to access it without extended periods of travel. This includes rural areas around the world where access to clean water is more of a luxury than a right leading to health problems for residents and children in the area.
@@ -27,6 +32,19 @@ The product is a hands-on experience that allows users to learn about the lack o
 6. As a student, I want to be able to try out creating different water filter models in order to better identify the important aspects of a good water filter
 7. As a student, I want to be able to log into my own account in order to share my progress with my friends/teachers and also observe other people’s progress
 8. As a student, I want to be able to easily use the application by following a simple workflow in order to ease my process of learning and track my own progress in understanding the issue of water access.
+
+#### Email confirmation of agreement to user stories:  
+
+![Screen Shot 2023-02-03 at 6 15 18 PM](https://user-images.githubusercontent.com/81650451/216728667-50ca9485-694d-4a7c-931b-1d03246d735d.png)
+
+![Screen Shot 2023-02-03 at 6 15 40 PM](https://user-images.githubusercontent.com/81650451/216728877-82ed70d1-d61b-4ac6-af01-77b29e5bccab.png)
+
+
+
+
+
+
+
 
 
 #### Q5: Have you decided on how you will build it? Share what you know now or tell us the options you are considering.
@@ -50,7 +68,7 @@ Prototype: Figma
 
 **Your partner cannot ask you to sign any legal agreements or documents pertaining to non-disclosure, confidentiality, IP ownership, etc.**
 
-Briefly describe which option you have agreed to.
+The partner and team have agreed to option 5. i.e, we will only reference the work you did in your resume, interviews, etc. We agree to not share the code or software in any capacity with anyone unless your partner has agreed to it.
 
 ----
 
