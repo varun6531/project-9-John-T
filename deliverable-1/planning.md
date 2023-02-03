@@ -48,10 +48,15 @@ The product is a hands-on experience that allows users to learn about the lack o
 
 
 #### Q5: Have you decided on how you will build it? Share what you know now or tell us the options you are considering.
+
 Front-End Development: React native
+
 Back-End Development: Django (REST APIs)
+
 Database: Mongo Db
-Deployment: App store / Apple store
+
+Deployment: App store / Apple store (through Xcode)
+
 Prototype: Figma 
 
 
