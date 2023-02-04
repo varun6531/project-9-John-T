@@ -119,7 +119,7 @@ Why?: I am interested in accumulating more knowledge in NoSQL on developing data
 Role(s): Front-End, QA & Testing, Database
 Responsibilities: Collectively implement front-end as well as create unit tests to ensure smoothness, as well as implement a database.
 Why?: Have experience with usability testing methods (interested in QA testing) and am interested in learning MongoDB (have experience with PostgreSQL) and React Native
-7.Member: Nigel Yang
+7. Member: Nigel Yang
 Role(s): Back End, Project Manager, Dedicated Partner Liaison, Database 
 Responsibilities: Coding for the back end and aiding in database development. In charge of communication with our partner, setting internal deadlines, and making sure everyone is on the same page. 
 Why?: Interested in applying database knowledge and gaining further experience in the back end. Want to challenge myself in a leadership position in regard to communicating with a partner 
