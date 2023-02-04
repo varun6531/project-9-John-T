@@ -140,3 +140,6 @@ We expect to meet at least once every week within the team, and we will be holdi
  
 **Collaboration: (Share your responses to Q8 & Q9 from A1)**
 We have a Discord group where we communicate frequently. We hold each other accountable by making sure everyone responds in the group chat whenever there is a decision to be made, regardless of whether that is for meeting times or project-related issues. There is no one clear moderator as everyone is responsible for everyone. If a person doesn’t contribute or is not responsive, our first line of action will be to ask what problems he is currently facing. We will then decide as a team if the person should act more responsibly or if we should distribute some of his workloads with the rest of the team should that be needed.
+
+#### Mockup Link
+https://www.figma.com/file/z5tuqmnL59yi2ZJOpq6GYp/Glen-Marco's-team-library?node-id=0%3A1&t=nGkWF9ujE35CcUcA-1
