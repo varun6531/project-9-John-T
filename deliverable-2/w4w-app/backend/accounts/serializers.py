@@ -56,12 +56,6 @@ class StudentSerializer(serializers.ModelSerializer):
         else:
             validated_data.pop('password2')
 
-        if 'grade' not in validated_data:
-            raise serializers.ValidationError({'grade': 'This field is required.'})
-        
-        if 'school' not in validated_data:
-            raise serializers.ValidationError({'school': 'This field is required.'})
-        
         user = super().create(validated_data)
         user.set_password(validated_data['password'])
         user.save()
@@ -97,10 +91,7 @@ class TeacherSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'password': 'Passwords do not match.'})
         else:
             validated_data.pop('password2')
-        
-        if 'school' not in validated_data:
-            raise serializers.ValidationError({'school': 'This field is required.'})
-        
+    
         user = super().create(validated_data)
         user.set_password(validated_data['password'])
         user.save()
