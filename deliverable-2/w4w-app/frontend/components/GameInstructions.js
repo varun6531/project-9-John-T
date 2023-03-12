@@ -10,11 +10,11 @@ export default function GameIns({ navigation }) {
     return (
         <View style={styles.background}>
             <Text style={styles.textCaption}>Instructions</Text>
-            <Text style={styles.subtext}>Click on the material to to select it.{'\n\n'} Selected the layer on the filter u would like to place the material at and long press the layer to remove it.{'\n\n'} Enjoy!</Text>
+            <Text style={styles.subtext}>Click on the material to to select it.{'\n\n'} Selected the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n'} Enjoy!</Text>
             <View style={styles.skipContainer}>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
                 <Text style={styles.textButton}>
-                    Start
+                    Play Simulation
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>

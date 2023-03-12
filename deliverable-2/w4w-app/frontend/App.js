@@ -21,6 +21,7 @@ import PostQ2 from './components/PostQ2';
 import SubmitResp from './components/SubmitResp';
 import GameIns from './components/GameInstructions';
 import GameTest from './components/GameTest';
+import ThankYou from './components/ThankYou';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,7 +47,8 @@ export default function App() {
           <Stack.Screen name="Teacher hr" component={TeacherHR} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>
           <Stack.Screen name="Post questionnaire 2" component={PostQ2}/>
-          <Stack.Screen name="Submit response" component={SubmitResp}/>     
+          <Stack.Screen name="Submit response" component={SubmitResp}/>   
+          <Stack.Screen name="Thank you" component={ThankYou}/>
         </Stack.Navigator>
       </NavigationContainer>
     

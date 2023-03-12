@@ -17,7 +17,7 @@ export default function GameTest({ route, navigation }) {
             <View style={styles.skipContainer}>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Post questionnaire 1")}>
                 <Text style={styles.textButton}>
-                    Start
+                    Post-Questionnaire
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         marginTop: -Dimensions.get('window').height/3,
       },
       button2: {
-        width:  Dimensions.get('window').width / 2,
+        width:  Dimensions.get('window').width / 1.5,
         marginTop: Dimensions.get('window').height/10,
         flexDirection: 'row',
         padding: 12,

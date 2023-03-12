@@ -30,7 +30,7 @@ export default function PreQ2({ navigation }) {
                 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalContainer}>
-                        <Text style ={ styles.text}> 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home {'\n'}</Text>
+                        <Text style ={ styles.answerView}> 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home {'\n'}</Text>
                         <Pressable style={styles.button2} numberOfLines={1} onPress={()=> {setModalVisible(!modalVisible)}}>
                             <Text style={styles.textButton}>Learned</Text>
                         </Pressable>
@@ -148,7 +148,8 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
-    text: {
+    answerView: {
+        textAlign: 'center',
         color: '#03DAC5',
     }
 });
