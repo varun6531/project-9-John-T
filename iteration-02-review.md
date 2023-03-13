@@ -40,7 +40,7 @@ List any **process-related** (i.e. team organization and/or how you work) change
 #### Q3(b). Integration & Next steps
 Briefly explain how you integrated the previously developed individuals components as one product (i.e. How did you be combine the code from 3 sub-repos previously created) and if/how the assignment was helpful or not helpful.
 
-We created a test branch from our main to push our separate code together and to test without worrying about the main branch. Before starting to code for D2, we also ensured clean and successful merging between our respective A2 code (at least for the backend and database).
+We created a test branch from our main to push our separate code together and to test without worrying about the main branch. Before starting to code for D2, we also ensured clean and successful merging between our respective A2 code (at least for the backend and database). The frontend team started on a separate repo to start D2, and bring their progress to the test branch to merge with the backend and database team. 
 
 
 ## Product - Review
