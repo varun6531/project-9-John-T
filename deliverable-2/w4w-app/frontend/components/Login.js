@@ -55,8 +55,9 @@ export default function Login({ navigation }) {
                 navigation.navigate("Student welcome");
               } else if (type === "teacher"){
                 navigation.navigate("Teacher welcome");
-              } else if (type === "null")
+              } else if (type === null){
                 navigation.navigate("Pre questionnaire 1");
+              }
             } else {
               setError("Error: Invalid Email and Password Combination");
             }
