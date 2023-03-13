@@ -33,12 +33,8 @@ This is a mobile application for understanding issues around global clean water 
 
 Describe your Git/GitHub workflow. Essentially, we want to understand how your team members share codebase, avoid conflicts and deploys the application.
 
- * Describe your overall deployment process from writing code to viewing a live application
- * What deployment tool(s) are you using? And how?
- * Don't forget to **briefly justify why** you chose this workflow or particular aspects of it!
-
- * Naming conventions used in building the app include camelCase. 
- * To merge our code, we used a seperate branch from the main branch called d2-test. This branch was the original branch that included the merged code from all 3 sub teams: back-end, front-end, database. We did not use pull requests, we used our local machines and uploaded specific features from each sub team to add to the back-end's codebase. To add new featues we used pull request complete with descriptions of such features and had other teammates reivew such pull request to be approved. These featuers would be added to the same d2-test branch instead of the main branch. The overall development process from writing code to viewing a live application included extensive testing in each small feature to ensure that the codebase is extendable in the future for aditional featuers. Other than tests, we tested the codebase with the railway database cloud service to ensure that the database is working. Finally we used postman to connect the backend with the frontend 
+Naming conventions used in building the app include camelCase. To merge our code, we used a seperate branch from the main branch called d2-test. This branch was the original branch that included the merged code from all 3 sub teams: back-end, front-end, database. We did not use pull requests, we used our local machines and uploaded specific features from each sub team to add to the back-end's codebase. To add new featues we used pull request complete with descriptions of such features and had other teammates reivew such pull request to be approved. These featuers would be added to the same d2-test branch instead of the main branch. The overall development process from writing code to viewing a live application included extensive testing in each small feature to ensure that the codebase is extendable in the future for aditional featuers. Other than tests, we tested the codebase with the railway database cloud service to ensure that the database is working. Finally we used postman to connect the backend with the frontend app design and used expo react native to test the app. We decided to use this workflow because it made most sense to us to use the backend's code base 
+[deployement tools]
 
 ## Licenses 
 
