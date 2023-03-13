@@ -1,8 +1,9 @@
 from rest_framework.views import APIView
-from rest_framework.generics import DestroyAPIView
+from rest_framework.generics import DestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from .serializers import HomeroomSerializer
 from accounts.models import PlayUser
+from accounts.serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import homeroom
 import random
@@ -34,11 +35,11 @@ class JoinRoomView(APIView):
         copy_data = request.data.copy()
         if 'homeroom_id' not in copy_data:
             return Response("Please enter a room id", status=400)
-        
+
         homeroom_id = copy_data['homeroom_id']
         if homeroom.objects.filter(homeroom_id = homeroom_id).first() is None:
             return Response("Enter a valid room id", status=400)
-        
+
         request.user.homeroom_id = homeroom_id
         request.user.save()
         return Response("Joined room: " + str(homeroom_id))
@@ -66,7 +67,7 @@ class EndRoomView(DestroyAPIView):
             return Response("Please enter a room id", status=400)
         if homeroom.objects.filter(homeroom_id=self.request.data['homeroom_id']).first() is None:
             return Response("Please enter a valid room that you started", status=400)
-        
+
         if homeroom.objects.filter(
                 homeroom_id=self.request.data['homeroom_id']).first().teacher_id == request.user.email:
             hmrm = homeroom.objects.filter(homeroom_id=self.request.data['homeroom_id'])
@@ -76,3 +77,25 @@ class EndRoomView(DestroyAPIView):
             return Response("Room Ended")
         else:
             return Response("You do not have permission to end this room", status=401)
+
+class ListRoomView(ListAPIView):
+    """GET"""
+    permission_classes = [IsAuthenticated, ]
+    serializer_class = HomeroomSerializer
+    queryset = homeroom.objects.all()
+
+class ListStudentsInRoom(APIView):
+    """GET"""
+    permission_classes = [IsAuthenticated, ]
+
+    def get(self, request):
+        copy_data = request.data.copy()
+        if 'homeroom_id' not in copy_data or homeroom.objects.filter(homeroom_id =copy_data['homeroom_id']).first() is None:
+            return Response("Please provide a valid homeroom code", status=400)
+        else:
+            objs = {}
+            num = 1
+            for obj in PlayUser.objects.filter(homeroom_id=copy_data['homeroom_id']):
+                objs[num] = (obj.email)
+                num+=1
+            return Response(objs)
