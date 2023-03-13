@@ -20,6 +20,54 @@ export default function GameIns({ navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kuwait")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("CanFN")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("SAfrica")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Ghana")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kenya")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Malawi")}>
+                <Text style={styles.textButton}>
+                    Play Simulation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
       </View>
       
       <StatusBar style="auto" />
