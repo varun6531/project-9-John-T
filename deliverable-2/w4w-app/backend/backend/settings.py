@@ -153,7 +153,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "csc301wftw1@outlook.com"
 EMAIL_HOST_PASSWORD = "csc301dabest"
-# EMAIL_HOST_USER = "csc301wftw1@gmail.com"
-# EMAIL_HOST_PASSWORD = "csc301dabest"
-# EMAIL_HOST_USER = "youngjuncho729@gmail.com"
-# EMAIL_HOST_PASSWORD = "survdtxbwtslqysc"
