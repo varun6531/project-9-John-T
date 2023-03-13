@@ -14,7 +14,7 @@ export default function GameIns({ navigation }) {
             <View style={styles.skipContainer}>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Canada")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Canada
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -22,7 +22,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kuwait")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Kuwait
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -30,7 +30,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("CanFN")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Canada First Nation
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -38,7 +38,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("SAfrica")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    South Africa
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -46,7 +46,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Ghana")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Ghana
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -54,7 +54,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kenya")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Kenya
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -62,7 +62,7 @@ export default function GameIns({ navigation }) {
             </Pressable>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Malawi")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Malawi
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     textCaption: {
         color: '#03DAC5',
         marginTop: Dimensions.get('window').height / 8,
-        height: Dimensions.get('window').height/7,
+        // height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
         fontWeight: 'bold',
@@ -103,18 +103,19 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        marginTop: Dimensions.get('window').height / 64,
         textAlign: 'center',
         fontSize: 16,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.5,
-        height: Dimensions.get('window').height/2,
+        // height: Dimensions.get('window').height/2,
     },
     skipContainer: {
         flex: 2
       },
       button2: {
         width:  Dimensions.get('window').width / 2,
+        marginTop: Dimensions.get('window').height / 36,
         flexDirection: 'row',
         padding: 12,
         borderColor: '#03DAC5',
