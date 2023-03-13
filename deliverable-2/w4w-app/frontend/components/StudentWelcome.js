@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function TeacherWelcome({ navigation }) {
+export default function StudentWelcome({ navigation }) {
   const [enteredHRCode, setEnteredHRCode] = useState('');
   const [hrList, setHRList] = useState([]);
 
