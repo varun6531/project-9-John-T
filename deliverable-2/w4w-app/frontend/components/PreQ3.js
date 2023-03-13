@@ -49,7 +49,7 @@ export default function PreQ3({ navigation }) {
             />
             
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
+                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                     <Text style={styles.textButton}>
                         Next
                     </Text>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         flex: 2,
         marginTop: Dimensions.get('window').height/4,
       },
-      button2: {
+    button2: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,
@@ -108,48 +108,48 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#2C2C2C',
         alignItems: 'center',
-      },
-      arrow:{
+    },
+    arrow:{
         flex: 1,
         marginTop: 2
-      },
-      textButton:{
+    },
+    textButton:{
         color: '#03DAC5',
         textAlign:'center',
         fontSize:14,
         fontWeight: 'bold',
         flex:5,
         // marginTop: Dimensions.get('window').height/2,
-
-      },
-      sliderText:{
+    },
+    sliderText:{
         fontSize:40,
         fontWeight: 'bold',
         color:'#03DAC5',
         // height: Dimensions.get('window').height/2,
-      },
-      centeredView: {
+    },
+    centeredView: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 22,
-      },
-      modalContainer: {
+    },
+    modalContainer: {
         margin: 20,
-        backgroundColor: 'white',
+        backgroundColor: '#2C2C2C',
         borderRadius: 20,
         padding: 35,
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-      },
-      answerView: {
+    },
+    answerView: {
         textAlign: 'center',
-      },
+        color: '#03DAC5',
+    },
 });

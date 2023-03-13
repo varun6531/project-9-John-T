@@ -12,9 +12,9 @@ export default function SubmitResp ({ navigation }) {
                 label = "User name"
             />
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Student welcome")}>
+                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Thank you")}>
                     <Text style={styles.textButton}>
-                        Send
+                        Submit
                     </Text>
                     <View style={styles.arrow} >
                         <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>

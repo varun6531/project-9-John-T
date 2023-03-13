@@ -42,27 +42,41 @@ export default function Game({ navigation }) {
   return (
     <View style={styles.background}>
         <View style={styles.filter}>
-            <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}}>
+            <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}} 
+              onLongPress={() => {setfilter1('none'); setfiltermat1('none');}}
+            >
               <Image source={filter1} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter2(currentMaterialImg); setfiltermat2(currentMaterial);}}>
+            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter2(currentMaterialImg); setfiltermat2(currentMaterial);}}
+              onLongPress={() => {setfilter2('none'); setfiltermat2('none');}}
+            >
               <Image source={filter2} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter3(currentMaterialImg); setfiltermat3(currentMaterial);}}>
+            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter3(currentMaterialImg); setfiltermat3(currentMaterial);}}
+              onLongPress={() => {setfilter3('none'); setfiltermat3('none');}}
+            >
               <Image source={filter3} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter4(currentMaterialImg); setfiltermat4(currentMaterial);}}>
+            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter4(currentMaterialImg); setfiltermat4(currentMaterial);}}
+              onLongPress={() => {setfilter4('none'); setfiltermat4('none');}}
+            >
               <Image source={filter4} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}>
+            <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}
+              onLongPress={() => {setfilter5('none'); setfiltermat5('none');}}
+            >
               <Image source={filter5} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>
             </Pressable>
         </View>
         <View style={styles.filter2}>
-            <Pressable style = {styles.belowSpace} onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}>
+            <Pressable style = {styles.belowSpace} onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}
+              onLongPress={() => {setfilter6('none'); setfiltermat6('none');}}
+            >
               <Image source={filter6} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.belowSpace2} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}>
+            <Pressable style = {styles.belowSpace2} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}
+              onLongPress={() => {setfilter7('none'); setfiltermat7('none');}}
+            >
               <Image source={filter7} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>
             </Pressable>
         </View>
@@ -176,9 +190,19 @@ export default function Game({ navigation }) {
           </ScrollView>
         </View>
         <View style={styles.buttonLayer}>
-          <Pressable style={styles.button2} onPress={() => navigation.navigate("Post questionnaire 1")}>
+          <Pressable style={styles.button2} onPress={() => {
+              var result = 'dirty';
+              if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coal' && filtermat5=='fineSand' && filtermat6=='cotton' &&filtermat7 == 'cheeseCloth'){
+                result = 'clean';
+              }
+              navigation.navigate("GameTest",
+              {
+                result: result        
+              })
+            }
+          }>
             <Text style={styles.textButton}>
-              Next
+              Test Filter
             </Text>
             <View style={styles.arrow}>
               <Icon name='angle-right' color='#03DAC5' size={15}/>

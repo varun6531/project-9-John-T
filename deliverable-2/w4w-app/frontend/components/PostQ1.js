@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderColor: '#393939',
         borderWidth: 2,
-        marginTop: Dimensions.get('window').height/18,
+        marginTop: Dimensions.get('window').height/42,
         textAlign: 'left',
     },
     inputview:{
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         width:  Dimensions.get('window').width / 3,
         flexDirection: 'row',
         padding: 15,
-        marginTop: Dimensions.get('window').height / 24,
+        marginTop: Dimensions.get('window').height / 12,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,

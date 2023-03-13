@@ -19,6 +19,10 @@ import Game from './components/Game';
 import PostQ1 from './components/PostQ1';
 import PostQ2 from './components/PostQ2';
 import SubmitResp from './components/SubmitResp';
+import GameIns from './components/GameInstructions';
+import GameTest from './components/GameTest';
+import ThankYou from './components/ThankYou';
+import Canada from './components/Canada';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +37,8 @@ export default function App() {
           <Stack.Screen name="Pre questionnaire 2" component={PreQ2}/>
           <Stack.Screen name="Pre questionnaire 3" component={PreQ3}/>
           <Stack.Screen name="Game" component={Game}/>
+          <Stack.Screen name="GameIns" component={GameIns}/>
+          <Stack.Screen name="GameTest" component={GameTest}/>
           <Stack.Screen name="Teacher signup" component={TeacherSignup} />
           <Stack.Screen name="Student signup" component={StudentSignup} />
           <Stack.Screen name="Login" component={Login} />
@@ -42,7 +48,9 @@ export default function App() {
           <Stack.Screen name="Teacher hr" component={TeacherHR} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>
           <Stack.Screen name="Post questionnaire 2" component={PostQ2}/>
-          <Stack.Screen name="Submit response" component={SubmitResp}/>     
+          <Stack.Screen name="Submit response" component={SubmitResp}/>   
+          <Stack.Screen name="Thank you" component={ThankYou}/>
+          <Stack.Screen name="Canada" component={Canada}/>
         </Stack.Navigator>
       </NavigationContainer>
     
