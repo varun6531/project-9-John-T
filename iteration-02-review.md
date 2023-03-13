@@ -46,11 +46,12 @@ We created a test branch from our main to push our separate code together and to
 ## Product - Review
 
 #### Q4. How was your product demo? 
- * How did you prepare your demo?
+
+ 1. How did you prepare your demo?
  * We prepared for our demo by devising specific steps and features of our product and ensuring that these steps and features are error-free with extensive testing and quality assurance. Moreover, we confirmed specific steps and features our partner would like to prioritize, as to allow us to build these first. Another step taken for preperation was to ensure the successful merging of multiple different features from each sub-team, which includes the back-end, front-end, and database teams. 
- * What did you manage to demo to your partner?
+ 2. What did you manage to demo to your partner?
  * We managed to demonstrate several key features. Firstly, we managed to demonstrate our app design wihch included the color schema, the flow of the video game app, and the design of several logos and buttons. Additionally we managed to demonstrate our deployed database with the help of railway, ensuring that the data collecting from each instance of play is recorded in the railway cloud service. Another key feature is the ability for the app to send an email to the hosting teacher in relation to the data collected in the most recent game. 
- * Did your partner accept the features? And were there change requests?
+ 3. Did your partner accept the features? And were there change requests?
  * [...]
- * What were your learnings through this process? This can be either from a process and/or product perspective.
+ 4. What were your learnings through this process? This can be either from a process and/or product perspective.
  * Our learnings included teamwork, organization and scrum meetings. The ability to organize a team larger than 6 is a difficult task, and is one that requires meetings times to organize work to be done, and work completed. 
