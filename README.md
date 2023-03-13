@@ -33,11 +33,12 @@ This is a mobile application for understanding issues around global clean water 
 
 Describe your Git/GitHub workflow. Essentially, we want to understand how your team members share codebase, avoid conflicts and deploys the application.
 
- * Be concise, yet precise. For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
  * Describe your overall deployment process from writing code to viewing a live application
  * What deployment tool(s) are you using? And how?
  * Don't forget to **briefly justify why** you chose this workflow or particular aspects of it!
+
+ * Naming conventions used in building the app include camelCase. 
+ * To merge our code, we used a seperate branch from the main branch called d2-test. This branch was the original branch that included the merged code from all 3 sub teams: back-end, front-end, database. We did not use pull requests, we used our local machines and uploaded specific features from each sub team to add to the back-end's codebase. To add new featues we used pull request complete with descriptions of such features and had other teammates reivew such pull request to be approved. These featuers would be added to the same d2-test branch instead of the main branch. The overall development process from writing code to viewing a live application included extensive testing in each small feature to ensure that the codebase is extendable in the future for aditional featuers. Other than tests, we tested the codebase with the railway database cloud service to ensure that the database is working. Finally we used postman to connect the backend with the frontend 
 
 ## Licenses 
 
