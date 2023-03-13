@@ -23,6 +23,12 @@ import GameIns from './components/GameInstructions';
 import GameTest from './components/GameTest';
 import ThankYou from './components/ThankYou';
 import Canada from './components/Canada';
+import Kuwait from './components/Kuwait';
+import CanFN from './components/CanFN';
+import SAfrica from './components/SAfrica';
+import Ghana from './components/Ghana';
+import Kenya from './components/Kenya';
+import Malawi from './components/Malawi';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +57,12 @@ export default function App() {
           <Stack.Screen name="Submit response" component={SubmitResp}/>   
           <Stack.Screen name="Thank you" component={ThankYou}/>
           <Stack.Screen name="Canada" component={Canada}/>
+          <Stack.Screen name="Kuwait" component={Kuwait}/>
+          <Stack.Screen name="CanFN" component={CanFN}/>
+          <Stack.Screen name="SAfrica" component={SAfrica}/>
+          <Stack.Screen name="Ghana" component={Ghana}/>
+          <Stack.Screen name="Kenya" component={Kenya}/>
+          <Stack.Screen name="Malawi" component={Malawi}/>
         </Stack.Navigator>
       </NavigationContainer>
     

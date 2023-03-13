@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         color: '#03DAC5',
         marginTop: Dimensions.get('window').height / 36,
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 24,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.5,
         height: Dimensions.get('window').height/6,
@@ -151,5 +151,6 @@ const styles = StyleSheet.create({
     answerView: {
         textAlign: 'center',
         color: '#03DAC5',
+        fontSize: 18,
     },
 });

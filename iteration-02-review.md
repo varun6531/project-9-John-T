@@ -1,4 +1,4 @@
-# Group 19: Git Good
+# Group 9: Git Good
 
 
 ## Iteration 02 - Review & Retrospect
@@ -40,14 +40,18 @@ List any **process-related** (i.e. team organization and/or how you work) change
 #### Q3(b). Integration & Next steps
 Briefly explain how you integrated the previously developed individuals components as one product (i.e. How did you be combine the code from 3 sub-repos previously created) and if/how the assignment was helpful or not helpful.
 
-We created a test branch from our main to push our separate code together and to test without worrying about the main branch. Before starting to code for D2, we also ensured clean and successful merging between our respective A2 code (at least for the backend and database).
+We created a test branch from our main to push our separate code together and to test without worrying about the main branch. Before starting to code for D2, we also ensured clean and successful merging between our respective A2 code (at least for the backend and database). The frontend team started on a separate repo to start D2, and bring their progress to the test branch to merge with the backend and database team. 
 
 
 ## Product - Review
 
-#### Q4. How was your product demo?
- * How did you prepare your demo?
- * What did you manage to demo to your partner?
- * Did your partner accept the features? And were there change requests?
- * What were your learnings through this process? This can be either from a process and/or product perspective.
- * *This section will be marked very leniently so keep it brief and just make sure the points are addressed*
+#### Q4. How was your product demo? 
+
+ 1. How did you prepare your demo?
+ * We prepared for our demo by devising specific steps and features of our product and ensuring that these steps and features are error-free with extensive testing and quality assurance. Moreover, we confirmed specific steps and features our partner would like to prioritize, as to allow us to build these first. Another step taken for preperation was to ensure the successful merging of multiple different features from each sub-team, which includes the back-end, front-end, and database teams. 
+ 2. What did you manage to demo to your partner?
+ * We managed to demonstrate several key features. Firstly, we managed to demonstrate our app design wihch included the color schema, the flow of the video game app, and the design of several logos and buttons. Additionally we managed to demonstrate our deployed database with the help of railway, ensuring that the data collecting from each instance of play is recorded in the railway cloud service. Another key feature is the ability for the app to send an email to the hosting teacher in relation to the data collected in the most recent game. 
+ 3. Did your partner accept the features? And were there change requests?
+ * Our partner has accepted several key features and altered several minor ones. Key features accepted includes the feature of sending data via email to the teacher immediately after a game has finihsed. Another key feature accepted is the overall flow of the app, including the questionaire/survey -> game -> post-game questionire -> feedback via email. An example step that our partner has altered is the ability for the user to skip the pre-game questionaire. This feature was successfully implemented as well. 
+ 4. What were your learnings through this process? This can be either from a process and/or product perspective.
+ * Our learnings included teamwork, organization and scrum meetings. The ability to organize a team larger than 6 is a difficult task, and is one that requires meetings times to organize work to be done, and work completed. 

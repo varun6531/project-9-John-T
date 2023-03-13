@@ -10,11 +10,59 @@ export default function GameIns({ navigation }) {
     return (
         <View style={styles.background}>
             <Text style={styles.textCaption}>Instructions</Text>
-            <Text style={styles.subtext}>Click on the material to select it.{'\n\n'} Selected the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n'} Enjoy!</Text>
+            <Text style={styles.subtext}>Click on the material to select it.{'\n\n'} Select the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n\n'} Select your country and enjoy!</Text>
             <View style={styles.skipContainer}>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Canada")}>
                 <Text style={styles.textButton}>
-                    Play Simulation
+                    Canada
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kuwait")}>
+                <Text style={styles.textButton}>
+                    Kuwait
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("CanFN")}>
+                <Text style={styles.textButton}>
+                    Canada First Nation
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("SAfrica")}>
+                <Text style={styles.textButton}>
+                    South Africa
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Ghana")}>
+                <Text style={styles.textButton}>
+                    Ghana
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Kenya")}>
+                <Text style={styles.textButton}>
+                    Kenya
+                </Text>
+                <View style={styles.arrow} >
+                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                </View>
+            </Pressable>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Malawi")}>
+                <Text style={styles.textButton}>
+                    Malawi
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -42,8 +90,8 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 8,
-        height: Dimensions.get('window').height/7,
+        marginTop: Dimensions.get('window').height / 12,
+        // height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
         fontWeight: 'bold',
@@ -55,18 +103,19 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        marginTop: Dimensions.get('window').height / 64,
         textAlign: 'center',
         fontSize: 16,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.5,
-        height: Dimensions.get('window').height/2,
+        // height: Dimensions.get('window').height/2,
     },
     skipContainer: {
         flex: 2
       },
       button2: {
         width:  Dimensions.get('window').width / 2,
+        marginTop: Dimensions.get('window').height / 36,
         flexDirection: 'row',
         padding: 12,
         borderColor: '#03DAC5',
