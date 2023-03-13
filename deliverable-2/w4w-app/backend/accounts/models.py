@@ -69,3 +69,6 @@ class PlayUser(AbstractBaseUser, PermissionsMixin):
 
     def get_type(self):
         return self.type
+
+    def get_homeroom(self):
+        return self.homeroom_id
