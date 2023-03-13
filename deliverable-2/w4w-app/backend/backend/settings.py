@@ -145,3 +145,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp-mail.outlook.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "csc301wftw1@outlook.com"
+EMAIL_HOST_PASSWORD = "csc301dabest"
+# EMAIL_HOST_USER = "csc301wftw1@gmail.com"
+# EMAIL_HOST_PASSWORD = "csc301dabest"
+# EMAIL_HOST_USER = "youngjuncho729@gmail.com"
+# EMAIL_HOST_PASSWORD = "survdtxbwtslqysc"
