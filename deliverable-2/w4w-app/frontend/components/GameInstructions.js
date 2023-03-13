@@ -10,7 +10,7 @@ export default function GameIns({ navigation }) {
     return (
         <View style={styles.background}>
             <Text style={styles.textCaption}>Instructions</Text>
-            <Text style={styles.subtext}>Click on the material to select it.{'\n\n'} Selected the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n'} Enjoy!</Text>
+            <Text style={styles.subtext}>Click on the material to select it.{'\n\n'} Select the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n\n'} Select your country and enjoy!</Text>
             <View style={styles.skipContainer}>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Canada")}>
                 <Text style={styles.textButton}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 8,
+        marginTop: Dimensions.get('window').height / 12,
         // height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
