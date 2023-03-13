@@ -7,16 +7,16 @@ This is a mobile application for understanding issues around global clean water 
 1. Registering/logging into a student/teacher account
  * Due to the differing features of a student and a teacher (a student can answer questions, a teacher can create a homeroom, etc), the registration process for a student and a teacher differs. 
 2. Completing a pre-game questionnaire on global water supply
- * Simple MCQ questions to test a student’s base knowledge on global water supply
+ * Slider questions to test a student’s base knowledge on global water supply
 3. Building an interactive water filter with varying countries’ resources and literacy rate
  * The interactive module is a simple exercise where the user selects a country of the world, and depending on which country, is given a limited amount of in-app currency to create a virtual water filter whose parts have various costs. 
 * This simulation helps us understand both how a simple water filter is made, as well as the lack of resources some countries of the world face when required to build such systems. The limited instructions relate to literacy rate which in turn relates to general education levels in the population of the country.
 4. Completing a post-game questionnaire on global water supply
-* Short open-ended questions to test a student’s knowledge on global water supply after playing the game
+* Short open-ended questions to test a student’s knowledge on global water supply after playing the game, as well as understanding student's perspective on the issue
 5. Data storage via database cloud service railway
 * User accounts including teachers and students, country information, game results are stored in a database cloud service called Railway
 6. Emailing teacher result of most recent game
-* Teachers will recieve a result of the most recent game via email automatically. An offline version of the app is available as well where this feature is turned off.
+* Teachers will receive a result of the most recent game via email automatically. An offline version of the app is available as well where this feature is turned off.
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
