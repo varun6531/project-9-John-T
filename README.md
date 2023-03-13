@@ -41,5 +41,8 @@ Naming conventions used in building the app include camelCase. To merge our code
  Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
 
  * What type of license will you apply to your codebase? And why?
+ * Subject to change
+ * We will be using the MIT open-source license it is simple and permissive. It allows for redistribution, modification, and commercial use, while limitting liability and warranty. 
  * What affect does it have on the development and use of your codebase?
+ * There will be no drastic differences from the development and use of our codebase. We hope that the open-source license will allow other similar organizations such as Engineers Without Borders to develop similar apps that require a pre-game questionaire, a game, and a post-game questionare to be developed at a lower cost.
 
