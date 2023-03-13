@@ -13,6 +13,10 @@ This is a mobile application for understanding issues around global clean water 
 * This simulation helps us understand both how a simple water filter is made, as well as the lack of resources some countries of the world face when required to build such systems. The limited instructions relate to literacy rate which in turn relates to general education levels in the population of the country.
 4. Completing a post-game questionnaire on global water supply
 * Short open-ended questions to test a student’s knowledge on global water supply after playing the game
+5. Data storage via database cloud service railway
+* User accounts including teachers and students, country information, game results are stored in a database cloud service called Railway
+6. Emailing teacher result of most recent game
+* Teachers will recieve a result of the most recent game via email automatically. An offline version of the app is available as well where this feature is turned off.
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
