@@ -65,9 +65,7 @@ export default function StudentWelcome({ navigation }) {
             </View>
           );
         }}
-        keyExtractor={(itemData) => {
-          return itemData["index"];
-        }} alwaysBounceVertical={false}/>
+        keyExtractor={(itemData, index) => 'key' + index} alwaysBounceVertical={false}/>
       </View>
 
       <View style={styles.skipContainer}>

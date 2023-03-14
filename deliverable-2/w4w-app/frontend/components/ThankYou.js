@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import GetTypeAPI from '../apis/GetTypeAPI';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ThankYou({ navigation }){
     return(
@@ -24,7 +26,18 @@ export default function ThankYou({ navigation }){
                     </View>
                 </Pressable>
 
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Student welcome")}>
+                <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
+                    let user = await AsyncStorage.getItem('user');  
+                    let parsed = JSON.parse(user);  
+                    var email = parsed.email;
+                    var type = await GetTypeAPI(email);
+              if (type === "student"){
+                navigation.navigate("Student welcome");
+              } else if (type === "teacher"){
+                navigation.navigate("Teacher welcome");
+              } else if (type === null){
+                navigation.navigate("Pre questionnaire 1");
+              }}}>
                     <Text style={styles.textButton}>
                         Home
                     </Text>
