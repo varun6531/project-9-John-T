@@ -259,6 +259,78 @@ class EndRoomViewTestCase(TestCase):
         response = self.client.post('/homeroom/end-room/', data)
         self.assertEqual(response.status_code, 401)
 
+
+class ListStudentsInRoomTestCase(APITestCase):
+    @classmethod
+    def setUp(self):
+        self.client = Client()
+        
+        # register a teacher
+        new_teacher = {"email": "testemail@rocketmail.com", "password": "testpass", 
+                "password2": "testpass", "first_name": "Central", "last_name": "Cee", 
+                "city": "Toronto", "country": "Canada", "type": "teacher", "age": "21"}
+        self.client.post('/accounts/register-teacher/', new_teacher)
+
+        # register a student
+        new_student = {"email": "testemail2@rocketmail.com", "password": "testpass2", 
+                "password2": "testpass2", "first_name": "Arr", "last_name": "Dee", 
+                "city": "Toronto", "country": "Canada", "type": "student", "age": "19",
+                "grade": "12", "school": "Toronto High School"}
+        self.client.post('/accounts/register-student/', new_student)
+
+        # login teacher
+        self.client.login(email="testemail@rocketmail.com", password="testpass")
+
+        # create a homeroom
+        data = {"homeroom_id": "30002000", "teacher_id": "testemail@rocketmail.com"}
+        self.client.post('/homeroom/create-room/', data)
+
+        self.client.logout()
+
+    def test_list_students_in_room_as_teacher(self):
+        # login student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # login a teacher
+        self.client.login(email="testemail@rocketmail.com", password="testpass")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_list_students_in_room_as_student(self):
+        # login student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_list_students_in_room_unauthenticated(self):
+        self.client.logout()
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 401)
+
+    def test_list_students_in_room_no_homeroom(self):
+        # login as student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # list students in homeroom when user did has not joined a homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 400)
+
+
 # Database Tests
 class HomeroomTestCase(TestCase):
     @classmethod
