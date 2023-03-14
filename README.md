@@ -24,6 +24,8 @@ This is a mobile application for understanding issues around global clean water 
  * Provide clear steps for using each feature described in the previous section.
  * This section is critical to testing your application and must be done carefully and thoughtfully.
  Our application is deployed on the Expo App Store which is accessible by the Expo Go App on iOS App store or the Google Play Store. The link to download for the iOS version is https://apps.apple.com/us/app/expo-go/id982107779 and the link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. 
+ ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
+
  
 ## Development requirements
  * What are the technical requirements for a developer to set up on their machine or server (e.g. OS, libraries, etc.)?
