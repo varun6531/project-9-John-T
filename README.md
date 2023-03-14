@@ -37,7 +37,9 @@ Naming conventions used in building the app include camelCase. To merge our code
 
 Backend Deployment: 
 To deploy our backend code, we used a service called Heroku. The reason we pushed our backend code to heroku is because it is able to run the server 24/7 so that any API calls the frontend requires will always be up and available. We first installed heroku from their website and created an account. Then, by installing the heroku commandline (CLI) we were able to create a heroku app which provides us with a domain address. Heroku will set up a virtual machine on this domain that is able to run our code. Next, we installed the heroku/python buildpack on the heroku app, and git add/commit/push our backend code to the heroku git repo. Our list of APIs can be found on https://csc301-group9-john.herokuapp.com/.
- * TODO: Insert deployment tools
+
+Frontend Deployment:
+To deploy our frontend, which is a react native mobile app, we used the Expo App Store. The Expo App Store allows us to deploy our app such that it can be accessible by anyone, anywhere, and at anytime. Our mobile app can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default as a url input  or by scanning the QR code below in the Expo Go app, which is available on the iOS App store or Google Play Store. 
 
 ## Licenses 
 
