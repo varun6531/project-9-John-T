@@ -322,12 +322,12 @@ class ListStudentsInRoomTestCase(APITestCase):
         response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
         self.assertEqual(response.status_code, 401)
 
-    def test_list_students_in_room_no_homeroom(self):
+    def test_list_students_in_room_wrong_homeroom(self):
         # login as student
         self.client.login(email="testemail2@rocketmail.com", password="testpass2")
 
-        # list students in homeroom when user did has not joined a homeroom
-        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
+        # list students in a non-existent homeroom
+        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "12345678"})
         self.assertEqual(response.status_code, 400)
 
 
