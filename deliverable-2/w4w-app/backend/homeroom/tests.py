@@ -301,7 +301,7 @@ class ListStudentsInRoomTestCase(APITestCase):
         self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
 
         # list students in homeroom
-        response = self.client.get('/homeroom/students-in-room/')
+        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
         self.assertEqual(response.status_code, 200)
 
     def test_list_students_in_room_as_student(self):
@@ -312,14 +312,14 @@ class ListStudentsInRoomTestCase(APITestCase):
         self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
 
         # list students in homeroom
-        response = self.client.get('/homeroom/students-in-room/')
+        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
         self.assertEqual(response.status_code, 200)
 
     def test_list_students_in_room_unauthenticated(self):
         self.client.logout()
 
         # list students in homeroom
-        response = self.client.get('/homeroom/students-in-room/')
+        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
         self.assertEqual(response.status_code, 401)
 
     def test_list_students_in_room_no_homeroom(self):
@@ -327,7 +327,7 @@ class ListStudentsInRoomTestCase(APITestCase):
         self.client.login(email="testemail2@rocketmail.com", password="testpass2")
 
         # list students in homeroom when user did has not joined a homeroom
-        response = self.client.get('/homeroom/students-in-room/')
+        response = self.client.post('/homeroom/students-in-room/', {"homeroom_id": "30002000"})
         self.assertEqual(response.status_code, 400)
 
 

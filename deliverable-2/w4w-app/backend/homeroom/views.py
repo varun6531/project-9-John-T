@@ -85,7 +85,6 @@ class ListRoomView(ListAPIView):
     queryset = homeroom.objects.all()
 
 class ListStudentsInRoom(APIView):
-    """GET"""
     permission_classes = [IsAuthenticated, ]
 
     def post(self, request):
