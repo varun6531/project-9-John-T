@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import GetTypeAPI from '../apis/GetTypeAPI';
 import LoginAPI from '../apis/LoginAPI';
 
 
@@ -49,7 +50,14 @@ export default function Login({ navigation }) {
           <Pressable style={styles.button} onPress={async () => {
             var delta = await LoginAPI(email, password);
             if (delta === 0) {
-              navigation.navigate("Student welcome");
+              var type = await GetTypeAPI(email);
+              if (type === "student"){
+                navigation.navigate("Student welcome");
+              } else if (type === "teacher"){
+                navigation.navigate("Teacher welcome");
+              } else if (type === null){
+                navigation.navigate("Pre questionnaire 1");
+              }
             } else {
               setError("Error: Invalid Email and Password Combination");
             }
