@@ -82,6 +82,7 @@ export default function StudentSignup({ navigation }) {
         style={styles.input}
         placeholder="Age"
         placeholderTextColor={'#03DAC5'}
+        keyboardType='numeric'
         label = "User name"
         onChangeText={e => setAge(e)}
       />
@@ -90,6 +91,7 @@ export default function StudentSignup({ navigation }) {
         placeholder="What Grade are you in? [Eg. 12]"
         placeholderTextColor={'#03DAC5'}
         label = "User name"
+        keyboardType='numeric'
         onChangeText={e => setGrade(e)}
       />
       <TextInput secureTextEntry={true}

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-var base_url = 'https://csc301-group9-john.herokuapp.com/';
+var base_url = 'https://csc301-backend.herokuapp.com/';
 async function LoginAPI (email, password) {
     var zambonie;
     var costa = 0;

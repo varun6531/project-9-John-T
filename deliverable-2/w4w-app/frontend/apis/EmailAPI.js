@@ -1,30 +1,35 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 var base_url = 'https://csc301-backend.herokuapp.com/';
-async function GetHomeroomAPI (email) {
+async function EmailAPI () {
     var zambonie;
-    var homeroom = "";
-    zambonie = await fetch(base_url + 'accounts/get-homeroom/', {
+    var costa = 0;
+    let user = await AsyncStorage.getItem('user');  
+    let parsed = JSON.parse(user);  
+    var tokenz = parsed.token;
+    zambonie = await fetch(base_url + 'quiz/send-email/', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${tokenz}`
         },
-        body: JSON.stringify({ "email": email}),
+        body: JSON.stringify({})
     }).then(async (response) => {
             if (response.status == 200) {
-                var data;
                 data = await response.json();
-                homeroom = data["type"]
                 } else {
-                console.log("invalid request");
+                data = await response.json();
+                console.log(data);
+                costa  = -1
             }
 
 
         }).catch(function(error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
+            costa  = -1
             });
         
-        return homeroom;
+        return costa;
 }
-export default GetHomeroomAPI;
+export default EmailAPI;

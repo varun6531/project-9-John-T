@@ -88,13 +88,14 @@ class ListStudentsInRoom(APIView):
     """GET"""
     permission_classes = [IsAuthenticated, ]
 
-    def get(self, request):
-        if not request.user.homeroom_id or homeroom.objects.filter(homeroom_id=request.user.homeroom_id).first() is None:
-            return Response("You have not joined a homeroom yet", status=400)
+    def post(self, request):
+        copy_data = request.data.copy()
+        if 'homeroom_id' not in copy_data or homeroom.objects.filter(homeroom_id =copy_data['homeroom_id']).first() is None:
+            return Response("Please provide a valid homeroom code", status=400)
         else:
             objs = {}
             num = 1
-            for obj in PlayUser.objects.filter(homeroom_id=request.user.homeroom_id):
+            for obj in PlayUser.objects.filter(homeroom_id=copy_data['homeroom_id']):
                 objs[num] = (obj.email)
                 num+=1
             return Response(objs)

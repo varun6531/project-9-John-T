@@ -1,22 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable } from 'react-native';
+import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable, SafeAreaViewComponent } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import ListRoomsAPI from '../apis/ListRoomsAPI';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import CreateRoomAPI from '../apis/CreateRoomAPI';
 
 export default function TeacherWelcome({ navigation }) {
   const [enteredHRCode, setEnteredHRCode] = useState('');
   const [hrList, setHRList] = useState([]);
 
-  function codeInputHandler(enteredText) {
-    setEnteredHRCode(enteredText);
-  };
-  function clickJoinHandler() {
-    setHRList(currentHRList => [
-      ...currentHRList,
-      {text: enteredHRCode, id: Math.random().toString() }, 
-    ])
-    setEnteredHRCode('');
-  };
+  useEffect(() => {
+    // declare the data fetching function
+    const fetchData = async () => {
+      const data = await ListRoomsAPI();
+      let user = await AsyncStorage.getItem('user');  
+      let parsed = JSON.parse(user);  
+      var email = parsed.email;
+      var savas = []
+      var c = 0;
+      for(var i=0;i<data.length;i++){
+        if(data[i]["teacher_id"] === email){
+          savas[c] = data[i]
+          c+=1
+        }
+      }
+      setHRList(savas)
+    }
+  
+    // call the function
+    fetchData()
+      // make sure to catch any error
+      .catch(console.error);
+  }, [])
 
   return (
     <View style={styles.background}>
@@ -28,35 +44,40 @@ export default function TeacherWelcome({ navigation }) {
       <View style={styles.inputContainer}>
         <TextInput style={styles.textInput} 
             placeholder='Create a new homeroom code...' 
-            placeholderTextColor={'#999999'} 
-            onChangeText={codeInputHandler} 
+            placeholderTextColor={'8 DIGIT NUMBER'} 
+            onChangeText={text => setEnteredHRCode(text)} 
             value={enteredHRCode} />
-        <Button title='CREATE' color={'#9ED9D4'} onPress={clickJoinHandler} />
+        <Button title='CREATE' color={'#9ED9D4'} onPress={async submit => {
+          let user = await AsyncStorage.getItem('user');  
+          let parsed = JSON.parse(user);  
+          var email = parsed.email;
+          CreateRoomAPI(email, enteredHRCode);
+          navigation.navigate("Pre questionnaire 1")
+        }}>
+        </Button>
       </View>
 
       <View style={styles.listContainer}>
-        <Text style={styles.listText}>Your Homeroom List</Text>
+        <Text style={styles.listText}>Your Active Homerooms :</Text>
         
         <FlatList data={hrList} renderItem={(itemData) => {
           return (
             <View style={styles.codeItem}>
-              <Pressable onPress={() => navigation.navigate("Teacher hr")}>
+              <Pressable onPress={() => {}}>
                 <Text style={styles.codeText}>
-                  {itemData.item.text}
+                  homeroom: {itemData["item"]["homeroom_id"]}
                 </Text>
               </Pressable>
             </View>
           );
         }}
-        keyExtractor={(item, index) => {
-          return item.id;
-        }} alwaysBounceVertical={false}/>
+        keyExtractor={(itemData, index) => 'key' + index} alwaysBounceVertical={false}/>
       </View>
 
       <View style={styles.skipContainer}>
         <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
             <Text style={styles.textButton}>
-              Skip to Pre-Questionnaire
+              Go to Pre-Questionnaire
             </Text>
             <View style={styles.arrow} >
               <Icon name='angle-right' color='#03DAC5' size={15}/>

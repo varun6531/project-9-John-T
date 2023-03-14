@@ -23,6 +23,10 @@ This is a mobile application for understanding issues around global clean water 
  * How do you access it? For example: Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described in the previous section.
  * This section is critical to testing your application and must be done carefully and thoughtfully.
+ Our application is deployed on the Expo App Store which is accessible by the Expo Go App on iOS App store or the Google Play Store. The link to download for the iOS version is https://apps.apple.com/us/app/expo-go/id982107779 and the link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. 
+ 
+ ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
+
  
 ## Development requirements
  * What are the technical requirements for a developer to set up on their machine or server (e.g. OS, libraries, etc.)?
@@ -36,8 +40,10 @@ Describe your Git/GitHub workflow. Essentially, we want to understand how your t
 Naming conventions used in building the app include camelCase. To merge our code, we used a seperate branch from the main branch called d2-test. This branch was the original branch that included the merged code from all 3 sub teams: back-end, front-end, database. We did not use pull requests, we used our local machines and uploaded specific features from each sub team to add to the back-end's codebase. To add new featues we used pull request complete with descriptions of such features and had other teammates reivew such pull request to be approved. These featuers would be added to the same d2-test branch instead of the main branch. The overall development process from writing code to viewing a live application included extensive testing in each small feature to ensure that the codebase is extendable in the future for aditional featuers. Other than tests, we tested the codebase with the railway database cloud service to ensure that the database is working. Finally we used postman to connect the backend with the frontend app design and used expo react native to test the app. We decided to use this workflow because it made most sense to us to use the backend's codebase and work from there. Moreover, we used descriptive pull requests to ensure that new code can be easily checked by other teammates to avoid mishaps.
 
 Backend Deployment: 
-To deploy our backend code, we used a service called Heroku. The reason we pushed our backend code to heroku is because it is able to run the server 24/7 so that any API calls the frontend requires will always be up and available. We first installed heroku from their website and created an account. Then, by installing the heroku commandline (CLI) we were able to create a heroku app which provides us with a domain address. Heroku will set up a virtual machine on this domain that is able to run our code. Next, we installed the heroku/python buildpack on the heroku app, and git add/commit/push our backend code to the heroku git repo. Our list of APIs can be found on https://csc301-group9-john.herokuapp.com/.
- * TODO: Insert deployment tools
+To deploy our backend code, we used a service called Heroku. The reason we pushed our backend code to heroku is because it is able to run the server 24/7 so that any API calls the frontend requires will always be up and available. We first installed heroku from their website and created an account. Then, by installing the heroku commandline (CLI) we were able to create a heroku app which provides us with a domain address. Heroku will set up a virtual machine on this domain that is able to run our code. Next, we installed the heroku/python buildpack on the heroku app, and git add/commit/push our backend code to the heroku git repo. Our list of APIs can be found on https://csc301-backend.herokuapp.com/.
+
+Frontend Deployment:
+To deploy our frontend, which is a react native mobile app, we used the Expo App Store. The Expo App Store allows us to deploy our app such that it can be accessible by anyone, anywhere, and at anytime. Our mobile app can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default as a url input  or by scanning the QR code above in the Expo Go app, which is available on the iOS App store or Google Play Store. 
 
 ## Licenses 
 
