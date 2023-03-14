@@ -37,8 +37,7 @@ class AnswerViewTestCase(APITestCase):
         self.client.logout()
 
         # Get answers from student
-        user_data = {"User": student}
-        response = self.client.get('/quiz/answer/', user_data)        
+        response = self.client.get('/quiz/answer/')        
         self.assertEqual(response.status_code, 401)
 
     def test_post_answer(self):
@@ -79,9 +78,23 @@ class AnswerViewTestCase(APITestCase):
         self.client.post('/quiz/answer/', data)
 
         # Get answers from student
-        user_data = {"User": student}
-        response = self.client.get('/quiz/answer/', user_data)
+        response = self.client.get('/quiz/answer/')
         self.assertEqual(response.status_code, 200)
+
+
+# TODO
+# class SendEmailViewTestCase(APITestCase):
+#     @classmethod
+#     def setUp(self):
+#         self.client = Client()
+
+#     def test_send_email(self):
+
+#     def test_send_email_unauthenticated(self):
+
+#     def test_send_email_no_answers(self):
+
+#     def test_send_email_no_homeroom(self):
 
 
 # Database Tests
