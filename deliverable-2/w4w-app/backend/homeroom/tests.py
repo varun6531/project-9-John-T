@@ -1,4 +1,6 @@
 from django.test import Client, TestCase
+from accounts.models import PlayUser
+from homeroom.models import homeroom
 from rest_framework.test import APITestCase
 
 # Create your tests here.
@@ -257,6 +259,64 @@ class EndRoomViewTestCase(TestCase):
         response = self.client.post('/homeroom/end-room/', data)
         self.assertEqual(response.status_code, 401)
 
-
 # Database Tests
-# Write database tests here
+class HomeroomTestCase(TestCase):
+    @classmethod
+    def setUp(cls):
+        PlayUser.objects.create(email="testemail@rocketmail.com", first_name="Central", 
+                                last_name="Cee", city="Toronto", country="Canada", age="21", 
+                                school="UofT", type="student")
+        PlayUser.objects.create(email="testemail2@rocketmail.com", first_name="Dave", 
+                                last_name="Aitch", city="Toronto", country="Canada", age="22", 
+                                school="UofT", type="teacher")
+        PlayUser.objects.create(email="alejandrogarnacho@gmail.com", first_name="Ale", 
+                                last_name="Garnacho", city="Buenos Aires", country="Argentina", age="20", 
+                                school="Manchester", type="teacher")
+        homeroom.objects.create(homeroom_id="30002000", teacher_id="testemail@rocketmail.com")
+
+    def test_homeroom_created(self):
+        # check if homeroom is created
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        homeroom_id = str(test_homeroom.homeroom_id)
+        self.assertEqual(test_homeroom.teacher_id, "testemail@rocketmail.com")
+        self.assertEqual(homeroom_id, "30002000")
+        self.assertEqual(homeroom.objects.count(), 1)
+
+    def test_update_homeroom_teacher(self):
+        # check if a homeroom's teacher can be updated
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.teacher_id = "alejandrogarnacho@gmail.com"
+        test_homeroom.save()
+        self.assertEqual(test_homeroom.teacher_id, "alejandrogarnacho@gmail.com")
+        self.assertEqual(str(test_homeroom.homeroom_id), "30002000")
+
+    def test_update_homeroom_id(self):
+        # check if a homeroom's id can be updated
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.homeroom_id = "12345678"
+        test_homeroom.save()
+        self.assertEqual(test_homeroom.homeroom_id, "12345678")
+        self.assertEqual(test_homeroom.teacher_id, "testemail@rocketmail.com")
+
+    def test_homeroom_delete(self):
+        # check if a homeroom can be deleted
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.delete()
+        self.assertEqual(homeroom.objects.count(), 0)
+
+    def test_homeroom_teacher_removed(self):
+        # check if a homeroom still exists after the teacher is deleted
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
+        test_user.delete()
+        self.assertEqual(homeroom.objects.count(), 1)
+
+    # def test_homeroom_teacher_updated(self):
+    #     check if a homeroom still exists after the teacher is updated
+    #     test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+    #     test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
+    #     test_user.email = "newtestemail@rocketmail.com"
+    #     test_user.save()
+    #     self.assertEqual(homeroom.objects.count(), 1)
+    #     self.assertEqual(test_homeroom.teacher_id, "newtestemail@rocketmail.com")
+    #     TODO: homeroom teacher_id is not updated when the teacher's email is updated
