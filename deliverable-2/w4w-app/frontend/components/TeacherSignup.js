@@ -93,6 +93,7 @@ export default function TeacherSignup({ navigation }) {
         placeholder="Age"
         placeholderTextColor={'#03DAC5'}
         label = "User name"
+        keyboardType='numeric'
         onChangeText={e => setAge(e)}
       />
       <View style = {styles.inputview}>

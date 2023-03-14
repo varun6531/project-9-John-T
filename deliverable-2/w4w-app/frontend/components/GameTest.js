@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
@@ -15,9 +16,20 @@ export default function GameTest({ route, navigation }) {
             <Text style={styles.subtext}>Your filter resulted in {result} water.</Text>
 
             <View style={styles.skipContainer}>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Post questionnaire 1")}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
+                let user = await AsyncStorage.getItem("user")
+                if (user == null){
+                    navigation.navigate("Thank you") 
+                }  else {navigation.navigate("Post questionnaire 1")}
+            
+        
+        
+        }
+        
+        
+        }>
                 <Text style={styles.textButton}>
-                    Post-Questionnaire
+                    Continue
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>

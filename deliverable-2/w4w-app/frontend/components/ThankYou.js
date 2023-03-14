@@ -17,7 +17,7 @@ export default function ThankYou({ navigation }){
                 </Text>
 
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Sign in")}>
+                <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {await AsyncStorage.removeItem("user"); navigation.navigate("Sign in")}}>
                     <Text style={styles.textButton}>
                         Log Out
                     </Text>
@@ -27,7 +27,11 @@ export default function ThankYou({ navigation }){
                 </Pressable>
 
                 <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
-                    let user = await AsyncStorage.getItem('user');  
+                    let user = await AsyncStorage.getItem('user');
+                    if (user == null){
+                        navigation.navigate("Sign in") 
+                        return;
+                    } else{
                     let parsed = JSON.parse(user);  
                     var email = parsed.email;
                     var type = await GetTypeAPI(email);
@@ -37,7 +41,7 @@ export default function ThankYou({ navigation }){
                 navigation.navigate("Teacher welcome");
               } else if (type === null){
                 navigation.navigate("Pre questionnaire 1");
-              }}}>
+              }}}}>
                     <Text style={styles.textButton}>
                         Home
                     </Text>

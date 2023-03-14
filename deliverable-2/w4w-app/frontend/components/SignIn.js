@@ -1,15 +1,32 @@
 import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import GetTypeAPI from '../apis/GetTypeAPI';
 
 export default function SignIn({ navigation }) {
   return (
     <View style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
       <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>This app supports the purpose of Water for the World Workshop- to introduce the issues surrounding clean drinking water in different parts of the world.</Text>
-      <Pressable style={styles.button} onPress={() => navigation.navigate("Login")}>
+      <Pressable style={styles.button} onPress={async () => {
+        let user = await AsyncStorage.getItem("user");
+                if (user == null){
+                    navigation.navigate("Login") ;
+                }  else {
+                  let parsed = JSON.parse(user);  
+                  var email = parsed.email;
+                  var type = await GetTypeAPI(email);
+                  if (type === "student"){
+                    navigation.navigate("Student welcome");
+                  } else if (type === "teacher"){
+                    navigation.navigate("Teacher welcome");
+                  } else if (type === null){
+                    navigation.navigate("Pre questionnaire 1");
+                  }}
+        }}>
         <Text style={styles.textButton}>
-          Login
+          Continue
         </Text>
         <View style={styles.arrow} >
           <Icon name='angle-right' color='#03DAC5' size={15}/>
@@ -33,7 +50,7 @@ export default function SignIn({ navigation }) {
       </Pressable>
       <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
         <Text style={styles.textButton}>
-          Pre-Questionnaire
+          Skip to Pre-Questionnaire
         </Text>
         <View style={styles.arrow} >
           <Icon name='angle-right' color='#03DAC5' size={15}/>
