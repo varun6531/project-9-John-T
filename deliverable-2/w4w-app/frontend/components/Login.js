@@ -63,7 +63,7 @@ export default function Login({ navigation }) {
             }
           } }>
             <Text style={styles.textButton}>
-              Get Started
+              Login
             </Text>
             <View style={styles.arrow}>
               <Icon name='angle-right' color='#03DAC5' size={15} />
