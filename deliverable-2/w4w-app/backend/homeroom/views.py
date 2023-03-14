@@ -88,7 +88,7 @@ class ListStudentsInRoom(APIView):
     """GET"""
     permission_classes = [IsAuthenticated, ]
 
-    def get(self, request):
+    def post(self, request):
         copy_data = request.data.copy()
         if 'homeroom_id' not in copy_data or homeroom.objects.filter(homeroom_id =copy_data['homeroom_id']).first() is None:
             return Response("Please provide a valid homeroom code", status=400)
