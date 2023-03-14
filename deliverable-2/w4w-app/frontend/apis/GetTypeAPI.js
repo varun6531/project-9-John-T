@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-var base_url = 'https://csc301-group9-john.herokuapp.com/';
+var base_url = 'https://csc301-backend.herokuapp.com/';
 async function GetTypeAPI (email) {
     var zambonie;
     var type = "";

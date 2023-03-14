@@ -1,4 +1,4 @@
-var base_url = 'https://csc301-group9-john.herokuapp.com/';
+var base_url = 'https://csc301-backend.herokuapp.com/';
 async function StudentSignupAPI (email, password, password2, firstName, lastName, age, city, country, grade, school) {
     var zambonie;
     var costa = 0;
