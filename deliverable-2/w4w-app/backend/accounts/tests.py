@@ -72,13 +72,32 @@ class LoginTestCase(APITestCase):
         response = self.client.post('/accounts/login/', data)
         self.assertEqual(response.status_code, 401)
 
+class UserTypeTestCase(APITestCase):
+    def test_user_type_post(self):
+        new_user = {"email": "testemail@rocketmail.com", "password": "testpass", 
+                "password2": "testpass", "first_name": "Central", "last_name": "Cee", 
+                "city": "Toronto", "country": "Canada", "type": "student", "age": "21"}
+        self.client.post('/accounts/register-user/', new_user)
+        response = self.client.post("/accounts/get-type/", {"email": "testemail@rocketmail.com"})
+        self.assertEqual(response.status_code, 200)
+
+class UserHomeroomTestCase(APITestCase):
+    def test_user_homeroom_post(self):
+        new_user = {"email": "testemail@rocketmail.com", "password": "testpass", 
+                "password2": "testpass", "first_name": "Central", "last_name": "Cee", 
+                "city": "Toronto", "country": "Canada", "type": "student", "age": "21", 
+                "homeroom_id": "30002000"}
+        self.client.post('/accounts/register-user/', new_user)
+        response = self.client.post("/accounts/get-homeroom/", {"email": "testemail@rocketmail.com"})
+        self.assertEqual(response.status_code, 200)
+
 # Database Tests
 class PlayUserTestCase(TestCase):
     @classmethod
     def setUp(cls):
         PlayUser.objects.create(email="testemail@rocketmail.com", first_name="Central", 
                                 last_name="Cee", city="Toronto", country="Canada", age="21", 
-                                school="UofT", type="student")
+                                school="UofT", type="student", homeroom_id="30002000")
         PlayUser.objects.create(email="testemail2@rocketmail.com", first_name="Dave", 
                                 last_name="Aitch", city="Toronto", country="Canada", age="22", 
                                 school="UofT", type="teacher")
@@ -92,6 +111,11 @@ class PlayUserTestCase(TestCase):
         test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
         user_type = test_user.get_type()
         self.assertEqual(user_type, "student") 
+
+    def test_get_homeroom(self):
+        test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
+        user_homeroom = test_user.get_homeroom()
+        self.assertEqual(user_homeroom, "30002000") 
 
     def test_update_single_user(self):
         student = PlayUser.objects.get(email="testemail@rocketmail.com")

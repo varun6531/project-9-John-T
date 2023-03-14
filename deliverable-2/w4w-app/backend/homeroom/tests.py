@@ -1,4 +1,6 @@
 from django.test import Client, TestCase
+from accounts.models import PlayUser
+from homeroom.models import homeroom
 from rest_framework.test import APITestCase
 
 # Create your tests here.
@@ -258,5 +260,135 @@ class EndRoomViewTestCase(TestCase):
         self.assertEqual(response.status_code, 401)
 
 
+class ListStudentsInRoomTestCase(APITestCase):
+    @classmethod
+    def setUp(self):
+        self.client = Client()
+        
+        # register a teacher
+        new_teacher = {"email": "testemail@rocketmail.com", "password": "testpass", 
+                "password2": "testpass", "first_name": "Central", "last_name": "Cee", 
+                "city": "Toronto", "country": "Canada", "type": "teacher", "age": "21"}
+        self.client.post('/accounts/register-teacher/', new_teacher)
+
+        # register a student
+        new_student = {"email": "testemail2@rocketmail.com", "password": "testpass2", 
+                "password2": "testpass2", "first_name": "Arr", "last_name": "Dee", 
+                "city": "Toronto", "country": "Canada", "type": "student", "age": "19",
+                "grade": "12", "school": "Toronto High School"}
+        self.client.post('/accounts/register-student/', new_student)
+
+        # login teacher
+        self.client.login(email="testemail@rocketmail.com", password="testpass")
+
+        # create a homeroom
+        data = {"homeroom_id": "30002000", "teacher_id": "testemail@rocketmail.com"}
+        self.client.post('/homeroom/create-room/', data)
+
+        self.client.logout()
+
+    def test_list_students_in_room_as_teacher(self):
+        # login student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # login a teacher
+        self.client.login(email="testemail@rocketmail.com", password="testpass")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_list_students_in_room_as_student(self):
+        # login student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # join homeroom
+        self.client.post('/homeroom/join-room/', {"homeroom_id": "30002000"})
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_list_students_in_room_unauthenticated(self):
+        self.client.logout()
+
+        # list students in homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 401)
+
+    def test_list_students_in_room_no_homeroom(self):
+        # login as student
+        self.client.login(email="testemail2@rocketmail.com", password="testpass2")
+
+        # list students in homeroom when user did has not joined a homeroom
+        response = self.client.get('/homeroom/students-in-room/')
+        self.assertEqual(response.status_code, 400)
+
+
 # Database Tests
-# Write database tests here
+class HomeroomTestCase(TestCase):
+    @classmethod
+    def setUp(cls):
+        PlayUser.objects.create(email="testemail@rocketmail.com", first_name="Central", 
+                                last_name="Cee", city="Toronto", country="Canada", age="21", 
+                                school="UofT", type="student")
+        PlayUser.objects.create(email="testemail2@rocketmail.com", first_name="Dave", 
+                                last_name="Aitch", city="Toronto", country="Canada", age="22", 
+                                school="UofT", type="teacher")
+        PlayUser.objects.create(email="alejandrogarnacho@gmail.com", first_name="Ale", 
+                                last_name="Garnacho", city="Buenos Aires", country="Argentina", age="20", 
+                                school="Manchester", type="teacher")
+        homeroom.objects.create(homeroom_id="30002000", teacher_id="testemail@rocketmail.com")
+
+    def test_homeroom_created(self):
+        # check if homeroom is created
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        homeroom_id = str(test_homeroom.homeroom_id)
+        self.assertEqual(test_homeroom.teacher_id, "testemail@rocketmail.com")
+        self.assertEqual(homeroom_id, "30002000")
+        self.assertEqual(homeroom.objects.count(), 1)
+
+    def test_update_homeroom_teacher(self):
+        # check if a homeroom's teacher can be updated
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.teacher_id = "alejandrogarnacho@gmail.com"
+        test_homeroom.save()
+        self.assertEqual(test_homeroom.teacher_id, "alejandrogarnacho@gmail.com")
+        self.assertEqual(str(test_homeroom.homeroom_id), "30002000")
+
+    def test_update_homeroom_id(self):
+        # check if a homeroom's id can be updated
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.homeroom_id = "12345678"
+        test_homeroom.save()
+        self.assertEqual(test_homeroom.homeroom_id, "12345678")
+        self.assertEqual(test_homeroom.teacher_id, "testemail@rocketmail.com")
+
+    def test_homeroom_delete(self):
+        # check if a homeroom can be deleted
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_homeroom.delete()
+        self.assertEqual(homeroom.objects.count(), 0)
+
+    def test_homeroom_teacher_removed(self):
+        # check if a homeroom still exists after the teacher is deleted
+        test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+        test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
+        test_user.delete()
+        self.assertEqual(homeroom.objects.count(), 1)
+
+    # def test_homeroom_teacher_updated(self):
+    #     check if a homeroom still exists after the teacher is updated
+    #     test_homeroom = homeroom.objects.get(homeroom_id="30002000")
+    #     test_user = PlayUser.objects.get(email="testemail@rocketmail.com")
+    #     test_user.email = "newtestemail@rocketmail.com"
+    #     test_user.save()
+    #     self.assertEqual(homeroom.objects.count(), 1)
+    #     self.assertEqual(test_homeroom.teacher_id, "newtestemail@rocketmail.com")
+    #     TODO: homeroom teacher_id is not updated when the teacher's email is updated
