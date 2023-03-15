@@ -28,19 +28,18 @@ This is a mobile application for understanding issues around global clean water 
  ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
  ## Alternate approach
  Testing can be done using the Expo Go app from the mobile phone. 
-Download Expo Go app from the app store, or Expo app from the play store (attached below are the icons for app store and play store respectively)
+Download Expo Go app from the app store, or Expo app from the play store (attached below are the icons for app store and play store respectively).Create an account there.
 
-Create an account there.
-Download the code from our github page.
-Choose an editor of choice (e.g. VSCode).
-In the terminal, cd to ‘WaterForTheWorld’ directory
-Make sure to have expo-cli, node, and git installed before doing npm start/npm install
-Do “npm start”
+Download the code from our github page. Choose an editor of choice (e.g. VSCode). 
+
+In the terminal, cd to deliverable-2/w4w-app/frontend directory
+Make sure to have expo-cli(https://docs.expo.dev/get-started/installation/), node(https://nodejs.org/en/download/), and git(https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
+
+Run npm install.
+Run npm start
 A QR code is expected to show up (expected behavior below)
 ![image](https://user-images.githubusercontent.com/57972170/225425500-aefa44ce-5a84-4348-865a-8491666466df.png)
 
-If npm is not yet installed, do “npm install” before “npm start”
-Follow the instruction on the terminal
 For Android, scan the QR code using Expo Go app
 For iOS, use camera app to scan QR code (will then be redirected to the Expo app)
 Testing of the front end functionality can also be seen by viewing this video: https://youtu.be/qfPpBfAvsxM
