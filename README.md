@@ -26,7 +26,9 @@ This is a mobile application for understanding issues around global clean water 
  Our application is deployed on the Expo App Store which is accessible by the Expo Go App on the Google Play Store. The link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. Unfortunately, because of Apple's security measures against installing applications that are not verified by the iOS app store, this process will not work on iOS phones. Therefore, we will include instructions on how to run an Android emulator to boot up our app.
  
  ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
- ## Alternate approach
+ 
+ 
+## Development requirements
  Testing can be done using the Expo Go app from the mobile phone. 
 Download Expo Go app from the app store, or Expo app from the play store (attached below are the icons for app store and play store respectively).Create an account there.
 
@@ -43,13 +45,6 @@ A QR code is expected to show up (expected behavior below)
 For Android, scan the QR code using Expo Go app
 For iOS, use camera app to scan QR code (will then be redirected to the Expo app)
 Testing of the front end functionality can also be seen by viewing this video: https://youtu.be/qfPpBfAvsxM
-
-
- 
-## Development requirements
- * What are the technical requirements for a developer to set up on their machine or server (e.g. OS, libraries, etc.)?
- * Briefly describe instructions for setting up and running the application. You should address this part like how one would expect a README doc of real-world deployed application would be.
- * You can see this [example](https://github.com/alichtman/shallow-backup#readme) to get started.
  
 ## Deployment and Github Workflow
 
