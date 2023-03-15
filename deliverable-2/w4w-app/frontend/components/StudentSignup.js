@@ -22,12 +22,12 @@ export default function StudentSignup({ navigation }) {
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Sign in")
     }}>
+      <View style={styles.arrow}>
+        <Icon name='angle-left' color='#03DAC5' size={15} />
+      </View>
       <Text style={styles.textButton}>
         Go back
       </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
     </Pressable>
   </View>
       <Icon name='user-graduate' color='#03DAC5' size={50} style={styles.icon}/>
