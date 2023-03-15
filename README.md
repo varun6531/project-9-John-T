@@ -23,7 +23,7 @@ This is a mobile application for understanding issues around global clean water 
  * How do you access it? For example: Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described in the previous section.
  * This section is critical to testing your application and must be done carefully and thoughtfully.
- Our application is deployed on the Expo App Store which is accessible by the Expo Go App on iOS App store or the Google Play Store. The link to download for the iOS version is https://apps.apple.com/us/app/expo-go/id982107779 and the link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. 
+ Our application is deployed on the Expo App Store which is accessible by the Expo Go App on the Google Play Store. The link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. Unfortunately, because of Apple's security measures against installing applications that are not verified by the iOS app store, this process will not work on iOS phones. Therefore, we will include instructions on how to run an Android emulator to boot up our app.
  
  ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
 
@@ -43,7 +43,7 @@ Backend Deployment:
 To deploy our backend code, we used a service called Heroku. The reason we pushed our backend code to heroku is because it is able to run the server 24/7 so that any API calls the frontend requires will always be up and available. We first installed heroku from their website and created an account. Then, by installing the heroku commandline (CLI) we were able to create a heroku app which provides us with a domain address. Heroku will set up a virtual machine on this domain that is able to run our code. Next, we installed the heroku/python buildpack on the heroku app, and git add/commit/push our backend code to the heroku git repo. Our list of APIs can be found on https://csc301-backend.herokuapp.com/.
 
 Frontend Deployment:
-To deploy our frontend, which is a react native mobile app, we used the Expo App Store. The Expo App Store allows us to deploy our app such that it can be accessible by anyone, anywhere, and at anytime. Our mobile app can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default as a url input  or by scanning the QR code above in the Expo Go app, which is available on the iOS App store or Google Play Store. 
+To deploy our frontend, which is a react native mobile app, we used the Expo App Store. The Expo App Store allows us to deploy our app such that it can be accessible by anyone, anywhere, and at anytime. Our mobile app can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default as a url input  or by scanning the QR code above in the Expo Go app, which is available on the Google Play Store. 
 
 ## Licenses 
 
