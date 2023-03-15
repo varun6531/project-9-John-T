@@ -72,4 +72,4 @@ There will be no drastic differences from the development and use of our codebas
 
 * Images used
 
-There are several unlicensed images in the game that have not been licensed yet. However since the product is not published yet, no legal actions can be taken. Thus until the imaging licenses have been sorted out, the product will not be used for commercial purpouses. 
+There are several unlicensed images in the game that have not been licensed yet. However since the product is not published yet, no legal actions can be taken. Thus until the imaging licenses have been sorted out, the product will not be used for commercial purposes. 
