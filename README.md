@@ -26,6 +26,25 @@ This is a mobile application for understanding issues around global clean water 
  Our application is deployed on the Expo App Store which is accessible by the Expo Go App on the Google Play Store. The link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. Unfortunately, because of Apple's security measures against installing applications that are not verified by the iOS app store, this process will not work on iOS phones. Therefore, we will include instructions on how to run an Android emulator to boot up our app.
  
  ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
+ ## Alternate approach
+ Testing can be done using the Expo Go app from the mobile phone. 
+Download Expo Go app from the app store, or Expo app from the play store (attached below are the icons for app store and play store respectively)
+
+Create an account there.
+Download the code from our github page.
+Choose an editor of choice (e.g. VSCode).
+In the terminal, cd to ‘WaterForTheWorld’ directory
+Make sure to have expo-cli, node, and git installed before doing npm start/npm install
+Do “npm start”
+A QR code is expected to show up (expected behavior below)
+![image](https://user-images.githubusercontent.com/57972170/225425500-aefa44ce-5a84-4348-865a-8491666466df.png)
+
+If npm is not yet installed, do “npm install” before “npm start”
+Follow the instruction on the terminal
+For Android, scan the QR code using Expo Go app
+For iOS, use camera app to scan QR code (will then be redirected to the Expo app)
+Testing of the front end functionality can also be seen by viewing this video: https://youtu.be/qfPpBfAvsxM
+
 
  
 ## Development requirements
