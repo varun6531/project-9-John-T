@@ -60,14 +60,12 @@ To deploy our frontend, which is a react native mobile app, we used the Expo App
 
 ## Licenses 
 
- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
+Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
 
  * What type of license will you apply to your codebase? And why?
 
-[Subject to change]
-We will be using the MIT open-source license it is simple and permissive. It allows for redistribution, modification, and commercial use, while limitting liability and warranty. 
+We will be using the MIT open-source license it is simple and permissive. It allows for redistribution, modification, and commercial use, while limitting liability and warranty. Thus, the MIT open-source license will allow us to hand over our work to our partner with protection from legal actions. However, we have agreed with our partner that we will not be sharing our code beyond the initial hand-over to our partner. 
 
 * What affect does it have on the development and use of your codebase?
 
-There will be no drastic differences from the development and use of our codebase. We hope that the open-source license will allow other similar organizations such as Engineers Without Borders to develop similar apps that require a pre-game questionaire, a game, and a post-game questionare to be developed at a lower cost.
-
+There will be no drastic differences from the development and use of our codebase. If our partner decides to share the codebase, the open-source license will allow other similar organizations such as Engineers Without Borders to develop similar apps that require a pre-game questionaire, a game, and a post-game questionare to be developed at a lower cost.
