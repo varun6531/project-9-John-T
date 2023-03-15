@@ -69,3 +69,7 @@ We will be using the MIT open-source license it is simple and permissive. It all
 * What affect does it have on the development and use of your codebase?
 
 There will be no drastic differences from the development and use of our codebase. If our partner decides to share the codebase, the open-source license will allow other similar organizations such as Engineers Without Borders to develop similar apps that require a pre-game questionaire, a game, and a post-game questionare to be developed at a lower cost.
+
+* Images used
+
+There are several unlicensed images in the game that have not been licensed yet. However since the product is not published yet, no legal actions can be taken. Thus until the imaging licenses have been sorted out, the product will not be used for commercial purpouses. 
