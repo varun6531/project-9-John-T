@@ -24,6 +24,8 @@ export default function PostQ1({ navigation }){
             
             <ScrollView showsVerticalScrollIndicator={false}
   showsHorizontalScrollIndicator={false}>
+
+<Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: -150, width: 100, height:50, alignSelf: 'center'}}/>
     <View style={styles.backinputview}>
     <Pressable style={styles.buttoninput} onPress={async () => {
       navigation.navigate("GameIns")
@@ -98,6 +100,7 @@ export default function PostQ1({ navigation }){
                 </View>
                 </Pressable>
             </View>
+            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
             </ScrollView>
 
             

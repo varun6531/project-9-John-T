@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable} from 'react-native';
+import { StyleSheet, Image, Text, View, Button, TextInput, Dimensions, FlatList, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ListRoomsAPI from '../apis/ListRoomsAPI';
@@ -90,6 +90,8 @@ export default function StudentWelcome({ navigation }) {
           </View>
         </Pressable>
       </View>
+      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
       
       <StatusBar style="auto" />
     </View>
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 12,
     // marginLeft: Dimensions.get('window').width / -26,
-    // marginTop: Dimensions.get('window').height / -30,
+    marginTop: Dimensions.get('window').height / 30,
     borderColor: '#03DAC5',
     borderRadius: 999,
     borderWidth: 2,

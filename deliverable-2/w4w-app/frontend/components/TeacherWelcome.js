@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable, SafeAreaViewComponent } from 'react-native';
+import { StyleSheet,Image, Text, View, Button, TextInput, Dimensions, FlatList, Pressable, SafeAreaViewComponent } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import ListRoomsAPI from '../apis/ListRoomsAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -96,6 +96,8 @@ export default function TeacherWelcome({ navigation }) {
             </View>
           </Pressable>
       </View>
+      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
       
       <StatusBar style="auto" />
     </View>

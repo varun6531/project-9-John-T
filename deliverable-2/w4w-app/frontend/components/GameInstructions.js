@@ -82,7 +82,10 @@ export default function GameIns({ navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
+            
       </View>
+      <Image source={require('../assets/WFTW.png')}  style={{left: -150, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 800, width: 100, height:50, alignSelf: 'center'}}/>
       
       <StatusBar style="auto" />
         </View>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, Alert} from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Image, Pressable, TextInput, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import GetTypeAPI from '../apis/GetTypeAPI';
 import LoginAPI from '../apis/LoginAPI';
@@ -70,6 +70,8 @@ export default function Login({ navigation }) {
             </View>
           </Pressable>
         </View>
+        <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
         
       </View></>
   );
@@ -120,9 +122,9 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   icon:{
-    marginTop: Dimensions.get('window').height / 20,
+    marginTop: Dimensions.get('window').height / 50,
     flex: 1,
-    paddingBottom: 1
+    marginBottom: 0
   },
   errview:{
     backgroundColor: '#1E1E1E',

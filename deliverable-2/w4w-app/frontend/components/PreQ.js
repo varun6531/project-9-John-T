@@ -50,7 +50,10 @@ export default function PreQ({ navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
+            
       </View>
+      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/>
       
       <StatusBar style="auto" />
         </View>
@@ -121,7 +124,7 @@ const styles = StyleSheet.create({
       backinputview:{
         backgroundColor: '#1E1E1E',
         padding:0,
-        top: 0,
+        top: 30,
         right: 189,
       },
       button: {

@@ -36,6 +36,8 @@ export default function ThankYou({ navigation }){
                     </View>
                 </Pressable>
             </View>
+            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
         </View>
     );
 }
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
     },
     skipContainer: {
         flex: 2,
-        marginTop: Dimensions.get('window').height/4,
+        marginTop: Dimensions.get('window').height/40,
       },
       button2: {
         width:  Dimensions.get('window').width / 2,

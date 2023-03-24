@@ -209,6 +209,8 @@ export default function Game({ navigation }) {
             </View>
           </Pressable>
         </View>
+        <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/>
     </View>
   );
 }

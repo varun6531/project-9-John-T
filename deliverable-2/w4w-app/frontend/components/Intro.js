@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/4,
     width: Dimensions.get('window').height/2,
     marginTop: Dimensions.get('window').height/16,
-    marginLeft: Dimensions.get('window').width/10
+    right: 20
   },
 
 });

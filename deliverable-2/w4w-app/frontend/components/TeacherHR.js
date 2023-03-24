@@ -7,6 +7,8 @@ export default function TeacherHR ({ navigation }) {
     return (
         <View style={styles.background}>
             <Text> Teacher Homeroom room </Text>
+            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
         </View>
     );
 }
