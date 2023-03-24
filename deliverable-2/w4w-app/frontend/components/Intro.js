@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 
 export default function Intro({ navigation }) {
-  useEffect(() => {setTimeout(() => navigation.navigate("Sign in"), 1000);}, []);
+  useEffect(() => {setTimeout(() => navigation.navigate("Home page"), 1000);}, []);
   return (
     <View style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Presented by:</Text>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height/4,
     width: Dimensions.get('window').height/2,
     marginTop: Dimensions.get('window').height/16,
-    marginLeft: Dimensions.get('window').width/10
+    right: 20
   },
 
 });

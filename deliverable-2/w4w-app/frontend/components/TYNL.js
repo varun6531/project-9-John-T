@@ -4,7 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GetTypeAPI from '../apis/GetTypeAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function ThankYou({ navigation }){
+export default function TYNL({ navigation }){
     return(
         <View style={styles.background}>
             <Text style={styles.textCaption}> Great Job! </Text>
@@ -17,17 +17,8 @@ export default function ThankYou({ navigation }){
                 </Text>
 
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {await AsyncStorage.removeItem("user"); navigation.navigate("Home page")}}>
-                    <Text style={styles.textButton}>
-                        Log Out
-                    </Text>
-                    <View style={styles.arrow} >
-                        <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
-                    </View>
-                </Pressable>
 
-                <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
-                    navigation.navigate("Home page");}}>
+                <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {navigation.navigate("Home page")}}>
                     <Text style={styles.textButton}>
                         Home
                     </Text>
@@ -36,6 +27,7 @@ export default function ThankYou({ navigation }){
                     </View>
                 </Pressable>
             </View>
+
             <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
         <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
         </View>
@@ -71,7 +63,7 @@ const styles = StyleSheet.create({
     },
     skipContainer: {
         flex: 2,
-        marginTop: Dimensions.get('window').height/40,
+        marginTop: Dimensions.get('window').height/12,
       },
       button2: {
         width:  Dimensions.get('window').width / 2,

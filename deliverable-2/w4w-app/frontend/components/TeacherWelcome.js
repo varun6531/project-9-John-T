@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Dimensions, FlatList, Pressable, SafeAreaViewComponent } from 'react-native';
+import { StyleSheet,Image, Text, View, Button, TextInput, Dimensions, FlatList, Pressable, SafeAreaViewComponent } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import ListRoomsAPI from '../apis/ListRoomsAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -36,6 +36,18 @@ export default function TeacherWelcome({ navigation }) {
 
   return (
     <View style={styles.background}>
+       <View style={styles.backinputview}>
+    <Pressable style={styles.button} onPress={async () => {
+      navigation.navigate("Home page")
+    }}>
+      <Text style={styles.textButton}>
+        Go back
+      </Text>
+      <View style={styles.arrow}>
+        <Icon name='angle-right' color='#03DAC5' size={15} />
+      </View>
+    </Pressable>
+  </View>
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeText}>
             Welcome Teacher! </Text>
@@ -84,6 +96,8 @@ export default function TeacherWelcome({ navigation }) {
             </View>
           </Pressable>
       </View>
+      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
       
       <StatusBar style="auto" />
     </View>
@@ -159,7 +173,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     flex: 1,
-    paddingTop: '20%',
+    paddingTop: '10%',
   },
   skipContainer: {
     flex: 2
@@ -190,6 +204,23 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontWeight: 'bold',
     flex: 5
+  },
+  button: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 15,
+    marginLeft: Dimensions.get('window').width / 3,
+    marginTop: Dimensions.get('window').height / 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+  },
+  backinputview:{
+    backgroundColor: '#1E1E1E',
+    padding:0,
+    top: 0,
+    right: 189,
   },
 
 });

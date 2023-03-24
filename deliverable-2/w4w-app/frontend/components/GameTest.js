@@ -4,6 +4,7 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-nati
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import GetTypeAPI from '../apis/GetTypeAPI';
 
 
 
@@ -19,15 +20,16 @@ export default function GameTest({ route, navigation }) {
             <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
                 let user = await AsyncStorage.getItem("user")
                 if (user == null){
-                    navigation.navigate("Thank you") 
-                }  else {navigation.navigate("Post questionnaire 1")}
-            
-        
-        
-        }
-        
-        
-        }>
+                    navigation.navigate("Tynl") 
+                }  else {
+                    let parsed = await JSON.parse(user);  
+                    var email = parsed.email;
+                    var type = await GetTypeAPI(email);
+                        if (type == null){
+                        navigation.navigate("Thank you");
+                        }
+                    else {navigation.navigate("Post questionnaire 1")}}
+             }}>
                 <Text style={styles.textButton}>
                     Continue
                 </Text>
@@ -43,6 +45,8 @@ export default function GameTest({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
+            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
       </View>
       
       <StatusBar style="auto" />

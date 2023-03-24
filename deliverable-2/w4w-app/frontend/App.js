@@ -4,7 +4,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 
 import Intro from './components/Intro';
+import HomePage from './components/HomePage';
 import SignIn from './components/SignIn';
+import AlreadyLogged from './components/AlreadyLogged';
 import PreQ from './components/PreQ';
 import TeacherSignup from './components/TeacherSignup';
 import StudentSignup from './components/StudentSignup';
@@ -27,6 +29,7 @@ import SAfrica from './components/SAfrica';
 import Ghana from './components/Ghana';
 import Kenya from './components/Kenya';
 import Malawi from './components/Malawi';
+import TYNL from './components/TYNL';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +39,9 @@ export default function App() {
        <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Intro" component={Intro}/>
+          <Stack.Screen name="Home page" component={HomePage}/>
           <Stack.Screen name="Sign in" component={SignIn} />
+          <Stack.Screen name="Already logged" component={AlreadyLogged}/>
           <Stack.Screen name="Pre questionnaire 1" component={PreQ}/>
           <Stack.Screen name="Pre questionnaire 2" component={PreQ2}/>
           <Stack.Screen name="Pre questionnaire 3" component={PreQ3}/>
@@ -52,6 +57,7 @@ export default function App() {
           <Stack.Screen name="Teacher hr" component={TeacherHR} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>
           <Stack.Screen name="Thank you" component={ThankYou}/>
+          <Stack.Screen name="Tynl" component={TYNL}/>
           <Stack.Screen name="Canada" component={Canada}/>
           <Stack.Screen name="Kuwait" component={Kuwait}/>
           <Stack.Screen name="CanFN" component={CanFN}/>
