@@ -1,28 +1,25 @@
 import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import GetTypeAPI from '../apis/GetTypeAPI';
 
-export default function SignIn({ navigation }) {
+export default function HomePage({ navigation }) {
 
   return (
     <View style={styles.background}>
-       <View style={styles.backinputview}>
-    <Pressable style={styles.button} onPress={async () => {
-      navigation.navigate("Home page")
-    }}>
-      <Text style={styles.textButton}>
-        Go back
-      </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
-    </Pressable>
-  </View>
-      <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Please login.</Text>
-      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you do not have an account, please register below.</Text>
+      <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
+      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>This app supports the purpose of Water for the World Workshop- to introduce the issues surrounding clean drinking water in different parts of the world.</Text>
+      
+      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you have been asked by your teacher instructor/teacher/presenter to login, please continue with the login button</Text>
       <Pressable style={styles.button} onPress={async () => {
-                    navigation.navigate("Login") ;
-        }}>
+                    let user = await AsyncStorage.getItem("user");
+                    if (user == null){
+                        navigation.navigate("Sign in") ;
+                    }  else {
+                        navigation.navigate("Already logged")
+
+        }}}>
         <Text style={styles.textButton}>
           Login
         </Text>
@@ -30,17 +27,9 @@ export default function SignIn({ navigation }) {
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
-      <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Teacher signup")}>
+      <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
         <Text style={styles.textButton}>
-          Teacher signup
-        </Text>
-        <View style={styles.arrow} >
-          <Icon name='angle-right' color='#03DAC5' size={15}/>
-        </View>
-      </Pressable>
-      <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Student signup")}>
-        <Text style={styles.textButton}>
-          Student signup
+          Skip to Pre-Questionnaire
         </Text>
         <View style={styles.arrow} >
           <Icon name='angle-right' color='#03DAC5' size={15}/>
@@ -105,11 +94,5 @@ const styles = StyleSheet.create({
   arrow:{
     flex: 1,
     marginTop: 2
-  },
-  backinputview:{
-    backgroundColor: '#1E1E1E',
-    padding:0,
-    top: 0,
-    right: 120,
   }
 });

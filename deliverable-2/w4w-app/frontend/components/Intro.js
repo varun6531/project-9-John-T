@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 
 export default function Intro({ navigation }) {
-  useEffect(() => {setTimeout(() => navigation.navigate("Sign in"), 1000);}, []);
+  useEffect(() => {setTimeout(() => navigation.navigate("Home page"), 1000);}, []);
   return (
     <View style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Presented by:</Text>

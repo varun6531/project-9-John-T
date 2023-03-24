@@ -1,12 +1,35 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import GetTypeAPI from '../apis/GetTypeAPI';
 
-export default function SignIn({ navigation }) {
+
+  
+
+export default function AlreadyLogged({ navigation }) {
+
+    const [email, setEmail] = useState('');
+
+useEffect(() => {
+    // declare the data fetching function
+    const fetchData = async () => {
+      let user = await AsyncStorage.getItem('user');  
+      let parsed = await JSON.parse(user);  
+      var email = parsed.email;
+      setEmail(email)
+      }
+      // call the function
+    fetchData()
+    // make sure to catch any error
+    .catch(console.error);
+      
+    }, [])
+
 
   return (
     <View style={styles.background}>
-       <View style={styles.backinputview}>
+     <View style={styles.backinputview}>
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Home page")
     }}>
@@ -18,29 +41,32 @@ export default function SignIn({ navigation }) {
       </View>
     </Pressable>
   </View>
-      <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Please login.</Text>
-      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you do not have an account, please register below.</Text>
+      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>You have already logged in to {email}</Text>
+      
+      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you wish to Logout</Text>
       <Pressable style={styles.button} onPress={async () => {
-                    navigation.navigate("Login") ;
-        }}>
+                    await AsyncStorage.removeItem("user"); 
+                    navigation.navigate("Home page");
+                }}>
         <Text style={styles.textButton}>
-          Login
+          Logout
         </Text>
         <View style={styles.arrow} >
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
-      <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Teacher signup")}>
+      <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you wish to continue logged in to {email}</Text>
+      <Pressable style={styles.button2} numberOfLines={1} onPress={ async () => {
+        var type = await GetTypeAPI(email);
+                  if (type === "student"){
+                    navigation.navigate("Student welcome");
+                  } else if (type === "teacher"){
+                    navigation.navigate("Teacher welcome");
+                  } else if (type === null){
+                    navigation.navigate("Pre questionnaire 1");
+                  }}}>
         <Text style={styles.textButton}>
-          Teacher signup
-        </Text>
-        <View style={styles.arrow} >
-          <Icon name='angle-right' color='#03DAC5' size={15}/>
-        </View>
-      </Pressable>
-      <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Student signup")}>
-        <Text style={styles.textButton}>
-          Student signup
+          Continue
         </Text>
         <View style={styles.arrow} >
           <Icon name='angle-right' color='#03DAC5' size={15}/>

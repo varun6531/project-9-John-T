@@ -4,6 +4,11 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput,
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AnswersAPI from '../apis/AnswerAPI'
 import EmailAPI from '../apis/EmailAPI'
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
+
+
+
 
 
 export default function PostQ1({ navigation }){
@@ -16,8 +21,21 @@ export default function PostQ1({ navigation }){
 
     return (
         <View style={styles.background}>
+            
             <ScrollView showsVerticalScrollIndicator={false}
   showsHorizontalScrollIndicator={false}>
+    <View style={styles.backinputview}>
+    <Pressable style={styles.buttoninput} onPress={async () => {
+      navigation.navigate("GameIns")
+    }}>
+      <Text style={styles.textButton}>
+        Go back
+      </Text>
+      <View style={styles.arrow}>
+        <Icon name='angle-right' color='#03DAC5' size={15} />
+      </View>
+    </Pressable>
+  </View>
                 <Text style={styles.textCaption}>Question 1</Text>
                 <Text style={styles.subtext}>
                     How did the money and literacy rate you were given for each affect your ability to build a water filter?
@@ -67,7 +85,7 @@ export default function PostQ1({ navigation }){
                     var data = await AnswersAPI(q1, q2, q3, q4);
                     if (data == 0){
                         var cata = await EmailAPI();
-                        if (cata == 0){
+                        if (cata == 0 || cata == -100){
                             navigation.navigate("Thank you");
                         }
                     }
@@ -157,11 +175,28 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 8,
         left: 120,
-        marginBottom: Dimensions.get('window').height / 3,
-        marginTop: Dimensions.get('window').height / 160,
+        marginBottom: Dimensions.get('window').height / 30,
+        marginTop: Dimensions.get('window').height / 10,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
         backgroundColor: '#2C2C2C'
     },
+    buttoninput: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / 3,
+        marginTop: Dimensions.get('window').height / 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+      },
+    backinputview:{
+        backgroundColor: '#1E1E1E',
+        padding:0,
+        top: 0,
+        right: 125,
+      },
 });

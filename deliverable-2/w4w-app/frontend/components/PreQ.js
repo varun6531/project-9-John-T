@@ -2,7 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import GetTypeAPI from '../apis/GetTypeAPI';
 
 
 
@@ -10,6 +13,31 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 export default function PreQ({ navigation }) {
     return (
         <View style={styles.background}>
+                <View style={styles.backinputview}>
+    <Pressable style={styles.button} onPress={async () => {
+      let user = await AsyncStorage.getItem('user');
+      if (user == null){
+          navigation.navigate("Home page") 
+          return;
+      } else{
+      let parsed = await JSON.parse(user);  
+      var email = parsed.email;
+      var type = await GetTypeAPI(email);
+        if (type === "student"){
+        navigation.navigate("Student welcome");
+        } else if (type === "teacher"){
+        navigation.navigate("Teacher welcome");
+        } else if (type === null){
+        navigation.navigate("Home page");}}
+    }}>
+      <Text style={styles.textButton}>
+        Go back
+      </Text>
+      <View style={styles.arrow}>
+        <Icon name='angle-right' color='#03DAC5' size={15} />
+      </View>
+    </Pressable>
+  </View>
             <Text style={styles.textCaption}>Introduction</Text>
             <Text style={styles.subtext}>The Water for the World Workshop introduces participants to the issues of clean water access and how local economy, geography and literacy are all connected. Using this app, you will try to build a water filter to access clean water for yourself!</Text>
 
@@ -74,6 +102,7 @@ const styles = StyleSheet.create({
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
+        marginTop: -200,
         backgroundColor: '#2C2C2C',
         alignItems: 'center',
       },
@@ -87,5 +116,23 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex: 5
+        
+      },
+      backinputview:{
+        backgroundColor: '#1E1E1E',
+        padding:0,
+        top: 0,
+        right: 189,
+      },
+      button: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / 3,
+        marginTop: Dimensions.get('window').height / 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
       },
 });

@@ -5,7 +5,7 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal } from "rea
 import { Slider } from "react-native-elements";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 
@@ -15,6 +15,18 @@ export default function PreQ2({ navigation }) {
 
     return (
         <View style={styles.background}>
+            <View style={styles.backinputview}>
+    <Pressable style={styles.button} onPress={async () => {
+      navigation.navigate("Pre questionnaire 1")
+    }}>
+      <Text style={styles.textButton}>
+        Go back
+      </Text>
+      <View style={styles.arrow}>
+        <Icon name='angle-right' color='#03DAC5' size={15} />
+      </View>
+    </Pressable>
+  </View>
             <Text style={styles.textCaption}>Clean Water Access</Text>
             <Text style={styles.subtext}>
                 There are nearly 80 billion people in the world.
@@ -106,6 +118,7 @@ const styles = StyleSheet.create({
         borderRadius: 999,
         borderWidth: 2,
         backgroundColor: '#2C2C2C',
+        marginTop: -150,
         alignItems: 'center',
     },
     arrow:{
@@ -152,5 +165,22 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#03DAC5',
         fontSize: 18,
-    }
+    },
+    backinputview:{
+        backgroundColor: '#1E1E1E',
+        padding:0,
+        top: 0,
+        right: 189,
+      },
+      button: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / 3,
+        marginTop: Dimensions.get('window').height / 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+      },
 });

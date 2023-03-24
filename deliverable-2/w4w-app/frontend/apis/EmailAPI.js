@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import parseErrorStack from 'react-native/Libraries/Core/Devtools/parseErrorStack';
 
 var base_url = 'https://csc301-backend.herokuapp.com/';
 async function EmailAPI () {
@@ -12,17 +13,19 @@ async function EmailAPI () {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${tokenz}`
+            'Authorization': `Bearer ${tokenz}`,
         },
-        body: JSON.stringify({})
+        body: JSON.stringify({"foo": "bar"})
     }).then(async (response) => {
+            data = await response.json();
             if (response.status == 200) {
-                data = await response.json();
+                ;
+                } else if (data == "User don't have a homeroom"){
+                    return -100
                 } else {
-                data = await response.json();
                 console.log(data);
                 costa  = -1
-            }
+            } 
 
 
         }).catch(function(error) {

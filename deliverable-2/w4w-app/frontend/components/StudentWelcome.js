@@ -36,6 +36,18 @@ export default function StudentWelcome({ navigation }) {
 
   return (
     <View style={styles.background}>
+       <View style={styles.backinputview}>
+    <Pressable style={styles.button} onPress={async () => {
+      navigation.navigate("Home page")
+    }}>
+      <Text style={styles.textButton}>
+        Go back
+      </Text>
+      <View style={styles.arrow}>
+        <Icon name='angle-right' color='#03DAC5' size={15} />
+      </View>
+    </Pressable>
+  </View>
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeText}>
             Welcome Student! </Text>
@@ -153,7 +165,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     flex: 1,
-    paddingTop: '20%',
+    paddingTop: '10%',
   },
   skipContainer: {
     flex: 2
@@ -185,5 +197,23 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flex: 5
   },
+  backinputview:{
+    backgroundColor: '#1E1E1E',
+    padding:0,
+    top: 0,
+    right: 189,
+  },
+  button: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 15,
+    marginLeft: Dimensions.get('window').width / 3,
+    marginTop: Dimensions.get('window').height / 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+  },
+  
 
 });
