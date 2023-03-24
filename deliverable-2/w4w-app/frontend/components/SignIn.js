@@ -56,6 +56,8 @@ export default function SignIn({ navigation }) {
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
+      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 75, alignSelf: 'center'}}/>
+      <Image source={require('../assets/WFTW.png')}  style={{left: -150, bottom: 750, width: 75, height: 50, alignSelf: 'center'}}/>
     </View>
   );
 }
