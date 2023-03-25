@@ -27,7 +27,7 @@ export default function HomePage({ navigation }) {
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
-      <Image source={require('../assets/tap-water.gif')}  style={{position: 0, margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}}/>
+      <Image source={require('../assets/tap-water.gif')}  style={{margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}}/>
       <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
         <Text style={styles.textButton}>
           Skip to Pre-Questionnaire
