@@ -1,9 +1,11 @@
 import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, Image, ImageBackground} from 'react-native';
-import { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Game({ route, navigation }) {
   // const { country } = route.params;
+
+  // Images of the filter materials
   const fineSandImg = require('../assets/fineSand.jpeg');
   const coarseSandImg = require('../assets/coarseSand.jpeg');
   const fineGravelImg = require('../assets/fineGravel.jpeg');
@@ -11,7 +13,8 @@ export default function Game({ route, navigation }) {
   const cottonImg = require('../assets/cotton.jpeg');
   const cheeseClothImg = require('../assets/cheeseCloth.jpeg');
 
-  const [currentMaterialImg, setCurrentMaterialImg] = useState('none');
+  // Pointers to the selected material and its corresponding image
+  const [currentMaterialImg, setCurrentMaterialImg] = useState(null);
   const [currentMaterial, setCurrentMaterial] = useState('none');
 
   const [fineSand, setFineSand] = useState(false);
@@ -21,15 +24,17 @@ export default function Game({ route, navigation }) {
   const [cotton, setCotton] = useState(false);
   const [cheeseCloth, setCheeseCloth] = useState(false);
 
-  const [filter1, setfilter1] = useState('none');
-  const [filter2, setfilter2] = useState('none');
-  const [filter3, setfilter3] = useState('none');
-  const [filter4, setfilter4] = useState('none');
-  const [filter5, setfilter5] = useState('none');
-  const [filter6, setfilter6] = useState('none');
-  const [filter7, setfilter7] = useState('none');
-  const [filter8, setfilter8] = useState('none');
+  // Images for the filter layers
+  const [filter1, setfilter1] = useState(null);
+  const [filter2, setfilter2] = useState(null);
+  const [filter3, setfilter3] = useState(null);
+  const [filter4, setfilter4] = useState(null);
+  const [filter5, setfilter5] = useState(null);
+  const [filter6, setfilter6] = useState(null);
+  const [filter7, setfilter7] = useState(null);
+  const [filter8, setfilter8] = useState(null);
 
+  // Materials stored inside the filter layers
   const [filtermat1, setfiltermat1] = useState('none');
   const [filtermat2, setfiltermat2] = useState('none');
   const [filtermat3, setfiltermat3] = useState('none');
@@ -38,8 +43,42 @@ export default function Game({ route, navigation }) {
   const [filtermat6, setfiltermat6] = useState('none');
   const [filtermat7, setfiltermat7] = useState('none');
   const [filtermat8, setfiltermat8] = useState('none');
+
+  const resetGame = () => {
+    setFineSand(false);
+    setCoarseSand(false);
+    setFineGravel(false);
+    setCoarseGravel(false);
+    setCotton(false);
+    setCheeseCloth(false);
+
+    setCurrentMaterialImg(null);
+    setCurrentMaterial('none');
+
+    // Remove all images
+    setfilter1(null);
+    setfilter2(null);
+    setfilter3(null);
+    setfilter4(null);
+    setfilter5(null);
+    setfilter6(null);
+    setfilter7(null);
+    setfilter8(null);
+
+    // Remove all materials inside the filter
+    setfiltermat1('none');
+    setfiltermat2('none');
+    setfiltermat3('none');
+    setfiltermat4('none');
+    setfiltermat5('none');
+    setfiltermat6('none');
+    setfiltermat7('none');
+    setfiltermat8('none');
+  };
+
   const getLayer = () => {
-  }
+  };
+
   return (
     <View style={styles.background}>
        <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
@@ -55,46 +94,46 @@ export default function Game({ route, navigation }) {
           </Pressable>
         <View style={styles.filter}>
             <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}} 
-              onLongPress={() => {setfilter1('none'); setfiltermat1('none');}}
+              onLongPress={() => {setfilter1(null); setfiltermat1('none');}}
             >
-              <Image source={filter1} style={styles.image}/>
+              {filter1 && <Image source={filter1} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {setfilter2(currentMaterialImg); setfiltermat2(currentMaterial);}}
-              onLongPress={() => {setfilter2('none'); setfiltermat2('none');}}
+              onLongPress={() => {setfilter2(null); setfiltermat2('none');}}
             >
-              <Image source={filter2} style={styles.image}/>
+              {filter2 && <Image source={filter2} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {setfilter3(currentMaterialImg); setfiltermat3(currentMaterial);}}
-              onLongPress={() => {setfilter3('none'); setfiltermat3('none');}}
+              onLongPress={() => {setfilter3(null); setfiltermat3('none');}}
             >
-              <Image source={filter3} style={styles.image}/>
+              {filter3 && <Image source={filter3} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {setfilter4(currentMaterialImg); setfiltermat4(currentMaterial);}}
-              onLongPress={() => {setfilter4('none'); setfiltermat4('none');}}
+              onLongPress={() => {setfilter4(null); setfiltermat4('none');}}
             >
-              <Image source={filter4} style={styles.image}/>
+              {filter4 && <Image source={filter4} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}
-              onLongPress={() => {setfilter5('none'); setfiltermat5('none');}}
+              onLongPress={() => {setfilter5(null); setfiltermat5('none');}}
             >
-              <Image source={filter5} style={styles.image}/>
+              {filter5 && <Image source={filter5} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}
-              onLongPress={() => {setfilter6('none'); setfiltermat6('none');}}
+              onLongPress={() => {setfilter6(null); setfiltermat6('none');}}
             >
-              <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>
+              {filter6 && <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>}
             </Pressable>
         </View>
         <View style={styles.filter2}>
             <Pressable style = {styles.belowSpace} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}
-              onLongPress={() => {setfilter7('none'); setfiltermat7('none');}}
+              onLongPress={() => {setfilter7(null); setfiltermat7('none');}}
             >
-              <Image source={filter7} style={styles.image}/>
+              {filter7 && <Image source={filter7} style={styles.image}/>}
             </Pressable>
             <Pressable style = {styles.belowSpace2} onPress={() => {setfilter8(currentMaterialImg); setfiltermat8(currentMaterial);}}
-              onLongPress={() => {setfilter8('none'); setfiltermat8('none');}}
+              onLongPress={() => {setfilter8(null); setfiltermat8('none');}}
             >
-              <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>
+              {filter8 && <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>}
             </Pressable>
         </View>
         <View style={styles.scroll}>
@@ -187,6 +226,11 @@ export default function Game({ route, navigation }) {
           </ScrollView>
         </View>
         <View style={styles.buttonLayer}>
+            <Pressable style={styles.resetButton} onPress={resetGame}>
+            <Text style={styles.textButton}>
+              Reset Filter
+            </Text>
+          </Pressable>
           <Pressable style={styles.button2} onPress={() => {
               var result = 'dirty';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
@@ -327,7 +371,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flex: 5,
   },
-  button2: {
+  resetButton:{
     width:  Dimensions.get('window').width / 3,
     flexDirection: 'row',
     padding: 12,
@@ -336,9 +380,22 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     backgroundColor: '#2C2C2C'
   },
+  button2: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    marginLeft: 12,
+    padding: 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+  },
   buttonLayer:{
-    flex: 1,
+    flexDirection: 'row',
     marginTop: -Dimensions.get('window').height*1/20,
+    marginBottom: Dimensions.get('window').height*1/50,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   button: {
     height: '75%',

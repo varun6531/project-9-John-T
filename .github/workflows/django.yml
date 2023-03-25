@@ -1,0 +1,28 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ "main", "d2_test"]
+  pull_request:
+    branches: [ "main", "d2_test" ]
+
+jobs:
+  Test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      working-directory: ./deliverable-2/w4w-app/backend
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3 python3-pip fabric
+        python3 -m pip install --upgrade pip
+        pip3 install -r requirements.txt
+        
+    - name: Run Tests
+      working-directory: ./deliverable-2/w4w-app/backend
+      run: |
+        python manage.py test
