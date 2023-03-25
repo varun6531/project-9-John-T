@@ -2,7 +2,8 @@ import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, I
 import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function Game({ navigation }) {
+export default function Game({ route, navigation }) {
+  // const { country } = route.params;
   const fineSandImg = require('../assets/fineSand.jpeg');
   const coarseSandImg = require('../assets/coarseSand.jpeg');
   const fineGravelImg = require('../assets/fineGravel.jpeg');
@@ -41,6 +42,16 @@ export default function Game({ navigation }) {
   }
   return (
     <View style={styles.background}>
+          <Pressable style={styles.button3} onPress={async () => {
+            navigation.navigate("Canada")
+          }}>
+            <View style={styles.arrow}>
+              <Icon name='angle-left' color='#03DAC5' size={15} />
+            </View>
+            <Text style={styles.textButton}>
+              Back
+            </Text>
+          </Pressable>
         <View style={styles.filter}>
             <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}} 
               onLongPress={() => {setfilter1('none'); setfiltermat1('none');}}
@@ -218,10 +229,6 @@ export default function Game({ navigation }) {
                 }
                 navigation.navigate("result80less", { result: result })
               }
-              // navigation.navigate("result100",
-              // {
-              //   result: result        
-              // })
             }
           }>
             <Text style={styles.textButton}>
@@ -315,7 +322,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontSize:14,
     fontWeight: 'bold',
-    flex: 5
+    flex: 5,
   },
   button2: {
     width:  Dimensions.get('window').width / 3,
@@ -348,5 +355,34 @@ const styles = StyleSheet.create({
   arrow:{
     flex: 1,
     marginTop: 2
-  }
+  },
+  backinputview:{
+    width:  Dimensions.get('window').width / 3,
+    height: Dimensions.get('window').height / -2,
+    flexDirection: 'row',
+    padding: 13,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+    // backgroundColor: '#1E1E1E',
+    // paddingTop:15,
+    // paddingLeft: 20,
+    // paddingRight: 20,
+    // height: Dimensions.get('window').height / 10,
+    // width:  Dimensions.get('window').width / 3,
+    // top: 0,
+    // right: 120,
+  },
+  button3: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C',
+    marginLeft: -Dimensions.get('window').width / 2,
+    marginBottom: Dimensions.get('window').height / 20,
+  },
 });
