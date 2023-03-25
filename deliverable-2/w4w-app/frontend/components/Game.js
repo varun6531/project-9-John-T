@@ -194,11 +194,21 @@ export default function Game({ navigation }) {
               var result = 'dirty';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coal' && filtermat5=='fineSand' && filtermat6=='cotton' &&filtermat7 == 'cheeseCloth'){
                 result = '100% clean';
-              }
-              navigation.navigate("result100",
+                navigation.navigate("result100",
               {
                 result: result        
               })
+              } else{
+                result = 'not 100% clean';
+                navigation.navigate("result80less", 
+                {
+                  result: result
+                })
+              }
+              // navigation.navigate("result100",
+              // {
+              //   result: result        
+              // })
             }
           }>
             <Text style={styles.textButton}>

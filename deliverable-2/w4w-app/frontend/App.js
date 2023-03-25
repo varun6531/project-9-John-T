@@ -31,6 +31,7 @@ import Kenya from './components/Kenya';
 import Malawi from './components/Malawi';
 import TYNL from './components/TYNL';
 import Result100 from './components/Result100';
+import Result80less from './components/Result80less';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,7 @@ export default function App() {
           <Stack.Screen name="Kenya" component={Kenya}/>
           <Stack.Screen name="Malawi" component={Malawi}/>
           <Stack.Screen name="result100" component={Result100}/>
+          <Stack.Screen name="result80less" component={Result80less}/>
         </Stack.Navigator>
       </NavigationContainer>
     
