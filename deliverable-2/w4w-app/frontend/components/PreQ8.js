@@ -49,20 +49,11 @@ export default function PreQ8({ navigation }) {
 
 			<View style={styles.ImageContainer}>
 				<Image
-					source={require('../assets/globalExtremePovertyMap.png')}
+					source={require('../assets/globalExtremePoverty.png')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 5,
+						height: Dimensions.get('window').height / 4,
 						marginTop: Dimensions.get('window').height / 50,
-						resizeMode: 'contain',
-					}}
-				/>
-				<Image
-					source={require('../assets/globalExtremePovertyBar.png')}
-					style={{
-						width: Dimensions.get('window').width / 1.5,
-						justifyContent: 'center',
-						alignContent: 'center',
 						resizeMode: 'contain',
 					}}
 				/>
@@ -136,6 +127,7 @@ const styles = StyleSheet.create({
 		width: Dimensions.get('window').width / 1.2,
 	},
 	sourceText: {
+		marginTop: Dimensions.get('window').height / 60,
 		color: '#03DAC5',
 	},
 	sourceLink: {

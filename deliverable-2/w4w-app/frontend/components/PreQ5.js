@@ -47,19 +47,10 @@ export default function PreQ5({ navigation }) {
 
 			<View style={styles.ImageContainer}>
 				<Image
-					source={require('../assets/globalLiteracyRateMap.png')}
+					source={require('../assets/globalLiteracyRate.png')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 5,
-						marginTop: Dimensions.get('window').height / 50,
-						resizeMode: 'contain',
-					}}
-				/>
-				<Image
-					source={require('../assets/globalLiteracyRateBar.png')}
-					style={{
-						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 5,
+						height: Dimensions.get('window').height / 4,
 						marginTop: Dimensions.get('window').height / 50,
 						resizeMode: 'contain',
 					}}
@@ -135,6 +126,7 @@ const styles = StyleSheet.create({
 	},
 	sourceText: {
 		color: '#03DAC5',
+		marginTop: Dimensions.get('window').height / 60,
 	},
 	sourceLink: {
 		color: '#0044CC',
