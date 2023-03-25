@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Game({ navigation }) {
-  const coalImg = require('../assets/coal.jpeg');
   const fineSandImg = require('../assets/fineSand.jpeg');
   const coarseSandImg = require('../assets/coarseSand.jpeg');
   const fineGravelImg = require('../assets/fineGravel.jpeg');
@@ -14,7 +13,6 @@ export default function Game({ navigation }) {
   const [currentMaterialImg, setCurrentMaterialImg] = useState('none');
   const [currentMaterial, setCurrentMaterial] = useState('none');
 
-  const [coal, setCoal] = useState(false);
   const [fineSand, setFineSand] = useState(false);
   const [coarseSand, setCoarseSand] = useState(false);
   const [fineGravel, setFineGravel] = useState(false);
@@ -29,6 +27,7 @@ export default function Game({ navigation }) {
   const [filter5, setfilter5] = useState('none');
   const [filter6, setfilter6] = useState('none');
   const [filter7, setfilter7] = useState('none');
+  const [filter8, setfilter8] = useState('none');
 
   const [filtermat1, setfiltermat1] = useState('none');
   const [filtermat2, setfiltermat2] = useState('none');
@@ -37,6 +36,7 @@ export default function Game({ navigation }) {
   const [filtermat5, setfiltermat5] = useState('none');
   const [filtermat6, setfiltermat6] = useState('none');
   const [filtermat7, setfiltermat7] = useState('none');
+  const [filtermat8, setfiltermat8] = useState('none');
   const getLayer = () => {
   }
   return (
@@ -62,43 +62,32 @@ export default function Game({ navigation }) {
             >
               <Image source={filter4} style={styles.image}/>
             </Pressable>
-            <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}
+            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}
               onLongPress={() => {setfilter5('none'); setfiltermat5('none');}}
             >
-              <Image source={filter5} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>
+              <Image source={filter5} style={styles.image}/>
+            </Pressable>
+            <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}
+              onLongPress={() => {setfilter6('none'); setfiltermat6('none');}}
+            >
+              <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>
             </Pressable>
         </View>
         <View style={styles.filter2}>
-            <Pressable style = {styles.belowSpace} onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}
-              onLongPress={() => {setfilter6('none'); setfiltermat6('none');}}
-            >
-              <Image source={filter6} style={styles.image}/>
-            </Pressable>
-            <Pressable style = {styles.belowSpace2} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}
+            <Pressable style = {styles.belowSpace} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}
               onLongPress={() => {setfilter7('none'); setfiltermat7('none');}}
             >
-              <Image source={filter7} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>
+              <Image source={filter7} style={styles.image}/>
+            </Pressable>
+            <Pressable style = {styles.belowSpace2} onPress={() => {setfilter8(currentMaterialImg); setfiltermat8(currentMaterial);}}
+              onLongPress={() => {setfilter8('none'); setfiltermat8('none');}}
+            >
+              <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>
             </Pressable>
         </View>
         <View style={styles.scroll}>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
-            <Pressable style={[styles.button, {borderColor: coal? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCurrentMaterialImg(coalImg);
-              setCurrentMaterial('coal');
-              setCoal(true);
-              setFineSand(false);
-              setCoarseSand(false);
-              setFineGravel(false);
-              setCoarseGravel(false);
-              setCotton(false);
-              setCheeseCloth(false);
-            }}>
-              <Text style={styles.textButton}>
-                Activated Charcoal
-              </Text>
-            </Pressable>
             <Pressable style={[styles.button, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(true);
               setCoarseSand(false);
               setFineGravel(false);
@@ -113,7 +102,6 @@ export default function Game({ navigation }) {
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: coarseSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(false);
               setCoarseSand(true);
               setFineGravel(false);
@@ -128,7 +116,6 @@ export default function Game({ navigation }) {
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: fineGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(true);
@@ -143,7 +130,6 @@ export default function Game({ navigation }) {
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: coarseGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -158,7 +144,6 @@ export default function Game({ navigation }) {
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: cotton? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -173,7 +158,6 @@ export default function Game({ navigation }) {
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: cheeseCloth? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
-              setCoal(false);
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -192,13 +176,23 @@ export default function Game({ navigation }) {
         <View style={styles.buttonLayer}>
           <Pressable style={styles.button2} onPress={() => {
               var result = 'dirty';
-              if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coal' && filtermat5=='fineSand' && filtermat6=='cotton' &&filtermat7 == 'cheeseCloth'){
-                result = 'clean';
-              }
-              navigation.navigate("GameTest",
+              if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
+                result = '100% clean';
+                navigation.navigate("result100",
               {
                 result: result        
               })
+              } else{
+                result = 'not 100% clean';
+                navigation.navigate("result80less", 
+                {
+                  result: result
+                })
+              }
+              // navigation.navigate("result100",
+              // {
+              //   result: result        
+              // })
             }
           }>
             <Text style={styles.textButton}>

@@ -33,12 +33,12 @@ useEffect(() => {
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Home page")
     }}>
+      <View style={styles.arrow}>
+        <Icon name='angle-left' color='#03DAC5' size={15} />
+      </View>
       <Text style={styles.textButton}>
         Go back
       </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
     </Pressable>
   </View>
       <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>You have already logged in to {email}</Text>

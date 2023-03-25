@@ -16,10 +16,13 @@ export default function Kenya({ navigation }){
             </Text>
             <Text style={styles.textCaption}>Instructions</Text>
             <Text style={styles.subtext} numberOfLines={36}>
-                1. ** put a *!* plug in the *!88 of the cut *!*!8 then *!!* the *@*@* of the *@**@* with a *@*8 of cheese hqwueh secured ncuahu a rubber.{"\n"}
-                2. @@@* a 1-cm *@*** of @*@*@ sand @*@*@ the cotton plug 8@*@* by 1-cm of ^@@@^@ sand, and *@** gravel. {"\n"}
-                3. @*@* the filter by *@****@ carefully pouring @*@* of clean water (@*@*@8 a bucket). {"\n"}
-                4. Place the *@@* over a plastic cup. Now @*@* your water filter by pouring @*@** of the dirty water through the filter. {"\n"}
+                1. Loosely put a piece of cheese XXXXX of the filter, then put X XXXXX of xxxx plug XXXXX that. {"\n"}
+                2. Place XXX layers of fine XXXX over the cotton XXXX, followed by X layers of XXXXX sand, followed by one XXXX each of fine XXXXX and XXXX gravel. {"\n"}
+                3. If XXX don’t have enough XXXXX then try different combinXXXXXX. {"\n"}
+                4. Now, XXXX your water XXXXX to find out how well your XXXXXX works and XXXXX or not it’s XXXXX. {"\n"}
+            </Text>
+            <Text style={styles.subtext2}>
+                Note: You will have difficulty reading this – this is due to the literacy rate in this country. {"\n"}
             </Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
                 <Text style={styles.textButton}>
@@ -59,6 +62,14 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('window').height / 64,
         textAlign: 'left',
         fontSize: 16,
+        flexDirection: 'column',
+        width: Dimensions.get('window').width / 1.25,
+    },
+    subtext2: {
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / 64,
+        textAlign: 'left',
+        fontSize: 13,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.25,
     },

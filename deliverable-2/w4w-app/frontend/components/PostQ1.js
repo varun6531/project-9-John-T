@@ -30,12 +30,12 @@ export default function PostQ1({ navigation }){
     <Pressable style={styles.buttoninput} onPress={async () => {
       navigation.navigate("GameIns")
     }}>
+      <View style={styles.arrow}>
+        <Icon name='angle-left' color='#03DAC5' size={15} />
+      </View>
       <Text style={styles.textButton}>
         Go back
       </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
     </Pressable>
   </View>
                 <Text style={styles.textCaption}>Question 1</Text>

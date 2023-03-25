@@ -19,12 +19,12 @@ export default function PreQ2({ navigation }) {
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Pre questionnaire 1")
     }}>
+      <View style={styles.arrow}>
+        <Icon name='angle-left' color='#03DAC5' size={15} />
+      </View>
       <Text style={styles.textButton}>
         Go back
       </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
     </Pressable>
   </View>
             <Text style={styles.textCaption}>Clean Water Access</Text>
@@ -60,7 +60,7 @@ export default function PreQ2({ navigation }) {
             />
             
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 3")}>
+                <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 3")}>
                     <Text style={styles.textButton}>
                         Next
                     </Text>
@@ -113,6 +113,17 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('window').height/4,
     },
     button2: {
+        width:  Dimensions.get('window').width / 2,
+        flexDirection: 'row',
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C',
+        // marginTop: -150,
+        alignItems: 'center',
+    },
+    button3: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,

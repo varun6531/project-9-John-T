@@ -10,12 +10,12 @@ export default function SignIn({ navigation }) {
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Home page")
     }}>
+      <View style={styles.arrow}>
+        <Icon name='angle-left' color='#03DAC5' size={15} />
+      </View>
       <Text style={styles.textButton}>
         Go back
       </Text>
-      <View style={styles.arrow}>
-        <Icon name='angle-right' color='#03DAC5' size={15} />
-      </View>
     </Pressable>
   </View>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Please login.</Text>
