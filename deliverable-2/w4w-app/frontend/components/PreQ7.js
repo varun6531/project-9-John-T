@@ -13,7 +13,7 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function PreQ3({ navigation }) {
+export default function PreQ7({ navigation }) {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(null);
 	const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
@@ -37,7 +37,7 @@ export default function PreQ3({ navigation }) {
 	// Modal to show the answer message
 	const AnswerModal = () => {
 		let message = isCorrectAnswer
-			? 'Yes, most of the people in the world living without clean water live in Sub-Saharan Africa - the part of Africa south of the Sahara.'
+			? 'Yes, most of the people in the world living in extreme poverty live in Sub-Saharan Africa – the part of Africa south of the Sahara.'
 			: 'Wrong Answer.';
 
 		console.log(message);
@@ -74,7 +74,7 @@ export default function PreQ3({ navigation }) {
 				<Pressable
 					style={styles.button}
 					onPress={async () => {
-						navigation.navigate('Pre questionnaire 2');
+						navigation.navigate('Pre questionnaire 6');
 					}}
 				>
 					<View style={styles.arrow}>
@@ -94,7 +94,7 @@ export default function PreQ3({ navigation }) {
 			</View>
 
 			<Text style={styles.textCaption}>
-				Where do most of the people without clean water access live?
+				Where do most of the people in extreme poverty live?
 			</Text>
 			<View style={styles.optionContainer}>
 				{options.map((option) => (
@@ -122,7 +122,7 @@ export default function PreQ3({ navigation }) {
 			<Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
-				onPress={() => navigation.navigate('Pre questionnaire 4')}
+				onPress={() => navigation.navigate('Pre questionnaire 8')}
 			>
 				<Text style={styles.textButton}>Next</Text>
 				<View style={styles.arrow}>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 30,
 		textAlign: 'center',
 		fontSize: 20,
 		fontWeight: 'bold',
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		width: Dimensions.get('window').width / 1.1,
-		top: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 20,
 		height: '10%',
 	},
 	button: {
@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.25,
 		shadowRadius: 4,
 		elevation: 5,
-		width: Dimensions.get('window').width / 1.2,
 	},
 	answerView: {
 		textAlign: 'center',

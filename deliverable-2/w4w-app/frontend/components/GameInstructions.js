@@ -12,7 +12,7 @@ export default function GameIns({ navigation }) {
         <View style={styles.background}>
             <View style={styles.backinputview}>
     <Pressable style={styles.button} onPress={async () => {
-      navigation.navigate("Pre questionnaire 3")
+      navigation.navigate('Pre questionnaire 8');
     }}>
       <View style={styles.arrow}>
         <Icon name='angle-left' color='#03DAC5' size={15} />
