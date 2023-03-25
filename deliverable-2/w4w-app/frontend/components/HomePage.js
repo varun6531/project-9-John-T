@@ -9,7 +9,13 @@ export default function HomePage({ navigation }) {
   return (
     <View style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
-      <Text numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>This app supports the purpose of Water for the World Workshop- to introduce the issues surrounding clean drinking water in different parts of the world.</Text>
+      <Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
+        This app supports the purpose of{'\n'}
+        <Pressable onPress={() => navigation.navigate("W4W Info")}>
+          <Text style={{ textDecorationLine: 'underline', color: 'lightblue', fontSize: 18}}>Water for the World Workshop</Text>
+        </Pressable>
+        {'\n'} - to introduce the issues surrounding clean drinking water in different parts of the world.
+      </Text>
       
       <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you have been asked by your teacher instructor/teacher/presenter to login, please continue with the login button</Text>
       <Pressable style={styles.button} onPress={async () => {

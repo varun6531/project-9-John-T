@@ -33,6 +33,7 @@ import TYNL from './components/TYNL';
 import Result100 from './components/Result100';
 import Result90 from './components/Result90';
 import Result80less from './components/Result80less';
+import W4WInfoPage from './components/W4WInfo';
 
 
 const Stack = createNativeStackNavigator();
@@ -44,6 +45,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Intro" component={Intro}/>
           <Stack.Screen name="Home page" component={HomePage}/>
+          <Stack.Screen name="W4W Info" component={W4WInfoPage}/>
           <Stack.Screen name="Sign in" component={SignIn} />
           <Stack.Screen name="Already logged" component={AlreadyLogged}/>
           <Stack.Screen name="Pre questionnaire 1" component={PreQ}/>
