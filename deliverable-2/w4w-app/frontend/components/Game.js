@@ -193,9 +193,9 @@ export default function Game({ navigation }) {
           <Pressable style={styles.button2} onPress={() => {
               var result = 'dirty';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coal' && filtermat5=='fineSand' && filtermat6=='cotton' &&filtermat7 == 'cheeseCloth'){
-                result = 'clean';
+                result = '100% clean';
               }
-              navigation.navigate("GameTest",
+              navigation.navigate("result100",
               {
                 result: result        
               })

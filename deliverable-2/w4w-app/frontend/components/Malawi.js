@@ -16,10 +16,13 @@ export default function Malawi({ navigation }){
             </Text>
             <Text style={styles.textCaption}>Instructions</Text>
             <Text style={styles.subtext} numberOfLines={36}>
-                1. Loosely put a cotton **** in the ***** of the cut bottle, then *** the neck of the **** with a **** cheese cloth secured with a **** band. {"\n"}
-                2. Pour a 1-cm layer of *!@!*@ over the cotton plug, followed by 1-cm **** * * sand, fine *****@*@, and @@^#@!^@ gravel. {"\n"}
-                3. Clean the filter by slowly and carefully pouring through 1-litre of !@@#*!@@#* water (over a bucket). {"\n"}
-                4. Place the filter over a plastic cup. Now, test your !@*#@!@*#@ filter !@*#@*!@#@! half of the dirty !@*#@!*@@# through the filter. {"\n"}
+                1. XXXXXX put a piece of XXXX XXXXX of the filter, then put X XXXXX of XXXX plug XXXXX that. {"\n"}
+                2. Place XXX layers of fine XXXX over the XXX XXXX, followed by X layers of XXXXX sand, XXXXXXX by one XXXX each of fine XXXXX and XXXX gravel. {"\n"}
+                3. If XXX don’t have enough XXXXX then try different XXXXXXXXXXX. {"\n"}
+                4. Now, XXXX your water XXXXX to find out how well your XXXXXX works and XXXXX or not it’s XXXXX. {"\n"}
+            </Text>
+            <Text style={styles.subtext2}>
+                Note: You will have difficulty reading this – this is due to the literacy rate in this country. {"\n"}
             </Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
                 <Text style={styles.textButton}>
@@ -58,6 +61,14 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('window').height / 64,
         textAlign: 'left',
         fontSize: 16,
+        flexDirection: 'column',
+        width: Dimensions.get('window').width / 1.25,
+    },
+    subtext2: {
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / 64,
+        textAlign: 'left',
+        fontSize: 13,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.25,
     },

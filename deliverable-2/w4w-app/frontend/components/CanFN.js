@@ -16,10 +16,9 @@ export default function CanFN({ navigation }){
             </Text>
             <Text style={styles.textCaption}>Instructions</Text>
             <Text style={styles.subtext} numberOfLines={36}>
-                1. Loosely put a cotton plug in the neck of the cut bottle, then cover the neck of the bottle with a piece of cheese cloth secured with a rubber band. {"\n"}
-                2. Pour a 1-cm layer of fine sand over the cotton plug, followed by 1-cm of coarse sand, fine gravel, and coarse gravel. {"\n"}
-                3. Clean the filter by slowly and carefully pouring through 1-litre of clean water (over a bucket). {"\n"}
-                4. Place the filter over a plastic cup. Now, test your water filter by pouring half of the dirty water through the filter. {"\n"}
+                1. Loosely put a piece of cheese cloth at the bottom of the filter, then put a piece of cotton plug above that. {"\n"}
+                2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
+                3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
             </Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
                 <Text style={styles.textButton}>
