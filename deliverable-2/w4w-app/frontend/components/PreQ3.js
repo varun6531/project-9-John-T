@@ -62,7 +62,7 @@ export default function PreQ3({ navigation }) {
             />
             
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
+                <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                     <Text style={styles.textButton}>
                         Next
                     </Text>
@@ -115,6 +115,17 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('window').height/4,
       },
     button2: {
+        width:  Dimensions.get('window').width / 2,
+        flexDirection: 'row',
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C',
+        // marginTop: -150,
+        alignItems: 'center',
+    },
+    button3: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,
