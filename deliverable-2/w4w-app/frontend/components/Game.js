@@ -42,6 +42,7 @@ export default function Game({ route, navigation }) {
   }
   return (
     <View style={styles.background}>
+       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
           <Pressable style={styles.button3} onPress={async () => {
             navigation.navigate("Canada")
           }}>
@@ -97,6 +98,7 @@ export default function Game({ route, navigation }) {
             </Pressable>
         </View>
         <View style={styles.scroll}>
+          <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <Pressable style={[styles.button, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(true);
@@ -239,8 +241,9 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
-        <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/>
+        {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
+      {/* <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/> */}
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -384,5 +387,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C',
     marginLeft: -Dimensions.get('window').width / 2,
     marginBottom: Dimensions.get('window').height / 20,
+    marginTop: Dimensions.get('window').height / -20,
+  },
+  caption:{
+    color: '#03DAC5',
+    marginTop: Dimensions.get('window').height / -12,
+    marginLeft: -Dimensions.get('window').width / -1.5,
+  },
+  ewblogo:{
+    right: Dimensions.get('window').width / -3,
+    bottom: Dimensions.get('window').height / -64,
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    bottom: Dimensions.get('window').height / 112,
+    alignItems: 'center',
+    width: 120, 
+    height: 60, 
   },
 });
