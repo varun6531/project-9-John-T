@@ -5,6 +5,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 export default function Canada({ navigation }){
     return(
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}>Canada</Text>
             <Text style={styles.subtext} numberOfLines={7}>
                 Languages: English, French {"\n"}
@@ -20,6 +21,8 @@ export default function Canada({ navigation }){
                 2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
                 3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
             </Text>
+            {/* <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {country: "Canada"})}>
+             */}
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
                 <Text style={styles.textButton}>
                     Play Simulation
@@ -28,8 +31,9 @@ export default function Canada({ navigation }){
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-            <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+            <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+          <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </View>
     );
 }
@@ -81,4 +85,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
+    ewblogo:{
+        right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -100,
+        width: 100, 
+        height: 50, 
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60, 
+      },
 });

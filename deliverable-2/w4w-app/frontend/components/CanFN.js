@@ -5,6 +5,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 export default function CanFN({ navigation }){
     return(
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}>Canada First Nations</Text>
             <Text style={styles.subtext} numberOfLines={7}>
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
@@ -28,8 +29,8 @@ export default function CanFN({ navigation }){
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-            <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+
         </View>
     );
 }
@@ -81,4 +82,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
+    ewblogo:{
+        right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -100,
+        width: 100, 
+        height: 50, 
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60, 
+      },
 });

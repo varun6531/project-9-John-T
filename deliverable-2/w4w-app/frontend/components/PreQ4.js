@@ -14,34 +14,29 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function PreQ3({ navigation }) {
-	const [modalVisible, setModalVisible] = useState(false);
-	const [selectedOption, setSelectedOption] = useState(null);
-	const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-
 	const options = [
-		{ id: 1, text: 'North America' },
-		{ id: 2, text: 'South America' },
-		{ id: 3, text: 'Europe' },
-		{ id: 4, text: 'Asia' },
-		{ id: 5, text: 'Africa' },
+		{ id: 1, country: 'Canada', literacy: '99.0%' },
+		{ id: 2, country: 'Germany', literacy: '99.0%' },
+		{ id: 3, country: 'Ghana', literacy: '79.04%' },
+		{ id: 4, country: 'Kuwait', literacy: '96.46%' },
+		{ id: 5, country: 'Malawi', literacy: '62.14%' },
+		{ id: 6, country: 'kenya', literacy: '81.54%' },
+		{ id: 7, country: 'South Africa', literacy: '95.02%' },
 	];
+
+	const [modalVisible, setModalVisible] = useState(false);
+	const [selectedOption, setSelectedOption] = useState(options[0]);
 
 	// Check if the answer is correct or not
 	// Show the corresponding message in the modal
-	const handleAnswer = (id) => {
-		setSelectedOption(id);
-		id === 5 ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
+	const handleAnswer = (option) => {
+		console.log(option);
+		setSelectedOption(option);
 		setModalVisible(!modalVisible);
 	};
 
 	// Modal to show the answer message
 	const AnswerModal = () => {
-		let message = isCorrectAnswer
-			? 'Yes, most of the people in the world living without clean water live in Sub-Saharan Africa - the part of Africa south of the Sahara.'
-			: 'Wrong Answer.';
-
-		console.log(message);
-
 		return (
 			<View style={styles.centeredView}>
 				<Modal
@@ -54,7 +49,10 @@ export default function PreQ3({ navigation }) {
 				>
 					<View style={styles.centeredView}>
 						<View style={styles.modalView}>
-							<Text style={styles.answerView}>{message}</Text>
+							<Text style={styles.answerView}>
+								Literacy rate of {selectedOption.country} is:{' '}
+								{selectedOption.literacy}
+							</Text>
 							<Pressable
 								style={[styles.button, styles.buttonClose]}
 								onPress={() => setModalVisible(!modalVisible)}
@@ -74,7 +72,7 @@ export default function PreQ3({ navigation }) {
 				<Pressable
 					style={styles.button}
 					onPress={async () => {
-						navigation.navigate('Pre questionnaire 2');
+						navigation.navigate('Pre questionnaire 3');
 					}}
 				>
 					<View style={styles.arrow}>
@@ -93,24 +91,19 @@ export default function PreQ3({ navigation }) {
 				/>
 			</View>
 
-			<Text style={styles.textCaption}>
-				Where do most of the people without clean water access live?
+			<Text style={styles.textCaption}>Literacy Rate</Text>
+			<Text style={styles.subtext}>
+				The percentage of the populatin of a given age group that can read and
+				write.
 			</Text>
-			<View style={styles.optionContainer}>
-				{options.map((option) => (
-					<TouchableOpacity
-						key={option.id}
-						style={styles.optionButton}
-						onPress={() => handleAnswer(option.id)}
-					>
-						<Text style={styles.optionText}>{option.text}</Text>
-					</TouchableOpacity>
-				))}
-			</View>
-			{AnswerModal()}
+			<Text style={styles.subtext}>
+				Explore the literacy rates of the highlighted countries: (click on the
+				country name to see the literacy rate)
+			</Text>
+
 			<View style={styles.ImageContainer}>
 				<Image
-					source={require('../assets/waterAccessMap.jpg')}
+					source={require('../assets/lteracyGlobeCountries.png')}
 					style={{
 						width: Dimensions.get('window').width,
 						height: Dimensions.get('window').height / 5,
@@ -119,10 +112,25 @@ export default function PreQ3({ navigation }) {
 					}}
 				/>
 			</View>
+
+			<View style={styles.optionContainer}>
+				{options.map((option) => (
+					<TouchableOpacity
+						key={option.id}
+						style={styles.optionButton}
+						onPress={() => handleAnswer(option)}
+					>
+						<Text style={styles.optionText}>{option.country}</Text>
+					</TouchableOpacity>
+				))}
+			</View>
+
+			{AnswerModal()}
+
 			<Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
-				onPress={() => navigation.navigate('Pre questionnaire 4')}
+				onPress={() => navigation.navigate('Pre questionnaire 5')}
 			>
 				<Text style={styles.textButton}>Next</Text>
 				<View style={styles.arrow}>
@@ -160,7 +168,7 @@ const styles = StyleSheet.create({
 		color: '#03DAC5',
 		marginTop: Dimensions.get('window').height / 20,
 		textAlign: 'center',
-		fontSize: 20,
+		fontSize: 30,
 		fontWeight: 'bold',
 		textDecorationLine: 'underline',
 		width: Dimensions.get('window').width / 1.2,
@@ -188,7 +196,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 10,
+		marginTop: Dimensions.get('window').height / 30,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -219,8 +227,13 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
 	},
+	// Country Buttons Styling
 	optionContainer: {
 		marginTop: Dimensions.get('window').height / 30,
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		justifyContent: 'space-between',
+		width: Dimensions.get('window').width / 1.2,
 	},
 	optionButton: {
 		backgroundColor: '#2C2C2C',
@@ -228,8 +241,8 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		padding: 8,
 		borderRadius: 8,
-		marginBottom: 10,
-		width: Dimensions.get('window').width / 2,
+		marginBottom: Dimensions.get('window').height / 60,
+		width: Dimensions.get('window').width / 4,
 	},
 	optionText: {
 		textAlign: 'center',
@@ -237,6 +250,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: '#03DAC5',
 	},
+	// Modal Styling
 	centeredView: {
 		flex: 1,
 		justifyContent: 'center',

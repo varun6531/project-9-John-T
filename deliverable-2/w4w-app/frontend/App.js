@@ -15,6 +15,11 @@ import StudentWelcome from './components/StudentWelcome';
 import TeacherWelcome from './components/TeacherWelcome';
 import PreQ2 from './components/PreQ2';
 import PreQ3 from './components/PreQ3';
+import PreQ4 from './components/PreQ4';
+import PreQ5 from './components/PreQ5';
+import PreQ6 from './components/PreQ6';
+import PreQ7 from './components/PreQ7';
+import PreQ8 from './components/PreQ8';
 import StudentHR from './components/StudentHR';
 import TeacherHR from './components/TeacherHR';
 import Game from './components/Game';
@@ -31,7 +36,10 @@ import Kenya from './components/Kenya';
 import Malawi from './components/Malawi';
 import TYNL from './components/TYNL';
 import Result100 from './components/Result100';
+import Result90 from './components/Result90';
 import Result80less from './components/Result80less';
+import W4WInfoPage from './components/W4WInfo';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -42,11 +50,17 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Intro" component={Intro}/>
           <Stack.Screen name="Home page" component={HomePage}/>
+          <Stack.Screen name="W4W Info" component={W4WInfoPage}/>
           <Stack.Screen name="Sign in" component={SignIn} />
           <Stack.Screen name="Already logged" component={AlreadyLogged}/>
-          <Stack.Screen name="Pre questionnaire 1" component={PreQ}/>
-          <Stack.Screen name="Pre questionnaire 2" component={PreQ2}/>
-          <Stack.Screen name="Pre questionnaire 3" component={PreQ3}/>
+          <Stack.Screen name="Pre questionnaire 1" component={PreQ} />
+          <Stack.Screen name="Pre questionnaire 2" component={PreQ2} />
+          <Stack.Screen name="Pre questionnaire 3" component={PreQ3} />
+          <Stack.Screen name="Pre questionnaire 4" component={PreQ4} />
+          <Stack.Screen name="Pre questionnaire 5" component={PreQ5} />
+          <Stack.Screen name="Pre questionnaire 6" component={PreQ6} />
+          <Stack.Screen name="Pre questionnaire 7" component={PreQ7} />
+          <Stack.Screen name="Pre questionnaire 8" component={PreQ8} />
           <Stack.Screen name="Game" component={Game}/>
           <Stack.Screen name="GameIns" component={GameIns}/>
           <Stack.Screen name="GameTest" component={GameTest}/>
@@ -68,6 +82,7 @@ export default function App() {
           <Stack.Screen name="Kenya" component={Kenya}/>
           <Stack.Screen name="Malawi" component={Malawi}/>
           <Stack.Screen name="result100" component={Result100}/>
+          <Stack.Screen name="result90" component={Result90}/>
           <Stack.Screen name="result80less" component={Result80less}/>
         </Stack.Navigator>
       </NavigationContainer>

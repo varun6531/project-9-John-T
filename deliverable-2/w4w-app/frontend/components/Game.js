@@ -2,7 +2,8 @@ import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, I
 import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function Game({ navigation }) {
+export default function Game({ route, navigation }) {
+  // const { country } = route.params;
   const fineSandImg = require('../assets/fineSand.jpeg');
   const coarseSandImg = require('../assets/coarseSand.jpeg');
   const fineGravelImg = require('../assets/fineGravel.jpeg');
@@ -41,6 +42,17 @@ export default function Game({ navigation }) {
   }
   return (
     <View style={styles.background}>
+       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+          <Pressable style={styles.button3} onPress={async () => {
+            navigation.navigate("Canada")
+          }}>
+            <View style={styles.arrow}>
+              <Icon name='angle-left' color='#03DAC5' size={15} />
+            </View>
+            <Text style={styles.textButton}>
+              Back
+            </Text>
+          </Pressable>
         <View style={styles.filter}>
             <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}} 
               onLongPress={() => {setfilter1('none'); setfiltermat1('none');}}
@@ -86,6 +98,7 @@ export default function Game({ navigation }) {
             </Pressable>
         </View>
         <View style={styles.scroll}>
+          <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <Pressable style={[styles.button, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(true);
@@ -178,21 +191,46 @@ export default function Game({ navigation }) {
               var result = 'dirty';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
                 result = '100% clean';
-                navigation.navigate("result100",
+                navigation.navigate("result100", { result: result })
+              } 
+              else if(
+                (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
+                (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
+                (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
+                (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4!='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
+                (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
+                (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
-                result: result        
-              })
-              } else{
-                result = 'not 100% clean';
-                navigation.navigate("result80less", 
-                {
-                  result: result
-                })
+                result = '90% clean';
+                navigation.navigate("result90",{ result: result })
               }
-              // navigation.navigate("result100",
-              // {
-              //   result: result        
-              // })
+              
+              else{
+                if ((filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 != 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1!='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4!='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4!='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4!='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4!='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4!='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
+                )
+                {
+                  result = '80% clean';
+                } else{
+                  result= 'LESS THAN 80% clean';
+                }
+                navigation.navigate("result80less", { result: result })
+              }
             }
           }>
             <Text style={styles.textButton}>
@@ -203,8 +241,9 @@ export default function Game({ navigation }) {
             </View>
           </Pressable>
         </View>
-        <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/>
+        {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
+      {/* <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/> */}
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -286,7 +325,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontSize:14,
     fontWeight: 'bold',
-    flex: 5
+    flex: 5,
   },
   button2: {
     width:  Dimensions.get('window').width / 3,
@@ -319,5 +358,52 @@ const styles = StyleSheet.create({
   arrow:{
     flex: 1,
     marginTop: 2
-  }
+  },
+  backinputview:{
+    width:  Dimensions.get('window').width / 3,
+    height: Dimensions.get('window').height / -2,
+    flexDirection: 'row',
+    padding: 13,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+    // backgroundColor: '#1E1E1E',
+    // paddingTop:15,
+    // paddingLeft: 20,
+    // paddingRight: 20,
+    // height: Dimensions.get('window').height / 10,
+    // width:  Dimensions.get('window').width / 3,
+    // top: 0,
+    // right: 120,
+  },
+  button3: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C',
+    marginLeft: -Dimensions.get('window').width / 2,
+    marginBottom: Dimensions.get('window').height / 20,
+    marginTop: Dimensions.get('window').height / -20,
+  },
+  caption:{
+    color: '#03DAC5',
+    marginTop: Dimensions.get('window').height / -12,
+    marginLeft: -Dimensions.get('window').width / -1.5,
+  },
+  ewblogo:{
+    right: Dimensions.get('window').width / -3,
+    bottom: Dimensions.get('window').height / -64,
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    bottom: Dimensions.get('window').height / 112,
+    alignItems: 'center',
+    width: 120, 
+    height: 60, 
+  },
 });
