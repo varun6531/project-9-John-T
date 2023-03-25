@@ -15,7 +15,7 @@ export default function Result80less({ route, navigation }) {
             <Text style={styles.textCaption}>Test Results</Text>
             <Image style = {styles.filter} source={require('../assets/filterresult.png')} />
             <Text style={styles.subtext}>
-                Your filter resulted is {result} water. {'\n\n'} 
+                Your dirty water is now {result} water. {'\n\n'} 
                 DO NOT DRINK!!! You may get SICK and DIE!
             </Text>
 

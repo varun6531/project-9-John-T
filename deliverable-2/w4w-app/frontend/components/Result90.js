@@ -7,9 +7,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GetTypeAPI from '../apis/GetTypeAPI';
 
 
-
-
-export default function Result100({ route, navigation }) {
+export default function Result90({ route, navigation }) {
     const { result } = route.params;
     return (
         <View style={styles.background}>
@@ -18,8 +16,7 @@ export default function Result100({ route, navigation }) {
             <Image style = {styles.filter} source={require('../assets/filterresult.png')} />
             <Text style={styles.subtext}>
                 Your dirty water is now {result} water. {'\n\n'} 
-                CONGRATULATIONS! - you can drink this water - 
-                it is clean enough to drink 
+                If you add an antibacterial agent or boil this water, it is probably okay to drink. 
             </Text>
 
             <View style={styles.skipContainer}>
