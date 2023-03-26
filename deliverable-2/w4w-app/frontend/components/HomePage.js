@@ -8,6 +8,7 @@ export default function HomePage({ navigation }) {
 
   return (
     <View style={styles.background}>
+      <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
       <Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
         This app supports the purpose of{'\n'}
@@ -33,7 +34,7 @@ export default function HomePage({ navigation }) {
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
-      <Image source={require('../assets/tap-water.gif')}  style={{margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}}/>
+      <Image source={require('../assets/tap-water.gif')}  style={styles.gifstyle}/>
       <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
         <Text style={styles.textButton}>
           Skip to Pre-Questionnaire
@@ -42,8 +43,7 @@ export default function HomePage({ navigation }) {
           <Icon name='angle-right' color='#03DAC5' size={15}/>
         </View>
       </Pressable>
-      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/>
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -55,14 +55,14 @@ const styles = StyleSheet.create({
   },
   text:{
     color: '#03DAC5',
-    marginTop: Dimensions.get('window').height/12,
+    marginTop: Dimensions.get('window').height/35,
     textAlign:'center',
     fontSize:30,
     fontWeight: 'bold',
   },
   textUnder:{
     color: '#03DAC5',
-    marginTop: Dimensions.get('window').height/30,
+    marginTop: Dimensions.get('window').height/55,
     textAlign:'center',
     fontSize:18,
     marginLeft: Dimensions.get('window').width/ 12,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 15,
     marginLeft: Dimensions.get('window').width / 3,
-    marginTop: Dimensions.get('window').height / 45,
+    marginTop: Dimensions.get('window').height / 95,
     borderColor: '#03DAC5',
     borderRadius: 999,
     borderWidth: 2,
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginLeft: Dimensions.get('window').width / 4,
     marginTop: Dimensions.get('window').height / 45,
+    // marginBottom: Dimensions.get('window').height/ -4,
     borderColor: '#03DAC5',
     borderRadius: 999,
     borderWidth: 2,
@@ -100,5 +101,26 @@ const styles = StyleSheet.create({
   arrow:{
     flex: 1,
     marginTop: 2
-  }
+  },
+  gifstyle:{
+    // {margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}
+    alignSelf: 'center',
+    marginTop: Dimensions.get('window').height / 50,
+    width: 250,
+    height: 250,
+  },
+  ewblogo:{
+    right: Dimensions.get('window').width / -1.45,
+    bottom: Dimensions.get('window').height / -15,
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    // marginTop: Dimensions.get('window').height / 25,
+    // marginBottom: Dimensions.get('window').height/30,
+    alignSelf: 'center',
+    width: 150, 
+    height: 60, 
+    flex: 1,
+  },
 });
