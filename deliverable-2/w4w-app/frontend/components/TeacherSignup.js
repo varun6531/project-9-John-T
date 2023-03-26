@@ -17,18 +17,19 @@ export default function TeacherSignup({ navigation }) {
   const [error, setError] = useState('');
   return (
     <View style={styles.background}>
-      <View style={styles.backinputview}>
-    <Pressable style={styles.button} onPress={async () => {
-      navigation.navigate("Sign in")
-    }}>
-      <View style={styles.arrow}>
-        <Icon name='angle-left' color='#03DAC5' size={15} />
-      </View>
-      <Text style={styles.textButton}>
-        Go back
-      </Text>
-    </Pressable>
-  </View>
+      <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+      {/* <View style={styles.backinputview}> */}
+      <Pressable style={styles.button} onPress={async () => {
+        navigation.navigate("Sign in")
+      }}>
+        <View style={styles.arrow}>
+          <Icon name='angle-left' color='#03DAC5' size={15} />
+        </View>
+        <Text style={styles.textButton}>
+          Go back
+        </Text>
+      </Pressable>
+  {/* </View> */}
       <Icon name='school' color='#03DAC5' size={50} style={styles.icon}/>
       <View style={styles.errview}>
         <Text style={styles.error}>
@@ -97,7 +98,7 @@ export default function TeacherSignup({ navigation }) {
         onChangeText={e => setAge(e)}
       />
       <View style = {styles.inputview}>
-        <Pressable style={styles.button} onPress={ async () => {
+        <Pressable style={styles.button2} onPress={ async () => {
             var delta = await TeacherSignupAPI(email, password1, password2, firstName, lastName, age, city, country, school);
             if (delta === 0) {
               navigation.navigate("Sign in")
@@ -113,8 +114,9 @@ export default function TeacherSignup({ navigation }) {
           </View>
         </Pressable>
       </View>
-      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+      {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -150,7 +152,18 @@ const styles = StyleSheet.create({
     borderColor: '#03DAC5',
     borderRadius: 999,
     borderWidth: 2,
-    backgroundColor: '#2C2C2C'
+    backgroundColor: '#2C2C2C',
+    alignSelf: 'flex-start',
+  },
+  button2: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 15,
+    marginTop: Dimensions.get('window').height / 50,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C',
   },
   arrow:{
     flex: 1,
@@ -193,6 +206,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    marginTop: Dimensions.get('window').height/20
-  }
+    marginTop: Dimensions.get('window').height/100,
+  },
+  ewblogo:{
+    // right: Dimensions.get('window').width / -1.55,
+    // bottom: Dimensions.get('window').height / -20,
+    marginTop: Dimensions.get('window').height / 20,
+    marginBottom: Dimensions.get('window').height / -10,
+    alignSelf: 'flex-end',
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    // marginTop: Dimensions.get('window').height / 25,
+    // marginBottom: Dimensions.get('window').height/30,
+    alignSelf: 'center',
+    width: 150, 
+    height: 50, 
+    flex: 1,
+  },
 });
