@@ -15,7 +15,8 @@ export default function Login({ navigation }) {
   return (
     <>
     <View style={styles.background}>
-    <View style={styles.backinputview}>
+    <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+    {/* <View style={styles.backinputview}> */}
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Sign in")
     }}>
@@ -26,7 +27,7 @@ export default function Login({ navigation }) {
         Go back
       </Text>
     </Pressable>
-  </View>
+  {/* </View> */}
         <Icon name='user-circle' color='#03DAC5' size={100} style={styles.icon} />
         <View style={styles.errview}>
         <Text style={styles.error}>
@@ -47,7 +48,7 @@ export default function Login({ navigation }) {
           onChangeText={newP => setPassword(newP)}
           label="Password" />
         <View style={styles.inputview}>
-          <Pressable style={styles.button} onPress={async () => {
+          <Pressable style={styles.button2} onPress={async () => {
             var delta = await LoginAPI(email, password);
             if (delta === 0) {
               var type = await GetTypeAPI(email);
@@ -70,9 +71,9 @@ export default function Login({ navigation }) {
             </View>
           </Pressable>
         </View>
-        <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
-        
+        {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
       </View></>
   );
 }
@@ -111,6 +112,18 @@ const styles = StyleSheet.create({
     width:  Dimensions.get('window').width / 3,
     flexDirection: 'row',
     padding: 15,
+    marginLeft: Dimensions.get('window').width / -1.7,
+    // marginTop: Dimensions.get('window').height / 12,
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+  },
+  button2: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 15,
+    // marginLeft: Dimensions.get('window').width / -1.7,
     marginTop: Dimensions.get('window').height / 12,
     borderColor: '#03DAC5',
     borderRadius: 999,
@@ -153,5 +166,22 @@ const styles = StyleSheet.create({
     padding:0,
     top: 0,
     right: 120,
-  }
+  },
+  ewblogo:{
+    // right: Dimensions.get('window').width / -1.55,
+    // bottom: Dimensions.get('window').height / -20,
+    marginTop: Dimensions.get('window').height / 20,
+    marginBottom: Dimensions.get('window').height / -20,
+    alignSelf: 'flex-end',
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    // marginTop: Dimensions.get('window').height / 25,
+    // marginBottom: Dimensions.get('window').height/30,
+    alignSelf: 'center',
+    width: 150, 
+    height: 60, 
+    flex: 1,
+  },
 });
