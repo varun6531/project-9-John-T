@@ -25,10 +25,10 @@ export default function PostQ1({ navigation }){
             <ScrollView showsVerticalScrollIndicator={false}
   showsHorizontalScrollIndicator={false}>
 
-<Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: -150, width: 100, height:50, alignSelf: 'center'}}/>
-    <View style={styles.backinputview}>
+<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+    {/* <View style={styles.backinputview}> */}
     <Pressable style={styles.buttoninput} onPress={async () => {
-      navigation.navigate("GameIns")
+      navigation.navigate("Game")
     }}>
       <View style={styles.arrow}>
         <Icon name='angle-left' color='#03DAC5' size={15} />
@@ -37,7 +37,7 @@ export default function PostQ1({ navigation }){
         Go back
       </Text>
     </Pressable>
-  </View>
+  {/* </View> */}
                 <Text style={styles.textCaption}>Question 1</Text>
                 <Text style={styles.subtext}>
                     How did the money and literacy rate you were given for each affect your ability to build a water filter?
@@ -100,11 +100,8 @@ export default function PostQ1({ navigation }){
                 </View>
                 </Pressable>
             </View>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+            <Image source={require('../assets/WFTW.png')}  style={styles.w4twlogo}/>
             </ScrollView>
-
-            
-
             
         </View>
         
@@ -189,17 +186,35 @@ const styles = StyleSheet.create({
         width:  Dimensions.get('window').width / 3,
         flexDirection: 'row',
         padding: 15,
-        marginLeft: Dimensions.get('window').width / 3,
-        marginTop: Dimensions.get('window').height / 12,
+        // marginLeft: Dimensions.get('window').width / 3,
+        marginTop: Dimensions.get('window').height / 20,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
-        backgroundColor: '#2C2C2C'
+        backgroundColor: '#2C2C2C',
+        alignSelf: 'flex-start',
       },
     backinputview:{
         backgroundColor: '#1E1E1E',
         padding:0,
         top: 0,
         right: 125,
+      },
+      ewblogo:{
+        // right: Dimensions.get('window').width / -1.55,
+        // bottom: Dimensions.get('window').height / -20,
+        marginTop: Dimensions.get('window').height / 20,
+        marginBottom: Dimensions.get('window').height / -10,
+        alignSelf: 'flex-end',
+        width: 100, 
+        height: 50, 
+      },
+      w4twlogo: {
+        // marginTop: Dimensions.get('window').height / 25,
+        // marginBottom: Dimensions.get('window').height/30,
+        alignSelf: 'center',
+        width: 150, 
+        height: 50, 
+        flex: 1,
       },
 });
