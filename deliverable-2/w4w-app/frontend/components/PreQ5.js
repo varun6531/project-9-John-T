@@ -59,7 +59,7 @@ export default function PreQ5({ navigation }) {
 			</View>
 
 			<Text style={styles.sourceText}>
-				Srouce:{' '}
+				Source:{' '}
 				<Text
 					style={styles.sourceLink}
 					onPress={() =>
