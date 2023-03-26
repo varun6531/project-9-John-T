@@ -36,7 +36,8 @@ export default function TeacherWelcome({ navigation }) {
 
   return (
     <View style={styles.background}>
-       <View style={styles.backinputview}>
+      <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+       {/* <View style={styles.backinputview}> */}
     <Pressable style={styles.button} onPress={async () => {
       navigation.navigate("Home page")
     }}>
@@ -47,7 +48,7 @@ export default function TeacherWelcome({ navigation }) {
         Go back
       </Text>
     </Pressable>
-  </View>
+  {/* </View> */}
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeText}>
             Welcome Teacher! </Text>
@@ -96,9 +97,9 @@ export default function TeacherWelcome({ navigation }) {
             </View>
           </Pressable>
       </View>
-      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
-      
+      {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -209,12 +210,13 @@ const styles = StyleSheet.create({
     width:  Dimensions.get('window').width / 3,
     flexDirection: 'row',
     padding: 15,
-    marginLeft: Dimensions.get('window').width / 3,
+    // marginLeft: Dimensions.get('window').width / 3,
     marginTop: Dimensions.get('window').height / 12,
     borderColor: '#03DAC5',
     borderRadius: 999,
     borderWidth: 2,
-    backgroundColor: '#2C2C2C'
+    backgroundColor: '#2C2C2C',
+    alignSelf: 'flex-start',
   },
   backinputview:{
     backgroundColor: '#1E1E1E',
@@ -222,5 +224,21 @@ const styles = StyleSheet.create({
     top: 0,
     right: 189,
   },
-
+  ewblogo:{
+    // right: Dimensions.get('window').width / -1.55,
+    // bottom: Dimensions.get('window').height / -20,
+    marginTop: Dimensions.get('window').height / 20,
+    marginBottom: Dimensions.get('window').height / -10,
+    alignSelf: 'flex-end',
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    // marginTop: Dimensions.get('window').height / 25,
+    // marginBottom: Dimensions.get('window').height/30,
+    alignSelf: 'center',
+    width: 150, 
+    height: 50, 
+    flex: 1,
+  },
 });

@@ -15,7 +15,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 export default function PreQ5({ navigation }) {
 	return (
 		<View style={styles.background}>
-			<View style={styles.backinputview}>
+			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+			{/* <View style={styles.backinputview}> */}
 				<Pressable
 					style={styles.button}
 					onPress={async () => {
@@ -27,7 +28,7 @@ export default function PreQ5({ navigation }) {
 					</View>
 					<Text style={styles.textButton}>Go back</Text>
 				</Pressable>
-				<Image
+				{/* <Image
 					source={require('../assets/EWB.png')}
 					style={{
 						width: 100,
@@ -35,8 +36,8 @@ export default function PreQ5({ navigation }) {
 						marginTop: 10,
 						alignSelf: 'center',
 					}}
-				/>
-			</View>
+				/> */}
+			{/* </View> */}
 
 			<Text style={styles.textCaption}>Global Literacy Rate</Text>
 			<Text style={styles.subtext}>
@@ -58,7 +59,7 @@ export default function PreQ5({ navigation }) {
 			</View>
 
 			<Text style={styles.sourceText}>
-				Srouce:{' '}
+				Source:{' '}
 				<Text
 					style={styles.sourceLink}
 					onPress={() =>
@@ -81,7 +82,7 @@ export default function PreQ5({ navigation }) {
 					<FontAwesome5 name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
-			<Image
+			{/* <Image
 				source={require('../assets/WFTW.png')}
 				style={{
 					width: 110,
@@ -89,8 +90,8 @@ export default function PreQ5({ navigation }) {
 					resizeMode: 'contain',
 					alignSelf: 'center',
 				}}
-			/>
-
+			/> */}
+			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
 			<StatusBar style="auto" />
 		</View>
 	);
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 10,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
 	},
 	subtext: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 30,
+		marginTop: Dimensions.get('window').height / 10,
 		textAlign: 'center',
 		fontSize: 15,
 		flexDirection: 'column',
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
 	},
 	sourceText: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 60,
+		marginTop: Dimensions.get('window').height / 20,
 	},
 	sourceLink: {
 		color: '#0044CC',
@@ -170,5 +171,19 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
+		alignSelf: 'flex-start',
 	},
+	ewblogo:{
+        right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -18,
+        width: 100, 
+        height: 50,
+		// alignSelf: 'flex-end',
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60, 
+      },
 });

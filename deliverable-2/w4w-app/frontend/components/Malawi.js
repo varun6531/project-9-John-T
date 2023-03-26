@@ -5,8 +5,21 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 export default function Malawi({ navigation }){
     return(
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+
+            <Pressable style={styles.button} onPress={async () => {
+                navigation.navigate("GameIns")
+                }}>
+                <View style={styles.arrow}>
+                    <FontAwesome5 name='angle-left' color='#03DAC5' size={15} />
+                </View>
+                <Text style={styles.textButton}>
+                    Go back
+                </Text>
+            </Pressable>
+
             <Text style={styles.textCaption}>Malawi</Text>
-            <Text style={styles.subtext} numberOfLines={7}>
+            <Text style={styles.subtext} numberOfLines={9}>
                 Languages: English, Chichewa, Chinyanja, Chiyao, and others {"\n"}
                 Life Expectancy: 62.2 Years {"\n"}
                 Median Income (CAD$): $1,200 {"\n"}
@@ -19,7 +32,7 @@ export default function Malawi({ navigation }){
                 1. XXXXXX put a piece of XXXX XXXXX of the filter, then put X XXXXX of XXXX plug XXXXX that. {"\n"}
                 2. Place XXX layers of fine XXXX over the XXX XXXX, followed by X layers of XXXXX sand, XXXXXXX by one XXXX each of fine XXXXX and XXXX gravel. {"\n"}
                 3. If XXX don’t have enough XXXXX then try different XXXXXXXXXXX. {"\n"}
-                4. Now, XXXX your water XXXXX to find out how well your XXXXXX works and XXXXX or not it’s XXXXX. {"\n"}
+                4. Now, XXXX your water XXXXX to find out how well your XXXXXX works and XXXXX or not it’s XXXXX.
             </Text>
             <Text style={styles.subtext2}>
                 Note: You will have difficulty reading this – this is due to the literacy rate in this country. {"\n"}
@@ -32,8 +45,9 @@ export default function Malawi({ navigation }){
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </View>
     );
 }
@@ -49,7 +63,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        marginTop: Dimensions.get('window').height / 80,
         height: Dimensions.get('window').height/12, 
         textAlign: 'center',
         fontSize: 30,
@@ -58,7 +72,7 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 64,
+        marginTop: Dimensions.get('window').height / 84,
         textAlign: 'left',
         fontSize: 16,
         flexDirection: 'column',
@@ -93,4 +107,27 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
+    button: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / -1.7,
+        marginTop: Dimensions.get('window').height / -200,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+      },
+    ewblogo:{
+        right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -15,
+        width: 100, 
+        height: 50, 
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60, 
+      },
 });

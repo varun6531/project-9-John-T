@@ -6,6 +6,18 @@ export default function CanFN({ navigation }){
     return(
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+            
+            <Pressable style={styles.button} onPress={async () => {
+                navigation.navigate("GameIns")
+                }}>
+                <View style={styles.arrow}>
+                    <FontAwesome5 name='angle-left' color='#03DAC5' size={15} />
+                </View>
+                <Text style={styles.textButton}>
+                    Go back
+                </Text>
+            </Pressable>
+
             <Text style={styles.textCaption}>Canada First Nations</Text>
             <Text style={styles.subtext} numberOfLines={7}>
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
@@ -82,6 +94,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
+    button: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / -1.7,
+        marginTop: Dimensions.get('window').height / -16,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+      },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -100,

@@ -64,7 +64,7 @@ export default function PreQ6({ navigation }) {
 								setModalVisible(!modalVisible);
 							}}
 						>
-							<Text style={styles.textButton}>Learned</Text>
+							<Text style={styles.textButton}>OK</Text>
 						</Pressable>
 					</View>
 				</View>

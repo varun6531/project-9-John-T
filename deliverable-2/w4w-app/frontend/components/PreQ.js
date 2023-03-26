@@ -13,7 +13,8 @@ import GetTypeAPI from '../apis/GetTypeAPI';
 export default function PreQ({ navigation }) {
     return (
         <View style={styles.background}>
-                <View style={styles.backinputview}>
+          <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+                {/* <View style={styles.backinputview}> */}
     <Pressable style={styles.button} onPress={async () => {
       let user = await AsyncStorage.getItem('user');
       if (user == null){
@@ -37,7 +38,7 @@ export default function PreQ({ navigation }) {
         Go back
       </Text>
     </Pressable>
-  </View>
+  {/* </View> */}
             <Text style={styles.textCaption}>Introduction</Text>
             <Text style={styles.subtext}>The Water for the World Workshop introduces participants to the issues of clean water access and how local economy, geography and literacy are all connected. Using this app, you will try to build a water filter to access clean water for yourself!</Text>
 
@@ -52,9 +53,9 @@ export default function PreQ({ navigation }) {
             </Pressable>
             
       </View>
-      <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/>
-      
+      {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
       <StatusBar style="auto" />
         </View>
     );
@@ -131,11 +132,26 @@ const styles = StyleSheet.create({
         width:  Dimensions.get('window').width / 3,
         flexDirection: 'row',
         padding: 15,
-        marginLeft: Dimensions.get('window').width / 3,
-        marginTop: Dimensions.get('window').height / 12,
+        // marginLeft: Dimensions.get('window').width / 3,
+        marginTop: Dimensions.get('window').height / -570,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
-        backgroundColor: '#2C2C2C'
+        backgroundColor: '#2C2C2C',
+        alignSelf: 'flex-start',
+      },
+      ewblogo:{
+        // right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -18,
+        width: 100, 
+        height: 50, 
+        alignSelf: 'flex-end'
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60,
+        // flex: 1, 
       },
 });

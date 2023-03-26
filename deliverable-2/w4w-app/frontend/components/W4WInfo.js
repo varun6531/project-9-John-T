@@ -11,8 +11,20 @@ export default function W4WInfoPage({ navigation }) {
 
   return (
     <View style={styles.background}>
+      <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+        <Pressable style={styles.button} onPress={async () => {
+          navigation.navigate("Home page")
+        }}>
+          <View style={styles.arrow}>
+            <Icon name='angle-left' color='#03DAC5' size={15} />
+          </View>
+          <Text style={styles.textButton}>
+            Go back
+          </Text>
+        </Pressable>
+
         <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Water for the World (W4W)</Text>
-        <Text numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>Workshops are delivered by the Engineers Without Borders (EWB) volunteers to school and university students across Canada. Workshops are also available for corporate and community events by contacting W4W at: </Text>
+        <Text numberOfLines={5}  style= {styles.textUnder}>Workshops are delivered by the Engineers Without Borders (EWB) volunteers to school and university students across Canada. Workshops are also available for corporate and community events by contacting W4W at: </Text>
         <Text numberOfLines={1} adjustsFontSizeToFit style= {styles.description}> Email</Text>
         <Pressable onPress={() => Linking.openURL('mailto:waterfortheworldworkshops@gmail.com')}>
         <Text style={styles.links}>waterfortheworldworkshops@gmail.com</Text>
@@ -33,7 +45,7 @@ export default function W4WInfoPage({ navigation }) {
         <Pressable onPress={() => Linking.openURL('https://waterfortheworldto.wordpress.com/contact/')}>
             <Text style={styles.links}>waterfortheworldto.wordpress.com/contact/</Text>
         </Pressable>
-      
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -54,7 +66,7 @@ const styles = StyleSheet.create({
     color: '#03DAC5',
     marginTop: Dimensions.get('window').height/30,
     textAlign:'center',
-    fontSize:18,
+    fontSize:14,
     marginLeft: Dimensions.get('window').width/ 12,
     marginRight: Dimensions.get('window').width/ 12,
   },
@@ -71,5 +83,45 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontSize:15,
     textDecorationLine: 'underline',
+  },
+  button: {
+    width:  Dimensions.get('window').width / 3,
+    flexDirection: 'row',
+    padding: 15,
+    // marginLeft: Dimensions.get('window').width / 3,
+    marginTop: Dimensions.get('window').height / 20,
+    alignSelf: 'flex-start',
+    borderColor: '#03DAC5',
+    borderRadius: 999,
+    borderWidth: 2,
+    backgroundColor: '#2C2C2C'
+  },
+  arrow:{
+    flex: 1,
+    marginTop: 2
+  },
+  textButton:{
+    color: '#03DAC5',
+    textAlign:'center',
+    fontSize:14,
+    fontWeight: 'bold',
+    flex: 5
+  },
+  ewblogo:{
+    // right: Dimensions.get('window').width / -1.55,
+    // bottom: Dimensions.get('window').height / -20,
+    marginTop: Dimensions.get('window').height / 15,
+    marginBottom: Dimensions.get('window').height / -9,
+    alignSelf: 'flex-end',
+    width: 100, 
+    height: 50, 
+  },
+  w4twlogo: {
+    // marginTop: Dimensions.get('window').height / 25,
+    // marginBottom: Dimensions.get('window').height/30,
+    alignSelf: 'center',
+    width: 200, 
+    height: 60, 
+    flex: 1,
   },
 });

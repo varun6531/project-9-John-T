@@ -45,7 +45,7 @@ export default function PreQ2({ navigation }) {
                     <View style={styles.modalContainer}>
                         <Text style ={ styles.answerView}> 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home {'\n'}</Text>
                         <Pressable style={styles.button2} numberOfLines={1} onPress={()=> {setModalVisible(!modalVisible)}}>
-                            <Text style={styles.textButton}>Learned</Text>
+                            <Text style={styles.textButton}>OK</Text>
                         </Pressable>
                     </View>
                 </View>
