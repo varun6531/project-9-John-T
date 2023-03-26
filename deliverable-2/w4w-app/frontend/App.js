@@ -20,8 +20,6 @@ import PreQ5 from './components/PreQ5';
 import PreQ6 from './components/PreQ6';
 import PreQ7 from './components/PreQ7';
 import PreQ8 from './components/PreQ8';
-import StudentHR from './components/StudentHR';
-import TeacherHR from './components/TeacherHR';
 import Game from './components/Game';
 import PostQ1 from './components/PostQ1';
 import GameIns from './components/GameInstructions';
@@ -69,8 +67,6 @@ export default function App() {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Student welcome" component={StudentWelcome} />
           <Stack.Screen name="Teacher welcome" component={TeacherWelcome} />
-          <Stack.Screen name="Student hr" component={StudentHR} />
-          <Stack.Screen name="Teacher hr" component={TeacherHR} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>
           <Stack.Screen name="Thank you" component={ThankYou}/>
           <Stack.Screen name="Tynl" component={TYNL}/>
