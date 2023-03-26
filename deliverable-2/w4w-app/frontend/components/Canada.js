@@ -2,10 +2,24 @@ import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
+
+
 export default function Canada({ navigation }){
     return(
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+
+            <Pressable style={styles.button} onPress={async () => {
+                navigation.navigate("GameIns")
+                }}>
+                <View style={styles.arrow}>
+                    <FontAwesome5 name='angle-left' color='#03DAC5' size={15} />
+                </View>
+                <Text style={styles.textButton}>
+                    Go back
+                </Text>
+            </Pressable>
+
             <Text style={styles.textCaption}>Canada</Text>
             <Text style={styles.subtext} numberOfLines={7}>
                 Languages: English, French {"\n"}
@@ -85,6 +99,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
+    button: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: Dimensions.get('window').width / -1.7,
+        marginTop: Dimensions.get('window').height / -16,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+      },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -100,
