@@ -115,15 +115,15 @@ const styles = StyleSheet.create({
   ewblogo:{
     right: Dimensions.get('window').width / -1.45,
     bottom: Dimensions.get('window').height / -15,
-    width: 100, 
-    height: 50, 
+    width: Dimensions.get('window').width / 5,
+    height: Dimensions.get('window').height / 17.5,
   },
   w4twlogo: {
     // marginTop: Dimensions.get('window').height / 25,
     // marginBottom: Dimensions.get('window').height/30,
     alignSelf: 'center',
-    width: 150, 
-    height: 60, 
+    width: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').height / 4,
     flex: 1,
   },
 });
