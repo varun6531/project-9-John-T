@@ -115,11 +115,11 @@ const styles = StyleSheet.create({
     // {margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}
     alignSelf: 'center',
     marginTop: Dimensions.get('window').height / 50,
-    marginBottom: Dimensions.get('window').height/ 250,
-    marginLeft: Dimensions.get('window').width / 12,
-    marginRight: Dimensions.get('window').width / 12,
-    width: Dimensions.get('window').width / 2,
-    height: Dimensions.get('window').height / 4,
+    marginBottom: Dimensions.get('window').height/ 270,
+    // marginLeft: Dimensions.get('window').width / 12,
+    // marginRight: Dimensions.get('window').width / 12,
+    width: Dimensions.get('window').width / 1.75,
+    height: Dimensions.get('window').height / 3.2,
   },
   ewblogo:{
     right: Dimensions.get('window').width / -1.45,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   w4twlogo: {
     // marginTop: Dimensions.get('window').height / 25,
-    // marginBottom: Dimensions.get('window').height/30,
+    // marginBottom: Dimensions.get('window').height/70,
     alignSelf: 'center',
     width: 150, 
     height: 60, 
