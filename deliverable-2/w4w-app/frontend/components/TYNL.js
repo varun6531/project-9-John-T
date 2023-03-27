@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function TYNL({ navigation }){
     return(
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}> Great Job! </Text>
 
             <Text style={styles.subtext} numberOfLines={7}>
@@ -29,7 +30,6 @@ export default function TYNL({ navigation }){
             </View>
 
             <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
         </View>
     );
 }
@@ -86,5 +86,15 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex:5,
+      },
+      ewblogo:{
+        // right: Dimensions.get('window').width / -1.55,
+        // bottom: Dimensions.get('window').height / -20,
+        marginTop: Dimensions.get('window').height / 20,
+        marginBottom: Dimensions.get('window').height / -10,
+        marginRight: Dimensions.get('window').width / 15,
+        alignSelf: 'flex-end',
+        width: Dimensions.get('window').width / 5,
+        height: Dimensions.get('window').height / 17.5,
       },
 });
