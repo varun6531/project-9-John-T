@@ -341,9 +341,9 @@ export default function Game({ route, navigation }) {
             </Text>
           </Pressable>
           <Pressable style={styles.button2} onPress={() => {
-              var result = 'dirty';
+              var result = '0';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
-                result = '100% clean';
+                result = '100';
                 navigation.navigate("result100", { result: result })
               } 
               else if(
@@ -354,7 +354,7 @@ export default function Game({ route, navigation }) {
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
-                result = '90% clean';
+                result = '90';
                 navigation.navigate("result90",{ result: result })
               }
               
@@ -378,9 +378,9 @@ export default function Game({ route, navigation }) {
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
                 )
                 {
-                  result = '80% clean';
+                  result = '80';
                 } else{
-                  result= 'LESS THAN 80% clean';
+                  result= '0';
                 }
                 navigation.navigate("result80less", { result: result })
               }
