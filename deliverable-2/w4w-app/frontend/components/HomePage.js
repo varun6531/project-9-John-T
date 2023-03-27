@@ -115,8 +115,11 @@ const styles = StyleSheet.create({
     // {margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}
     alignSelf: 'center',
     marginTop: Dimensions.get('window').height / 50,
-    width: 220,
-    height: 220,
+    marginBottom: Dimensions.get('window').height/ 250,
+    marginLeft: Dimensions.get('window').width / 12,
+    marginRight: Dimensions.get('window').width / 12,
+    width: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').height / 4,
   },
   ewblogo:{
     right: Dimensions.get('window').width / -1.45,
