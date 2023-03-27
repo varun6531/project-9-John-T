@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 84,
+        marginTop: Dimensions.get('window').height / -80,
         textAlign: 'left',
         fontSize: 16,
         flexDirection: 'column',

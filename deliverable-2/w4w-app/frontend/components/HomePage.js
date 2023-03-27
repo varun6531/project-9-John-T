@@ -12,9 +12,11 @@ export default function HomePage({ navigation }) {
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
       <Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
         This app supports the purpose of{'\n'}
-        <Pressable onPress={() => navigation.navigate("W4W Info")}>
-          <Text style={{ textDecorationLine: 'underline', color: 'lightblue', fontSize: 18}}>Water for the World Workshop</Text>
-        </Pressable>
+        <View style={styles.urls}>
+            <Pressable onPress={() => navigation.navigate("W4W Info")}>
+            <Text style={{ textDecorationLine: 'underline', color: 'lightblue', fontSize: 18}}>Water for the World Workshop</Text>
+            </Pressable>
+        </View>
         {'\n'} - to introduce the issues surrounding clean drinking water in different parts of the world.
       </Text>
       
@@ -65,8 +67,13 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height/55,
     textAlign:'center',
     fontSize:18,
-    marginLeft: Dimensions.get('window').width/ 12,
-    marginRight: Dimensions.get('window').width/ 12,
+    marginHorizontal: Dimensions.get('window').width/ 12,
+    // marginRight: Dimensions.get('window').width/ 12,
+  },
+  urls:{
+    marginHorizontal: Dimensions.get('window').width/ 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textButton:{
     color: '#03DAC5',
@@ -78,8 +85,9 @@ const styles = StyleSheet.create({
   button: {
     width:  Dimensions.get('window').width / 3,
     flexDirection: 'row',
-    padding: 15,
-    marginLeft: Dimensions.get('window').width / 3,
+    padding: 12,
+    alignSelf:'center',
+    // marginLeft: Dimensions.get('window').width / 3,
     marginTop: Dimensions.get('window').height / 95,
     borderColor: '#03DAC5',
     borderRadius: 999,
@@ -87,11 +95,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   button2: {
-    width:  Dimensions.get('window').width / 2,
+    width:  Dimensions.get('window').width / 1.5,
     flexDirection: 'row',
-    padding: 15,
-    marginLeft: Dimensions.get('window').width / 4,
+    padding: 12,
+    //marginLeft: Dimensions.get('window').width / 4,
     marginTop: Dimensions.get('window').height / 45,
+    alignSelf:'center',
     // marginBottom: Dimensions.get('window').height/ -4,
     borderColor: '#03DAC5',
     borderRadius: 999,
@@ -106,8 +115,8 @@ const styles = StyleSheet.create({
     // {margin:30, left: 0, top: 0, width: 250, height: 250, alignSelf: 'center'}
     alignSelf: 'center',
     marginTop: Dimensions.get('window').height / 50,
-    width: 250,
-    height: 250,
+    width: 220,
+    height: 220,
   },
   ewblogo:{
     right: Dimensions.get('window').width / -1.45,

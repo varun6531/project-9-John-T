@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         height: 50, 
     },
     w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+        bottom: Dimensions.get('window').height / -30,
         alignItems: 'center',
         width: 120, 
         height: 60, 

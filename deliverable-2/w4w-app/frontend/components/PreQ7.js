@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 10,
+		marginTop: Dimensions.get('window').height / 15,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -283,8 +283,8 @@ const styles = StyleSheet.create({
         width: 100, 
         height: 50, 
       },
-      w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 250,
         alignItems: 'center',
         width: 120, 
         height: 60, 

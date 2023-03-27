@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 	},
 	subtext: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 10,
+		marginTop: Dimensions.get('window').height / 25,
 		textAlign: 'center',
 		fontSize: 15,
 		flexDirection: 'column',
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 	},
 	sourceText: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 50,
 	},
 	sourceLink: {
 		color: '#0044CC',
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 30,
+		marginTop: Dimensions.get('window').height / 15,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -180,8 +180,8 @@ const styles = StyleSheet.create({
         height: 50,
 		// alignSelf: 'flex-end',
       },
-      w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+    w4twlogo: {
+        bottom: Dimensions.get('window').height /-50,
         alignItems: 'center',
         width: 120, 
         height: 60, 

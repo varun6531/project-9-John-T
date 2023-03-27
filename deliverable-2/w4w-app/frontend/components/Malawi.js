@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 84,
+        marginTop: Dimensions.get('window').height / -80,
         textAlign: 'left',
-        fontSize: 16,
+        fontSize: 15,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.25,
     },
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         height: 50, 
       },
       w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+        bottom: Dimensions.get('window').height / 150,
         alignItems: 'center',
         width: 120, 
         height: 60, 
