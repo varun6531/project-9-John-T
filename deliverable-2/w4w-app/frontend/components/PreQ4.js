@@ -20,7 +20,7 @@ export default function PreQ3({ navigation }) {
 		{ id: 3, country: 'Ghana', literacy: '79.04%' },
 		{ id: 4, country: 'Kuwait', literacy: '96.46%' },
 		{ id: 5, country: 'Malawi', literacy: '62.14%' },
-		{ id: 6, country: 'kenya', literacy: '81.54%' },
+		{ id: 6, country: 'Kenya', literacy: '81.54%' },
 		{ id: 7, country: 'South Africa', literacy: '95.02%' },
 	];
 

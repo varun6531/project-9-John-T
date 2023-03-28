@@ -812,9 +812,9 @@ const styles = StyleSheet.create({
 		// alignSelf: 'flex-start',
 	},
   w4twlogo: {
-    bottom: Dimensions.get('window').height / 112,
-    alignItems: 'center',
-    width: 120, 
-    height: 60, 
-}
+      bottom: Dimensions.get('window').height / 112,
+      alignItems: 'center',
+      width: 120, 
+      height: 60, 
+    }
 });

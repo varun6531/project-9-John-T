@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 10,
+		marginTop: Dimensions.get('window').height / 8,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 	},
 	subtext: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 25,
+		marginTop: Dimensions.get('window').height / 15,
 		textAlign: 'center',
 		fontSize: 15,
 		flexDirection: 'column',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
 		// alignSelf: 'flex-end',
       },
     w4twlogo: {
-        bottom: Dimensions.get('window').height /-50,
+        bottom: Dimensions.get('window').height / 180,
         alignItems: 'center',
         width: 120, 
         height: 60, 
