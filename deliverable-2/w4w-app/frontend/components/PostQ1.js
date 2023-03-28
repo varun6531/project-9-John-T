@@ -27,15 +27,10 @@ export default function PostQ1({ navigation }){
 
 <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
     {/* <View style={styles.backinputview}> */}
-    <Pressable style={styles.buttoninput} onPress={async () => {
+    <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
       navigation.navigate("Game")
     }}>
-      <View style={styles.arrow}>
-        <Icon name='angle-left' color='#03DAC5' size={15} />
-      </View>
-      <Text style={styles.textButton}>
-        Go back
-      </Text>
+      <Icon name='arrow-left' color='#03DAC5' size={25} />
     </Pressable>
   {/* </View> */}
                 <Text style={styles.textCaption}>Question 1</Text>

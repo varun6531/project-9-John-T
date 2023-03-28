@@ -12,15 +12,10 @@ export default function W4WInfoPage({ navigation }) {
   return (
     <View style={styles.background}>
       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
-        <Pressable style={styles.button} onPress={async () => {
+      <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
           navigation.navigate("Home page")
         }}>
-          <View style={styles.arrow}>
-            <Icon name='angle-left' color='#03DAC5' size={15} />
-          </View>
-          <Text style={styles.textButton}>
-            Go back
-          </Text>
+          <Icon name='arrow-left' color='#03DAC5' size={25} />
         </Pressable>
 
         <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Water for the World (W4W)</Text>

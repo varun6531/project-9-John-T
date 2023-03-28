@@ -20,15 +20,10 @@ export default function StudentSignup({ navigation }) {
     <View style={styles.background}>
       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
       {/* <View style={styles.backinputview}> */}
-      <Pressable style={styles.button} onPress={async () => {
+      <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2, marginTop: Dimensions.get('window').height/50}} onPress={async () => {
         navigation.navigate("Sign in")
       }}>
-        <View style={styles.arrow}>
-          <Icon name='angle-left' color='#03DAC5' size={15} />
-        </View>
-        <Text style={styles.textButton}>
-          Go back
-        </Text>
+        <Icon name='arrow-left' color='#03DAC5' size={25} />
       </Pressable>
   {/* </View> */}
       <Icon name='user-graduate' color='#03DAC5' size={50} style={styles.icon}/>
@@ -232,7 +227,7 @@ const styles = StyleSheet.create({
   },
   w4twlogo: {
     // marginTop: Dimensions.get('window').height / 25,
-    // marginBottom: Dimensions.get('window').height/30,
+    marginBottom: Dimensions.get('window').height/20,
     alignSelf: 'center',
     width: Dimensions.get('window').width / 3,
     height: Dimensions.get('window').height / 5,

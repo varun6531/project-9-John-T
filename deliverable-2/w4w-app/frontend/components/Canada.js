@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput} from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 
@@ -9,15 +10,8 @@ export default function Canada({ navigation }){
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
-            <Pressable style={styles.button} onPress={async () => {
-                navigation.navigate("GameIns")
-                }}>
-                <View style={styles.arrow}>
-                    <FontAwesome5 name='angle-left' color='#03DAC5' size={15} />
-                </View>
-                <Text style={styles.textButton}>
-                    Go back
-                </Text>
+            <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {navigation.navigate("GameIns");}}>
+                <Icon name='arrow-left' color='#03DAC5' size={25} />
             </Pressable>
 
             <Text style={styles.textCaption}>Canada</Text>

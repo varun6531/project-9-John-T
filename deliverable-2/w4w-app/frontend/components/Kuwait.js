@@ -1,22 +1,17 @@
 import React, { Component } from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Kuwait({ navigation }){
     return(
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
-            <Pressable style={styles.button} onPress={async () => {
+            <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
                 navigation.navigate("GameIns")
                 }}>
-                <View style={styles.arrow}>
-                    <FontAwesome5 name='angle-left' color='#03DAC5' size={15} />
-                </View>
-                <Text style={styles.textButton}>
-                    Go back
-                </Text>
+                <Icon name='arrow-left' color='#03DAC5' size={25} />
             </Pressable>
 
             <Text style={styles.textCaption}>Kuwait</Text>
@@ -58,7 +53,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        marginTop: Dimensions.get('window').height / 56,
         height: Dimensions.get('window').height/12, 
         textAlign: 'center',
         fontSize: 30,
@@ -107,7 +102,7 @@ const styles = StyleSheet.create({
     },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
-        bottom: Dimensions.get('window').height / -100,
+        bottom: Dimensions.get('window').height / -50,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
     },

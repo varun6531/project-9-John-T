@@ -17,16 +17,12 @@ export default function PreQ8({ navigation }) {
 		<View style={styles.background}>
 			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 			{/* <View style={styles.backinputview}> */}
-				<Pressable
-					style={styles.button}
+			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
 					onPress={async () => {
 						navigation.navigate('Pre questionnaire 7');
 					}}
 				>
-					<View style={styles.arrow}>
-						<Icon name="angle-left" color="#03DAC5" size={15} />
-					</View>
-					<Text style={styles.textButton}>Go back</Text>
+					<Icon name='arrow-left' color='#03DAC5' size={25} />
 				</Pressable>
 				{/* <Image
 					source={require('../assets/EWB.png')}
@@ -114,7 +110,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 30,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',
