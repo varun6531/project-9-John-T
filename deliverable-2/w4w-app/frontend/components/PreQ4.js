@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 35,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 30,
+		marginTop: Dimensions.get('window').height / 75,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
         height: 50, 
       },
       w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+        bottom: Dimensions.get('window').height / 200,
         alignItems: 'center',
         width: 120, 
         height: 60, 

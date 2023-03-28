@@ -133,10 +133,11 @@ const styles = StyleSheet.create({
     },
     subtext2: {
       color: '#03DAC5',
-      marginTop: Dimensions.get('window').height / 200,
+      marginTop: Dimensions.get('window').height / 60,
       textAlign: 'center',
       fontSize: 16,
       flexDirection: 'column',
+      fontWeight: 'bold',
       width: Dimensions.get('window').width / 2,
   },
     skipContainer: {
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
         width:  Dimensions.get('window').width / -1.5,
         marginTop: Dimensions.get('window').height / 50,
         flexDirection: 'row',
-        padding: 12,
+        padding: 8,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,

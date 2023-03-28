@@ -115,7 +115,7 @@ export default function PreQ3({ navigation }) {
 					style={{
 						width: Dimensions.get('window').width,
 						height: Dimensions.get('window').height / 5,
-						marginTop: Dimensions.get('window').height / 50,
+						marginTop: Dimensions.get('window').height / 55,
 						resizeMode: 'contain',
 					}}
 				/>
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 35,
 		textAlign: 'center',
 		fontSize: 20,
 		fontWeight: 'bold',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 10,
+		marginTop: Dimensions.get('window').height / 25,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -285,8 +285,8 @@ const styles = StyleSheet.create({
         width: 100, 
         height: 50, 
       },
-      w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 200,
         alignItems: 'center',
         width: 120, 
         height: 60, 
