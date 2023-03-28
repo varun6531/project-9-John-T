@@ -16,13 +16,13 @@ export default function Game({ route, navigation }) {
 
   // Money and material cost
   const [money, setMoney] = useState(moneyVal);
-  const cheeseClothVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
-  const cottonVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
-  const coarseGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
-  const fineGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
+  const cheeseClothVal = (country == 'canadaFN')? 25: 5;
+  const cottonVal = (country == 'canadaFN')? 25: 5;
+  const coarseGravelVal = (country == 'canadaFN')? 50: 10;
+  const fineGravelVal = (country == 'canadaFN')? 50: 10;
   const rubberBandVal = 25;
-  const coarseSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
-  const fineSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
+  const coarseSandVal = (country == 'canadaFN')? 100: 20;
+  const fineSandVal = (country == 'canadaFN')? 100: 20;
 
 
   // Pointers to the selected material and its corresponding image
