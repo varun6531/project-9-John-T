@@ -442,6 +442,7 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -547,13 +548,13 @@ const styles = StyleSheet.create({
   buttonLayer:{
     flexDirection: 'row',
     marginTop: -Dimensions.get('window').height*1/20,
-    marginBottom: Dimensions.get('window').height*1/50,
+    marginBottom: Dimensions.get('window').height*1/30,
     justifyContent: 'center',
     alignItems: 'center'
   },
   button: {
-    height: '75%',
-    paddingTop: 15,
+    height: '60%',
+    paddingTop: 11,
     paddingLeft: 20,
     paddingRight: 20,
     marginLeft: 30,
@@ -650,4 +651,10 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2C2C2C',
 		// alignSelf: 'flex-start',
 	},
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: 120, 
+        height: 60, 
+    }
 });
