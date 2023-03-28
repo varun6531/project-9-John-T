@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     // marginTop: Dimensions.get('window').height / 25,
     // marginBottom: Dimensions.get('window').height/70,
     alignSelf: 'center',
-    width: Dimensions.get('window').width / 2,
-    height: Dimensions.get('window').height / 4,
-    flex: 1,
+    width: 120,
+    height: 60,
+    bottom: Dimensions.get('window').height / -80,
   },
 });
