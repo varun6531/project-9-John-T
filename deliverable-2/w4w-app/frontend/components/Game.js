@@ -142,7 +142,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter1(null);
                 if(filtermat1 != 'none'){
                   // get cost of filtermat1
-                  Material1Cost = 0;
+                  let Material1Cost = 0;
                   if(filtermat1 == 'cheeseCloth'){
                     Material1Cost = cheeseClothVal;
                   }
@@ -182,7 +182,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter2(null);
                 if(filtermat2 != 'none'){
                   // get cost of filtermat2
-                  Material2Cost = 0;
+                  let Material2Cost = 0;
                   if(filtermat2 == 'cheeseCloth'){
                     Material2Cost = cheeseClothVal;
                   }
@@ -221,7 +221,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter3(null);
                 if(filtermat3 != 'none'){
                   // get cost of filtermat3
-                  Material3Cost = 0;
+                  let Material3Cost = 0;
                   if(filtermat3 == 'cheeseCloth'){
                     Material3Cost = cheeseClothVal;
                   }
@@ -260,7 +260,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter4(null);
                 if(filtermat4 != 'none'){
                   // get cost of filtermat4
-                  Material4Cost = 0;
+                  let Material4Cost = 0;
                   if(filtermat4 == 'cheeseCloth'){
                     Material4Cost = cheeseClothVal;
                   }
@@ -299,7 +299,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter5(null);
                 if(filtermat5 != 'none'){
                   // get cost of filtermat5
-                  Material5Cost = 0;
+                  let Material5Cost = 0;
                   if(filtermat5 == 'cheeseCloth'){
                     Material5Cost = cheeseClothVal;
                   }
@@ -338,7 +338,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter6(null);
                 if(filtermat6 != 'none'){
                   // get cost of filtermat6
-                  Material6Cost = 0;
+                  let Material6Cost = 0;
                   if(filtermat6 == 'cheeseCloth'){
                     Material6Cost = cheeseClothVal;
                   }
@@ -379,7 +379,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter7(null);
                 if(filtermat7 != 'none'){
                   // get cost of filtermat7
-                  Material7Cost = 0;
+                  let Material7Cost = 0;
                   if(filtermat7 == 'cheeseCloth'){
                     Material7Cost = cheeseClothVal;
                   }
@@ -418,7 +418,7 @@ export default function Game({ route, navigation }) {
               onLongPress={() => {setfilter8(null);
                 if(filtermat8 != 'none'){
                   // get cost of filtermat8
-                  Material8Cost = 0;
+                  let Material8Cost = 0;
                   if(filtermat8 == 'cheeseCloth'){
                     Material8Cost = cheeseClothVal;
                   }
