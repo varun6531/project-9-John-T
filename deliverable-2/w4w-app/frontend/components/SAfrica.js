@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
     ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -15,
-        width: 100, 
-        height: 50, 
+        width: Dimensions.get('window').width / 5,
+    	height: Dimensions.get('window').height / 17.5, 
       },
       w4twlogo: {
         bottom: Dimensions.get('window').height / -50,
         alignItems: 'center',
-        width: 120, 
-        height: 60, 
+        width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5, 
       },
 });
