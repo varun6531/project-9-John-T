@@ -1,15 +1,15 @@
-import { Dimensions, StyleSheet, Text, View, Image, Button} from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Image, Button, Pressable} from 'react-native';
 import { useEffect } from 'react'
 
 
 export default function Intro({ navigation }) {
-  useEffect(() => {setTimeout(() => navigation.navigate("Home page"), 1000);}, []);
+  useEffect(() => {setTimeout(() => navigation.navigate("Home page"), 3000);}, []);
   return (
-    <View style={styles.background}>
+    <Pressable onPress={() => {navigation.navigate("Home page");}} style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Presented by:</Text>
       <Image source={require('../assets/WFTW.png')} style={styles.imageTop}/>
       <Image source={require('../assets/EWB.png')} style={styles.imageBottom}/>
-    </View>
+    </Pressable>
   );
 }
 
