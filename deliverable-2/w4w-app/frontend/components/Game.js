@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Game({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const { moneyVal } = route.params;
+  const { moneyVal, country } = route.params;
 
   // Images of the filter materials
   const fineSandImg = require('../assets/fineSand.jpeg');
@@ -16,13 +16,13 @@ export default function Game({ route, navigation }) {
 
   // Money and material cost
   const [money, setMoney] = useState(moneyVal);
-  const cheeseClothVal = 25;
-  const cottonVal = 25;
-  const coarseGravelVal = 50;
-  const fineGravelVal = 50;
+  const cheeseClothVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
+  const cottonVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
+  const coarseGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
+  const fineGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
   const rubberBandVal = 25;
-  const coarseSandVal = 100;
-  const fineSandVal = 100;
+  const coarseSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
+  const fineSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
 
 
   // Pointers to the selected material and its corresponding image
@@ -122,7 +122,29 @@ export default function Game({ route, navigation }) {
   return (
     <View style={styles.background}>
       <View style={styles.backBox}>
-        <Pressable onPress={async () => {navigation.navigate("Canada")}}>
+        <Pressable onPress={async () => {
+          if(country == 'canada'){
+            navigation.navigate("Canada");
+          }
+          else if(country=='canadaFN'){
+            navigation.navigate("CanFN");
+          }
+          else if(country=='ghana'){
+            navigation.navigate("Ghana");
+          }
+          else if(country=='kenya'){
+            navigation.navigate("Kenya");
+          }
+          else if(country=='kuwait'){
+            navigation.navigate("Kuwait");
+          }
+          else if(country=='malawi'){
+            navigation.navigate("Malawi");
+          }
+          else if(country=='SA'){
+            navigation.navigate("SAfrica");
+          }
+          }}>
           <Icon name='arrow-left' color='#03DAC5' size={25} />
         </Pressable>
         <Text style={styles.moneyText}>Money: {money}</Text>
@@ -462,7 +484,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(false);
             }}>
               <Text style={styles.textButton}>
-                Fine Sand
+                Fine Sand (${fineSandVal})
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: coarseSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
@@ -477,7 +499,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(false);
             }}>
               <Text style={styles.textButton}>
-                Coarse Sand
+                Coarse Sand (${coarseSandVal})
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: fineGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
@@ -492,7 +514,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(false);
             }}>
               <Text style={styles.textButton}>
-                Fine Gravel
+                Fine Gravel (${fineGravelVal})
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: coarseGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
@@ -507,7 +529,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(false);
             }}>
               <Text style={styles.textButton}>
-                Coarse Gravel
+                Coarse Gravel (${coarseGravelVal})
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: cotton? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
@@ -522,7 +544,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(false);
             }}>
               <Text style={styles.textButton}>
-                Cotton
+                Cotton (${cottonVal})
               </Text>
             </Pressable>
             <Pressable style={[styles.button, {borderColor: cheeseCloth? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
@@ -537,7 +559,7 @@ export default function Game({ route, navigation }) {
               setCheeseCloth(true);
             }}>
               <Text style={styles.textButton}>
-                Cheese Cloth
+                Cheese Cloth (${cheeseClothVal})
               </Text>
             </Pressable>
           </ScrollView>
@@ -552,7 +574,6 @@ export default function Game({ route, navigation }) {
               var result = '0';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
                 result = '100';
-                navigation.navigate("result100", { result: result })
               } 
               else if(
                 (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
@@ -563,11 +584,9 @@ export default function Game({ route, navigation }) {
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
                 result = '90';
-                navigation.navigate("result90",{ result: result })
               }
-              
-              else{
-                if ((filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
+              else if(
+                  (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 != 'cotton' && filtermat8 == 'cheeseCloth')
                 || (filtermat1!='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
                 || (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 !='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
@@ -587,13 +606,10 @@ export default function Game({ route, navigation }) {
                 )
                 {
                   result = '80';
-                } else{
-                  result= '0';
                 }
-                navigation.navigate("result80less", { result: result })
+                navigation.navigate("result100", { result: result })
               }
-            }
-          }>
+            }>
             <Text style={styles.textButton}>
               Test Filter
             </Text>
@@ -602,7 +618,6 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
-        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -714,7 +729,8 @@ const styles = StyleSheet.create({
   },
   button: {
     height: '60%',
-    paddingTop: 11,
+    paddingTop: 10,
+    paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
     marginLeft: 30,

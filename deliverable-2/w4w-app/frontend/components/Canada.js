@@ -37,7 +37,7 @@ export default function Canada({ navigation }){
             </Text>
             {/* <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {country: "Canada"})}>
              */}
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 500})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 500, country: 'canada'})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

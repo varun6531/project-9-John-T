@@ -37,7 +37,7 @@ export default function GameTest({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate('GameIns')}>
                 <Text style={styles.textButton}>
                     Retry game
                 </Text>

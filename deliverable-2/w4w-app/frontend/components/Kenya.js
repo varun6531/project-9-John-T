@@ -37,7 +37,7 @@ export default function Kenya({ navigation }){
             <Text style={styles.subtext2}>
                 Note: You will have difficulty reading this – this is due to the literacy rate in this country. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 30})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 30, country: 'kenya'})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>
