@@ -83,3 +83,15 @@ class SendEmailView(APIView):
         recipient_list = [teacher_email]
         send_mail(subject, message, email_from, recipient_list)
         return Response("Email sent")
+
+
+class EmailInfoView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user_name = request.user.first_name + " " + request.user.last_name
+        if not request.user.homeroom_id:
+            return Response({"message": "User don't have a homeroom", "user_name": user_name}, status=400)
+        user_homeroom = homeroom.objects.get(homeroom_id=request.user.homeroom_id)
+        teacher_email = user_homeroom.teacher_id
+        return Response({"name": user_name, "teacher_email": teacher_email, "homeroom": request.user.homeroom_id})
