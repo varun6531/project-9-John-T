@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 80,
+        marginTop: Dimensions.get('window').height / 120,
         height: Dimensions.get('window').height/12, 
         textAlign: 'center',
         fontSize: 30,
