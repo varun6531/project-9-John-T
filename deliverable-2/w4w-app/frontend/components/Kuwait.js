@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        marginTop: Dimensions.get('window').height / 56,
         height: Dimensions.get('window').height/12, 
         textAlign: 'center',
         fontSize: 30,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
-        bottom: Dimensions.get('window').height / -100,
+        bottom: Dimensions.get('window').height / -50,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
     },
