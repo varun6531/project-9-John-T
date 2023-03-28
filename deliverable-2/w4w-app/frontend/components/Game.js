@@ -153,7 +153,30 @@ export default function Game({ route, navigation }) {
       <View style={styles.filter}>
             <Pressable style = {styles.upperSpace} onPress={() => {
               if(money >= currentMaterialCost && filtermat1 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat1
+                let Material1Cost;
+                if (filtermat1 == 'none'){
+                  Material1Cost = 0;
+                }
+                else if(filtermat1 == 'cheeseCloth'){
+                  Material1Cost = cheeseClothVal;
+                }
+                else if(filtermat1 == 'cotton'){
+                  Material1Cost = cottonVal;
+                }
+                else if(filtermat1 == 'coarseGravel'){
+                  Material1Cost = coarseGravelVal;
+                }
+                else if(filtermat1 == 'fineGravel'){
+                  Material1Cost = fineGravelVal;
+                }
+                else if(filtermat1 == 'coarseSand'){
+                  Material1Cost = coarseSandVal;
+                }
+                else if(filtermat1 == 'fineSand'){
+                  Material1Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material1Cost);
                 setfilter1(currentMaterialImg); 
                 setfiltermat1(currentMaterial);
               }
@@ -193,7 +216,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.upperSpace}   onPress={() => {
               if(money >= currentMaterialCost && filtermat2 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat2
+                let Material2Cost;
+                if (filtermat2 == 'none'){
+                  Material2Cost = 0;
+                }
+                else if(filtermat2 == 'cheeseCloth'){
+                  Material2Cost = cheeseClothVal;
+                }
+                else if(filtermat2 == 'cotton'){
+                  Material2Cost = cottonVal;
+                }
+                else if(filtermat2 == 'coarseGravel'){
+                  Material2Cost = coarseGravelVal;
+                }
+                else if(filtermat2 == 'fineGravel'){
+                  Material2Cost = fineGravelVal;
+                }
+                else if(filtermat2 == 'coarseSand'){
+                  Material2Cost = coarseSandVal;
+                }
+                else if(filtermat2 == 'fineSand'){
+                  Material2Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material2Cost);
                 setfilter2(currentMaterialImg); 
                 setfiltermat2(currentMaterial);
               }
@@ -233,7 +279,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {
               if(money >= currentMaterialCost && filtermat3 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat3
+                let Material3Cost;
+                if (filtermat3 == 'none'){
+                  Material3Cost = 0;
+                }
+                else if(filtermat3 == 'cheeseCloth'){
+                  Material3Cost = cheeseClothVal;
+                }
+                else if(filtermat3 == 'cotton'){
+                  Material3Cost = cottonVal;
+                }
+                else if(filtermat3 == 'coarseGravel'){
+                  Material3Cost = coarseGravelVal;
+                }
+                else if(filtermat3 == 'fineGravel'){
+                  Material3Cost = fineGravelVal;
+                }
+                else if(filtermat3 == 'coarseSand'){
+                  Material3Cost = coarseSandVal;
+                }
+                else if(filtermat3 == 'fineSand'){
+                  Material3Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material3Cost);
                 setfilter3(currentMaterialImg); 
                 setfiltermat3(currentMaterial);
               }
@@ -272,7 +341,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {
               if(money >= currentMaterialCost && filtermat4 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat4
+                let Material4Cost;
+                if (filtermat4 == 'none'){
+                  Material4Cost = 0;
+                }
+                else if(filtermat4 == 'cheeseCloth'){
+                  Material4Cost = cheeseClothVal;
+                }
+                else if(filtermat4 == 'cotton'){
+                  Material4Cost = cottonVal;
+                }
+                else if(filtermat4 == 'coarseGravel'){
+                  Material4Cost = coarseGravelVal;
+                }
+                else if(filtermat4 == 'fineGravel'){
+                  Material4Cost = fineGravelVal;
+                }
+                else if(filtermat4 == 'coarseSand'){
+                  Material4Cost = coarseSandVal;
+                }
+                else if(filtermat4 == 'fineSand'){
+                  Material4Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material4Cost);
                 setfilter4(currentMaterialImg); 
                 setfiltermat4(currentMaterial);
               }
@@ -311,7 +403,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.upperSpace}  onPress={() => {
               if(money >= currentMaterialCost && filtermat5 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat5
+                let Material5Cost;
+                if (filtermat5 == 'none'){
+                  Material5Cost = 0;
+                }
+                else if(filtermat5 == 'cheeseCloth'){
+                  Material5Cost = cheeseClothVal;
+                }
+                else if(filtermat5 == 'cotton'){
+                  Material5Cost = cottonVal;
+                }
+                else if(filtermat5 == 'coarseGravel'){
+                  Material5Cost = coarseGravelVal;
+                }
+                else if(filtermat5 == 'fineGravel'){
+                  Material5Cost = fineGravelVal;
+                }
+                else if(filtermat5 == 'coarseSand'){
+                  Material5Cost = coarseSandVal;
+                }
+                else if(filtermat5 == 'fineSand'){
+                  Material5Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material5Cost);
                 setfilter5(currentMaterialImg); 
                 setfiltermat5(currentMaterial);
               }
@@ -350,7 +465,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.upperSpace2} onPress={() => {
               if(money >= currentMaterialCost && filtermat6 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat6
+                let Material6Cost;
+                if (filtermat6 == 'none'){
+                  Material6Cost = 0;
+                }
+                else if(filtermat6 == 'cheeseCloth'){
+                  Material6Cost = cheeseClothVal;
+                }
+                else if(filtermat6 == 'cotton'){
+                  Material6Cost = cottonVal;
+                }
+                else if(filtermat6 == 'coarseGravel'){
+                  Material6Cost = coarseGravelVal;
+                }
+                else if(filtermat6 == 'fineGravel'){
+                  Material6Cost = fineGravelVal;
+                }
+                else if(filtermat6 == 'coarseSand'){
+                  Material6Cost = coarseSandVal;
+                }
+                else if(filtermat6 == 'fineSand'){
+                  Material6Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material6Cost);
                 setfilter6(currentMaterialImg); 
                 setfiltermat6(currentMaterial);
               }
@@ -391,7 +529,30 @@ export default function Game({ route, navigation }) {
         <View style={styles.filter2}>
             <Pressable style = {styles.belowSpace} onPress={() => {
               if(money >= currentMaterialCost && filtermat7 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat7
+                let Material7Cost;
+                if (filtermat7 == 'none'){
+                  Material7Cost = 0;
+                }
+                else if(filtermat7 == 'cheeseCloth'){
+                  Material7Cost = cheeseClothVal;
+                }
+                else if(filtermat7 == 'cotton'){
+                  Material7Cost = cottonVal;
+                }
+                else if(filtermat7 == 'coarseGravel'){
+                  Material7Cost = coarseGravelVal;
+                }
+                else if(filtermat7 == 'fineGravel'){
+                  Material7Cost = fineGravelVal;
+                }
+                else if(filtermat7 == 'coarseSand'){
+                  Material7Cost = coarseSandVal;
+                }
+                else if(filtermat7 == 'fineSand'){
+                  Material7Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material7Cost);
                 setfilter7(currentMaterialImg); 
                 setfiltermat7(currentMaterial);
               }
@@ -430,7 +591,30 @@ export default function Game({ route, navigation }) {
             </Pressable>
             <Pressable style = {styles.belowSpace2} onPress={() => {
               if(money >= currentMaterialCost && filtermat8 != currentMaterial){
-                setMoney(money - currentMaterialCost);
+                // get cost of filtermat8
+                let Material8Cost;
+                if (filtermat8 == 'none'){
+                  Material8Cost = 0;
+                }
+                else if(filtermat8 == 'cheeseCloth'){
+                  Material8Cost = cheeseClothVal;
+                }
+                else if(filtermat8 == 'cotton'){
+                  Material8Cost = cottonVal;
+                }
+                else if(filtermat8 == 'coarseGravel'){
+                  Material8Cost = coarseGravelVal;
+                }
+                else if(filtermat8 == 'fineGravel'){
+                  Material8Cost = fineGravelVal;
+                }
+                else if(filtermat8 == 'coarseSand'){
+                  Material8Cost = coarseSandVal;
+                }
+                else if(filtermat8 == 'fineSand'){
+                  Material8Cost = fineSandVal;
+                }
+                setMoney(money - currentMaterialCost + Material8Cost);
                 setfilter8(currentMaterialImg); 
                 setfiltermat8(currentMaterial);
               }
