@@ -38,15 +38,10 @@ export default function TeacherWelcome({ navigation }) {
     <View style={styles.background}>
       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
        {/* <View style={styles.backinputview}> */}
-    <Pressable style={styles.button} onPress={async () => {
+       <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
       navigation.navigate("Home page")
     }}>
-      <View style={styles.arrow}>
-        <Icon name='angle-left' color='#03DAC5' size={15} />
-      </View>
-      <Text style={styles.textButton}>
-        Go back
-      </Text>
+      <Icon name='arrow-left' color='#03DAC5' size={25} />
     </Pressable>
   {/* </View> */}
       <View style={styles.welcomeContainer}>

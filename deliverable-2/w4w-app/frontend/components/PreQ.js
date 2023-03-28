@@ -15,7 +15,7 @@ export default function PreQ({ navigation }) {
         <View style={styles.background}>
           <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
                 {/* <View style={styles.backinputview}> */}
-    <Pressable style={styles.button} onPress={async () => {
+    <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
       let user = await AsyncStorage.getItem('user');
       if (user == null){
           navigation.navigate("Home page") 
@@ -31,12 +31,7 @@ export default function PreQ({ navigation }) {
         } else if (type === null){
         navigation.navigate("Home page");}}
     }}>
-      <View style={styles.arrow}>
-        <Icon name='angle-left' color='#03DAC5' size={15} />
-      </View>
-      <Text style={styles.textButton}>
-        Go back
-      </Text>
+      <Icon name='arrow-left' color='#03DAC5' size={25} />
     </Pressable>
   {/* </View> */}
             <Text style={styles.textCaption}>Introduction</Text>
