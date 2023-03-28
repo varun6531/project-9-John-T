@@ -38,7 +38,7 @@ export default function TeacherWelcome({ navigation }) {
     <View style={styles.background}>
       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
        {/* <View style={styles.backinputview}> */}
-       <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
+       <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2, marginTop: Dimensions.get('window').height/50}} onPress={async () => {
       navigation.navigate("Home page")
     }}>
       <Icon name='arrow-left' color='#03DAC5' size={25} />
