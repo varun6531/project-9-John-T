@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 30,
+        marginTop: Dimensions.get('window').height / 70,
         // height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 200,
+        marginTop: Dimensions.get('window').height / 300,
         textAlign: 'center',
         fontSize: 16,
         flexDirection: 'column',
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     },
     subtext2: {
       color: '#03DAC5',
-      marginTop: Dimensions.get('window').height / 60,
+      marginTop: Dimensions.get('window').height / 100,
       textAlign: 'center',
       fontSize: 16,
       flexDirection: 'column',
@@ -180,15 +180,15 @@ const styles = StyleSheet.create({
       ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -18,
-        width: 100, 
-        height: 50, 
+        width: Dimensions.get('window').width / 5,
+    	  height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
         // top: Dimensions.get('window').height / 4,
         bottom: Dimensions.get('window').height / 112,
         // alignItems: "flex-end",
         right: Dimensions.get('window').width / 2.75,
-        width: 120, 
-        height: 60, 
+        width: Dimensions.get('window').width / 4,
+    	  height: Dimensions.get('window').height / 15.5,
       },
 });

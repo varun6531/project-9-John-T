@@ -125,14 +125,14 @@ const styles = StyleSheet.create({
       ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -18,
-        width: 100, 
-        height: 50, 
+        width: Dimensions.get('window').width / 5,
+    	  height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
         right: Dimensions.get('window').width/-5,
         bottom: Dimensions.get('window').height / -15,
         alignItems: 'center',
-        width: 120, 
-        height: 60, 
+        width: Dimensions.get('window').width / 4,
+    	  height: Dimensions.get('window').height / 15.5,
       },
 });

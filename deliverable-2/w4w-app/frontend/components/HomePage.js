@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   text:{
     color: '#03DAC5',
-    marginTop: Dimensions.get('window').height/35,
+    marginTop: Dimensions.get('window').height/45,
     textAlign:'center',
     fontSize:30,
     fontWeight: 'bold',
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3.2,
   },
   ewblogo:{
-    right: Dimensions.get('window').width / -1.45,
+    right: Dimensions.get('window').width / -1.35,
+    // alignSelf: 'flex-end',
     bottom: Dimensions.get('window').height / -15,
     width: Dimensions.get('window').width / 5,
     height: Dimensions.get('window').height / 17.5,
@@ -131,8 +132,10 @@ const styles = StyleSheet.create({
     // marginTop: Dimensions.get('window').height / 25,
     // marginBottom: Dimensions.get('window').height/70,
     alignSelf: 'center',
-    width: 120,
-    height: 60,
-    bottom: Dimensions.get('window').height / -80,
+    // width: 120,
+    width: Dimensions.get('window').width / 5,
+    height: Dimensions.get('window').height / 17.5,
+    bottom: Dimensions.get('window').height / 100,
+    // flex: 1,
   },
 });

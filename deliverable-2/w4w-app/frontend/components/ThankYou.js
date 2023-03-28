@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function ThankYou({ navigation }){
     return(
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}> Great Job! </Text>
 
             <Text style={styles.subtext} numberOfLines={7}>
@@ -36,8 +37,9 @@ export default function ThankYou({ navigation }){
                     </View>
                 </Pressable>
             </View>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </View>
     );
 }
@@ -94,5 +96,19 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex:5,
+      },
+      ewblogo:{
+        // right: Dimensions.get('window').width / -3,
+        bottom: Dimensions.get('window').height / -18,
+        width: Dimensions.get('window').width / 5,
+    	  height: Dimensions.get('window').height / 17.5,
+        alignSelf: 'flex-end'
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: Dimensions.get('window').width / 4,
+    	  height: Dimensions.get('window').height / 15.5,
+        // flex: 1, 
       },
 });
