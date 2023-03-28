@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 20,
+		marginTop: Dimensions.get('window').height / 30,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',

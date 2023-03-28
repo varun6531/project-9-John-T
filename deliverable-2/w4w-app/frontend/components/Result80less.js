@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
       },
       w4twlogo: {
         right: Dimensions.get('window').width/-5,
-        bottom: Dimensions.get('window').height / -15,
+        bottom: Dimensions.get('window').height / -25,
         alignItems: 'center',
         width: Dimensions.get('window').width / 4,
     	  height: Dimensions.get('window').height / 15.5,
