@@ -139,7 +139,13 @@ export default function Game({ route, navigation }) {
                 setModalVisible(!modalVisible);
               }
             }} 
-              onLongPress={() => {setfilter1(null); setfiltermat1('none');}}
+              onLongPress={() => {setfilter1(null);
+                if(filtermat1 != 'none'){
+                  // refund filter material of filtermat1
+                  setMoney(money + currentMaterialCost)
+                }
+                setfiltermat1('none');
+              }}
             >
               {filter1 && <Image source={filter1} style={styles.image}/>}
             </Pressable>
@@ -153,7 +159,13 @@ export default function Game({ route, navigation }) {
                 setModalVisible(!modalVisible);
               }
             }}
-              onLongPress={() => {setfilter2(null); setfiltermat2('none');}}
+              onLongPress={() => {setfilter2(null);
+                if(filtermat2 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat2('none');
+              }}
             >
               {filter2 && <Image source={filter2} style={styles.image}/>}
             </Pressable>
@@ -166,7 +178,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter3(null); setfiltermat3('none');}}
+              onLongPress={() => {setfilter3(null);
+                if(filtermat3 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat3('none');
+              }}
             >
               {filter3 && <Image source={filter3} style={styles.image}/>}
             </Pressable>
@@ -179,7 +197,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter4(null); setfiltermat4('none');}}
+              onLongPress={() => {setfilter4(null);
+                if(filtermat4 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat4('none');
+              }}
             >
               {filter4 && <Image source={filter4} style={styles.image}/>}
             </Pressable>
@@ -192,7 +216,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter5(null); setfiltermat5('none');}}
+              onLongPress={() => {setfilter5(null);
+                if(filtermat5 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat5('none');
+              }}
             >
               {filter5 && <Image source={filter5} style={styles.image}/>}
             </Pressable>
@@ -205,7 +235,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter6(null); setfiltermat6('none');}}
+              onLongPress={() => {setfilter6(null);
+                if(filtermat6 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat6('none');
+              }}
             >
               {filter6 && <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>}
             </Pressable>
@@ -220,7 +256,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter7(null); setfiltermat7('none');}}
+              onLongPress={() => {setfilter7(null);
+                if(filtermat7 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat7('none');
+              }}
             >
               {filter7 && <Image source={filter7} style={styles.image}/>}
             </Pressable>
@@ -233,7 +275,13 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
-              onLongPress={() => {setfilter8(null); setfiltermat8('none');}}
+              onLongPress={() => {setfilter8(null);
+                if(filtermat8 != 'none'){
+                  // give money back
+                  setMoney(money + currentMaterialCost);
+                }
+                setfiltermat8('none');
+              }}
             >
               {filter8 && <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>}
             </Pressable>
