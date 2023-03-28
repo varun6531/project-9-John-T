@@ -37,7 +37,7 @@ export default function Canada({ navigation }){
             </Text>
             {/* <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {country: "Canada"})}>
              */}
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 500})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 500, country: 'canada'})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>
@@ -113,13 +113,13 @@ const styles = StyleSheet.create({
     ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -100,
-        width: 100, 
-        height: 50, 
+        width: Dimensions.get('window').width / 5,
+    	height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
         bottom: Dimensions.get('window').height / -50,
         alignItems: 'center',
-        width: 120, 
-        height: 60, 
+        width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
       },
 });

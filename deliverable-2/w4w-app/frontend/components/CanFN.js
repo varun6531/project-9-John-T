@@ -33,7 +33,7 @@ export default function CanFN({ navigation }){
                 2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
                 3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 350})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 350, country: 'canadaFN'})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>
@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
     ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -100,
-        width: 100, 
-        height: 50, 
+        width: Dimensions.get('window').width / 5,
+    	height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
         bottom: Dimensions.get('window').height / -40,
         alignItems: 'center',
-        width: 120, 
-        height: 60, 
+        width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
       },
 });

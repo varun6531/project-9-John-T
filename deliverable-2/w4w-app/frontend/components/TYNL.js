@@ -29,7 +29,8 @@ export default function TYNL({ navigation }){
                 </Pressable>
             </View>
 
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
+            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </View>
     );
 }
@@ -96,5 +97,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         width: Dimensions.get('window').width / 5,
         height: Dimensions.get('window').height / 17.5,
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 112,
+        alignItems: 'center',
+        width: Dimensions.get('window').width / 4,
+    	  height: Dimensions.get('window').height / 15.5,
+        // flex: 1, 
       },
 });
