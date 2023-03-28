@@ -141,8 +141,28 @@ export default function Game({ route, navigation }) {
             }} 
               onLongPress={() => {setfilter1(null);
                 if(filtermat1 != 'none'){
+                  // get cost of filtermat1
+                  Material1Cost = 0;
+                  if(filtermat1 == 'cheeseCloth'){
+                    Material1Cost = cheeseClothVal;
+                  }
+                  else if(filtermat1 == 'cotton'){
+                    Material1Cost = cottonVal;
+                  }
+                  else if(filtermat1 == 'coarseGravel'){
+                    Material1Cost = coarseGravelVal;
+                  }
+                  else if(filtermat1 == 'fineGravel'){
+                    Material1Cost = fineGravelVal;
+                  }
+                  else if(filtermat1 == 'coarseSand'){
+                    Material1Cost = coarseSandVal;
+                  }
+                  else if(filtermat1 == 'fineSand'){
+                    Material1Cost = fineSandVal;
+                  }
                   // refund filter material of filtermat1
-                  setMoney(money + currentMaterialCost)
+                  setMoney(money + Material1Cost)
                 }
                 setfiltermat1('none');
               }}
@@ -161,8 +181,28 @@ export default function Game({ route, navigation }) {
             }}
               onLongPress={() => {setfilter2(null);
                 if(filtermat2 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat2
+                  Material2Cost = 0;
+                  if(filtermat2 == 'cheeseCloth'){
+                    Material2Cost = cheeseClothVal;
+                  }
+                  else if(filtermat2 == 'cotton'){
+                    Material2Cost = cottonVal;
+                  }
+                  else if(filtermat2 == 'coarseGravel'){
+                    Material2Cost = coarseGravelVal;
+                  }
+                  else if(filtermat2 == 'fineGravel'){
+                    Material2Cost = fineGravelVal;
+                  }
+                  else if(filtermat2 == 'coarseSand'){
+                    Material2Cost = coarseSandVal;
+                  }
+                  else if(filtermat2 == 'fineSand'){
+                    Material2Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat2
+                  setMoney(money + Material2Cost)
                 }
                 setfiltermat2('none');
               }}
@@ -180,8 +220,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter3(null);
                 if(filtermat3 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat3
+                  Material3Cost = 0;
+                  if(filtermat3 == 'cheeseCloth'){
+                    Material3Cost = cheeseClothVal;
+                  }
+                  else if(filtermat3 == 'cotton'){
+                    Material3Cost = cottonVal;
+                  }
+                  else if(filtermat3 == 'coarseGravel'){
+                    Material3Cost = coarseGravelVal;
+                  }
+                  else if(filtermat3 == 'fineGravel'){
+                    Material3Cost = fineGravelVal;
+                  }
+                  else if(filtermat3 == 'coarseSand'){
+                    Material3Cost = coarseSandVal;
+                  }
+                  else if(filtermat3 == 'fineSand'){
+                    Material3Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat3
+                  setMoney(money + Material3Cost)
                 }
                 setfiltermat3('none');
               }}
@@ -199,8 +259,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter4(null);
                 if(filtermat4 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat4
+                  Material4Cost = 0;
+                  if(filtermat4 == 'cheeseCloth'){
+                    Material4Cost = cheeseClothVal;
+                  }
+                  else if(filtermat4 == 'cotton'){
+                    Material4Cost = cottonVal;
+                  }
+                  else if(filtermat4 == 'coarseGravel'){
+                    Material4Cost = coarseGravelVal;
+                  }
+                  else if(filtermat4 == 'fineGravel'){
+                    Material4Cost = fineGravelVal;
+                  }
+                  else if(filtermat4 == 'coarseSand'){
+                    Material4Cost = coarseSandVal;
+                  }
+                  else if(filtermat4 == 'fineSand'){
+                    Material4Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat4
+                  setMoney(money + Material4Cost)
                 }
                 setfiltermat4('none');
               }}
@@ -218,8 +298,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter5(null);
                 if(filtermat5 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat5
+                  Material5Cost = 0;
+                  if(filtermat5 == 'cheeseCloth'){
+                    Material5Cost = cheeseClothVal;
+                  }
+                  else if(filtermat5 == 'cotton'){
+                    Material5Cost = cottonVal;
+                  }
+                  else if(filtermat5 == 'coarseGravel'){
+                    Material5Cost = coarseGravelVal;
+                  }
+                  else if(filtermat5 == 'fineGravel'){
+                    Material5Cost = fineGravelVal;
+                  }
+                  else if(filtermat5 == 'coarseSand'){
+                    Material5Cost = coarseSandVal;
+                  }
+                  else if(filtermat5 == 'fineSand'){
+                    Material5Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat5
+                  setMoney(money + Material5Cost)
                 }
                 setfiltermat5('none');
               }}
@@ -237,8 +337,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter6(null);
                 if(filtermat6 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat6
+                  Material6Cost = 0;
+                  if(filtermat6 == 'cheeseCloth'){
+                    Material6Cost = cheeseClothVal;
+                  }
+                  else if(filtermat6 == 'cotton'){
+                    Material6Cost = cottonVal;
+                  }
+                  else if(filtermat6 == 'coarseGravel'){
+                    Material6Cost = coarseGravelVal;
+                  }
+                  else if(filtermat6 == 'fineGravel'){
+                    Material6Cost = fineGravelVal;
+                  }
+                  else if(filtermat6 == 'coarseSand'){
+                    Material6Cost = coarseSandVal;
+                  }
+                  else if(filtermat6 == 'fineSand'){
+                    Material6Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat6
+                  setMoney(money + Material6Cost)
                 }
                 setfiltermat6('none');
               }}
@@ -258,8 +378,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter7(null);
                 if(filtermat7 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat7
+                  Material7Cost = 0;
+                  if(filtermat7 == 'cheeseCloth'){
+                    Material7Cost = cheeseClothVal;
+                  }
+                  else if(filtermat7 == 'cotton'){
+                    Material7Cost = cottonVal;
+                  }
+                  else if(filtermat7 == 'coarseGravel'){
+                    Material7Cost = coarseGravelVal;
+                  }
+                  else if(filtermat7 == 'fineGravel'){
+                    Material7Cost = fineGravelVal;
+                  }
+                  else if(filtermat7 == 'coarseSand'){
+                    Material7Cost = coarseSandVal;
+                  }
+                  else if(filtermat7 == 'fineSand'){
+                    Material7Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat7
+                  setMoney(money + Material7Cost)
                 }
                 setfiltermat7('none');
               }}
@@ -277,8 +417,28 @@ export default function Game({ route, navigation }) {
               }}}
               onLongPress={() => {setfilter8(null);
                 if(filtermat8 != 'none'){
-                  // give money back
-                  setMoney(money + currentMaterialCost);
+                  // get cost of filtermat8
+                  Material8Cost = 0;
+                  if(filtermat8 == 'cheeseCloth'){
+                    Material8Cost = cheeseClothVal;
+                  }
+                  else if(filtermat8 == 'cotton'){
+                    Material8Cost = cottonVal;
+                  }
+                  else if(filtermat8 == 'coarseGravel'){
+                    Material8Cost = coarseGravelVal;
+                  }
+                  else if(filtermat8 == 'fineGravel'){
+                    Material8Cost = fineGravelVal;
+                  }
+                  else if(filtermat8 == 'coarseSand'){
+                    Material8Cost = coarseSandVal;
+                  }
+                  else if(filtermat8 == 'fineSand'){
+                    Material8Cost = fineSandVal;
+                  }
+                  // refund filter material of filtermat8
+                  setMoney(money + Material8Cost)
                 }
                 setfiltermat8('none');
               }}
@@ -651,10 +811,10 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2C2C2C',
 		// alignSelf: 'flex-start',
 	},
-    w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
-        alignItems: 'center',
-        width: 120, 
-        height: 60, 
+  w4twlogo: {
+      bottom: Dimensions.get('window').height / 112,
+      alignItems: 'center',
+      width: 120, 
+      height: 60, 
     }
 });
