@@ -14,11 +14,13 @@ class AnswerView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
+        """Gets the student's answers to the quiz."""
         answers = get_object_or_404(Answer, User=request.user)
         serializer = AnswerSerializer(answers)
         return Response(serializer.data)
 
     def post(self, request):
+        """Adds or update the student's answers to the quiz."""
         copy_data = request.data.copy()
         copy_data["User"] = request.user.id
         # Update all questions if User has already answered
@@ -38,7 +40,7 @@ class SendEmailView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        # Send email
+        """Sends the student's answers to the teacher's email using SMTP."""
         try:
             answer = Answer.objects.get(User=request.user)
         except Answer.DoesNotExist:
@@ -89,9 +91,19 @@ class EmailInfoView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
+        """Gets the student's name, teacher's email, and homeroom id for email template."""
         user_name = request.user.first_name + " " + request.user.last_name
         if not request.user.homeroom_id:
-            return Response({"message": "User don't have a homeroom", "user_name": user_name}, status=400)
+            return Response(
+                {"message": "User don't have a homeroom", "user_name": user_name},
+                status=400,
+            )
         user_homeroom = homeroom.objects.get(homeroom_id=request.user.homeroom_id)
         teacher_email = user_homeroom.teacher_id
-        return Response({"name": user_name, "teacher_email": teacher_email, "homeroom": request.user.homeroom_id})
+        return Response(
+            {
+                "name": user_name,
+                "teacher_email": teacher_email,
+                "homeroom": request.user.homeroom_id,
+            }
+        )
