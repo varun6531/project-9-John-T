@@ -758,6 +758,7 @@ export default function Game({ route, navigation }) {
               var result = '0';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
                 result = '100';
+                navigation.navigate("result100", { result: result })
               } 
               else if(
                 (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
@@ -768,6 +769,7 @@ export default function Game({ route, navigation }) {
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
                 result = '90';
+                navigation.navigate("result90", { result: result })
               }
               else if(
                   (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
@@ -790,8 +792,12 @@ export default function Game({ route, navigation }) {
                 )
                 {
                   result = '80';
+                  navigation.navigate("result80less", { result: result })
+                }else{
+                  result = "LESS THAN 80";
+                  navigation.navigate("result80less", { result: result })
                 }
-                navigation.navigate("result100", { result: result })
+                
               }
             }>
             <Text style={styles.textButton}>
