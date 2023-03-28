@@ -34,7 +34,7 @@ export default function Kuwait({ navigation }){
                 2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
                 3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 400})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

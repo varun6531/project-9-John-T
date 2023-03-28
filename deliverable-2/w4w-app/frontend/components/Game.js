@@ -1,9 +1,10 @@
-import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, Image, ImageBackground} from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, Image, Modal} from 'react-native';
 import React, { useState, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Game({ route, navigation }) {
-  // const { country } = route.params;
+  const [modalVisible, setModalVisible] = useState(false);
+  const { moneyVal } = route.params;
 
   // Images of the filter materials
   const fineSandImg = require('../assets/fineSand.jpeg');
@@ -13,9 +14,21 @@ export default function Game({ route, navigation }) {
   const cottonImg = require('../assets/cotton.jpeg');
   const cheeseClothImg = require('../assets/cheeseCloth.jpeg');
 
+  // Money and material cost
+  const [money, setMoney] = useState(moneyVal);
+  const cheeseClothVal = 25;
+  const cottonVal = 25;
+  const coarseGravelVal = 50;
+  const fineGravelVal = 50;
+  const rubberBandVal = 25;
+  const coarseSandVal = 100;
+  const fineSandVal = 100;
+
+
   // Pointers to the selected material and its corresponding image
   const [currentMaterialImg, setCurrentMaterialImg] = useState(null);
   const [currentMaterial, setCurrentMaterial] = useState('none');
+  const [currentMaterialCost, setCurrentMaterialCost] = useState(0);
 
   const [fineSand, setFineSand] = useState(false);
   const [coarseSand, setCoarseSand] = useState(false);
@@ -43,6 +56,33 @@ export default function Game({ route, navigation }) {
   const [filtermat6, setfiltermat6] = useState('none');
   const [filtermat7, setfiltermat7] = useState('none');
   const [filtermat8, setfiltermat8] = useState('none');
+
+  const lackofFundsModal = () => {
+		return (
+			<View style={styles.centeredView}>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible}
+					onRequestClose={() => {
+						setModalVisible(!modalVisible);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+							<Text style={styles.answerView}>Insufficient funds</Text>
+							<Pressable
+								style={[styles.buttonans, styles.buttonClose]}
+								onPress={() => setModalVisible(!modalVisible)}
+							>
+								<Text style={styles.textButton}>OK</Text>
+							</Pressable>
+						</View>
+					</View>
+				</Modal>
+			</View>
+		);
+	};
 
   const resetGame = () => {
     setFineSand(false);
@@ -74,68 +114,131 @@ export default function Game({ route, navigation }) {
     setfiltermat6('none');
     setfiltermat7('none');
     setfiltermat8('none');
-  };
 
-  const getLayer = () => {
+    // Reset money
+    setMoney(moneyVal);
   };
 
   return (
     <View style={styles.background}>
-       <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
-          <Pressable style={styles.button3} onPress={async () => {
-            navigation.navigate("Canada")
-          }}>
-            <View style={styles.arrow}>
-              <Icon name='angle-left' color='#03DAC5' size={15} />
-            </View>
-            <Text style={styles.textButton}>
-              Back
-            </Text>
-          </Pressable>
-        <View style={styles.filter}>
-            <Pressable style = {styles.upperSpace} onPress={() => {setfilter1(currentMaterialImg); setfiltermat1(currentMaterial);}} 
+      <View style={styles.backBox}>
+        <Pressable onPress={async () => {navigation.navigate("Canada")}}>
+          <Icon name='arrow-left' color='#03DAC5' size={25} />
+        </Pressable>
+        <Text style={styles.moneyText}>Money: {money}</Text>
+      </View>
+      
+      <View style={styles.filter}>
+            <Pressable style = {styles.upperSpace} onPress={() => {
+              if(money >= currentMaterialCost && filtermat1 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter1(currentMaterialImg); 
+                setfiltermat1(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }
+            }} 
               onLongPress={() => {setfilter1(null); setfiltermat1('none');}}
             >
               {filter1 && <Image source={filter1} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter2(currentMaterialImg); setfiltermat2(currentMaterial);}}
+            <Pressable style = {styles.upperSpace}   onPress={() => {
+              if(money >= currentMaterialCost && filtermat2 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter2(currentMaterialImg); 
+                setfiltermat2(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }
+            }}
               onLongPress={() => {setfilter2(null); setfiltermat2('none');}}
             >
               {filter2 && <Image source={filter2} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter3(currentMaterialImg); setfiltermat3(currentMaterial);}}
+            <Pressable style = {styles.upperSpace}  onPress={() => {
+              if(money >= currentMaterialCost && filtermat3 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter3(currentMaterialImg); 
+                setfiltermat3(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter3(null); setfiltermat3('none');}}
             >
               {filter3 && <Image source={filter3} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter4(currentMaterialImg); setfiltermat4(currentMaterial);}}
+            <Pressable style = {styles.upperSpace}  onPress={() => {
+              if(money >= currentMaterialCost && filtermat4 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter4(currentMaterialImg); 
+                setfiltermat4(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter4(null); setfiltermat4('none');}}
             >
               {filter4 && <Image source={filter4} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.upperSpace}  onPress={() => {setfilter5(currentMaterialImg); setfiltermat5(currentMaterial);}}
+            <Pressable style = {styles.upperSpace}  onPress={() => {
+              if(money >= currentMaterialCost && filtermat5 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter5(currentMaterialImg); 
+                setfiltermat5(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter5(null); setfiltermat5('none');}}
             >
               {filter5 && <Image source={filter5} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.upperSpace2}  onPress={() => {setfilter6(currentMaterialImg); setfiltermat6(currentMaterial);}}
+            <Pressable style = {styles.upperSpace2} onPress={() => {
+              if(money >= currentMaterialCost && filtermat6 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter6(currentMaterialImg); 
+                setfiltermat6(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter6(null); setfiltermat6('none');}}
             >
               {filter6 && <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>}
             </Pressable>
         </View>
         <View style={styles.filter2}>
-            <Pressable style = {styles.belowSpace} onPress={() => {setfilter7(currentMaterialImg); setfiltermat7(currentMaterial);}}
+            <Pressable style = {styles.belowSpace} onPress={() => {
+              if(money >= currentMaterialCost && filtermat7 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter7(currentMaterialImg); 
+                setfiltermat7(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter7(null); setfiltermat7('none');}}
             >
               {filter7 && <Image source={filter7} style={styles.image}/>}
             </Pressable>
-            <Pressable style = {styles.belowSpace2} onPress={() => {setfilter8(currentMaterialImg); setfiltermat8(currentMaterial);}}
+            <Pressable style = {styles.belowSpace2} onPress={() => {
+              if(money >= currentMaterialCost && filtermat8 != currentMaterial){
+                setMoney(money - currentMaterialCost);
+                setfilter8(currentMaterialImg); 
+                setfiltermat8(currentMaterial);
+              }
+              else{
+                setModalVisible(!modalVisible);
+              }}}
               onLongPress={() => {setfilter8(null); setfiltermat8('none');}}
             >
               {filter8 && <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>}
             </Pressable>
         </View>
+        {lackofFundsModal()}
         <View style={styles.scroll}>
           <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
@@ -146,6 +249,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(false);
               setCurrentMaterialImg(fineSandImg);
               setCurrentMaterial('fineSand');
+              setCurrentMaterialCost(fineSandVal);
               setCotton(false);
               setCheeseCloth(false);
             }}>
@@ -160,6 +264,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(false);
               setCurrentMaterialImg(coarseSandImg);
               setCurrentMaterial('coarseSand');
+              setCurrentMaterialCost(coarseSandVal);
               setCotton(false);
               setCheeseCloth(false);
             }}>
@@ -174,6 +279,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(false);
               setCurrentMaterialImg(fineGravelImg);
               setCurrentMaterial('fineGravel');
+              setCurrentMaterialCost(fineGravelVal);
               setCotton(false);
               setCheeseCloth(false);
             }}>
@@ -188,6 +294,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(true);
               setCurrentMaterialImg(coarseGravelImg);
               setCurrentMaterial('coarseGravel');
+              setCurrentMaterialCost(coarseGravelVal);
               setCotton(false);
               setCheeseCloth(false);
             }}>
@@ -202,6 +309,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(false);
               setCurrentMaterialImg(cottonImg);
               setCurrentMaterial('cotton');
+              setCurrentMaterialCost(cottonVal);
               setCotton(true);
               setCheeseCloth(false);
             }}>
@@ -216,6 +324,7 @@ export default function Game({ route, navigation }) {
               setCoarseGravel(false);
               setCurrentMaterialImg(cheeseClothImg);
               setCurrentMaterial('cheeseCloth');
+              setCurrentMaterialCost(cheeseClothVal);
               setCotton(false);
               setCheeseCloth(true);
             }}>
@@ -232,9 +341,9 @@ export default function Game({ route, navigation }) {
             </Text>
           </Pressable>
           <Pressable style={styles.button2} onPress={() => {
-              var result = 'dirty';
+              var result = '0';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
-                result = '100% clean';
+                result = '100';
                 navigation.navigate("result100", { result: result })
               } 
               else if(
@@ -245,7 +354,7 @@ export default function Game({ route, navigation }) {
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
-                result = '90% clean';
+                result = '90';
                 navigation.navigate("result90",{ result: result })
               }
               
@@ -269,9 +378,9 @@ export default function Game({ route, navigation }) {
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
                 )
                 {
-                  result = '80% clean';
+                  result = '80';
                 } else{
-                  result= 'LESS THAN 80% clean';
+                  result= '0';
                 }
                 navigation.navigate("result80less", { result: result })
               }
@@ -285,9 +394,6 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
-        {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
-      {/* <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 850, width: 100, height:50, alignSelf: 'center'}}/> */}
-      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -358,7 +464,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     height: Dimensions.get('window').height*1/7,
     width: Dimensions.get('window').width,
-    marginTop: Dimensions.get('window').height*1/14,
+    // marginTop: Dimensions.get('window').height*1/14,
     marginBottom: Dimensions.get('window').height*1/14,
     paddingLeft: 10,
     paddingRight: 10,
@@ -425,14 +531,6 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 2,
     backgroundColor: '#2C2C2C'
-    // backgroundColor: '#1E1E1E',
-    // paddingTop:15,
-    // paddingLeft: 20,
-    // paddingRight: 20,
-    // height: Dimensions.get('window').height / 10,
-    // width:  Dimensions.get('window').width / 3,
-    // top: 0,
-    // right: 120,
   },
   button3: {
     width:  Dimensions.get('window').width / 3,
@@ -451,16 +549,57 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height / -12,
     marginLeft: -Dimensions.get('window').width / -1.5,
   },
-  ewblogo:{
-    right: Dimensions.get('window').width / -3,
-    bottom: Dimensions.get('window').height / -64,
-    width: 100, 
-    height: 50, 
+  backBox:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: Dimensions.get('window').width,
+    paddingLeft: 30,
+    paddingRight: 30,
+    marginBottom: 20
   },
-  w4twlogo: {
-    bottom: Dimensions.get('window').height / 112,
-    alignItems: 'center',
-    width: 120, 
-    height: 60, 
+  moneyText:{
+    color: '#03DAC5',
+    fontSize: 17,
+    fontWeight: 'bold',
   },
+  centeredView: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	modalView: {
+		backgroundColor: '#2C2C2C',
+		borderRadius: 20,
+		padding: 35,
+		alignItems: 'center',
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
+		width: Dimensions.get('window').width / 1.2,
+	},
+	answerView: {
+		textAlign: 'center',
+		color: '#03DAC5',
+		fontSize: 18,
+		marginBottom: Dimensions.get('window').height / 30,
+	},
+	buttonClose: {
+		backgroundColor: '#2C2C2C',
+		borderColor: '#03DAC5',
+	},
+  buttonans: {
+		width: Dimensions.get('window').width / 3,
+		flexDirection: 'row',
+		padding: 15,
+		borderColor: '#03DAC5',
+		borderRadius: 999,
+		borderWidth: 2,
+		backgroundColor: '#2C2C2C',
+		// alignSelf: 'flex-start',
+	},
 });

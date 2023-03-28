@@ -11,11 +11,18 @@ import GetTypeAPI from '../apis/GetTypeAPI';
 
 export default function Result100({ route, navigation }) {
     const { result } = route.params;
+    const getImage = () => {
+      if(result == '100'){
+        return <Image style = {styles.filter} source={require('../assets/100.png')} />
+      }
+    }
+
     return (
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}>Test Results</Text>
-            <Image style = {styles.filter} source={require('../assets/filterresult.png')} />
+            {getImage()}
+            {/* <Image style = {styles.filter} source={require(img)} /> */}
             <Text style={styles.subtext}>
                 Your dirty water is now {result} water. {'\n\n'} 
                 CONGRATULATIONS! - you can drink this water - 
@@ -43,7 +50,7 @@ export default function Result100({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                 <Text style={styles.textButton}>
                     Back to filter build
                 </Text>
