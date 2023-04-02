@@ -31,7 +31,7 @@ export default function Ghana({ navigation }){
                 4. Now, XXXX your water XXXXX to find out how well your XXXXXX works and XXXXX or not it’s XXXXX. 
             </Text>
             <Text style={styles.subtext2}>
-                Note: You will have difficulty reading this – this is due to the literacy rate in this country. {"\n"}
+                Note: You will have difficulty reading this – this simulates the effect of the literacy rate in this country. {"\n"}
             </Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 40, country: 'ghana'})}>
                 <Text style={styles.textButton}>

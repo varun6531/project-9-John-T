@@ -28,39 +28,49 @@ export default function Result90({ route, navigation }) {
             </Text>
 
             <View style={styles.skipContainer}>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
-                let user = await AsyncStorage.getItem("user")
-                if (user == null){
-                    navigation.navigate("Tynl") 
-                }  else {
-                    let parsed = await JSON.parse(user);  
-                    var email = parsed.email;
-                    var type = await GetTypeAPI(email);
-                        if (type == null){
-                        navigation.navigate("Thank you");
-                        }
-                    else {navigation.navigate("Post questionnaire 1")}}
-             }}>
-                <Text style={styles.textButton}>
-                    Continue
-                </Text>
-                <View style={styles.arrow} >
-                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
-                </View>
-            </Pressable>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
-                <Text style={styles.textButton}>
-                    Back to game
-                </Text>
-                <View style={styles.arrow} >
-                <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
-                </View>
-            </Pressable>
-            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+                <Pressable style={styles.button1} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
+                    <Text style={styles.textButton}>
+                        Back to Filter Building
+                    </Text>
+                    <View style={styles.arrow} >
+                    <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                    </View>
+                </Pressable>
+
+                <View style={styles.buttonLayer}>
+                    <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Home page")}>
+                        <View style={styles.arrow2} >
+                            <FontAwesome5 name='angle-left' color='#03DAC5' size={15}/>
+                        </View>
+                        <Text style={styles.textButton}>
+                            Home
+                        </Text>
+                    </Pressable>
+                    <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
+                        let user = await AsyncStorage.getItem("user")
+                        if (user == null){
+                            navigation.navigate("Tynl") 
+                        }  else {
+                            let parsed = await JSON.parse(user);  
+                            var email = parsed.email;
+                            var type = await GetTypeAPI(email);
+                                if (type == null){
+                                navigation.navigate("Thank you");
+                                }
+                            else {navigation.navigate("Post questionnaire 1")}}
+                    }}>
+                        <Text style={styles.textButton}>
+                            Continue
+                        </Text>
+                        <View style={styles.arrow} >
+                        <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                        </View>
+                    </Pressable>
+                </View>  
+                <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+            </View>
       
-      </View>
-      
-      <StatusBar style="auto" />
+            <StatusBar style="auto" />
         </View>
     );
 }
@@ -96,13 +106,44 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 1.5,
         height: Dimensions.get('window').height/2,
     },
+    buttonLayer:{
+        flexDirection: 'row',
+        marginTop: Dimensions.get('window').height*1/70,
+        marginBottom: Dimensions.get('window').height*1/30,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     skipContainer: {
         flex: 1,
         marginTop: -Dimensions.get('window').height/3,
       },
-    button2: {
-        width:  Dimensions.get('window').width / 1.5,
+    button1: {
+        width:  Dimensions.get('window').width / 1.35,
         marginTop: Dimensions.get('window').height/36,
+        flexDirection: 'row',
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C',
+        alignSelf: 'center',
+      },
+    button2: {
+        width:  Dimensions.get('window').width / 3,
+        marginBottom: Dimensions.get('window').height/36,
+        marginRight: Dimensions.get('window').width/30,
+        flexDirection: 'row',
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C',
+        alignItems: 'center',
+      },
+    button3: {
+        width:  Dimensions.get('window').width / 3,
+        marginBottom: Dimensions.get('window').height/36,
+        marginLeft: Dimensions.get('window').width/30,
         flexDirection: 'row',
         padding: 12,
         borderColor: '#03DAC5',
@@ -114,6 +155,11 @@ const styles = StyleSheet.create({
       arrow:{
         flex: 1,
         marginTop: 2
+      },
+      arrow2:{
+        flex: 1,
+        marginTop: 2,
+        marginLeft: Dimensions.get('window').width / 30,
       },
       textButton:{
         color: '#03DAC5',
@@ -136,10 +182,10 @@ const styles = StyleSheet.create({
     	  height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
-        right: Dimensions.get('window').width/-5,
-        bottom: Dimensions.get('window').height / -25,
-        alignItems: 'center',
+        alignSelf: 'center',
+        // width: 120,
         width: Dimensions.get('window').width / 4,
-    	  height: Dimensions.get('window').height / 15.5,
-      },
+        height: Dimensions.get('window').height / 11,
+        bottom: Dimensions.get('window').height / 100,
+      }
 });
