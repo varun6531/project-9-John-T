@@ -19,7 +19,7 @@ export default function CanFN({ navigation }){
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
                 Life Expectancy: 72.5 Years {"\n"}
                 Median Income (CAD$): $18,962 {"\n"}
-                Improved Drinking Water: 99% of population {"\n"}
+                Improved Drinking Water: 23% of population {"\n"}
                 Communities with long-term boil water advisories: 33 {"\n"}
                 Population: {"> "}1 million
             </Text>
