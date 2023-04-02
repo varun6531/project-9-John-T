@@ -7,16 +7,24 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GetTypeAPI from '../apis/GetTypeAPI';
 
 
+
+
 export default function Result80less({ route, navigation }) {
     const { result } = route.params;
+    const getImage = () => {
+      if(true){
+        return <Image style = {styles.filter} source={require('../assets/100.png')} />
+      }
+    }
+
     return (
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
             <Text style={styles.textCaption}>Test Results</Text>
-            <Image style = {styles.filter} source={require('../assets/filterresult.png')} />
+            {getImage()}
             <Text style={styles.subtext}>
-                Your dirty water is now {result} water. {'\n\n'} 
-                DO NOT DRINK!!! You may get SICK and DIE!
+                Your dirty water is now {result}% clean water. {'\n\n'}
+                DO NOT DRINK!!! You may get SICK and DIE! 
             </Text>
 
             <View style={styles.skipContainer}>
@@ -40,9 +48,9 @@ export default function Result80less({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game")}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                 <Text style={styles.textButton}>
-                    Back to filter build
+                    Back to game
                 </Text>
                 <View style={styles.arrow} >
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
@@ -92,7 +100,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: -Dimensions.get('window').height/3,
       },
-      button2: {
+    button2: {
         width:  Dimensions.get('window').width / 1.5,
         marginTop: Dimensions.get('window').height/36,
         flexDirection: 'row',
@@ -117,7 +125,6 @@ const styles = StyleSheet.create({
       filter:{
         width: Dimensions.get('window').width / 4,
         height: Dimensions.get('window').height / 4,
-        marginTop: Dimensions.get('window').height / -12,
         flexDirection: 'row',
         padding: 12,
         right: Dimensions.get('window').width / 23,

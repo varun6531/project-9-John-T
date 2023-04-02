@@ -16,13 +16,13 @@ export default function Game({ route, navigation }) {
 
   // Money and material cost
   const [money, setMoney] = useState(moneyVal);
-  const cheeseClothVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
-  const cottonVal = (country == 'canada' || country == 'canadaFN')? 25: 5;
-  const coarseGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
-  const fineGravelVal = (country == 'canada' || country == 'canadaFN')? 50: 10;
+  const cheeseClothVal = (country == 'canadaFN')? 25: 5;
+  const cottonVal = (country == 'canadaFN')? 25: 5;
+  const coarseGravelVal = (country == 'canadaFN')? 50: 10;
+  const fineGravelVal = (country == 'canadaFN')? 50: 10;
   const rubberBandVal = 25;
-  const coarseSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
-  const fineSandVal = (country == 'canada' || country == 'canadaFN')? 100: 20;
+  const coarseSandVal = (country == 'canadaFN')? 100: 20;
+  const fineSandVal = (country == 'canadaFN')? 100: 20;
 
 
   // Pointers to the selected material and its corresponding image
@@ -758,6 +758,7 @@ export default function Game({ route, navigation }) {
               var result = '0';
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
                 result = '100';
+                navigation.navigate("result100", { result: result })
               } 
               else if(
                 (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
@@ -768,6 +769,7 @@ export default function Game({ route, navigation }) {
                 (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6!='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')) 
               {
                 result = '90';
+                navigation.navigate("result90", { result: result })
               }
               else if(
                   (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
@@ -790,8 +792,12 @@ export default function Game({ route, navigation }) {
                 )
                 {
                   result = '80';
+                  navigation.navigate("result80less", { result: result })
+                }else{
+                  result = "LESS THAN 80";
+                  navigation.navigate("result80less", { result: result })
                 }
-                navigation.navigate("result100", { result: result })
+                
               }
             }>
             <Text style={styles.textButton}>
