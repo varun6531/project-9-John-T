@@ -49,7 +49,7 @@ export default function PreQ8({ navigation }) {
 					source={require('../assets/globalExtremePoverty.png')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 4,
+						height: Dimensions.get('window').height / 3.75,
 						marginTop: Dimensions.get('window').height / 50,
 						resizeMode: 'contain',
 					}}

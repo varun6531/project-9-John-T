@@ -110,7 +110,7 @@ export default function PreQ7({ navigation }) {
 					source={require('../assets/waterAccessMap.jpg')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 5,
+						height: Dimensions.get('window').height / 4.5,
 						marginTop: Dimensions.get('window').height / 50,
 						resizeMode: 'contain',
 					}}
