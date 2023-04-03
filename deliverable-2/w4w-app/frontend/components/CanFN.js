@@ -15,8 +15,7 @@ export default function CanFN({ navigation }){
             </Pressable>
 
             <Text style={styles.textCaption}>Canada First Nations</Text>
-            <Text style={styles.subtext} numberOfLines={13}>
-                Note: You receive less funding than the rest of Canada and costs for materials are 5 times higher than the rest of Canada due to geographical and political issues. {"\n"}
+            <Text style={styles.subtext} numberOfLines={9}>
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
                 Life Expectancy: 72.5 Years {"\n"}
                 Median Income (CAD$): $18,962 {"\n"}
@@ -29,6 +28,9 @@ export default function CanFN({ navigation }){
                 1. Loosely put a piece of cheese cloth at the bottom of the filter, then put a piece of cotton plug above that. {"\n"}
                 2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
                 3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
+            </Text>
+            <Text style={styles.subtext2}>
+                Note: You receive less funding than the rest of Canada and costs for materials are 5 times higher than the rest of Canada due to geographical and political issues. {"\n"} {"\n"}
             </Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 350, country: 'canadaFN'})}>
                 <Text style={styles.textButton}>
@@ -102,15 +104,23 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#2C2C2C'
       },
+      subtext2: {
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / 64,
+        textAlign: 'left',
+        fontSize: 13,
+        flexDirection: 'column',
+        width: Dimensions.get('window').width / 1.25,
+    },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
-        bottom: Dimensions.get('window').height / -40,
+        bottom: Dimensions.get('window').height / -15,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
         // top: Dimensions.get('window').height / 4,
-        bottom: Dimensions.get('window').height / 112,
+        bottom: Dimensions.get('window').height / 15,
         // alignItems: "flex-end",
         right: Dimensions.get('window').width / 2.75,
         width: Dimensions.get('window').width / 4,
