@@ -15,7 +15,8 @@ export default function CanFN({ navigation }){
             </Pressable>
 
             <Text style={styles.textCaption}>Canada First Nations</Text>
-            <Text style={styles.subtext} numberOfLines={7}>
+            <Text style={styles.subtext} numberOfLines={13}>
+                Note: You receive less funding than the rest of Canada and costs for materials are 5 times higher than the rest of Canada due to geographical and political issues. {"\n"}
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
                 Life Expectancy: 72.5 Years {"\n"}
                 Median Income (CAD$): $18,962 {"\n"}
@@ -108,9 +109,11 @@ const styles = StyleSheet.create({
     	height: Dimensions.get('window').height / 17.5,
       },
       w4twlogo: {
-        bottom: Dimensions.get('window').height / -40,
-        alignItems: 'center',
+        // top: Dimensions.get('window').height / 4,
+        bottom: Dimensions.get('window').height / 112,
+        // alignItems: "flex-end",
+        right: Dimensions.get('window').width / 2.75,
         width: Dimensions.get('window').width / 4,
-    	height: Dimensions.get('window').height / 15.5,
+    	  height: Dimensions.get('window').height / 15.5,
       },
 });
