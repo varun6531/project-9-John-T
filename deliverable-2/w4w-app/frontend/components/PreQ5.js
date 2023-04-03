@@ -47,7 +47,7 @@ export default function PreQ5({ navigation }) {
 					source={require('../assets/globalLiteracyRate.png')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 4,
+						height: Dimensions.get('window').height / 3.75,
 						marginTop: Dimensions.get('window').height / 50,
 						resizeMode: 'contain',
 					}}
