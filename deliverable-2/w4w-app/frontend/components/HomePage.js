@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable} from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GetTypeAPI from '../apis/GetTypeAPI';
@@ -7,7 +7,8 @@ import GetTypeAPI from '../apis/GetTypeAPI';
 export default function HomePage({ navigation }) {
 
   return (
-    <View style={styles.background}>
+    <SafeAreaView style={styles.background}> 
+    <View>
         <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
         <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Welcome</Text>
         <Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
@@ -59,18 +60,22 @@ export default function HomePage({ navigation }) {
         </Pressable>
         <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#1E1E1E',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+    // height: Dimensions.get('window').height,
+    // width: Dimensions.get('window').width,
   },
   text:{
     color: '#03DAC5',
-    marginTop: Dimensions.get('window').height/120,
+    // marginTop: Dimensions.get('window').height/20,
     textAlign:'center',
     fontSize:30,
     fontWeight: 'bold',
@@ -148,20 +153,17 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height / 3.2,
   },
   ewblogo:{
-    right: Dimensions.get('window').width / -1.35,
-    // alignSelf: 'flex-end',
-    bottom: Dimensions.get('window').height / -15,
     width: Dimensions.get('window').width / 5,
     height: Dimensions.get('window').height / 17.5,
+    position: 'absolute',
+    top: 10,
+    right: 20,
   },
   w4twlogo: {
-    // marginTop: Dimensions.get('window').height / 25,
-    // marginBottom: Dimensions.get('window').height/70,
-    alignSelf: 'center',
-    // width: 120,
     width: Dimensions.get('window').width / 5,
     height: Dimensions.get('window').height / 17.5,
-    bottom: Dimensions.get('window').height / 100,
-    // flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
   },
 });
