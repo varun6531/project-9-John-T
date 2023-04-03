@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   button2: {
-    width:  Dimensions.get('window').width / 1.5,
+    width:  Dimensions.get('window').width / 1.7,
     flexDirection: 'row',
     padding: 12,
     //marginLeft: Dimensions.get('window').width / 4,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   button3: {
-    width:  Dimensions.get('window').width / 1.5,
+    width:  Dimensions.get('window').width / 1.7,
     flexDirection: 'row',
     padding: 12,
     //marginLeft: Dimensions.get('window').width / 4,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   arrow:{
-    flex: 1,
+    //flex: 1,
     marginTop: 2
   },
   gifstyle:{
