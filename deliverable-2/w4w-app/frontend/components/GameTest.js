@@ -45,11 +45,11 @@ export default function GameTest({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
-      </View>
-      
-      <StatusBar style="auto" />
+            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
+                <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            </View>
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+            <StatusBar style="auto" />
         </View>
     );
 }
@@ -114,5 +114,14 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex: 5
+      },
+      w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });

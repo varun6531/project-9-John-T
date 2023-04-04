@@ -177,7 +177,7 @@ export default function Game({ route, navigation }) {
                   Material1Cost = fineSandVal;
                 }
                 setMoney(money - currentMaterialCost + Material1Cost);
-                setfilter1(currentMaterialImg); 
+                setfilter1(currentMaterialImg);
                 setfiltermat1(currentMaterial);
               }
               else{
@@ -808,6 +808,7 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
+        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
@@ -879,7 +880,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height*1/7,
     width: Dimensions.get('window').width,
     // marginTop: Dimensions.get('window').height*1/14,
-    marginBottom: Dimensions.get('window').height*1/14,
+    marginBottom: Dimensions.get('window').height / 20,
     paddingLeft: 10,
     paddingRight: 10,
     flex: 1
@@ -912,8 +913,8 @@ const styles = StyleSheet.create({
   },
   buttonLayer:{
     flexDirection: 'row',
-    marginTop: -Dimensions.get('window').height*1/20,
-    marginBottom: Dimensions.get('window').height*1/30,
+    marginTop: -Dimensions.get('window').height / 20,
+    marginBottom: Dimensions.get('window').height / 10,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -1017,10 +1018,19 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2C2C2C',
 		// alignSelf: 'flex-start',
 	},
-  w4twlogo: {
-      bottom: Dimensions.get('window').height / 112,
-      alignItems: 'center',
-      width: 120, 
-      height: 60, 
-    }
+//   w4twlogo: {
+//       bottom: Dimensions.get('window').height / 112,
+//       alignItems: 'center',
+//       width: 120, 
+//       height: 60, 
+//     }
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+        width: Dimensions.get('window').width / 4,
+        height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
+        bottom: 20,
+        left: 10,
+    },
 });

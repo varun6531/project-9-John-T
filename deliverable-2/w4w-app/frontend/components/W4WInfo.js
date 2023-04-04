@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
   },
   w4twlogo: {
     // marginTop: Dimensions.get('window').height / 25,
-    // marginBottom: Dimensions.get('window').height/30,
+    marginBottom: Dimensions.get('window').height/30,
     alignSelf: 'center',
-    width: Dimensions.get('window').width / 4,
-    height: Dimensions.get('window').height / 15.5,
+    width: Dimensions.get('window').width / 3,
+    height: Dimensions.get('window').height / 6,
     flex: 1,
   },
 });

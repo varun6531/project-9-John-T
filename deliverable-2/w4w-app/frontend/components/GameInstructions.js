@@ -23,7 +23,7 @@ export default function GameIns({ navigation }) {
             <Text style={styles.textCaption}>Instructions</Text>
             <Text style={styles.subtext} >Click on the material to select it. Select the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n'} Select your country and enjoy!</Text>
           <View style={styles.skipContainer}>
-            <Text style={styles.subtext2}>LIST A </Text>
+            <Text style={styles.subtext2}>LIST A</Text>
             <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Canada")}>
                 <Text style={styles.textButton}>
                     Canada
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     },
     subtext2: {
       color: '#03DAC5',
-      marginTop: Dimensions.get('window').height / 100,
+      marginTop: Dimensions.get('window').height / 35,
       textAlign: 'center',
       fontSize: 16,
       flexDirection: 'column',
@@ -183,12 +183,21 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 5,
     	  height: Dimensions.get('window').height / 17.5,
       },
-      w4twlogo: {
-        // top: Dimensions.get('window').height / 4,
-        bottom: Dimensions.get('window').height / 112,
-        // alignItems: "flex-end",
-        right: Dimensions.get('window').width / 2.75,
-        width: Dimensions.get('window').width / 4,
-    	  height: Dimensions.get('window').height / 15.5,
+    //   w4twlogo: {
+    //     // top: Dimensions.get('window').height / 4,
+    //     bottom: Dimensions.get('window').height / 112,
+    //     // alignItems: "flex-end",
+    //     right: Dimensions.get('window').width / 2.75,
+    //     width: Dimensions.get('window').width / 4,
+    // 	  height: Dimensions.get('window').height / 15.5,
+    //   },
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });
