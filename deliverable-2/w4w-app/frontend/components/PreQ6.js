@@ -9,6 +9,7 @@ import {
 	Image,
 	Pressable,
 	Modal,
+	SafeAreaView,
 } from 'react-native';
 import { Slider } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,7 +21,7 @@ export default function PreQ6({ navigation }) {
 	const [modalVisible, setModalVisible] = useState(false);
 
 	return (
-		<View style={styles.background}>
+		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
 			{/* <View style={styles.backinputview}> */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
@@ -93,18 +94,19 @@ export default function PreQ6({ navigation }) {
         <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 			<StatusBar style="auto" />
-		</View>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		height: Dimensions.get('window').height,
-		width: Dimensions.get('window').width,
+		// height: Dimensions.get('window').height,
+		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column',
+		// flexDirection: 'column',
+		flex: 1,
 	},
 	bold: { fontWeight: 'bold' },
 	italic: { fontStyle: 'italic' },
@@ -209,15 +211,19 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2C2C2C',
 	},
 	ewblogo: {
-		right: Dimensions.get('window').width / -3,
 		bottom: Dimensions.get('window').height / -18,
-		width: Dimensions.get('window').width / 5,
+        width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
+        alignSelf: 'flex-end',
+        right: "5%",
 	},
 	w4twlogo: {
 		bottom: Dimensions.get('window').height / 60,
-		alignItems: 'center',
-		width: Dimensions.get('window').width / 4,
+		alignItems: 'flex-start',
+        width: Dimensions.get('window').width / 4,
     	height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
+        bottom: 20,
+        left: 10,
 	},
 });

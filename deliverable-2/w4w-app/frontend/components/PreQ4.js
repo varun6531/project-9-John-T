@@ -9,6 +9,7 @@ import {
 	Pressable,
 	Modal,
 	TouchableOpacity,
+	SafeAreaView
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -67,7 +68,7 @@ export default function PreQ3({ navigation }) {
 	};
 
 	return (
-		<View style={styles.background}>
+		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 			{/* <View style={styles.backinputview}> */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
@@ -145,18 +146,19 @@ export default function PreQ3({ navigation }) {
 			/> */}
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
 			<StatusBar style="auto" />
-		</View>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		height: Dimensions.get('window').height,
-		width: Dimensions.get('window').width,
+		// height: Dimensions.get('window').height,
+		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column',
+		// flexDirection: 'column',
+		flex: 1,
 	},
 	bold: { fontWeight: 'bold' },
 	italic: { fontStyle: 'italic' },
@@ -193,7 +195,8 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: Dimensions.get('window').height / 75,
+		// marginTop: Dimensions.get('window').height / 15,
+		marginBottom: Dimensions.get('window').height / 15,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -298,10 +301,13 @@ const styles = StyleSheet.create({
       },
       w4twlogo: {
         bottom: Dimensions.get('window').height / 200,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         // width: 120, 
         // height: 60, 
-		width: Dimensions.get('window').width / 5,
-    	height: Dimensions.get('window').height / 17.5,
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });
