@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -12,7 +12,8 @@ import GetTypeAPI from '../apis/GetTypeAPI';
 
 export default function PreQ({ navigation }) {
     return (
-        <View style={styles.background}>
+        <SafeAreaView style={styles.background}>
+          {/* <View>  */}
           <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
                 {/* <View style={styles.backinputview}> */}
     <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
@@ -52,18 +53,20 @@ export default function PreQ({ navigation }) {
         <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
         <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
       <StatusBar style="auto" />
-        </View>
+      {/* </View> */}
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     background: {
         backgroundColor: '#1E1E1E',
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
-        justifyContent: 'center',
+        // height: Dimensions.get('window').height,
+        // width: Dimensions.get('window').width,
+        flex: 1,
         alignItems: 'center',
-        flexDirection: 'column'
+        justifyContent: 'center',
+        // flexDirection: 'column'
     },
     bold: {fontWeight: 'bold'},
     italic: {fontStyle: 'italic'},
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 8,
+        marginTop: Dimensions.get('window').height / 20,
         height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
@@ -79,12 +82,12 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
     },
     icon: {
-        marginTop: Dimensions.get('window').height / 10,
-        flex: 1
+        // marginTop: Dimensions.get('window').height / 10,
+        // flex: 1
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 36,
+        // marginTop: Dimensions.get('window').height / 36,
         textAlign: 'center',
         fontSize: 16,
         flexDirection: 'column',
@@ -101,13 +104,13 @@ const styles = StyleSheet.create({
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
-        marginTop: -200,
+        // marginTop: -200,
         backgroundColor: '#2C2C2C',
         alignItems: 'center',
       },
       arrow:{
         flex: 1,
-        marginTop: 2
+        // marginTop: 2
       },
       textButton:{
         color: '#03DAC5',
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 15,
         // marginLeft: Dimensions.get('window').width / 3,
-        marginTop: Dimensions.get('window').height / -570,
+        // marginTop: Dimensions.get('window').height / -570,
         borderColor: '#03DAC5',
         borderRadius: 999,
         borderWidth: 2,
@@ -140,13 +143,21 @@ const styles = StyleSheet.create({
         bottom: Dimensions.get('window').height / -18,
         width: Dimensions.get('window').width / 5,
     	  height: Dimensions.get('window').height / 17.5,
-        alignSelf: 'flex-end'
+        alignSelf: 'flex-end',
+        right: "5%",
+        // position: 'absolute',
+        // top: 10,
+        // right: 20,
+
       },
       w4twlogo: {
         bottom: Dimensions.get('window').height / 112,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         width: Dimensions.get('window').width / 4,
     	  height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
+        bottom: 20,
+        left: 10,
         // flex: 1, 
       },
 });
