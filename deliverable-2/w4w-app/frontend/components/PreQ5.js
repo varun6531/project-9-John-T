@@ -8,13 +8,14 @@ import {
 	Image,
 	Pressable,
 	Linking,
+	SafeAreaView
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function PreQ5({ navigation }) {
 	return (
-		<View style={styles.background}>
+		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 			{/* <View style={styles.backinputview}> */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
@@ -47,8 +48,8 @@ export default function PreQ5({ navigation }) {
 					source={require('../assets/globalLiteracyRate.png')}
 					style={{
 						width: Dimensions.get('window').width,
-						height: Dimensions.get('window').height / 3.75,
-						marginTop: Dimensions.get('window').height / 50,
+						height: Dimensions.get('window').height / 2.5,
+						marginTop: Dimensions.get('window').height / 40,
 						resizeMode: 'contain',
 					}}
 				/>
@@ -89,25 +90,26 @@ export default function PreQ5({ navigation }) {
 			/> */}
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
 			<StatusBar style="auto" />
-		</View>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		height: Dimensions.get('window').height,
-		width: Dimensions.get('window').width,
+		// height: Dimensions.get('window').height,
+		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column',
+		flex: 1,
+		// flexDirection: 'column',
 	},
 	bold: { fontWeight: 'bold' },
 	italic: { fontStyle: 'italic' },
 	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 8,
+		marginTop: Dimensions.get('window').height / 50,
 		textAlign: 'center',
 		fontSize: 30,
 		fontWeight: 'bold',
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
 		marginTop: Dimensions.get('window').height / 15,
+		marginBottom: Dimensions.get('window').height / 15,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -178,8 +181,11 @@ const styles = StyleSheet.create({
       },
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
-        alignItems: 'center',
+        alignItems: 'flex-start',
 		width: Dimensions.get('window').width / 4,
     	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });
