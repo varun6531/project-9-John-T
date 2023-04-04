@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     textCaption: {
         color: '#03DAC5',
         marginTop: Dimensions.get('window').height / 76,
+        marginBottom: Dimensions.get('window').height / 250,
         height: Dimensions.get('window').height/12, 
         textAlign: 'center',
         fontSize: 30,
@@ -66,14 +67,15 @@ const styles = StyleSheet.create({
     },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 64,
+        marginTop: Dimensions.get('window').height / 250,
         textAlign: 'left',
         fontSize: 16,
         flexDirection: 'column',
-        width: Dimensions.get('window').width / 1.25,
+        width: Dimensions.get('window').width / 1.2,
     },
     button2: {
         width:  Dimensions.get('window').width / 2,
+        bottom: Dimensions.get('window').height / 50,
         flexDirection: 'row',
         padding: 12,
         borderColor: '#03DAC5',
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 13,
         flexDirection: 'column',
-        width: Dimensions.get('window').width / 1.25,
+        width: Dimensions.get('window').width / 1.2,
     },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
@@ -118,12 +120,21 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
       },
-      w4twlogo: {
-        // top: Dimensions.get('window').height / 4,
-        bottom: Dimensions.get('window').height / 15,
-        // alignItems: "flex-end",
-        right: Dimensions.get('window').width / 2.75,
-        width: Dimensions.get('window').width / 4,
-    	  height: Dimensions.get('window').height / 15.5,
+    //   w4twlogo: {
+    //     // top: Dimensions.get('window').height / 4,
+    //     bottom: Dimensions.get('window').height / 15,
+    //     // alignItems: "flex-end",
+    //     right: Dimensions.get('window').width / 2.75,
+    //     width: Dimensions.get('window').width / 4,
+    // 	  height: Dimensions.get('window').height / 15.5,
+    //   },
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });

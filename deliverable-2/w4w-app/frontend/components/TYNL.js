@@ -98,11 +98,20 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 5,
         height: Dimensions.get('window').height / 17.5,
       },
-      w4twlogo: {
-        bottom: Dimensions.get('window').height / 112,
-        alignItems: 'center',
-        width: Dimensions.get('window').width / 4,
-    	  height: Dimensions.get('window').height / 15.5,
-        // flex: 1, 
+    //   w4twlogo: {
+    //     bottom: Dimensions.get('window').height / 112,
+    //     alignItems: 'center',
+    //     width: Dimensions.get('window').width / 4,
+    // 	  height: Dimensions.get('window').height / 15.5,
+    //     // flex: 1, 
+    //   },
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
       },
 });

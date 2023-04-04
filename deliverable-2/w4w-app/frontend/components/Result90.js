@@ -67,9 +67,8 @@ export default function Result90({ route, navigation }) {
                         </View>
                     </Pressable>
                 </View>  
-                <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
             </View>
-      
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
             <StatusBar style="auto" />
         </View>
     );
@@ -181,11 +180,20 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 5,
     	  height: Dimensions.get('window').height / 17.5,
       },
-      w4twlogo: {
-        alignSelf: 'center',
-        // width: 120,
-        width: Dimensions.get('window').width / 4,
-        height: Dimensions.get('window').height / 11,
-        bottom: Dimensions.get('window').height / 100,
-      }
+    //   w4twlogo: {
+    //     alignSelf: 'center',
+    //     // width: 120,
+    //     width: Dimensions.get('window').width / 4,
+    //     height: Dimensions.get('window').height / 11,
+    //     bottom: Dimensions.get('window').height / 100,
+    //   }
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+		width: Dimensions.get('window').width / 4,
+    	height: Dimensions.get('window').height / 15.5,
+		position: 'absolute',
+        bottom: 20,
+        left: 10,
+      },
 });

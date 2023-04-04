@@ -58,8 +58,9 @@ export default function HomePage({ navigation }) {
             <Icon name='angle-right' color='#03DAC5' size={15}/>
             </View>
         </Pressable>
-        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+        {/* <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/> */}
     </View>
+    <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </SafeAreaView>
   );
 }
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   button2: {
-    width:  Dimensions.get('window').width / 1.7,
+    width:  Dimensions.get('window').width / 1.8,
     flexDirection: 'row',
     padding: 12,
     //marginLeft: Dimensions.get('window').width / 4,
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C'
   },
   button3: {
-    width:  Dimensions.get('window').width / 1.7,
+    width:  Dimensions.get('window').width / 1.8,
     flexDirection: 'row',
     padding: 12,
     //marginLeft: Dimensions.get('window').width / 4,
@@ -159,11 +160,20 @@ const styles = StyleSheet.create({
     top: 10,
     right: 20,
   },
-  w4twlogo: {
-    width: Dimensions.get('window').width / 5,
-    height: Dimensions.get('window').height / 17.5,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-  },
+//   w4twlogo: {
+//     width: Dimensions.get('window').width / 5,
+//     height: Dimensions.get('window').height / 17.5,
+//     position: 'absolute',
+//     bottom: 0,
+//     left: 0,
+//   },
+    w4twlogo: {
+        bottom: Dimensions.get('window').height / 180,
+        alignItems: 'flex-start',
+        width: Dimensions.get('window').width / 4,
+        height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
+        bottom: 20,
+        left: 10,
+    },
 });
