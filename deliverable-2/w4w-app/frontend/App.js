@@ -23,6 +23,7 @@ import PreQ7 from './components/PreQ7';
 import PreQ8 from './components/PreQ8';
 import Game from './components/Game';
 import PostQ1 from './components/PostQ1';
+import PostQ1NonLogin from './components/PostQ1NonLogin';
 import GameIns from './components/GameInstructions';
 import GameTest from './components/GameTest';
 import ThankYou from './components/ThankYou';
@@ -70,6 +71,7 @@ export default function App() {
           <Stack.Screen name="Student welcome" component={StudentWelcome} />
           <Stack.Screen name="Teacher welcome" component={TeacherWelcome} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>
+          <Stack.Screen name="Post questionnaire Non Login" component={PostQ1NonLogin}/>
           <Stack.Screen name="Thank you" component={ThankYou}/>
           <Stack.Screen name="Tynl" component={TYNL}/>
           <Stack.Screen name="Canada" component={Canada}/>

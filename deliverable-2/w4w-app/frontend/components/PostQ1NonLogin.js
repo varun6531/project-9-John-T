@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as MailComposer from 'expo-mail-composer';
 
-export default function PostQ1({ navigation }) {
+export default function PostQ1NonLogin({ navigation }) {
 	const [q1, setQ1] = useState('');
 	const [q2, setQ2] = useState('');
 	const [q3, setQ3] = useState('');
@@ -185,19 +185,8 @@ export default function PostQ1({ navigation }) {
 					</Pressable>
 					<Pressable
 						style={styles.button}
-						onPress={async () => {
-							sendEmail();
-						}}
-					>
-						<Text style={styles.textButton}>Submit Responses</Text>
-						<View style={styles.arrow}>
-							<FontAwesome5 name="angle-right" color="#03DAC5" size={15} />
-						</View>
-					</Pressable>
-					<Pressable
-						style={styles.button}
 						onPress={() => {
-							navigation.navigate('Thank you');
+							navigation.navigate('Tynl');
 						}}
 					>
 						<Text style={styles.textButton}>Finish</Text>
