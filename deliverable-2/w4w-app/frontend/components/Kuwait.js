@@ -4,7 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Kuwait({route, navigation }){
-    const {moneyval,f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
+    const {moneyval,f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
     return(
         <View style={styles.background}>
@@ -31,7 +31,7 @@ export default function Kuwait({route, navigation }){
                 2. Place two layers of fine sand over the cotton plug, followed by 2 layers of coarse sand, followed by one layer each of fine gravel and coarse gravel. {"\n"}
                 3. Now, test your water filter to find out how well your filter works and whether or not it’s drinkable. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'kuwait', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'kuwait', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8, isNew:isNew})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

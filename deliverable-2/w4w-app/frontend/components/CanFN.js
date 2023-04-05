@@ -4,7 +4,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function CanFN({ route, navigation }){
-    const {moneyval, f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
+    const {moneyval, f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
     return(
         <View style={styles.background}>
@@ -34,7 +34,7 @@ export default function CanFN({ route, navigation }){
             <Text style={styles.subtext2}>
                 Note: You receive less funding than the rest of Canada and costs for materials are 5 times higher than the rest of Canada due to geographical and political issues. {"\n"} {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'canadaFN', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'canadaFN', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8, isNew:isNew})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

@@ -5,7 +5,8 @@ import { useEffect } from 'react'
 
 export default function Game({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const { moneyVal, country , f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
+  const [modalVisible2, setModalVisible2] = useState(false);
+  const { moneyVal, country , f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
   // Images of the filter materials
   const fineSandImg = require('../assets/fineSand.jpeg');
@@ -24,6 +25,10 @@ export default function Game({ route, navigation }) {
   const rubberBandVal = 25;
   const coarseSandVal = (country == 'canadaFN')? 100: 20;
   const fineSandVal = (country == 'canadaFN')? 100: 20;
+
+  //messages for chance cards
+  const messageCanada = 'You lost 50$';
+  const messageListB = "You gained 35$"
 
 
   // Pointers to the selected material and its corresponding image
@@ -227,6 +232,21 @@ export default function Game({ route, navigation }) {
     else if(f8 == 'fineSand'){
       setfilter8(fineSandImg);
     }
+
+    if(country=='canada'&& isNew){
+      var rand = Math.floor(Math.random() * 2) + 1 ;
+      if(rand%2==0){
+        setModalVisible2(true);
+        setMoney(money-50);
+      }
+    }
+    if((country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')&& isNew){
+      var rand = Math.floor(Math.random() * 4) + 1 ;
+      if(rand == 1){
+        setModalVisible2(true);
+        setMoney(money+35);
+      }
+    }
 	}, []);
 
   const lackofFundsModal = () => {
@@ -246,6 +266,33 @@ export default function Game({ route, navigation }) {
 							<Pressable
 								style={[styles.buttonans, styles.buttonClose]}
 								onPress={() => setModalVisible(!modalVisible)}
+							>
+								<Text style={styles.textButton}>OK</Text>
+							</Pressable>
+						</View>
+					</View>
+				</Modal>
+			</View>
+		);
+	};
+
+  const loseFundsModal = () => {
+		return (
+			<View style={styles.centeredView}>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible2}
+					onRequestClose={() => {
+						setModalVisible2(!modalVisible2);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+							<Text style={styles.answerView}>{country=='canada'? messageCanada: messageListB}</Text>
+							<Pressable
+								style={[styles.buttonans, styles.buttonClose]}
+								onPress={() => setModalVisible2(!modalVisible2)}
 							>
 								<Text style={styles.textButton}>OK</Text>
 							</Pressable>
@@ -296,25 +343,25 @@ export default function Game({ route, navigation }) {
       <View style={styles.backBox}>
         <Pressable onPress={async () => {  
           if(country == 'canada'){
-            navigation.navigate("Canada", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("Canada", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='canadaFN'){
-            navigation.navigate("CanFN", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("CanFN", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='ghana'){
-            navigation.navigate("Ghana", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("Ghana", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='kenya'){
-            navigation.navigate("Kenya", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("Kenya", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='kuwait'){
-            navigation.navigate("Kuwait", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("Kuwait", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='malawi'){
-            navigation.navigate("Malawi", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("Malawi", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           else if(country=='SA'){
-            navigation.navigate("SAfrica", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
+            navigation.navigate("SAfrica", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money, isNew:false});
           }
           }}>
           <Icon name='arrow-left' color='#03DAC5' size={25} />
@@ -825,6 +872,7 @@ export default function Game({ route, navigation }) {
             </Pressable>
         </View>
         {lackofFundsModal()}
+        {loseFundsModal()}
         <View style={styles.scroll}>
           <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
