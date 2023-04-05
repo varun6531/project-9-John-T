@@ -11,6 +11,7 @@ import PreQ from './components/PreQ';
 import TeacherSignup from './components/TeacherSignup';
 import StudentSignup from './components/StudentSignup';
 import Login from './components/Login';
+import StudentLogin from './components/StudentLogin';
 import StudentWelcome from './components/StudentWelcome';
 import TeacherWelcome from './components/TeacherWelcome';
 import PreQ2 from './components/PreQ2';
@@ -65,6 +66,7 @@ export default function App() {
           <Stack.Screen name="Teacher signup" component={TeacherSignup} />
           <Stack.Screen name="Student signup" component={StudentSignup} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Student login" component={StudentLogin} />
           <Stack.Screen name="Student welcome" component={StudentWelcome} />
           <Stack.Screen name="Teacher welcome" component={TeacherWelcome} />
           <Stack.Screen name="Post questionnaire 1" component={PostQ1}/>

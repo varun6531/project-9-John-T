@@ -25,7 +25,7 @@ export default function HomePage({ navigation }) {
         <Pressable style={styles.button} onPress={async () => {
                         let user = await AsyncStorage.getItem("user");
                         if (user == null){
-                            navigation.navigate("Sign in") ;
+                            navigation.navigate('Student login');
                         }  else {
                             navigation.navigate("Already logged")
 
