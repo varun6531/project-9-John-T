@@ -1088,7 +1088,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
-    flex: 5
+    flex: 6
   },
   filter2:{
     backgroundColor: 'transparent',
@@ -1120,11 +1120,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     height: Dimensions.get('window').height*1/7,
     width: Dimensions.get('window').width,
-    // marginTop: Dimensions.get('window').height*1/14,
+    // paddingTop: Dimensions.get('window').height*1/14,
     marginBottom: Dimensions.get('window').height / 20,
     paddingLeft: 10,
     paddingRight: 10,
-    flex: 1
+    flex: 2
   },
   textButton:{
     color: '#03DAC5',
