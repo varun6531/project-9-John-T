@@ -12,13 +12,69 @@ import {
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import EmailInfoAPI from '../apis/EmailInfoAPI';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as MailComposer from 'expo-mail-composer';
 
 export default function PostQ1({ navigation }) {
 	const [q1, setQ1] = useState('NO ANSWER');
 	const [q2, setQ2] = useState('NO ANSWER');
 	const [q3, setQ3] = useState('NO ANSWER');
 	const [q4, setQ4] = useState('NO ANSWER');
+
+	const sendEmail = () => {
+		AsyncStorage.getItem('user').then((user) => {
+			user = JSON.parse(user);
+			const teacherEmail = user.teacherEmail;
+			const username = user.name;
+
+			const subject = '[Water for the World] Answers from ' + username;
+			const emailTemplate = `
+				Student name: ${username}
+
+				Here are the student's answers to the post-questionnaires:
+
+				
+				Question 1:
+				----------------
+				${q1}
+
+				
+				Question 2:
+				---------------- 
+				${q2}
+
+
+				Question 3: 
+				----------------
+				${q3}
+
+
+				Question 4: 
+				----------------
+				${q4} 
+
+
+
+
+				Thank you for participating in Water for the World!
+				
+				Note to teacher -- Please email W4TW at W4TW@gmail.com and let us know your thoughts for improving the app (or thanks) and also HOW MANY STUDENTS completed the workshop so that we can tract its usage.  
+				Thank you, W4TW. 
+				`;
+			MailComposer.composeAsync({
+				recipients: [teacherEmail],
+				subject: subject,
+				body: emailTemplate,
+			}).catch(() =>
+				Alert.alert('Unable To Send Email', undefined, [
+					{
+						text: 'OK',
+					},
+				])
+			);
+		});
+	};
 
 	return (
 		<View style={styles.background}>
@@ -91,7 +147,7 @@ export default function PostQ1({ navigation }) {
 					<Pressable
 						style={styles.button}
 						onPress={async () => {
-							EmailInfoAPI(q1, q2, q3, q4);
+							sendEmail();
 						}}
 					>
 						<Text style={styles.textButton}>Submit Responses</Text>
