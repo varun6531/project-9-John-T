@@ -46,6 +46,7 @@ export default function Result90({ route, navigation }) {
                             Home
                         </Text>
                     </Pressable>
+                    
                     <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
                         let user = await AsyncStorage.getItem("user")
                         if (user == null){
