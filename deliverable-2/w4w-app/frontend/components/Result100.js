@@ -50,13 +50,8 @@ export default function Result100({ route, navigation }) {
                         if (user == null){
                             navigation.navigate("Tynl") 
                         }  else {
-                            let parsed = await JSON.parse(user);  
-                            var email = parsed.email;
-                            var type = await GetTypeAPI(email);
-                                if (type == null){
-                                navigation.navigate("Thank you");
-                                }
-                            else {navigation.navigate("Post questionnaire 1")}}
+                            navigation.navigate('Post questionnaire 1');
+                            }
                     }}>
                         <Text style={styles.textButton}>
                             Continue
