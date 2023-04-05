@@ -5,7 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 
-export default function Canada({ navigation }){
+export default function Canada({route, navigation }){
+    const {moneyval, f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
+
     return(
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
@@ -31,7 +33,7 @@ export default function Canada({ navigation }){
             </Text>
             {/* <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {country: "Canada"})}>
              */}
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 500, country: 'canada'})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'canada', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

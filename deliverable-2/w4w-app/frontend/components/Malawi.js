@@ -3,7 +3,9 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function Malawi({ navigation }){
+export default function Malawi({route,  navigation }){
+    const {moneyval,f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
+
     return(
         <View style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
@@ -33,7 +35,7 @@ export default function Malawi({ navigation }){
             <Text style={styles.subtext2}>
                 Note: You will have difficulty reading this – this simulates the effect of the literacy rate in this country. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: 50, country: 'malawi'})}>
+            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'malawi', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>

@@ -1,10 +1,11 @@
 import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, Image, Modal} from 'react-native';
 import React, { useState, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useEffect } from 'react'
 
 export default function Game({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const { moneyVal, country } = route.params;
+  const { moneyVal, country , f1, f2, f3, f4, f5, f6, f7, f8} = route.params;
 
   // Images of the filter materials
   const fineSandImg = require('../assets/fineSand.jpeg');
@@ -56,6 +57,177 @@ export default function Game({ route, navigation }) {
   const [filtermat6, setfiltermat6] = useState('none');
   const [filtermat7, setfiltermat7] = useState('none');
   const [filtermat8, setfiltermat8] = useState('none');
+
+  useEffect(()=>{
+    setfiltermat1(f1);
+    setfiltermat2(f2);
+    setfiltermat3(f3);
+    setfiltermat4(f4);
+    setfiltermat5(f5);
+    setfiltermat6(f6);
+    setfiltermat7(f7);
+    setfiltermat8(f8);
+  
+    // set filter 1 image
+    if(f1 == 'cheeseCloth'){
+      setfilter1(cheeseClothImg);
+    }
+    else if(f1 == 'cotton'){
+      setfilter1(cottonImg);
+    }
+    else if(f1 == 'coarseGravel'){
+      setfilter1(coarseGravelImg);
+    }
+    else if(f1 == 'fineGravel'){
+      setfilter1(fineGravelImg);
+    }
+    else if(f1 == 'coarseSand'){
+      setfilter1(coarseSandImg);
+    }
+    else if(f1 == 'fineSand'){
+      setfilter1(fineSandImg);
+    }
+  
+    //Set filter 2 image
+    if(f2 == 'cheeseCloth'){
+      setfilter2(cheeseClothImg);
+    }
+    else if(f2 == 'cotton'){
+      setfilter2(cottonImg);
+    }
+    else if(f2 == 'coarseGravel'){
+      setfilter2(coarseGravelImg);
+    }
+    else if(f2 == 'fineGravel'){
+      setfilter2(fineGravelImg);
+    }
+    else if(f2 == 'coarseSand'){
+      setfilter2(coarseSandImg);
+    }
+    else if(f2 == 'fineSand'){
+      setfilter2(fineSandImg);
+    }
+  
+    //Set filter 3 image
+    if(f3 == 'cheeseCloth'){
+      setfilter3(cheeseClothImg);
+    }
+    else if(f3 == 'cotton'){
+      setfilter3(cottonImg);
+    }
+    else if(f3 == 'coarseGravel'){
+      setfilter3(coarseGravelImg);
+    }
+    else if(f3 == 'fineGravel'){
+      setfilter3(fineGravelImg);
+    }
+    else if(f3 == 'coarseSand'){
+      setfilter3(coarseSandImg);
+    }
+    else if(f3 == 'fineSand'){
+      setfilter3(fineSandImg);
+    }
+  
+    //Set filter 4 image
+    if(f4 == 'cheeseCloth'){
+      setfilter4(cheeseClothImg);
+    }
+    else if(f4 == 'cotton'){
+      setfilter4(cottonImg);
+    }
+    else if(f4 == 'coarseGravel'){
+      setfilter4(coarseGravelImg);
+    }
+    else if(f4 == 'fineGravel'){
+      setfilter4(fineGravelImg);
+    }
+    else if(f4 == 'coarseSand'){
+      setfilter4(coarseSandImg);
+    }
+    else if(f4 == 'fineSand'){
+      setfilter4(fineSandImg);
+    }
+  
+    //Set filter 5 image
+    if(f5 == 'cheeseCloth'){
+      setfilter5(cheeseClothImg);
+    }
+    else if(f5 == 'cotton'){
+      setfilter5(cottonImg);
+    }
+    else if(f5 == 'coarseGravel'){
+      setfilter5(coarseGravelImg);
+    }
+    else if(f5 == 'fineGravel'){
+      setfilter5(fineGravelImg);
+    }
+    else if(f5 == 'coarseSand'){
+      setfilter5(coarseSandImg);
+    }
+    else if(f5 == 'fineSand'){
+      setfilter5(fineSandImg);
+    }
+  
+    //Set filter 6 image
+    if(f6 == 'cheeseCloth'){
+      setfilter6(cheeseClothImg);
+    }
+    else if(f6 == 'cotton'){
+      setfilter6(cottonImg);
+    }
+    else if(f6 == 'coarseGravel'){
+      setfilter6(coarseGravelImg);
+    }
+    else if(f6 == 'fineGravel'){
+      setfilter6(fineGravelImg);
+    }
+    else if(f6 == 'coarseSand'){
+      setfilter6(coarseSandImg);
+    }
+    else if(f2 == 'fineSand'){
+      setfilter6(fineSandImg);
+    }
+  
+    //Set filter 7 image
+    if(f7 == 'cheeseCloth'){
+      setfilter7(cheeseClothImg);
+    }
+    else if(f7 == 'cotton'){
+      setfilter7(cottonImg);
+    }
+    else if(f7 == 'coarseGravel'){
+      setfilter7(coarseGravelImg);
+    }
+    else if(f7 == 'fineGravel'){
+      setfilter7(fineGravelImg);
+    }
+    else if(f7 == 'coarseSand'){
+      setfilter7(coarseSandImg);
+    }
+    else if(f7 == 'fineSand'){
+      setfilter7(fineSandImg);
+    }
+  
+    //Set filter 8 image
+    if(f8 == 'cheeseCloth'){
+      setfilter8(cheeseClothImg);
+    }
+    else if(f8 == 'cotton'){
+      setfilter8(cottonImg);
+    }
+    else if(f8 == 'coarseGravel'){
+      setfilter8(coarseGravelImg);
+    }
+    else if(f8 == 'fineGravel'){
+      setfilter8(fineGravelImg);
+    }
+    else if(f8 == 'coarseSand'){
+      setfilter8(coarseSandImg);
+    }
+    else if(f8 == 'fineSand'){
+      setfilter8(fineSandImg);
+    }
+	}, []);
 
   const lackofFundsModal = () => {
 		return (
@@ -122,27 +294,27 @@ export default function Game({ route, navigation }) {
   return (
     <View style={styles.background}>
       <View style={styles.backBox}>
-        <Pressable onPress={async () => {
+        <Pressable onPress={async () => {  
           if(country == 'canada'){
-            navigation.navigate("Canada");
+            navigation.navigate("Canada", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='canadaFN'){
-            navigation.navigate("CanFN");
+            navigation.navigate("CanFN", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='ghana'){
-            navigation.navigate("Ghana");
+            navigation.navigate("Ghana", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='kenya'){
-            navigation.navigate("Kenya");
+            navigation.navigate("Kenya", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='kuwait'){
-            navigation.navigate("Kuwait");
+            navigation.navigate("Kuwait", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='malawi'){
-            navigation.navigate("Malawi");
+            navigation.navigate("Malawi", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           else if(country=='SA'){
-            navigation.navigate("SAfrica");
+            navigation.navigate("SAfrica", {f1:filtermat1, f2: filtermat2, f3: filtermat3, f4:filtermat4, f5:filtermat5, f6: filtermat6, f7: filtermat7, f8: filtermat8, moneyval:money});
           }
           }}>
           <Icon name='arrow-left' color='#03DAC5' size={25} />
