@@ -39,8 +39,8 @@ export default function PreQ8({ navigation }) {
 			<Text style={styles.textCaption}>Global Extreme Poverty</Text>
 			<Text style={styles.subtext}>
 				Extreme Poverty is defined by the percentage of the population living on
-				less than $2.50 a say. This map shows where most of those suffering from
-				extreme poverty live. Not surprisingl with a lack of clean water and
+				less than $2.50 a day. This map shows where most of those suffering from
+				extreme poverty live. Not surprisingly with a lack of clean water and
 				education, many people in Sub-Saharan Africa suffer from Extreme
 				Poverty.
 			</Text>

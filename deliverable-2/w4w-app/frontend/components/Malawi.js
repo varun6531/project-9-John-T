@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput, SafeAreaView } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -7,7 +7,7 @@ export default function Malawi({route,  navigation }){
     const {moneyval,f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
     return(
-        <View style={styles.background}>
+        <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
             <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
@@ -25,7 +25,7 @@ export default function Malawi({route,  navigation }){
                 Literacy Rate: 62.1% of population age 15 and above {"\n"}
                 Population: {"> "}20 million
             </Text>
-            <Text style={styles.textCaption}>Instructions</Text>
+            <Text style={styles.textCaption2}>Instructions</Text>
             <Text style={styles.subtext} numberOfLines={36}>
                 1. XXXXXX put a piece of XXXX XXXXX of the filter, then put X XXXXX of XXXX plug XXXXX that. {"\n"}
                 2. Place XXX layers of fine XXXX over the XXX XXXX, followed by X layers of XXXXX sand, XXXXXXX by one XXXX each of fine XXXXX and XXXX gravel. {"\n"}
@@ -46,18 +46,16 @@ export default function Malawi({route,  navigation }){
             {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
         <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
         <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     background: {
         backgroundColor: '#1E1E1E',
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flex: 1,
     },
     textCaption: {
         color: '#03DAC5',
@@ -68,13 +66,21 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textDecorationLine: 'underline',
     },
+    textCaption2: {
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / 65,
+        textAlign: 'center',
+        fontSize: 30,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+    },
     subtext: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / -80,
+        marginTop: Dimensions.get('window').height / 80,
         textAlign: 'left',
-        fontSize: 15,
+        fontSize: 16,
         flexDirection: 'column',
-        width: Dimensions.get('window').width / 1.25,
+        width: Dimensions.get('window').width / 1.2,
     },
     subtext2: {
         color: '#03DAC5',
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 13,
         flexDirection: 'column',
-        width: Dimensions.get('window').width / 1.25,
+        width: Dimensions.get('window').width / 1.2,
     },
     button2: {
         width:  Dimensions.get('window').width / 2,
@@ -93,6 +99,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#2C2C2C',
         alignItems: 'center',
+        marginBottom: Dimensions.get('window').height/15,
     },
     arrow:{
         flex: 1,
@@ -117,10 +124,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#2C2C2C'
       },
     ewblogo:{
-        right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -17.5,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
+        alignSelf: 'flex-end',
+        right: "5%",
       },
     //   w4twlogo: {
     //     bottom: Dimensions.get('window').height / 100,

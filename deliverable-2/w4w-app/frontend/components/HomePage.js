@@ -21,7 +21,7 @@ export default function HomePage({ navigation }) {
             {'\n'} - to introduce the issues surrounding clean drinking water in different parts of the world.
         </Text>
         
-        <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you have been asked by your teacher instructor/teacher/presenter to login, please continue with the login button</Text>
+        <Text  numberOfLines={5} adjustsFontSizeToFit style= {styles.textUnder}>If you have been asked by your instructor/teacher/presenter to login, please continue with the login button</Text>
         <Pressable style={styles.button} onPress={async () => {
                         let user = await AsyncStorage.getItem("user");
                         if (user == null){

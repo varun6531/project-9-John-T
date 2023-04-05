@@ -91,7 +91,7 @@ export default function PreQ3({ navigation }) {
 
 			<Text style={styles.textCaption}>Literacy Rate</Text>
 			<Text style={styles.subtext}>
-				The percentage of the populatin of a given age group that can read and
+				The percentage of the population over 14 years old that can read and
 				write.
 			</Text>
 			<Text style={styles.subtext}>
