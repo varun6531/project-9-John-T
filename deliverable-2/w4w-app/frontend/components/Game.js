@@ -335,7 +335,28 @@ export default function Game({ route, navigation }) {
     setfiltermat8('none');
 
     // Reset money
-    setMoney(moneyVal);
+    
+    if(country == 'canada'){
+      setMoney(500);
+    }
+    else if(country=='canadaFN'){
+      setMoney(350);
+    }
+    else if(country=='ghana'){
+      setMoney(40);
+    }
+    else if(country=='kenya'){
+      setMoney(30);
+    }
+    else if(country=='kuwait'){
+      setMoney(400);
+    }
+    else if(country=='malawi'){
+      setMoney(50);
+    }
+    else if(country=='SA'){
+      setMoney(65);
+    }
   };
 
   return (
