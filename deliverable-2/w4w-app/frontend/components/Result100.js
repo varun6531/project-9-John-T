@@ -45,13 +45,13 @@ export default function Result100({ route, navigation }) {
                             Home
                         </Text>
                     </Pressable>
-                    <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Post questionnaire 1")}>
-                        <View style={styles.arrow2} >
-                            <FontAwesome5 name='angle-left' color='#03DAC5' size={15}/>
-                        </View>
+                    <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("Post questionnaire 1")}>
                         <Text style={styles.textButton}>
                             Continue
                         </Text>
+                        <View style={styles.arrow2} >
+                            <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
+                        </View>
                     </Pressable>
                     {/* <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
                         let user = await AsyncStorage.getItem("user")

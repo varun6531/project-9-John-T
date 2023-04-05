@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     },
     ewblogo:{
         right: Dimensions.get('window').width / -3,
-        bottom: Dimensions.get('window').height / -50,
+        bottom: Dimensions.get('window').height / -17.5,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
     },
