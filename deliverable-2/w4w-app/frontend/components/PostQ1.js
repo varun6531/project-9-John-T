@@ -9,16 +9,83 @@ import {
 	Pressable,
 	TextInput,
 	ScrollView,
+	Alert,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import EmailInfoAPI from '../apis/EmailInfoAPI';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as MailComposer from 'expo-mail-composer';
 
 export default function PostQ1({ navigation }) {
-	const [q1, setQ1] = useState('NO ANSWER');
-	const [q2, setQ2] = useState('NO ANSWER');
-	const [q3, setQ3] = useState('NO ANSWER');
-	const [q4, setQ4] = useState('NO ANSWER');
+	const [q1, setQ1] = useState('');
+	const [q2, setQ2] = useState('');
+	const [q3, setQ3] = useState('');
+	const [q4, setQ4] = useState('');
+
+	useEffect(() => {
+		AsyncStorage.getItem('user').then((user) => {
+			user = JSON.parse(user);
+			setQ1(user.q1);
+			setQ2(user.q2);
+			setQ3(user.q3);
+			setQ4(user.q4);
+		});
+	}, []);
+
+	const sendEmail = () => {
+		AsyncStorage.getItem('user').then((user) => {
+			user = JSON.parse(user);
+			const teacherEmail = user.teacherEmail;
+			const username = user.name;
+
+			const subject = '[Water for the World] Answers from ' + username;
+			const emailTemplate = `
+				Student name: ${username}
+
+				Here are the student's answers to the post-questionnaires:
+
+				
+				Question 1:
+				----------------
+				${q1}
+
+				
+				Question 2:
+				---------------- 
+				${q2}
+
+
+				Question 3: 
+				----------------
+				${q3}
+
+
+				Question 4: 
+				----------------
+				${q4} 
+
+
+
+
+				Thank you for participating in Water for the World!
+				
+				Note to teacher -- Please email W4TW at W4TW@gmail.com and let us know your thoughts for improving the app (or thanks) and also HOW MANY STUDENTS completed the workshop so that we can tract its usage.  
+				Thank you, W4TW. 
+				`;
+			MailComposer.composeAsync({
+				recipients: [teacherEmail],
+				subject: subject,
+				body: emailTemplate,
+			}).catch(() =>
+				Alert.alert('Unable To Send Email', undefined, [
+					{
+						text: 'OK',
+					},
+				])
+			);
+		});
+	};
 
 	return (
 		<View style={styles.background}>
@@ -49,6 +116,7 @@ export default function PostQ1({ navigation }) {
 					placeholderTextColor={'#03DAC5'}
 					label="User name"
 					multiline={true}
+					defaultValue={q1}
 				/>
 				<Text style={styles.textCaption}>Question 2</Text>
 				<Text style={styles.subtext}>
@@ -62,6 +130,7 @@ export default function PostQ1({ navigation }) {
 					placeholderTextColor={'#03DAC5'}
 					label="User name"
 					multiline={true}
+					defaultValue={q2}
 				/>
 				<Text style={styles.textCaption}>Question 3</Text>
 				<Text style={styles.subtext}>
@@ -74,6 +143,7 @@ export default function PostQ1({ navigation }) {
 					placeholderTextColor={'#03DAC5'}
 					label="User name"
 					multiline={true}
+					defaultValue={q3}
 				/>
 				<Text style={styles.textCaption}>Question 4</Text>
 				<Text style={styles.subtext}>
@@ -86,12 +156,38 @@ export default function PostQ1({ navigation }) {
 					placeholderTextColor={'#03DAC5'}
 					label="User name"
 					multiline={true}
+					defaultValue={q4}
 				/>
 				<View style={styles.inputview}>
 					<Pressable
 						style={styles.button}
 						onPress={async () => {
-							EmailInfoAPI(q1, q2, q3, q4);
+							await AsyncStorage.getItem('user')
+								.then((user) => {
+									parsed = JSON.parse(user);
+									parsed.q1 = q1;
+									parsed.q2 = q2;
+									parsed.q3 = q3;
+									parsed.q4 = q4;
+								})
+								.then(async () => {
+									await AsyncStorage.setItem('user', JSON.stringify(parsed));
+								})
+								.then(() => {
+									Alert.alert('Saved', undefined, [
+										{
+											text: 'OK',
+										},
+									]);
+								});
+						}}
+					>
+						<Text style={styles.textButton}>Save</Text>
+					</Pressable>
+					<Pressable
+						style={styles.button}
+						onPress={async () => {
+							sendEmail();
 						}}
 					>
 						<Text style={styles.textButton}>Submit Responses</Text>

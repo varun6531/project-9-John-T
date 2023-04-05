@@ -61,6 +61,8 @@ async function EmailInfoAPI(q1, q2, q3, q4) {
 
 
 				Thank you for participating in Water for the World!
+				
+				Note to teacher -- Please email W4TW at W4TW@gmail.com and let us know your thoughts for improving the app (or thanks) and also HOW MANY STUDENTS completed the workshop so that we can tract its usage.  Thank you, W4TW. 
 				`;
 			MailComposer.composeAsync({
 				recipients: [teacherEmail],

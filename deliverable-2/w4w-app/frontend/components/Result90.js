@@ -46,18 +46,21 @@ export default function Result90({ route, navigation }) {
                             Home
                         </Text>
                     </Pressable>
-                    <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
+                    <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Post questionnaire 1")}>
+                        <View style={styles.arrow2} >
+                            <FontAwesome5 name='angle-left' color='#03DAC5' size={15}/>
+                        </View>
+                        <Text style={styles.textButton}>
+                            Continue
+                        </Text>
+                    </Pressable>
+                    {/* <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
                         let user = await AsyncStorage.getItem("user")
                         if (user == null){
                             navigation.navigate("Tynl") 
                         }  else {
-                            let parsed = await JSON.parse(user);  
-                            var email = parsed.email;
-                            var type = await GetTypeAPI(email);
-                                if (type == null){
-                                navigation.navigate("Thank you");
-                                }
-                            else {navigation.navigate("Post questionnaire 1")}}
+                            navigation.navigate('Post questionnaire 1');
+                            }
                     }}>
                         <Text style={styles.textButton}>
                             Continue
@@ -65,7 +68,7 @@ export default function Result90({ route, navigation }) {
                         <View style={styles.arrow} >
                         <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                         </View>
-                    </Pressable>
+                    </Pressable> */}
                 </View>  
             </View>
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
