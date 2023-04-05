@@ -64,10 +64,6 @@ export default function StudentLogin({ navigation }) {
 								JSON.stringify({
 									teacherEmail: email,
 									name: name,
-                                    q1: "",
-                                    q2: "",
-                                    q3: "",
-                                    q4: "",
 								})
 							);
 							navigation.navigate('Home page');
