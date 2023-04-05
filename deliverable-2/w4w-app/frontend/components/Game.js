@@ -1032,10 +1032,10 @@ export default function Game({ route, navigation }) {
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
                 )
                 {
-                  result = '80';
+                  result = '(only 80% cleaned)';
                   navigation.navigate("result80less", { result: result })
                 }else{
-                  result = "LESS THAN 80";
+                  result = "(less than 80% clean)";
                   navigation.navigate("result80less", { result: result })
                 }
                 

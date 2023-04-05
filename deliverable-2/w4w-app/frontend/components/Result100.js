@@ -23,13 +23,14 @@ export default function Result100({ route, navigation }) {
             <Text style={styles.textCaption}>Test Results</Text>
             {getImage()}
             <Text style={styles.subtext}>
-                Your dirty water is now {result}% clean water. {'\n\n'} 
+                Your dirty water has been {result}% successfully filtered. {'\n\n'} 
+                If you add an antibacterial agent or boil this water, it is probably okay to drink. 
             </Text>
 
             <View style={styles.skipContainer}>
                 <Pressable style={styles.button1} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                     <Text style={styles.textButton}>
-                        Back to Filter Building
+                        Visit a different country
                     </Text>
                     <View style={styles.arrow} >
                     <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
