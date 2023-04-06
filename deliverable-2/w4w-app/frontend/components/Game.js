@@ -27,8 +27,11 @@ export default function Game({ route, navigation }) {
   const fineSandVal = (country == 'canadaFN')? 100: 20;
 
   //messages for chance cards
-  const messageCanada = 'You lost 50$';
-  const messageListB = "You gained 35$"
+  const messageCanada = 'Well done! You donated $50 to Engineers Without\
+                        Borders/Water for the World which helped a country \
+                        in need to access clean water. You still have more than\
+                        enough money to build a great filter!';
+  const messageListB = "You gained 35$";
 
 
   // Pointers to the selected material and its corresponding image
@@ -1032,10 +1035,10 @@ export default function Game({ route, navigation }) {
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5!='fineSand' && filtermat6!='fineSand' && filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')
                 )
                 {
-                  result = '(only 80% cleaned)';
+                  result = 'only 80% cleaned';
                   navigation.navigate("result80less", { result: result })
                 }else{
-                  result = "(less than 80% clean)";
+                  result = "less than 80% clean";
                   navigation.navigate("result80less", { result: result })
                 }
                 
@@ -1132,6 +1135,7 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontWeight: 'bold',
     flex: 5,
+    padding:5, 
   },
   resetButton:{
     width:  Dimensions.get('window').width / 3,
@@ -1160,12 +1164,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   button: {
-    height: '60%',
+    height: '40%',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
     marginLeft: 30,
+    marginTop:20,
     borderColor: 'transparent',
     borderRadius: 999,
     borderWidth: 2,

@@ -39,6 +39,7 @@ import Result100 from './components/Result100';
 import Result90 from './components/Result90';
 import Result80less from './components/Result80less';
 import W4WInfoPage from './components/W4WInfo';
+import WellDone from './components/WellDone';
 
 
 const Stack = createNativeStackNavigator();
@@ -84,6 +85,7 @@ export default function App() {
           <Stack.Screen name="result100" component={Result100}/>
           <Stack.Screen name="result90" component={Result90}/>
           <Stack.Screen name="result80less" component={Result80less}/>
+          <Stack.Screen name="welldone" component={WellDone}/>
         </Stack.Navigator>
       </NavigationContainer>
     
