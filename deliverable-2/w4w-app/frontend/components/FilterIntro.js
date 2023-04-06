@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Dimensions,
 	StyleSheet,
@@ -9,15 +9,16 @@ import {
 	Pressable,
 	SafeAreaView,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import GetTypeAPI from '../apis/GetTypeAPI';
 
+
+// Introduction to Filter Building Page
 export default function FilterIntro({ navigation }) {
     return (
         <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+
+            {/* Back to PreQ8 Page */}
             <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
 					onPress={async () => {
 						navigation.navigate('Pre questionnaire 8');
@@ -25,6 +26,7 @@ export default function FilterIntro({ navigation }) {
 				>
                 <Icon name='arrow-left' color='#03DAC5' size={25} />
             </Pressable>
+
             <Text style={styles.textCaption}>Now it's your turn!</Text>
 			<Text style={styles.subtext}>
                 To get clean drinking water from contaminated water it is important 
@@ -32,9 +34,10 @@ export default function FilterIntro({ navigation }) {
                 (or add an agent such as Chlorine) which will then kill all the bacteria
                 and viruses remaining.{"\n\n"}
                 Make sure to try to build a filter in at least TWO countries.{"\n\n"}
-                Make at least one filter from List A and one from List B
+                Make at least one filter from List A and one from List B.
 			</Text>
 
+            {/* Next Page */}
             <Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
@@ -45,6 +48,7 @@ export default function FilterIntro({ navigation }) {
 					<Icon name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
+            
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
             <StatusBar style="auto" />
         </SafeAreaView>
