@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet, View, Text, Image, Pressable, Linking, SafeArea
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
-// Final Thank You Page (Not Used)
+// Final Thank You Page, Not Logged In
 export default function TYNL({ navigation }){
     return(
         <SafeAreaView style={styles.background}>
@@ -20,6 +20,7 @@ export default function TYNL({ navigation }){
                 Please feel free to share this App{"\n"}
                 Available for Android on Google Store and iPhone at the App Store
             </Text>
+
             {/* Pressable images to Play Store and App Store */}
             <Pressable onPress={() => Linking.openURL('https://play.google.com/store/games')}>
                 <Image source={require('../assets/googlePlay.png')} style={styles.googlelogo}/>
