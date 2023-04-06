@@ -15,13 +15,14 @@ export default function ThankYou({ navigation }){
                 Thank you for using our app. We hope that you learn
                 a lot from the simulation. Please feel free to share 
                 this app to your friends and family to help us raise
-                awareness regarding clean water issue around the world.
+                awareness regarding clean water issues in Sub-Saharan Africa.
             </Text>
             <Text style={styles.subtext2}>
                 Please feel free to share this App{"\n"}
                 Available for Android on Google Store and iPhone at the App Store
             </Text>
-            {/* Pressable images to Play Store and App Store */}
+
+            {/* Pressable Images to Play Store and App Store */}
             <Pressable onPress={() => Linking.openURL('https://play.google.com/store/games')}>
                 <Image source={require('../assets/googlePlay.png')} style={styles.googlelogo}/>
             </Pressable>
