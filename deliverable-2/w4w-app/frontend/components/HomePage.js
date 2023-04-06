@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView} from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView,} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GetTypeAPI from '../apis/GetTypeAPI';
@@ -37,7 +37,7 @@ export default function HomePage({ navigation }) {
             <Icon name='angle-right' color='#03DAC5' size={15}/>
             </View>
         </Pressable>
-        <Image source={require('../assets/tap-water.gif')}  style={styles.gifstyle}/>
+        <Image source={require('../assets/blended-tap.gif')}  style={styles.gifstyle}/>
 
         {/* Skip to Pre-Questionnaire */}
         <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 1")}>
@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
     // marginRight: Dimensions.get('window').width / 12,
     width: Dimensions.get('window').width / 1.75,
     height: Dimensions.get('window').height / 3.2,
+    right: Dimensions.get('window').width / 12,
   },
   ewblogo:{
     width: Dimensions.get('window').width / 5,
