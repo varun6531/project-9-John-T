@@ -11,14 +11,13 @@ export default function GameIns({ navigation }) {
         <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
-            {/* <View style={styles.backinputview}> */}
-    <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
-      navigation.navigate('filterintro');
-    }}>
-      <Icon name='arrow-left' color='#03DAC5' size={25} />
-    </Pressable>
-  {/* </View> */}
-            
+            {/* Back to Filter Intro Page */}
+            <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
+                navigation.navigate('filterintro');
+              }}>
+                <Icon name='arrow-left' color='#03DAC5' size={25} />
+            </Pressable>
+
             <Text style={styles.textCaption}>Instructions</Text>
             <Text style={styles.subtext} >Click on the material to select it. Select the layer on the filter you would like to place the material at and long press the layer to remove it.{'\n\n'} Select your country and enjoy!</Text>
 
