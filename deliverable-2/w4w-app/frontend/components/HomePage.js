@@ -58,7 +58,7 @@ export default function HomePage({ navigation }) {
             </Pressable>
 
             {/* Skip to Filter */}
-            <Pressable style={styles.skipButton2} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
+            <Pressable style={styles.skipButton2} numberOfLines={1} onPress={() => navigation.navigate("filterintro")}>
                 <Text style={styles.textButton}>
                 Skip to Filter Building
                 </Text>
