@@ -70,7 +70,7 @@ export default function PreQ8({ navigation }) {
 			<Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
-				onPress={() => navigation.navigate('GameIns')}
+				onPress={() => navigation.navigate('filterintro')}
 			>
 				<Text style={styles.textButton}>Next</Text>
 				<View style={styles.arrow}>
