@@ -21,7 +21,8 @@ export default function ThankYou({ navigation }){
                 Please feel free to share this App{"\n"}
                 Available for Android on Google Store and iPhone at the App Store
             </Text>
-            {/* Pressable images to Play Store and App Store */}
+
+            {/* Pressable Images to Play Store and App Store */}
             <Pressable onPress={() => Linking.openURL('https://play.google.com/store/games')}>
                 <Image source={require('../assets/googlePlay.png')} style={styles.googlelogo}/>
             </Pressable>
