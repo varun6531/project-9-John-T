@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView, Linking } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -24,8 +24,15 @@ export default function CanFN({ route, navigation }){
                 Languages: English, French, Cree, Inuktitut, Ojibwe, Innu, Dene, Mi’kmaq, Sioux, Atikamekw and others {"\n"}
                 Life Expectancy: 72.5 Years {"\n"}
                 Median Income (CAD$): $18,962 {"\n"}
-                Improved Drinking Water: 23% of population {"\n"}
-                Communities with long-term boil water advisories: 33 {"\n"}
+                Improved Drinking Water: 23% of population
+            </Text>
+            <Pressable onPress={() => Linking.openURL('https://www.sac-isc.gc.ca/eng/1614387410146/1614387435325')}>
+                <Text style={styles.subtext}> 
+                    <Text numberOfLines={2} style={styles.url}>Communities with long-term boil water advisories</Text>
+                    : {">"}30
+                </Text>
+            </Pressable>
+            <Text style={styles.subtext}>
                 Population: {"> "}1 million
             </Text>
 
@@ -85,6 +92,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.2,
+    },
+    url: {
+        fontSize: 16, 
+        textDecorationLine: 'underline', 
+        color: 'lightblue',
+        flexDirection: 'column',
+        width: Dimensions.get('window').width / 1.2
     },
     playButton: {
         width:  Dimensions.get('window').width / 2,
