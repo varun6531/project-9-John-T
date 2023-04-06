@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function GameIns({ navigation }) {
     return (
-        <View style={styles.background}>
+        <SafeAreaView style={styles.background}>
          <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
             {/* <View style={styles.backinputview}> */}
@@ -87,18 +87,19 @@ export default function GameIns({ navigation }) {
         <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 800, width: 100, height:50, alignSelf: 'center'}}/> */}
       <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
       <StatusBar style="auto" />
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     background: {
         backgroundColor: '#1E1E1E',
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
+        // height: Dimensions.get('window').height,
+        // width: Dimensions.get('window').width,
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flex: 1
+        // flexDirection: 'column'
     },
     bold: {fontWeight: 'bold'},
     italic: {fontStyle: 'italic'},
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     },
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 70,
+        marginTop: Dimensions.get('window').height / 90,
         // height: Dimensions.get('window').height/7,
         textAlign: 'center',
         fontSize: 30,
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     },
     subtext2: {
       color: '#03DAC5',
-      marginTop: Dimensions.get('window').height / 35,
+      marginTop: Dimensions.get('window').height / 65,
       textAlign: 'center',
       fontSize: 16,
       flexDirection: 'column',
@@ -194,9 +195,9 @@ const styles = StyleSheet.create({
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
         alignItems: 'flex-start',
-		width: Dimensions.get('window').width / 4,
-    	height: Dimensions.get('window').height / 15.5,
-		position: 'absolute',
+		    width: Dimensions.get('window').width / 4,
+    	  height: Dimensions.get('window').height / 15.5,
+		    position: 'absolute',
         bottom: 20,
         left: 10,
       },

@@ -23,14 +23,14 @@ export default function Result80less({ route, navigation }) {
             <Text style={styles.textCaption}>Test Results</Text>
             {getImage()}
             <Text style={styles.subtext}>
-                Your dirty water is now {result}% clean water. {'\n\n'}
+                Your water is still dirty ({result}) {'\n\n'}
                 DO NOT DRINK!!! {'\n\n'} You may get SICK and DIE! 
             </Text>
 
             <View style={styles.skipContainer}>
                 <Pressable style={styles.button1} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                     <Text style={styles.textButton}>
-                        Back to Filter Building
+                        Visit a different country
                     </Text>
                     <View style={styles.arrow} >
                     <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>

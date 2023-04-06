@@ -108,8 +108,8 @@ export default function PostQ1({ navigation }) {
 				{/* </View> */}
 				<Text style={styles.textCaption}>Question 1</Text>
 				<Text style={styles.subtext}>
-					How did the money and literacy rate you were given for each affect
-					your ability to build a water filter?
+					How did the literacy rate for the country and the money available 
+					affect your ability to build a filter?
 				</Text>
 				<TextInput
 					onChangeText={(beee) => setQ1(beee)}
