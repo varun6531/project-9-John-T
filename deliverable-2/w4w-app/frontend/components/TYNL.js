@@ -1,12 +1,12 @@
 import React from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, Linking, SafeAreaView } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
 // Final Thank You Page (Not Used)
 export default function TYNL({ navigation }){
     return(
-        <View style={styles.background}>
+        <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
             <Text style={styles.textCaption}> Great Job! </Text>
@@ -15,7 +15,18 @@ export default function TYNL({ navigation }){
                 a lot from the simulation. Please feel free to share 
                 this app to your friends and family to help us raise
                 awareness regarding clean water issue around the world.
-                </Text>
+            </Text>
+            <Text style={styles.subtext2}>
+                Please feel free to share this App{"\n"}
+                Available for Android on Google Store and iPhone at the App Store
+            </Text>
+            {/* Pressable images to Play Store and App Store */}
+            <Pressable onPress={() => Linking.openURL('https://play.google.com/store/games')}>
+                <Image source={require('../assets/googlePlay.png')} style={styles.googlelogo}/>
+            </Pressable>
+            <Pressable onPress={() => Linking.openURL('https://www.apple.com/ca/app-store/')}>
+                <Image source={require('../assets/appStore.png')} style={styles.applelogo}/>
+            </Pressable>
 
             <View style={styles.skipContainer}>
                 {/* Back to Home Page */}
@@ -30,23 +41,20 @@ export default function TYNL({ navigation }){
             </View>
 
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     background: {
         backgroundColor: '#1E1E1E',
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flex: 1,
     },  
     textCaption: {
         color: '#03DAC5',
-        marginTop: Dimensions.get('window').height / 8,
-        height: Dimensions.get('window').height/7,
+        marginTop: Dimensions.get('window').height / 20,
         textAlign: 'center',
         fontSize: 30,
         fontWeight: 'bold',
@@ -60,6 +68,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.5,
         height: Dimensions.get('window').height/6,
+    },
+    subtext2: {
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / 64,
+        textAlign: 'center',
+        fontSize: 16,
+        flexDirection: 'column',
+        width: Dimensions.get('window').width / 1.5,
     },
     skipContainer: {
         flex: 2,
@@ -88,12 +104,11 @@ const styles = StyleSheet.create({
         flex:5,
     },
     ewblogo:{
-        marginTop: Dimensions.get('window').height / 20,
-        marginBottom: Dimensions.get('window').height / -10,
-        marginRight: Dimensions.get('window').width / 15,
-        alignSelf: 'flex-end',
+        bottom: Dimensions.get('window').height / -18,
         width: Dimensions.get('window').width / 5,
         height: Dimensions.get('window').height / 17.5,
+        alignSelf: 'flex-end',
+        right: "5%"
     },
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
@@ -103,5 +118,16 @@ const styles = StyleSheet.create({
 		position: 'absolute',
         bottom: 20,
         left: 10,
+    },
+    googlelogo:{
+        width: Dimensions.get('window').width / 1.65,
+        height: Dimensions.get('window').height / 10.5,
+        marginTop: Dimensions.get('window').height / 25,
+        marginBottom: Dimensions.get('window').height / 25,
+    },
+    applelogo:{
+        width: Dimensions.get('window').width / 1.75,
+        height: Dimensions.get('window').height / 10.5,
+        resizeMode: 'contain',
     },
 });
