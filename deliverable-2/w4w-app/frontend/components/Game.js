@@ -27,8 +27,11 @@ export default function Game({ route, navigation }) {
   const fineSandVal = (country == 'canadaFN')? 100: 20;
 
   //messages for chance cards
-  const messageCanada = 'You lost 50$';
-  const messageListB = "You gained 35$"
+  const messageCanada = 'Well done! You donated $50 to Engineers Without\
+                        Borders/Water for the World which helped a country \
+                        in need to access clean water. You still have more than\
+                        enough money to build a great filter!';
+  const messageListB = "You gained 35$";
 
 
   // Pointers to the selected material and its corresponding image
