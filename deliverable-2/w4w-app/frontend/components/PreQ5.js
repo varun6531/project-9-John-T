@@ -32,8 +32,8 @@ export default function PreQ5({ navigation }) {
 			<Text style={styles.textCaption}>Global Literacy Rate</Text>
 			<Text style={styles.subtext}>
 				The literacy rate is defined by the percentage of the population of a
-				given age group that can read and write. As you can see on the map, the
-				lack of education in Sub-Saharan Africa is a problem.
+				given age group that can read and write. As you can see below, there
+				is a trend of low literacy rates for countries in Sub-Saharan Africa.
 			</Text>
 
             {/* Map Image */}
