@@ -47,14 +47,15 @@ export default function Result100({ route, navigation }) {
                         </Text>
                     </Pressable>
 
-                    <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
+                    {/* <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
                         let user = await AsyncStorage.getItem("user")
                         if (user == null){
                             navigation.navigate('Post questionnaire Non Login'); 
                         }  else {
                             navigation.navigate('Post questionnaire 1');
                             }
-                    }}>
+                    }}> */}
+                    <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("welldone")}>
                         <Text style={styles.textButton}>
                             Continue
                         </Text>
