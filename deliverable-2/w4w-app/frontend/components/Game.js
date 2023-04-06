@@ -1135,6 +1135,7 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontWeight: 'bold',
     flex: 5,
+    padding:5, 
   },
   resetButton:{
     width:  Dimensions.get('window').width / 3,
@@ -1163,12 +1164,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   button: {
-    height: '60%',
+    height: '40%',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
     marginLeft: 30,
+    marginTop:20,
     borderColor: 'transparent',
     borderRadius: 999,
     borderWidth: 2,
