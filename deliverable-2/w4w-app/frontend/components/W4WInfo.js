@@ -38,7 +38,7 @@ export default function W4WInfoPage({ navigation }) {
         </Pressable>
         <Text numberOfLines={1} adjustsFontSizeToFit style= {styles.description}> Website</Text>
         <Pressable onPress={() => Linking.openURL('https://www.torontopro.ewb.ca/w4tw')}>
-            <Text style={styles.links}>torontopro.ewb.ca/w4tw</Text>
+            <Text style={styles.links}>www.torontopro.ewb.ca/w4tw</Text>
         </Pressable>
         <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
