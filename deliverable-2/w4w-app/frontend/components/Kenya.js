@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, TextInput, SafeAreaView } from "react-native";
+import React from "react";
+import { Dimensions, StyleSheet, View, Text, Image, Pressable, SafeAreaView } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+
+// Kenya Page
 export default function Kenya({route, navigation }){
     const {moneyval, f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
@@ -10,6 +12,7 @@ export default function Kenya({route, navigation }){
         <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
 
+            {/* Back to Filter Building Instructions Page */}
             <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
                 navigation.navigate("GameIns")
                 }}>
@@ -25,6 +28,7 @@ export default function Kenya({route, navigation }){
                 Literacy Rate: 78% {"\n"}
                 Population: {"> "}56 million
             </Text>
+
             <Text style={styles.textCaption2}>Instructions</Text>
             <Text style={styles.subtext} numberOfLines={36}>
                 1. Loosely put a piece of cheese XXXXX of the filter, then put X XXXXX of xxxx plug XXXXX that. {"\n"}
@@ -35,7 +39,9 @@ export default function Kenya({route, navigation }){
             <Text style={styles.subtext2}>
                 Note: You will have difficulty reading this – this simulates the effect of the literacy rate in this country. {"\n"}
             </Text>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'kenya', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8, isNew:isNew})}>
+
+            {/* Continue to Filter Building Page */}
+            <Pressable style={styles.playButton} numberOfLines={1} onPress={() => navigation.navigate("Game", {moneyVal: moneyval, country: 'kenya', f1: f1, f2: f2, f3: f3, f4: f4, f5:f5, f6:f6, f7:f7, f8:f8, isNew:isNew})}>
                 <Text style={styles.textButton}>
                     Play Simulation
                 </Text>
@@ -43,8 +49,7 @@ export default function Kenya({route, navigation }){
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-            <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </SafeAreaView>
     );
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.2,
     },
-    button2: {
+    playButton: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,
@@ -113,30 +118,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         flex: 5
     },
-    button: {
-        width:  Dimensions.get('window').width / 3,
-        flexDirection: 'row',
-        padding: 15,
-        marginLeft: Dimensions.get('window').width / -1.7,
-        marginTop: Dimensions.get('window').height / -200,
-        borderColor: '#03DAC5',
-        borderRadius: 999,
-        borderWidth: 2,
-        backgroundColor: '#2C2C2C'
-      },
     ewblogo:{
         bottom: Dimensions.get('window').height / -17.5,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
         alignSelf: 'flex-end',
         right: "5%",
-      },
-    //   w4twlogo: {
-    //     bottom: Dimensions.get('window').height / 112,
-    //     alignItems: 'center',
-    //     width: Dimensions.get('window').width / 4,
-    // 	height: Dimensions.get('window').height / 15.5,
-    //   },
+    },
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
         alignItems: 'flex-start',
@@ -145,5 +133,5 @@ const styles = StyleSheet.create({
 		position: 'absolute',
         bottom: 20,
         left: 10,
-      },
+    },
 });

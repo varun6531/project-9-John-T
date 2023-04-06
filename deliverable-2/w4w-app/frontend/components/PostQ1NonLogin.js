@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import {
 	Dimensions,
@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as MailComposer from 'expo-mail-composer';
 
+// PostQns, Not Logged In Page
 export default function PostQ1NonLogin({ navigation }) {
 	const [q1, setQ1] = useState('');
 	const [q2, setQ2] = useState('');
@@ -96,7 +97,8 @@ export default function PostQ1NonLogin({ navigation }) {
 				showsHorizontalScrollIndicator={false}
 			>
 				<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
-				{/* <View style={styles.backinputview}> */}
+
+                {/* Back to Filter Building Page */}
 				<Pressable
 					style={{ marginLeft: -Dimensions.get('window').width / 1.2 }}
 					onPress={async () => {
@@ -105,7 +107,8 @@ export default function PostQ1NonLogin({ navigation }) {
 				>
 					<Icon name="arrow-left" color="#03DAC5" size={25} />
 				</Pressable>
-				{/* </View> */}
+
+                {/* Post-Filter Questions */}
 				<Text style={styles.textCaption}>Question 1</Text>
 				<Text style={styles.subtext}>
 					How did the literacy rate for the country and the money available
@@ -120,6 +123,7 @@ export default function PostQ1NonLogin({ navigation }) {
 					multiline={true}
 					defaultValue={q1}
 				/>
+
 				<Text style={styles.textCaption}>Question 2</Text>
 				<Text style={styles.subtext}>
 					Do you think water and its use around the world is fair and equal?
@@ -134,6 +138,7 @@ export default function PostQ1NonLogin({ navigation }) {
 					multiline={true}
 					defaultValue={q2}
 				/>
+
 				<Text style={styles.textCaption}>Question 3</Text>
 				<Text style={styles.subtext}>
 					What can you do in your daily life to conserve water?
@@ -147,6 +152,7 @@ export default function PostQ1NonLogin({ navigation }) {
 					multiline={true}
 					defaultValue={q3}
 				/>
+
 				<Text style={styles.textCaption}>Question 4</Text>
 				<Text style={styles.subtext}>
 					What is the most important thing you have learned doing this activity?
@@ -160,7 +166,10 @@ export default function PostQ1NonLogin({ navigation }) {
 					multiline={true}
 					defaultValue={q4}
 				/>
+
+                {/* End Buttons */}
 				<View style={styles.inputview}>
+                    {/* Save Answers */}
 					<Pressable
 						style={styles.button}
 						onPress={async () => {
@@ -183,6 +192,8 @@ export default function PostQ1NonLogin({ navigation }) {
 					>
 						<Text style={styles.textButton}>Save</Text>
 					</Pressable>
+
+                    {/* Continue to Thank You Page */}
 					<Pressable
 						style={styles.button}
 						onPress={() => {
@@ -195,6 +206,7 @@ export default function PostQ1NonLogin({ navigation }) {
 						</View>
 					</Pressable>
 				</View>
+                
 				<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 			</ScrollView>
 		</View>
@@ -210,9 +222,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'column',
 	},
-	bold: { fontWeight: 'bold' },
-	italic: { fontStyle: 'italic' },
-	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
 		marginBottom: Dimensions.get('window').height / 300,
@@ -269,33 +278,12 @@ const styles = StyleSheet.create({
 		padding: 8,
 		left: 120,
 		marginBottom: Dimensions.get('window').height / 30,
-		// marginTop: Dimensions.get('window').height / 10,
 		borderColor: '#03DAC5',
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-	},
-	buttoninput: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		// marginLeft: Dimensions.get('window').width / 3,
-		marginTop: Dimensions.get('window').height / 20,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-		alignSelf: 'flex-start',
-	},
-	backinputview: {
-		backgroundColor: '#1E1E1E',
-		padding: 0,
-		top: 0,
-		right: 125,
 	},
 	ewblogo: {
-		// right: Dimensions.get('window').width / -1.55,
-		// bottom: Dimensions.get('window').height / -20,
 		marginTop: Dimensions.get('window').height / 20,
 		marginBottom: Dimensions.get('window').height / -10,
 		alignSelf: 'flex-end',
@@ -303,8 +291,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').height / 17.5,
 	},
 	w4twlogo: {
-		// marginTop: Dimensions.get('window').height / 25,
-		// marginBottom: Dimensions.get('window').height/30,
 		alignSelf: 'center',
 		width: Dimensions.get('window').width / 4,
 		height: Dimensions.get('window').height / 15.5,

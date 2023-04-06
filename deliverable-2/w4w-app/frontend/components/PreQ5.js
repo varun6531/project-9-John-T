@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Dimensions,
 	StyleSheet,
@@ -13,28 +13,21 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+
+// PreQ5 Page
 export default function PreQ5({ navigation }) {
 	return (
 		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
-			{/* <View style={styles.backinputview}> */}
+
+            {/* Back to PreQ4 Page */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
 					onPress={async () => {
 						navigation.navigate('Pre questionnaire 4');
 					}}
 				>
 					<Icon name='arrow-left' color='#03DAC5' size={25} />
-				</Pressable>
-				{/* <Image
-					source={require('../assets/EWB.png')}
-					style={{
-						width: 100,
-						height: 50,
-						marginTop: 10,
-						alignSelf: 'center',
-					}}
-				/> */}
-			{/* </View> */}
+			</Pressable>
 
 			<Text style={styles.textCaption}>Global Literacy Rate</Text>
 			<Text style={styles.subtext}>
@@ -43,6 +36,7 @@ export default function PreQ5({ navigation }) {
 				lack of education in Sub-Saharan Africa is a problem.
 			</Text>
 
+            {/* Map Image */}
 			<View style={styles.ImageContainer}>
 				<Image
 					source={require('../assets/globalLiteracyRate.png')}
@@ -55,6 +49,7 @@ export default function PreQ5({ navigation }) {
 				/>
 			</View>
 
+            {/* Map Source Info */}
 			<Text style={styles.sourceText}>
 				Source:{' '}
 				<Text
@@ -69,6 +64,7 @@ export default function PreQ5({ navigation }) {
 				</Text>
 			</Text>
 
+            {/* Next Page */}
 			<Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
@@ -79,15 +75,7 @@ export default function PreQ5({ navigation }) {
 					<FontAwesome5 name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
-			{/* <Image
-				source={require('../assets/WFTW.png')}
-				style={{
-					width: 110,
-					height: 115,
-					resizeMode: 'contain',
-					alignSelf: 'center',
-				}}
-			/> */}
+		
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
 			<StatusBar style="auto" />
 		</SafeAreaView>
@@ -97,16 +85,10 @@ export default function PreQ5({ navigation }) {
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		// height: Dimensions.get('window').height,
-		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1,
-		// flexDirection: 'column',
 	},
-	bold: { fontWeight: 'bold' },
-	italic: { fontStyle: 'italic' },
-	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
 		marginTop: Dimensions.get('window').height / 50,
@@ -154,30 +136,11 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		flex: 5,
 	},
-	backinputview: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		width: Dimensions.get('window').width / 1.1,
-		top: Dimensions.get('window').height / 20,
-		height: '10%',
-	},
-	button: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-		alignSelf: 'flex-start',
-	},
 	ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -18,
         width: Dimensions.get('window').width / 5,
     	height: Dimensions.get('window').height / 17.5,
-		// alignSelf: 'flex-end',
       },
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
@@ -187,5 +150,5 @@ const styles = StyleSheet.create({
 		position: 'absolute',
         bottom: 20,
         left: 10,
-      },
+    },
 });

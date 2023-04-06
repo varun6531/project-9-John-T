@@ -47,14 +47,6 @@ export default function Result90({ route, navigation }) {
                         </Text>
                     </Pressable>
                     
-                    {/* <Pressable style={styles.button3} numberOfLines={1} onPress={async () => {
-                        let user = await AsyncStorage.getItem("user")
-                        if (user == null){
-                            navigation.navigate('Post questionnaire Non Login'); 
-                        }  else {
-                            navigation.navigate('Post questionnaire 1');
-                            }
-                    }}> */}
                     <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("welldone")}>
                         <Text style={styles.textButton}>
                             Continue
@@ -177,13 +169,6 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width / 5,
     	  height: Dimensions.get('window').height / 17.5,
       },
-    //   w4twlogo: {
-    //     alignSelf: 'center',
-    //     // width: 120,
-    //     width: Dimensions.get('window').width / 4,
-    //     height: Dimensions.get('window').height / 11,
-    //     bottom: Dimensions.get('window').height / 100,
-    //   }
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
         alignItems: 'flex-start',

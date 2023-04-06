@@ -1,18 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable } from "react-native";
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GetTypeAPI from '../apis/GetTypeAPI';
 
 
-
-
+// Game Test Resuls Page (Not Used)
 export default function GameTest({ route, navigation }) {
     const { result } = route.params;
     return (
         <View style={styles.background}>
+            <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+
             <Text style={styles.textCaption}>Test Results</Text>
             <Text style={styles.subtext}>Your filter resulted in {result} water.</Text>
 
@@ -45,8 +45,7 @@ export default function GameTest({ route, navigation }) {
                 <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
-                <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/>
+            
             </View>
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
             <StatusBar style="auto" />
@@ -62,10 +61,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column'
-    },
-    bold: {fontWeight: 'bold'},
-    italic: {fontStyle: 'italic'},
-    underline: {textDecorationLine: 'underline'
     },
     textCaption: {
         color: '#03DAC5',
@@ -92,8 +87,8 @@ const styles = StyleSheet.create({
     skipContainer: {
         flex: 1,
         marginTop: -Dimensions.get('window').height/3,
-      },
-      button2: {
+    },
+    button2: {
         width:  Dimensions.get('window').width / 1.5,
         marginTop: Dimensions.get('window').height/10,
         flexDirection: 'row',
@@ -103,25 +98,25 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#2C2C2C',
         alignItems: 'center',
-      },
-      arrow:{
+    },
+    arrow:{
         flex: 1,
         marginTop: 2
-      },
-      textButton:{
+    },
+    textButton:{
         color: '#03DAC5',
         textAlign:'center',
         fontSize:14,
         fontWeight: 'bold',
         flex: 5
-      },
-      w4twlogo: {
+    },
+    w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
         alignItems: 'flex-start',
-		width: Dimensions.get('window').width / 4,
-    	height: Dimensions.get('window').height / 15.5,
-		position: 'absolute',
+        width: Dimensions.get('window').width / 4,
+        height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
         bottom: 20,
         left: 10,
-      },
+    }
 });

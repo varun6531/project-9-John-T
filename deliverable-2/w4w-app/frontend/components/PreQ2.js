@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from "react";
+import React from "react";
 import { useState } from 'react';
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, Modal, SafeAreaView } from "react-native";
 import { Slider } from "react-native-elements";
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-
+// PreQ2 Page
 export default function PreQ2({ navigation }) {
     const [range, setRange] = useState('0');
     const [modalVisible, setModalVisible] = useState(false);
@@ -16,19 +15,23 @@ export default function PreQ2({ navigation }) {
     return (
         <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
-            {/* <View style={styles.backinputview}> */}
+
+            {/* Back to PreQ1 Page */}
             <Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}} onPress={async () => {
                 navigation.navigate("Pre questionnaire 1")
                 }}>
                 <Icon name='arrow-left' color='#03DAC5' size={25} />
-                </Pressable>
-            {/* </View> */}
+            </Pressable>
+
             <Text style={styles.textCaption}>Clean Water Access</Text>
             <Text style={styles.subtext}>
                 There are 8 billion people in the world.
                 How many don’t have access to clean drinking water in their home?
             </Text>
+            
+            {/* Slider Input */}
             <Text style={styles.sliderText}>{range}</Text>
+            {/* Popup Info */}
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -39,7 +42,7 @@ export default function PreQ2({ navigation }) {
                 <View style={styles.centeredView}>
                     <View style={styles.modalContainer}>
                         <Text style ={ styles.answerView}> 800 million people - 1 in 10 of the world’s population - don’t have clean drinking water within a 30-minute trip from their home and 1 in 4 (2 billion!) don’t have it in their home {'\n'}</Text>
-                        <Pressable style={styles.button2} numberOfLines={1} onPress={()=> {setModalVisible(!modalVisible)}}>
+                        <Pressable style={styles.popupButton} numberOfLines={1} onPress={()=> {setModalVisible(!modalVisible)}}>
                             <Text style={styles.textButton}>OK</Text>
                         </Pressable>
                     </View>
@@ -55,8 +58,9 @@ export default function PreQ2({ navigation }) {
                 onSlidingComplete={()=>setModalVisible(!modalVisible)}
             />
             
+            {/* Next Page */}
             <View style={styles.skipContainer}>
-                <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 3")}>
+                <Pressable style={styles.nextButton} numberOfLines={1} onPress={() => navigation.navigate("Pre questionnaire 3")}>
                     <Text style={styles.textButton}>
                         Next
                     </Text>
@@ -65,10 +69,9 @@ export default function PreQ2({ navigation }) {
                     </View>
                 </Pressable>
             </View>
-            {/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/> */}
-        {/* <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
-        <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
-      <StatusBar style="auto" />
+
+            <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+            <StatusBar style="auto" />
         </SafeAreaView>
     );
 }
@@ -76,16 +79,9 @@ export default function PreQ2({ navigation }) {
 const styles = StyleSheet.create({
     background: {
         backgroundColor: '#1E1E1E',
-        // height: Dimensions.get('window').height,
-        // width: Dimensions.get('window').width,
         justifyContent: 'center',
         alignItems: 'center',
-        // flexDirection: 'column',
         flex: 1,
-    },
-    bold: {fontWeight: 'bold'},
-    italic: {fontStyle: 'italic'},
-    underline: {textDecorationLine: 'underline'
     },
     textCaption: {
         color: '#03DAC5',
@@ -109,7 +105,7 @@ const styles = StyleSheet.create({
         flex: 2,
         marginTop: Dimensions.get('window').height/4,
     },
-    button2: {
+    popupButton: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,
@@ -117,10 +113,9 @@ const styles = StyleSheet.create({
         borderRadius: 999,
         borderWidth: 2,
         backgroundColor: '#2C2C2C',
-        // marginTop: -150,
         alignItems: 'center',
     },
-    button3: {
+    nextButton: {
         width:  Dimensions.get('window').width / 2,
         flexDirection: 'row',
         padding: 12,
@@ -141,20 +136,16 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex:5,
-        // marginTop: Dimensions.get('window').height/2,
-
     },
     sliderText:{
         fontSize:40,
         fontWeight: 'bold',
         color:'#03DAC5',
-        // height: Dimensions.get('window').height/2,
     },
     centeredView: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // marginTop: ,
     },
     modalContainer: {
         margin: 20,
@@ -164,8 +155,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
@@ -176,31 +167,20 @@ const styles = StyleSheet.create({
         color: '#03DAC5',
         fontSize: 18,
     },
-      button: {
-        width:  Dimensions.get('window').width / 3,
-        flexDirection: 'row',
-        padding: 15,
-        marginLeft: Dimensions.get('window').width / -1.7,
-        marginTop: Dimensions.get('window').height / 50,
-        borderColor: '#03DAC5',
-        borderRadius: 999,
-        borderWidth: 2,
-        backgroundColor: '#2C2C2C'
-      },
-      ewblogo:{
+    ewblogo:{
         bottom: Dimensions.get('window').height / -18,
         width: Dimensions.get('window').width / 5,
-    	height: Dimensions.get('window').height / 17.5,
+        height: Dimensions.get('window').height / 17.5,
         alignSelf: 'flex-end',
         right: "5%",
-      },
-      w4twlogo: {
+    },
+    w4twlogo: {
         bottom: Dimensions.get('window').height / 112,
         alignItems: 'flex-start',
         width: Dimensions.get('window').width / 4,
-    	height: Dimensions.get('window').height / 15.5,
+        height: Dimensions.get('window').height / 15.5,
         position: 'absolute',
         bottom: 20,
         left: 10,
-      },
+    },
 });

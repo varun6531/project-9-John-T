@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Dimensions,
 	StyleSheet,
@@ -12,10 +12,13 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+// Post-Filter Well Done Page
 export default function WellDone({ navigation }){
     return (
         <SafeAreaView style={styles.background}>  
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
+
             <Text style={styles.textCaption}>
                 Well Done!
             </Text>
@@ -24,7 +27,9 @@ export default function WellDone({ navigation }){
                 difficult it is for some people in sub-Saharan Africa to access clean water. {"\n"}{"\n"}
                 Press CONTINUE to answer questions about the exercise or press FINISH to end the app.
             </Text>
-            <Pressable style={styles.button1} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
+
+            {/* Back to Filter Building Instructions Page */}
+            <Pressable style={styles.backButton} numberOfLines={1} onPress={() => navigation.navigate("GameIns")}>
                     <Text style={styles.textButton}>
                             Back to Filter Build
                     </Text>
@@ -32,7 +37,9 @@ export default function WellDone({ navigation }){
                         <Icon name='angle-right' color='#03DAC5' size={15}/>
                     </View>
             </Pressable>
-            <Pressable style={styles.button2} numberOfLines={1} onPress={async () => {
+            
+            {/* Continue to Post Questions Page */}
+            <Pressable style={styles.nextButton1} numberOfLines={1} onPress={async () => {
                 let user = await AsyncStorage.getItem("user")
                 if (user == null){
                     navigation.navigate('Post questionnaire Non Login'); 
@@ -47,7 +54,9 @@ export default function WellDone({ navigation }){
                     <Icon name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
-            <Pressable style={styles.button3} numberOfLines={1} onPress={() => navigation.navigate("Thank you")}>
+
+            {/* Continue to Thank You Page */}
+            <Pressable style={styles.nextButton2} numberOfLines={1} onPress={() => navigation.navigate("Thank you")}>
                 <Text style={styles.textButton}>
                     Finish
                 </Text>
@@ -55,6 +64,7 @@ export default function WellDone({ navigation }){
                 <Icon name='angle-right' color='#03DAC5' size={15}/>
                 </View>
             </Pressable>
+
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
             <StatusBar style="auto" />
         </SafeAreaView>
@@ -86,7 +96,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.25,
     },
-    button1: {
+    backButton: {
         width:  Dimensions.get('window').width / 1.5,
         flexDirection: 'row',
         padding: 12,
@@ -96,7 +106,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2C2C2C',
         alignSelf: 'center',
     },
-    button2: {
+    nextButton1: {
         width:  Dimensions.get('window').width / 2,
         marginTop: Dimensions.get('window').height/15,
         flexDirection: 'row',
@@ -107,7 +117,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2C2C2C',
         alignSelf: 'center',
     },
-    button3: {
+    nextButton2: {
         width:  Dimensions.get('window').width / 2,
         marginTop: Dimensions.get('window').height/15,
         marginBottom: Dimensions.get('window').height/15,
