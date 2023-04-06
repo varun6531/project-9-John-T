@@ -1227,7 +1227,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     materialButton: {
-        height: '50%',
+        height: Dimensions.get('window').height / 14,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 20,
