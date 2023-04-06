@@ -25,7 +25,7 @@ export default function Kuwait({route, navigation }){
                 Life Expectancy: 78.3 Years {"\n"}
                 Median Income (CAD$): $65,800 {"\n"}
                 Improved Drinking Water: 99% of population {"\n"}
-                Literacy Rate: 95.7% {"\n"}
+                Literacy Rate: 96.46% {"\n"}
                 Population: {"> "}5 million
             </Text>
 
