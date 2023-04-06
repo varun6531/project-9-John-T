@@ -1,8 +1,10 @@
-import { Dimensions, StyleSheet, Text, View, Pressable, TextInput, ScrollView, Image, Modal} from 'react-native';
-import React, { useState, useRef } from 'react';
+import { Dimensions, StyleSheet, Text, View, Pressable, ScrollView, Image, Modal} from 'react-native';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useEffect } from 'react'
 
+
+// Filter Building Page
 export default function Game({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
@@ -26,11 +28,8 @@ export default function Game({ route, navigation }) {
   const coarseSandVal = (country == 'canadaFN')? 100: 20;
   const fineSandVal = (country == 'canadaFN')? 100: 20;
 
-  //messages for chance cards
-  const messageCanada = 'Well done! You donated $50 to Engineers Without\
-                        Borders/Water for the World which helped a country \
-                        in need to access clean water. You still have more than\
-                        enough money to build a great filter!';
+  // Messages for chance cards
+  const messageCanada = 'Well done! You donated $50 to Engineers Without Borders/Water for the World which helped a country in need to access clean water. You still have more than enough money to build a great filter!';
   const messageListB = "You gained 35$";
 
 
@@ -48,7 +47,7 @@ export default function Game({ route, navigation }) {
 
   // Images for the filter layers
   const [filter1, setfilter1] = useState(null);
-  const [filter2, setfilter2] = useState(null);
+  const [buttonFilter, setbuttonFilter] = useState(null);
   const [filter3, setfilter3] = useState(null);
   const [filter4, setfilter4] = useState(null);
   const [filter5, setfilter5] = useState(null);
@@ -76,7 +75,7 @@ export default function Game({ route, navigation }) {
     setfiltermat7(f7);
     setfiltermat8(f8);
   
-    // set filter 1 image
+    // Set filter 1 image
     if(f1 == 'cheeseCloth'){
       setfilter1(cheeseClothImg);
     }
@@ -96,27 +95,27 @@ export default function Game({ route, navigation }) {
       setfilter1(fineSandImg);
     }
   
-    //Set filter 2 image
+    // Set filter 2 image
     if(f2 == 'cheeseCloth'){
-      setfilter2(cheeseClothImg);
+      setbuttonFilter(cheeseClothImg);
     }
     else if(f2 == 'cotton'){
-      setfilter2(cottonImg);
+      setbuttonFilter(cottonImg);
     }
     else if(f2 == 'coarseGravel'){
-      setfilter2(coarseGravelImg);
+      setbuttonFilter(coarseGravelImg);
     }
     else if(f2 == 'fineGravel'){
-      setfilter2(fineGravelImg);
+      setbuttonFilter(fineGravelImg);
     }
     else if(f2 == 'coarseSand'){
-      setfilter2(coarseSandImg);
+      setbuttonFilter(coarseSandImg);
     }
     else if(f2 == 'fineSand'){
-      setfilter2(fineSandImg);
+      setbuttonFilter(fineSandImg);
     }
   
-    //Set filter 3 image
+    // Set filter 3 image
     if(f3 == 'cheeseCloth'){
       setfilter3(cheeseClothImg);
     }
@@ -136,7 +135,7 @@ export default function Game({ route, navigation }) {
       setfilter3(fineSandImg);
     }
   
-    //Set filter 4 image
+    // Set filter 4 image
     if(f4 == 'cheeseCloth'){
       setfilter4(cheeseClothImg);
     }
@@ -156,7 +155,7 @@ export default function Game({ route, navigation }) {
       setfilter4(fineSandImg);
     }
   
-    //Set filter 5 image
+    // Set filter 5 image
     if(f5 == 'cheeseCloth'){
       setfilter5(cheeseClothImg);
     }
@@ -176,7 +175,7 @@ export default function Game({ route, navigation }) {
       setfilter5(fineSandImg);
     }
   
-    //Set filter 6 image
+    // Set filter 6 image
     if(f6 == 'cheeseCloth'){
       setfilter6(cheeseClothImg);
     }
@@ -196,7 +195,7 @@ export default function Game({ route, navigation }) {
       setfilter6(fineSandImg);
     }
   
-    //Set filter 7 image
+    // Set filter 7 image
     if(f7 == 'cheeseCloth'){
       setfilter7(cheeseClothImg);
     }
@@ -216,7 +215,7 @@ export default function Game({ route, navigation }) {
       setfilter7(fineSandImg);
     }
   
-    //Set filter 8 image
+    // Set filter 8 image
     if(f8 == 'cheeseCloth'){
       setfilter8(cheeseClothImg);
     }
@@ -236,6 +235,7 @@ export default function Game({ route, navigation }) {
       setfilter8(fineSandImg);
     }
 
+    // Random generator for Canada to donate money
     if(country=='canada'&& isNew){
       var rand = Math.floor(Math.random() * 2) + 1 ;
       if(rand%2==0){
@@ -243,6 +243,8 @@ export default function Game({ route, navigation }) {
         setMoney(money-50);
       }
     }
+
+    // Random generator for a List B country to gain money
     if((country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')&& isNew){
       var rand = Math.floor(Math.random() * 4) + 1 ;
       if(rand == 1){
@@ -250,8 +252,9 @@ export default function Game({ route, navigation }) {
         setMoney(money+35);
       }
     }
-	}, []);
+  }, []);
 
+  // Popup for Insufficient Funds
   const lackofFundsModal = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -267,7 +270,7 @@ export default function Game({ route, navigation }) {
 						<View style={styles.modalView}>
 							<Text style={styles.answerView}>Insufficient funds</Text>
 							<Pressable
-								style={[styles.buttonans, styles.buttonClose]}
+								style={[styles.buttonAns, styles.buttonClose]}
 								onPress={() => setModalVisible(!modalVisible)}
 							>
 								<Text style={styles.textButton}>OK</Text>
@@ -279,6 +282,7 @@ export default function Game({ route, navigation }) {
 		);
 	};
 
+  // Popup for chance cards
   const loseFundsModal = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -294,7 +298,7 @@ export default function Game({ route, navigation }) {
 						<View style={styles.modalView}>
 							<Text style={styles.answerView}>{country=='canada'? messageCanada: messageListB}</Text>
 							<Pressable
-								style={[styles.buttonans, styles.buttonClose]}
+								style={[styles.buttonAns, styles.buttonClose]}
 								onPress={() => setModalVisible2(!modalVisible2)}
 							>
 								<Text style={styles.textButton}>OK</Text>
@@ -306,6 +310,7 @@ export default function Game({ route, navigation }) {
 		);
 	};
 
+  // Reset entire filter and funds to starting state
   const resetGame = () => {
     setFineSand(false);
     setCoarseSand(false);
@@ -319,7 +324,7 @@ export default function Game({ route, navigation }) {
 
     // Remove all images
     setfilter1(null);
-    setfilter2(null);
+    setbuttonFilter(null);
     setfilter3(null);
     setfilter4(null);
     setfilter5(null);
@@ -338,7 +343,6 @@ export default function Game({ route, navigation }) {
     setfiltermat8('none');
 
     // Reset money
-    
     if(country == 'canada'){
       setMoney(500);
     }
@@ -393,8 +397,13 @@ export default function Game({ route, navigation }) {
         <Text style={styles.moneyText}>Money: {money}</Text>
       </View>
       
-      <View style={styles.filter}>
+      {/* Top 6 Layers of Filter */}
+      <View style={styles.topFilter}>
+            {/* Actions on Filter */}
+
+            {/* Filter Layer 1 */}
             <Pressable style = {styles.upperSpace} onPress={() => {
+              // Adding filtermat1
               if(money >= currentMaterialCost && filtermat1 != currentMaterial){
                 // get cost of filtermat1
                 let Material1Cost;
@@ -426,7 +435,8 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }
-            }} 
+            }}
+              // Removing filtermat1 
               onLongPress={() => {setfilter1(null);
                 if(filtermat1 != 'none'){
                   // get cost of filtermat1
@@ -457,7 +467,10 @@ export default function Game({ route, navigation }) {
             >
               {filter1 && <Image source={filter1} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 2 */}
             <Pressable style = {styles.upperSpace}   onPress={() => {
+              // Adding filtermat2
               if(money >= currentMaterialCost && filtermat2 != currentMaterial){
                 // get cost of filtermat2
                 let Material2Cost;
@@ -483,14 +496,15 @@ export default function Game({ route, navigation }) {
                   Material2Cost = fineSandVal;
                 }
                 setMoney(money - currentMaterialCost + Material2Cost);
-                setfilter2(currentMaterialImg); 
+                setbuttonFilter(currentMaterialImg); 
                 setfiltermat2(currentMaterial);
               }
               else{
                 setModalVisible(!modalVisible);
               }
             }}
-              onLongPress={() => {setfilter2(null);
+              // Removing filtermat2
+              onLongPress={() => {setbuttonFilter(null);
                 if(filtermat2 != 'none'){
                   // get cost of filtermat2
                   let Material2Cost = 0;
@@ -518,9 +532,12 @@ export default function Game({ route, navigation }) {
                 setfiltermat2('none');
               }}
             >
-              {filter2 && <Image source={filter2} style={styles.image}/>}
+              {buttonFilter && <Image source={buttonFilter} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 3 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
+              // Adding filtermat3
               if(money >= currentMaterialCost && filtermat3 != currentMaterial){
                 // get cost of filtermat3
                 let Material3Cost;
@@ -552,6 +569,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat3
               onLongPress={() => {setfilter3(null);
                 if(filtermat3 != 'none'){
                   // get cost of filtermat3
@@ -582,7 +600,10 @@ export default function Game({ route, navigation }) {
             >
               {filter3 && <Image source={filter3} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 4 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
+              // Adding filtermat4
               if(money >= currentMaterialCost && filtermat4 != currentMaterial){
                 // get cost of filtermat4
                 let Material4Cost;
@@ -614,6 +635,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat4
               onLongPress={() => {setfilter4(null);
                 if(filtermat4 != 'none'){
                   // get cost of filtermat4
@@ -644,7 +666,10 @@ export default function Game({ route, navigation }) {
             >
               {filter4 && <Image source={filter4} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 5 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
+              // Adding filtermat5
               if(money >= currentMaterialCost && filtermat5 != currentMaterial){
                 // get cost of filtermat5
                 let Material5Cost;
@@ -676,6 +701,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat5
               onLongPress={() => {setfilter5(null);
                 if(filtermat5 != 'none'){
                   // get cost of filtermat5
@@ -706,7 +732,10 @@ export default function Game({ route, navigation }) {
             >
               {filter5 && <Image source={filter5} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 6 */}
             <Pressable style = {styles.upperSpace2} onPress={() => {
+              // Adding filtermat6
               if(money >= currentMaterialCost && filtermat6 != currentMaterial){
                 // get cost of filtermat6
                 let Material6Cost;
@@ -738,6 +767,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat6
               onLongPress={() => {setfilter6(null);
                 if(filtermat6 != 'none'){
                   // get cost of filtermat6
@@ -769,8 +799,14 @@ export default function Game({ route, navigation }) {
               {filter6 && <Image source={filter6} style={[styles.image,{borderBottomLeftRadius: 50, borderBottomRightRadius: 50}]}/>}
             </Pressable>
         </View>
-        <View style={styles.filter2}>
+
+        {/* Bottom 2 Layers of Filter */}
+        <View style={styles.buttonFilter}>
+            {/* Actions on Filter */}
+
+            {/* Filter Layer 7 */}
             <Pressable style = {styles.belowSpace} onPress={() => {
+              // Adding filtermat7
               if(money >= currentMaterialCost && filtermat7 != currentMaterial){
                 // get cost of filtermat7
                 let Material7Cost;
@@ -802,6 +838,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat7
               onLongPress={() => {setfilter7(null);
                 if(filtermat7 != 'none'){
                   // get cost of filtermat7
@@ -832,7 +869,10 @@ export default function Game({ route, navigation }) {
             >
               {filter7 && <Image source={filter7} style={styles.image}/>}
             </Pressable>
+
+            {/* Filter Layer 8 */}
             <Pressable style = {styles.belowSpace2} onPress={() => {
+              // Adding filtermat8
               if(money >= currentMaterialCost && filtermat8 != currentMaterial){
                 // get cost of filtermat8
                 let Material8Cost;
@@ -864,6 +904,7 @@ export default function Game({ route, navigation }) {
               else{
                 setModalVisible(!modalVisible);
               }}}
+              // Removing filtermat8
               onLongPress={() => {setfilter8(null);
                 if(filtermat8 != 'none'){
                   // get cost of filtermat8
@@ -895,12 +936,18 @@ export default function Game({ route, navigation }) {
               {filter8 && <Image source={filter8} style={[styles.image, {borderBottomLeftRadius: 30, borderBottomRightRadius: 30}]}/>}
             </Pressable>
         </View>
+
+        {/* Popup for Insufficient Funds */}
         {lackofFundsModal()}
+        {/* Popup for Chance Cards */}
         {loseFundsModal()}
+
+        {/* Material Scroll List */}
         <View style={styles.scroll}>
           <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
+
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
-            <Pressable style={[styles.button, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+            <Pressable style={[styles.materialButton, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(true);
               setCoarseSand(false);
               setFineGravel(false);
@@ -915,7 +962,8 @@ export default function Game({ route, navigation }) {
                 Fine Sand (${fineSandVal})
               </Text>
             </Pressable>
-            <Pressable style={[styles.button, {borderColor: coarseSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+
+            <Pressable style={[styles.materialButton, {borderColor: coarseSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(true);
               setFineGravel(false);
@@ -930,7 +978,8 @@ export default function Game({ route, navigation }) {
                 Coarse Sand (${coarseSandVal})
               </Text>
             </Pressable>
-            <Pressable style={[styles.button, {borderColor: fineGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+
+            <Pressable style={[styles.materialButton, {borderColor: fineGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(true);
@@ -945,7 +994,8 @@ export default function Game({ route, navigation }) {
                 Fine Gravel (${fineGravelVal})
               </Text>
             </Pressable>
-            <Pressable style={[styles.button, {borderColor: coarseGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+
+            <Pressable style={[styles.materialButton, {borderColor: coarseGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -960,7 +1010,8 @@ export default function Game({ route, navigation }) {
                 Coarse Gravel (${coarseGravelVal})
               </Text>
             </Pressable>
-            <Pressable style={[styles.button, {borderColor: cotton? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+
+            <Pressable style={[styles.materialButton, {borderColor: cotton? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -975,7 +1026,8 @@ export default function Game({ route, navigation }) {
                 Cotton (${cottonVal})
               </Text>
             </Pressable>
-            <Pressable style={[styles.button, {borderColor: cheeseCloth? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
+
+            <Pressable style={[styles.materialButton, {borderColor: cheeseCloth? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
               setFineGravel(false);
@@ -992,18 +1044,27 @@ export default function Game({ route, navigation }) {
             </Pressable>
           </ScrollView>
         </View>
+
+        {/* Button Layer */}
         <View style={styles.buttonLayer}>
-            <Pressable style={styles.resetButton} onPress={resetGame}>
+          {/* Reset Filter */}
+          <Pressable style={styles.resetButton} onPress={resetGame}>
             <Text style={styles.textButton}>
               Reset Filter
             </Text>
           </Pressable>
-          <Pressable style={styles.button2} onPress={() => {
+
+          {/* Test Filter */}
+          <Pressable style={styles.testButton} onPress={() => {
               var result = '0';
+
+              // Water Quality Calculations
+              // 100%
               if(filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth'){
                 result = '100';
                 navigation.navigate("result100", { result: result })
               } 
+              // 90%
               else if(
                 (filtermat1!='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
                 (filtermat1=='coarseGravel' && filtermat2!='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' &&filtermat7 == 'cotton' && filtermat8 == 'cheeseCloth')||
@@ -1015,6 +1076,7 @@ export default function Game({ route, navigation }) {
                 result = '90';
                 navigation.navigate("result90", { result: result })
               }
+              // 80%
               else if(
                   (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 == 'cotton' && filtermat8 != 'cheeseCloth')
                 || (filtermat1=='coarseGravel' && filtermat2=='fineGravel' && filtermat3 =='coarseSand' && filtermat4=='coarseSand' && filtermat5=='fineSand' && filtermat6=='fineSand' && filtermat7 != 'cotton' && filtermat8 == 'cheeseCloth')
@@ -1037,11 +1099,12 @@ export default function Game({ route, navigation }) {
                 {
                   result = 'only 80% cleaned';
                   navigation.navigate("result80less", { result: result })
-                }else{
+                }
+                // < 80%
+                else{
                   result = "less than 80% clean";
                   navigation.navigate("result80less", { result: result })
                 }
-                
               }
             }>
             <Text style={styles.textButton}>
@@ -1052,179 +1115,157 @@ export default function Game({ route, navigation }) {
             </View>
           </Pressable>
         </View>
+        
         <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: '#1E1E1E',
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    paddingTop: Dimensions.get('window').height*1/14,
-  },
-  upperSpace:{
-    backgroundColor: 'transparent',
-    borderBottomWidth: 2,
-    borderBottomColor: '#03DAC5',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex:1
-  },
-  upperSpace2:{
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex:1
-  },
-  filter:{
-    backgroundColor: 'transparent',
-    height: Dimensions.get('window').height*4/7,
-    width: Dimensions.get('window').width*2/3,
-    flexDirection: 'column',
-    borderColor: '#03DAC5',
-    borderWidth: 2,
-    borderTopWidth: 0,
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
-    flex: 6
-  },
-  filter2:{
-    backgroundColor: 'transparent',
-    height: Dimensions.get('window').height*1/10,
-    width: Dimensions.get('window').width*1/3,
-    flexDirection: 'column',
-    borderColor: '#03DAC5',
-    borderWidth: 2,
-    borderTopWidth: 0,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    flex: 1
-  },
-  belowSpace: {
-    backgroundColor: 'transparent',
-    borderBottomWidth: 2,
-    borderBottomColor: '#03DAC5',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex:1
-  },
-  belowSpace2: {
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex:1
-  },
-  scroll:{
-    backgroundColor: 'transparent',
-    height: Dimensions.get('window').height*1/7,
-    width: Dimensions.get('window').width,
-    // paddingTop: Dimensions.get('window').height*1/14,
-    marginBottom: Dimensions.get('window').height / 20,
-    paddingLeft: 10,
-    paddingRight: 10,
-    flex: 2
-  },
-  textButton:{
-    color: '#03DAC5',
-    textAlign:'center',
-    fontSize:14,
-    fontWeight: 'bold',
-    flex: 5,
-    padding:5, 
-  },
-  resetButton:{
-    width:  Dimensions.get('window').width / 3,
-    flexDirection: 'row',
-    padding: 12,
-    borderColor: '#03DAC5',
-    borderRadius: 999,
-    borderWidth: 2,
-    backgroundColor: '#2C2C2C'
-  },
-  button2: {
-    width:  Dimensions.get('window').width / 3,
-    flexDirection: 'row',
-    marginLeft: 12,
-    padding: 12,
-    borderColor: '#03DAC5',
-    borderRadius: 999,
-    borderWidth: 2,
-    backgroundColor: '#2C2C2C'
-  },
-  buttonLayer:{
-    flexDirection: 'row',
-    marginTop: -Dimensions.get('window').height / 20,
-    marginBottom: Dimensions.get('window').height / 10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  button: {
-    height: '40%',
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    marginLeft: 30,
-    marginTop:20,
-    borderColor: 'transparent',
-    borderRadius: 999,
-    borderWidth: 2,
-    backgroundColor: '#2C2C2C'
-  },
-  image:{
-    height: '99%',
-    width: '99%'
-  },
-  arrow:{
-    flex: 1,
-    marginTop: 2
-  },
-  backinputview:{
-    width:  Dimensions.get('window').width / 3,
-    height: Dimensions.get('window').height / -2,
-    flexDirection: 'row',
-    padding: 13,
-    borderColor: '#03DAC5',
-    borderRadius: 999,
-    borderWidth: 2,
-    backgroundColor: '#2C2C2C'
-  },
-  button3: {
-    width:  Dimensions.get('window').width / 3,
-    flexDirection: 'row',
-    padding: 12,
-    borderColor: '#03DAC5',
-    borderRadius: 999,
-    borderWidth: 2,
-    backgroundColor: '#2C2C2C',
-    marginLeft: -Dimensions.get('window').width / 2,
-    marginBottom: Dimensions.get('window').height / 20,
-    marginTop: Dimensions.get('window').height / -20,
-  },
-  caption:{
-    color: '#03DAC5',
-    marginTop: Dimensions.get('window').height / -12,
-    marginLeft: -Dimensions.get('window').width / -1.5,
-  },
-  backBox:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: Dimensions.get('window').width,
-    paddingLeft: 30,
-    paddingRight: 30,
-    marginBottom: 20
-  },
-  moneyText:{
-    color: '#03DAC5',
-    fontSize: 17,
-    fontWeight: 'bold',
-  },
-  centeredView: {
+    background: {
+        backgroundColor: '#1E1E1E',
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        paddingTop: Dimensions.get('window').height*1/14,
+    },
+    upperSpace:{
+        backgroundColor: 'transparent',
+        borderBottomWidth: 2,
+        borderBottomColor: '#03DAC5',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1
+    },
+    upperSpace2:{
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1
+    },
+    topFilter:{
+        backgroundColor: 'transparent',
+        height: Dimensions.get('window').height*4/7,
+        width: Dimensions.get('window').width*2/3,
+        flexDirection: 'column',
+        borderColor: '#03DAC5',
+        borderWidth: 2,
+        borderTopWidth: 0,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+        flex: 6
+    },
+    buttonFilter:{
+        backgroundColor: 'transparent',
+        height: Dimensions.get('window').height*1/10,
+        width: Dimensions.get('window').width*1/3,
+        flexDirection: 'column',
+        borderColor: '#03DAC5',
+        borderWidth: 2,
+        borderTopWidth: 0,
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
+        flex: 1
+    },
+    belowSpace: {
+        backgroundColor: 'transparent',
+        borderBottomWidth: 2,
+        borderBottomColor: '#03DAC5',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1
+    },
+    belowSpace2: {
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex:1
+    },
+    scroll:{
+        backgroundColor: 'transparent',
+        height: Dimensions.get('window').height*1/7,
+        width: Dimensions.get('window').width,
+        marginBottom: Dimensions.get('window').height / 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        flex: 2
+    },
+    textButton:{
+        color: '#03DAC5',
+        textAlign:'center',
+        fontSize:14,
+        fontWeight: 'bold',
+        flex: 5,
+        padding:5, 
+    },
+    resetButton:{
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+    },
+    testButton: {
+        width:  Dimensions.get('window').width / 3,
+        flexDirection: 'row',
+        marginLeft: Dimensions.get('window').width / 20,
+        padding: 12,
+        borderColor: '#03DAC5',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+    },
+    buttonLayer:{
+        flexDirection: 'row',
+        marginTop: -Dimensions.get('window').height / 20,
+        marginBottom: Dimensions.get('window').height / 10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    materialButton: {
+        height: '50%',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        marginLeft: Dimensions.get('window').width / 13,
+        marginTop: Dimensions.get('window').width / 70,
+        borderColor: 'transparent',
+        borderRadius: 999,
+        borderWidth: 2,
+        backgroundColor: '#2C2C2C'
+    },
+    image:{
+        height: '99%',
+        width: '99%'
+    },
+    arrow:{
+        flex: 1,
+        marginTop: 2
+    },
+    caption:{
+        color: '#03DAC5',
+        marginTop: Dimensions.get('window').height / -12,
+        marginLeft: -Dimensions.get('window').width / -1.5,
+    },
+    backBox:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: Dimensions.get('window').width,
+        paddingLeft: 30,
+        paddingRight: 30,
+        marginBottom: 20
+    },
+    moneyText:{
+        color: '#03DAC5',
+        fontSize: 17,
+        fontWeight: 'bold',
+    },
+    centeredView: {
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -1254,7 +1295,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#2C2C2C',
 		borderColor: '#03DAC5',
 	},
-  buttonans: {
+    buttonAns: {
 		width: Dimensions.get('window').width / 3,
 		flexDirection: 'row',
 		padding: 15,
@@ -1262,14 +1303,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		// alignSelf: 'flex-start',
 	},
-//   w4twlogo: {
-//       bottom: Dimensions.get('window').height / 112,
-//       alignItems: 'center',
-//       width: 120, 
-//       height: 60, 
-//     }
     w4twlogo: {
         bottom: Dimensions.get('window').height / 180,
         alignItems: 'flex-start',

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import {
 	Dimensions,
@@ -12,10 +12,11 @@ import {
 	SafeAreaView,
 } from 'react-native';
 import { Slider } from 'react-native-elements';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+
+// PreQ6 Page
 export default function PreQ6({ navigation }) {
 	const [range, setRange] = useState('0');
 	const [modalVisible, setModalVisible] = useState(false);
@@ -23,7 +24,8 @@ export default function PreQ6({ navigation }) {
 	return (
 		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
-			{/* <View style={styles.backinputview}> */}
+
+            {/* Back to PreQ5 Page */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
 				onPress={async () => {
 					navigation.navigate('Pre questionnaire 5');
@@ -31,12 +33,15 @@ export default function PreQ6({ navigation }) {
 			>
 				<Icon name='arrow-left' color='#03DAC5' size={25} />
 			</Pressable>
-			{/* </View> */}
+
 			<Text style={styles.textCaption}>Extreme Poverty</Text>
 			<Text style={styles.subtext}>
 				How many people in the world live on less than $2.50 a day?
 			</Text>
+
 			<Text style={styles.sliderText}>{range}</Text>
+
+            {/* Popup Info */}
 			<Modal
 				animationType="slide"
 				transparent={true}
@@ -55,7 +60,7 @@ export default function PreQ6({ navigation }) {
 							how would your or your parents be able to pay your rent? {'\n'}
 						</Text>
 						<Pressable
-							style={styles.button2}
+							style={styles.popupButton}
 							numberOfLines={1}
 							onPress={() => {
 								setModalVisible(!modalVisible);
@@ -66,6 +71,8 @@ export default function PreQ6({ navigation }) {
 					</View>
 				</View>
 			</Modal>
+            
+            {/* Slider Input */}
 			<Slider
 				style={{ width: 300, height: 50 }}
 				thumbTintColor="#03DAC5"
@@ -78,9 +85,10 @@ export default function PreQ6({ navigation }) {
 				onSlidingComplete={() => setModalVisible(!modalVisible)}
 			/>
 
+            {/* Next Page */}
 			<View style={styles.skipContainer}>
 				<Pressable
-					style={styles.button3}
+					style={styles.nextButton}
 					numberOfLines={1}
 					onPress={() => navigation.navigate('Pre questionnaire 7')}
 				>
@@ -90,8 +98,7 @@ export default function PreQ6({ navigation }) {
 					</View>
 				</Pressable>
 			</View>
-			{/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
+
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 			<StatusBar style="auto" />
 		</SafeAreaView>
@@ -101,16 +108,10 @@ export default function PreQ6({ navigation }) {
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		// height: Dimensions.get('window').height,
-		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
-		// flexDirection: 'column',
 		flex: 1,
 	},
-	bold: { fontWeight: 'bold' },
-	italic: { fontStyle: 'italic' },
-	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
 		marginTop: Dimensions.get('window').height / 15,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
 		flex: 2,
 		marginTop: Dimensions.get('window').height / 4,
 	},
-	button2: {
+	popupButton: {
 		width: Dimensions.get('window').width / 2,
 		flexDirection: 'row',
 		padding: 12,
@@ -141,10 +142,9 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		// marginTop: -150,
 		alignItems: 'center',
 	},
-	button3: {
+	nextButton: {
 		width: Dimensions.get('window').width / 2,
 		flexDirection: 'row',
 		padding: 12,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		marginTop: -150,
+        marginTop: Dimensions.get('window').height / -7,
 		alignItems: 'center',
 	},
 	arrow: {
@@ -165,13 +165,11 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		fontWeight: 'bold',
 		flex: 5,
-		// marginTop: Dimensions.get('window').height/2,
 	},
 	sliderText: {
 		fontSize: 40,
 		fontWeight: 'bold',
 		color: '#03DAC5',
-		// height: Dimensions.get('window').height/2,
 	},
 	centeredView: {
 		flex: 1,
@@ -198,17 +196,6 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		color: '#03DAC5',
 		fontSize: 18,
-	},
-	button: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		marginLeft: Dimensions.get('window').width / -1.7,
-		marginTop: Dimensions.get('window').height / 50,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
 	},
 	ewblogo: {
 		bottom: Dimensions.get('window').height / -18,

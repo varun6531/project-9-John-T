@@ -6,6 +6,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ListRoomsAPI from '../apis/ListRoomsAPI';
 import JoinRoomAPI from '../apis/JoinRoomAPI';
 
+
+// Student Welcome Page (Not Used)
 export default function StudentWelcome({ navigation }) {
   const [enteredHRCode, setEnteredHRCode] = useState('');
   const [hrList, setHRList] = useState(['cool']);

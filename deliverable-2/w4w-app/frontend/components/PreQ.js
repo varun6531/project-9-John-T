@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Dimensions,
 	StyleSheet,
@@ -9,18 +9,17 @@ import {
 	Pressable,
 	SafeAreaView,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import GetTypeAPI from '../apis/GetTypeAPI';
 
+
+// PreQ1 Page
 export default function PreQ({ navigation }) {
 	return (
 		<SafeAreaView style={styles.background}>
-			{/* <View>  */}
 			<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
-			{/* <View style={styles.backinputview}> */}
+
+            {/* Back to Home Page */}
 			<Pressable
 				style={{ marginLeft: -Dimensions.get('window').width / 1.2 }}
 				onPress={() => {
@@ -29,7 +28,7 @@ export default function PreQ({ navigation }) {
 			>
 				<Icon name="arrow-left" color="#03DAC5" size={25} />
 			</Pressable>
-			{/* </View> */}
+
 			<Text style={styles.textCaption}>Introduction</Text>
 			<Text style={styles.subtext}>
 				The Water for the World Workshop introduces participants to the issues
@@ -38,9 +37,10 @@ export default function PreQ({ navigation }) {
 				access clean water for yourself!
 			</Text>
 
+            {/* Next Page */}
 			<View style={styles.skipContainer}>
 				<Pressable
-					style={styles.button2}
+					style={styles.nextButton}
 					numberOfLines={1}
 					onPress={() => navigation.navigate('Pre questionnaire 2')}
 				>
@@ -50,11 +50,9 @@ export default function PreQ({ navigation }) {
 					</View>
 				</Pressable>
 			</View>
-			{/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 870, width: 100, height:50, alignSelf: 'center'}}/> */}
+			
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 			<StatusBar style="auto" />
-			{/* </View> */}
 		</SafeAreaView>
 	);
 }
@@ -62,16 +60,10 @@ export default function PreQ({ navigation }) {
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		// height: Dimensions.get('window').height,
-		// width: Dimensions.get('window').width,
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		// flexDirection: 'column'
 	},
-	bold: { fontWeight: 'bold' },
-	italic: { fontStyle: 'italic' },
-	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
 		marginTop: Dimensions.get('window').height / 20,
@@ -81,13 +73,8 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		textDecorationLine: 'underline',
 	},
-	icon: {
-		// marginTop: Dimensions.get('window').height / 10,
-		// flex: 1
-	},
 	subtext: {
 		color: '#03DAC5',
-		// marginTop: Dimensions.get('window').height / 36,
 		textAlign: 'center',
 		fontSize: 16,
 		flexDirection: 'column',
@@ -97,20 +84,18 @@ const styles = StyleSheet.create({
 	skipContainer: {
 		flex: 2,
 	},
-	button2: {
+	nextButton: {
 		width: Dimensions.get('window').width / 2,
 		flexDirection: 'row',
 		padding: 12,
 		borderColor: '#03DAC5',
 		borderRadius: 999,
 		borderWidth: 2,
-		// marginTop: -200,
 		backgroundColor: '#2C2C2C',
 		alignItems: 'center',
 	},
 	arrow: {
 		flex: 1,
-		// marginTop: 2
 	},
 	textButton: {
 		color: '#03DAC5',
@@ -119,34 +104,12 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		flex: 5,
 	},
-	backinputview: {
-		backgroundColor: '#1E1E1E',
-		padding: 0,
-		top: 30,
-		right: 189,
-	},
-	button: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		// marginLeft: Dimensions.get('window').width / 3,
-		// marginTop: Dimensions.get('window').height / -570,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-		alignSelf: 'flex-start',
-	},
 	ewblogo: {
-		// right: Dimensions.get('window').width / -3,
 		bottom: Dimensions.get('window').height / -18,
 		width: Dimensions.get('window').width / 5,
 		height: Dimensions.get('window').height / 17.5,
 		alignSelf: 'flex-end',
 		right: '5%',
-		// position: 'absolute',
-		// top: 10,
-		// right: 20,
 	},
 	w4twlogo: {
 		bottom: Dimensions.get('window').height / 112,
@@ -156,6 +119,5 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 20,
 		left: 10,
-		// flex: 1,
 	},
 });

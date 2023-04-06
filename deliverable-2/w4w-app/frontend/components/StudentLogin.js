@@ -7,11 +7,12 @@ import {
 	Image,
 	Pressable,
 	TextInput,
-	Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+// Student Login Page
 export default function StudentLogin({ navigation }) {
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
@@ -21,7 +22,8 @@ export default function StudentLogin({ navigation }) {
 		<>
 			<View style={styles.background}>
 				<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
-				{/* <View style={styles.backinputview}> */}
+
+                {/* Back Arrow to Home Page */}
 				<Pressable
 					style={{ marginLeft: -Dimensions.get('window').width / 1.2 }}
 					onPress={async () => {
@@ -30,7 +32,8 @@ export default function StudentLogin({ navigation }) {
 				>
 					<Icon name="arrow-left" color="#03DAC5" size={25} />
 				</Pressable>
-				{/* </View> */}
+
+                {/* User Image */}
 				<Icon
 					name="user-circle"
 					color="#03DAC5"
@@ -40,6 +43,8 @@ export default function StudentLogin({ navigation }) {
 				<View style={styles.errview}>
 					<Text style={styles.error}>{error}</Text>
 				</View>
+
+                {/* Instructor's Email */}
 				<TextInput
 					style={styles.input}
 					placeholder="Your instructor's email"
@@ -48,6 +53,7 @@ export default function StudentLogin({ navigation }) {
 					label="Email"
 				/>
 
+                {/* Student's Name */}
 				<TextInput
 					style={styles.input}
 					placeholder="Your name"
@@ -55,9 +61,11 @@ export default function StudentLogin({ navigation }) {
 					onChangeText={(newP) => setName(newP)}
 					label="Text"
 				/>
+
+                {/* Student Login */}
 				<View style={styles.inputview}>
 					<Pressable
-						style={styles.button2}
+						style={styles.loginButton}
 						onPress={() => {
 							AsyncStorage.setItem(
 								'user',
@@ -75,8 +83,7 @@ export default function StudentLogin({ navigation }) {
 						</View>
 					</Pressable>
 				</View>
-				{/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-        <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 750, width: 100, height:50, alignSelf: 'center'}}/> */}
+
 				<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 			</View>
 		</>
@@ -99,13 +106,6 @@ const styles = StyleSheet.create({
 		padding: 20,
 		fontWeight: 'bold',
 	},
-	text: {
-		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 6,
-		textAlign: 'center',
-		fontSize: 30,
-		fontWeight: 'bold',
-	},
 	textButton: {
 		color: '#03DAC5',
 		textAlign: 'center',
@@ -113,22 +113,10 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		flex: 5,
 	},
-	button: {
+	loginButton: {
 		width: Dimensions.get('window').width / 3,
 		flexDirection: 'row',
 		padding: 15,
-		marginLeft: Dimensions.get('window').width / -1.7,
-		// marginTop: Dimensions.get('window').height / 12,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-	},
-	button2: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		// marginLeft: Dimensions.get('window').width / -1.7,
 		marginTop: Dimensions.get('window').height / 12,
 		borderColor: '#03DAC5',
 		borderRadius: 999,
@@ -166,15 +154,7 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		marginTop: Dimensions.get('window').height / 18,
 	},
-	backinputview: {
-		backgroundColor: '#1E1E1E',
-		padding: 0,
-		top: 0,
-		right: 120,
-	},
 	ewblogo: {
-		// right: Dimensions.get('window').width / -1.55,
-		// bottom: Dimensions.get('window').height / -20,
 		marginTop: Dimensions.get('window').height / 20,
 		marginBottom: Dimensions.get('window').height / -20,
 		marginRight: Dimensions.get('window').width / 15,
@@ -183,7 +163,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').height / 17.5,
 	},
 	w4twlogo: {
-		// marginTop: Dimensions.get('window').height / 25,
 		marginBottom: Dimensions.get('window').height / 30,
 		alignSelf: 'center',
 		width: Dimensions.get('window').width / 3,

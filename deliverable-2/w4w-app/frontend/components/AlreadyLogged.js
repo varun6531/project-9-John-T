@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Dimensions,
 	StyleSheet,
@@ -9,8 +9,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import GetTypeAPI from '../apis/GetTypeAPI';
 
+
+// Already Logged In Page
 export default function AlreadyLogged({ navigation }) {
 	const [name, setName] = useState('');
 
@@ -30,8 +31,8 @@ export default function AlreadyLogged({ navigation }) {
 
 	return (
 		<View style={styles.background}>
-			<Image source={require('../assets/EWB.png')} style={styles.ewblogo} />
-			{/* <View style={styles.backinputview}> */}
+			<Image source={require('../assets/EWB.png')} style={styles.ewblogo}/>
+
 			<Pressable
 				style={{ marginLeft: -Dimensions.get('window').width / 1.2 }}
 				onPress={async () => {
@@ -40,16 +41,17 @@ export default function AlreadyLogged({ navigation }) {
 			>
 				<Icon name="arrow-left" color="#03DAC5" size={25} />
 			</Pressable>
-			{/* </View> */}
+
 			<Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
 				You have already logged in to {"\n"} {name}
 			</Text>
 
+            {/* Log Out & Go to Home Page */}
 			<Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
 				If you wish to Logout
 			</Text>
 			<Pressable
-				style={styles.button2}
+				style={styles.navigateButtons}
 				onPress={async () => {
 					await AsyncStorage.removeItem('user');
 					navigation.navigate('Home page');
@@ -60,11 +62,13 @@ export default function AlreadyLogged({ navigation }) {
 					<Icon name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
+
+            {/* Continue to Pre-Questionnaire */}
 			<Text numberOfLines={5} adjustsFontSizeToFit style={styles.textUnder}>
 				If you wish to continue logged in to {name}
 			</Text>
 			<Pressable
-				style={styles.button2}
+				style={styles.navigateButtons}
 				numberOfLines={1}
 				onPress={async () => {
 					navigation.navigate('Pre questionnaire 1');
@@ -75,8 +79,7 @@ export default function AlreadyLogged({ navigation }) {
 					<Icon name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
-			{/* <Image source={require('../assets/WFTW.png')}  style={{left: 0, top: 0, width: 110, height: 115, alignSelf: 'center'}}/>
-      <Image source={require('../assets/EWB.png')}  style={{right: -150, bottom: 700, width: 100, height:50, alignSelf: 'center'}}/> */}
+
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo} />
 		</View>
 	);
@@ -87,13 +90,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#1E1E1E',
 		height: Dimensions.get('window').height,
 		width: Dimensions.get('window').width,
-	},
-	text: {
-		color: '#03DAC5',
-		marginTop: Dimensions.get('window').height / 12,
-		textAlign: 'center',
-		fontSize: 30,
-		fontWeight: 'bold',
 	},
 	textUnder: {
 		color: '#03DAC5',
@@ -110,19 +106,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		flex: 5,
 	},
-	button: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		// marginLeft: Dimensions.get('window').width / 3,
-		// marginTop: Dimensions.get('window').height / 12,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-		alignSelf: 'flex-start',
-	},
-	button2: {
+	navigateButtons: {
 		width: Dimensions.get('window').width / 2,
 		flexDirection: 'row',
 		padding: 15,
@@ -137,15 +121,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		marginTop: 2,
 	},
-	backinputview: {
-		backgroundColor: '#1E1E1E',
-		padding: 0,
-		top: 0,
-		right: 120,
-	},
 	ewblogo: {
-		// right: Dimensions.get('window').width / -1.55,
-		// bottom: Dimensions.get('window').height / -20,
 		marginTop: Dimensions.get('window').height / 20,
 		marginBottom: Dimensions.get('window').height / -20,
 		marginRight: Dimensions.get('window').width / 15,
@@ -154,8 +130,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').height / 17.5,
 	},
 	w4twlogo: {
-		// marginTop: Dimensions.get('window').height / 25,
-		// marginBottom: Dimensions.get('window').height/30,
 		alignSelf: 'center',
 		width: Dimensions.get('window').width / 3,
 		height: Dimensions.get('window').height / 10,

@@ -14,7 +14,10 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default function PreQ3({ navigation }) {
+
+// PreQ4 Page
+export default function PreQ4({ navigation }) {
+    // Country Options
 	const options = [
 		{ id: 1, country: 'Canada', literacy: '99.0%' },
 		{ id: 2, country: 'Germany', literacy: '99.0%' },
@@ -55,7 +58,7 @@ export default function PreQ3({ navigation }) {
 								{selectedOption.literacy}
 							</Text>
 							<Pressable
-								style={[styles.buttonans, styles.buttonClose]}
+								style={[styles.buttonAns, styles.buttonClose]}
 								onPress={() => setModalVisible(!modalVisible)}
 							>
 								<Text style={styles.textButton}>OK</Text>
@@ -70,24 +73,15 @@ export default function PreQ3({ navigation }) {
 	return (
 		<SafeAreaView style={styles.background}>
 			<Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
-			{/* <View style={styles.backinputview}> */}
+
+            {/* Back to PreQ3 Page */}
 			<Pressable style = {{marginLeft : - Dimensions.get('window').width/ 1.2}}
 					onPress={async () => {
 						navigation.navigate('Pre questionnaire 3');
 					}}
 				>
 					<Icon name='arrow-left' color='#03DAC5' size={25} />
-				</Pressable>
-				{/* <Image
-					source={require('../assets/EWB.png')}
-					style={{
-						width: 100,
-						height: 50,
-						marginTop: 10,
-						alignSelf: 'center',
-					}}
-				/> */}
-			{/* </View> */}
+			</Pressable>
 
 			<Text style={styles.textCaption}>Literacy Rate</Text>
 			<Text style={styles.subtext}>
@@ -98,7 +92,8 @@ export default function PreQ3({ navigation }) {
 				Explore the literacy rates of the highlighted countries: (click on the
 				country name to see the literacy rate)
 			</Text>
-
+            
+            {/* Map Image */}
 			<View style={styles.ImageContainer}>
 				<Image
 					source={require('../assets/lteracyGlobeCountries.png')}
@@ -111,6 +106,7 @@ export default function PreQ3({ navigation }) {
 				/>
 			</View>
 
+            {/* Country Options */}
 			<View style={styles.optionContainer}>
 				{options.map((option) => (
 					<TouchableOpacity
@@ -123,8 +119,10 @@ export default function PreQ3({ navigation }) {
 				))}
 			</View>
 
+            {/* Popup Info */}
 			{AnswerModal()}
 
+            {/* Next Page */}
 			<Pressable
 				style={styles.nextButton}
 				numberOfLines={1}
@@ -135,15 +133,7 @@ export default function PreQ3({ navigation }) {
 					<FontAwesome5 name="angle-right" color="#03DAC5" size={15} />
 				</View>
 			</Pressable>
-			{/* <Image
-				source={require('../assets/WFTW.png')}
-				style={{
-					width: 110,
-					height: 115,
-					resizeMode: 'contain',
-					alignSelf: 'center',
-				}}
-			/> */}
+			
 			<Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
 			<StatusBar style="auto" />
 		</SafeAreaView>
@@ -153,16 +143,10 @@ export default function PreQ3({ navigation }) {
 const styles = StyleSheet.create({
 	background: {
 		backgroundColor: '#1E1E1E',
-		// height: Dimensions.get('window').height,
-		// width: Dimensions.get('window').width,
 		justifyContent: 'center',
 		alignItems: 'center',
-		// flexDirection: 'column',
 		flex: 1,
 	},
-	bold: { fontWeight: 'bold' },
-	italic: { fontStyle: 'italic' },
-	underline: { textDecorationLine: 'underline' },
 	textCaption: {
 		color: '#03DAC5',
 		marginTop: Dimensions.get('window').height / 45,
@@ -180,13 +164,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		width: Dimensions.get('window').width / 1.2,
 	},
-	sourceText: {
-		color: '#03DAC5',
-	},
-	sourceLink: {
-		color: '#0044CC',
-		textDecorationLine: 'underline',
-	},
 	nextButton: {
 		width: Dimensions.get('window').width / 2,
 		flexDirection: 'row',
@@ -195,7 +172,6 @@ const styles = StyleSheet.create({
 		borderRadius: 999,
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
-		// marginTop: Dimensions.get('window').height / 15,
 		marginBottom: Dimensions.get('window').height / 15,
 		alignItems: 'center',
 	},
@@ -210,25 +186,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		flex: 5,
 	},
-	backinputview: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		width: Dimensions.get('window').width / 1.1,
-		top: Dimensions.get('window').height / 20,
-		height: '10%',
-	},
-	button: {
-		width: Dimensions.get('window').width / 3,
-		flexDirection: 'row',
-		padding: 15,
-		borderColor: '#03DAC5',
-		borderRadius: 999,
-		borderWidth: 2,
-		backgroundColor: '#2C2C2C',
-		alignSelf: 'flex-start',
-	},
-	buttonans: {
+	buttonAns: {
 		width: Dimensions.get('window').width / 3,
 		flexDirection: 'row',
 		padding: 15,
@@ -237,7 +195,6 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		backgroundColor: '#2C2C2C',
 	},
-	// Country Buttons Styling
 	optionContainer: {
 		marginTop: Dimensions.get('window').height / 30,
 		flexDirection: 'row',
@@ -260,7 +217,6 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: '#03DAC5',
 	},
-	// Modal Styling
 	centeredView: {
 		flex: 1,
 		justifyContent: 'center',
@@ -294,20 +250,16 @@ const styles = StyleSheet.create({
 	ewblogo:{
         right: Dimensions.get('window').width / -3,
         bottom: Dimensions.get('window').height / -18,
-        // width: 100, 
-        // height: 50, 
 		width: Dimensions.get('window').width / 5,
 		height: Dimensions.get('window').height / 17.5,
-      },
-      w4twlogo: {
+    },
+    w4twlogo: {
         bottom: Dimensions.get('window').height / 200,
         alignItems: 'flex-start',
-        // width: 120, 
-        // height: 60, 
-		width: Dimensions.get('window').width / 4,
-    	height: Dimensions.get('window').height / 15.5,
-		position: 'absolute',
+        width: Dimensions.get('window').width / 4,
+        height: Dimensions.get('window').height / 15.5,
+        position: 'absolute',
         bottom: 20,
         left: 10,
-      },
+    }
 });

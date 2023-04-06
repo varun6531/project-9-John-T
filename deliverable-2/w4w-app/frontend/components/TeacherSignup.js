@@ -4,6 +4,7 @@ import { useState } from 'react';
 import TeacherSignupAPI from '../apis/TeacherSignupAPI';
 
 
+// Teacher Sign Up Page (Not Used)
 export default function TeacherSignup({ navigation }) {
   const [email, setEmail] = useState('');
   const [password1, setPassword1] = useState('');

@@ -6,6 +6,8 @@ import ListRoomsAPI from '../apis/ListRoomsAPI';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CreateRoomAPI from '../apis/CreateRoomAPI';
 
+
+// Teacher Welcome Page (Not Used)
 export default function TeacherWelcome({ navigation }) {
   const [enteredHRCode, setEnteredHRCode] = useState('');
   const [hrList, setHRList] = useState([]);
