@@ -8,6 +8,9 @@ import { useEffect } from 'react'
 export default function Game({ route, navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
+  const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+  const [modalVisible5, setModalVisible5] = useState(false);
   const { moneyVal, country , f1, f2, f3, f4, f5, f6, f7, f8, isNew} = route.params;
 
   // Images of the filter materials
@@ -31,6 +34,9 @@ export default function Game({ route, navigation }) {
   // Messages for chance cards
   const messageCanada = 'Well done! You donated $50 to Engineers Without Borders/Water for the World which helped a country in need to access clean water. You still have more than enough money to build a great filter!';
   const messageListB = "You gained 35$";
+  const messageLose5 = "You are stopped by an army checkpoint which requires a 'tax'. The amount to spend on the filter is reduced by $5";
+  const messageLose52 = "A government official 'diverts' funds for your project. Your funds are reduced by $5";
+  const messageGain30 = "You receive a grant from Water for the World/Engineers without Borders - you have an extra $30 to spend on your filter";
 
 
   // Pointers to the selected material and its corresponding image
@@ -310,6 +316,85 @@ export default function Game({ route, navigation }) {
 		);
 	};
 
+  const loseFundsModalMid1 = () => {
+		return (
+			<View style={styles.centeredView}>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible3}
+					onRequestClose={() => {
+						setModalVisible3(!modalVisible3);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+                <Text style={styles.answerView}>{messageLose5}</Text>              
+							<Pressable
+								style={[styles.buttonAns, styles.buttonClose]}
+								onPress={() => setModalVisible3(!modalVisible3)}
+							>
+								<Text style={styles.textButton}>OK</Text>
+							</Pressable>
+						</View>
+					</View>
+				</Modal>
+			</View>
+		);
+	};
+  const loseFundsModalMid2 = () => {
+		return (
+			<View style={styles.centeredView}>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible4}
+					onRequestClose={() => {
+						setModalVisible4(!modalVisible4);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+              <Text style={styles.answerView}>{messageLose52}</Text>              
+							<Pressable
+								style={[styles.buttonAns, styles.buttonClose]}
+								onPress={() => setModalVisible4(!modalVisible4)}
+							>
+								<Text style={styles.textButton}>OK</Text>
+							</Pressable>
+						</View>
+					</View>
+				</Modal>
+			</View>
+		);
+	};
+  const loseFundsModalMid3 = () => {
+		return (
+			<View style={styles.centeredView}>
+				<Modal
+					animationType="slide"
+					transparent={true}
+					visible={modalVisible5}
+					onRequestClose={() => {
+						setModalVisible5(!modalVisible5);
+					}}
+				>
+					<View style={styles.centeredView}>
+						<View style={styles.modalView}>
+                <Text style={styles.answerView}>{messageGain30}</Text>
+							<Pressable
+								style={[styles.buttonAns, styles.buttonClose]}
+								onPress={() => setModalVisible5(!modalVisible5)}
+							>
+								<Text style={styles.textButton}>OK</Text>
+							</Pressable>
+						</View>
+					</View>
+				</Modal>
+			</View>
+		);
+	};
+
   // Reset entire filter and funds to starting state
   const resetGame = () => {
     setFineSand(false);
@@ -404,7 +489,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 1 */}
             <Pressable style = {styles.upperSpace} onPress={() => {
               // Adding filtermat1
-              if(money >= currentMaterialCost && filtermat1 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat1 != currentMaterial || filtermat1 == currentMaterial){
                 // get cost of filtermat1
                 let Material1Cost;
                 if (filtermat1 == 'none'){
@@ -428,9 +513,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat1 == 'fineSand'){
                   Material1Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material1Cost);
                 setfilter1(currentMaterialImg);
                 setfiltermat1(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                    if(rand==1){
+                      var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                      if(rand2 == 1){
+                        setModalVisible3(!modalVisible3);
+                        setMoney(money - currentMaterialCost + Material1Cost - 5);
+                      }
+                      else if(rand2 == 2){
+                        setModalVisible4(!modalVisible4);
+                        setMoney(money - currentMaterialCost + Material1Cost - 5);
+                      }
+                      else if(rand2 == 3){
+                        setModalVisible5(!modalVisible5);
+                        setMoney(money - currentMaterialCost + Material1Cost + 30);
+                      }
+                    }
+                    else{
+                        setMoney(money - currentMaterialCost + Material1Cost);
+                    }
+                }
+                else{
+                  setMoney(money - currentMaterialCost + Material1Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -471,7 +579,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 2 */}
             <Pressable style = {styles.upperSpace}   onPress={() => {
               // Adding filtermat2
-              if(money >= currentMaterialCost && filtermat2 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat2 != currentMaterial || filtermat2 == currentMaterial){
                 // get cost of filtermat2
                 let Material2Cost;
                 if (filtermat2 == 'none'){
@@ -495,9 +603,33 @@ export default function Game({ route, navigation }) {
                 else if(filtermat2 == 'fineSand'){
                   Material2Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material2Cost);
                 setbuttonFilter(currentMaterialImg); 
                 setfiltermat2(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material2Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material2Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material2Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material2Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material2Cost);
+              }
+                
               }
               else{
                 setModalVisible(!modalVisible);
@@ -538,7 +670,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 3 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat3
-              if(money >= currentMaterialCost && filtermat3 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat3 != currentMaterial || filtermat3 == currentMaterial){
                 // get cost of filtermat3
                 let Material3Cost;
                 if (filtermat3 == 'none'){
@@ -562,9 +694,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat3 == 'fineSand'){
                   Material3Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material3Cost);
                 setfilter3(currentMaterialImg); 
                 setfiltermat3(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material3Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material3Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material3Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material3Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material3Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -604,7 +759,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 4 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat4
-              if(money >= currentMaterialCost && filtermat4 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat4 != currentMaterial || filtermat4 == currentMaterial){
                 // get cost of filtermat4
                 let Material4Cost;
                 if (filtermat4 == 'none'){
@@ -628,9 +783,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat4 == 'fineSand'){
                   Material4Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material4Cost);
                 setfilter4(currentMaterialImg); 
                 setfiltermat4(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material4Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material4Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material4Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material4Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material4Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -670,7 +848,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 5 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat5
-              if(money >= currentMaterialCost && filtermat5 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat5 != currentMaterial || filtermat5 == currentMaterial){
                 // get cost of filtermat5
                 let Material5Cost;
                 if (filtermat5 == 'none'){
@@ -694,9 +872,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat5 == 'fineSand'){
                   Material5Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material5Cost);
                 setfilter5(currentMaterialImg); 
                 setfiltermat5(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material5Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material5Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material5Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material5Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material5Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -736,7 +937,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 6 */}
             <Pressable style = {styles.upperSpace2} onPress={() => {
               // Adding filtermat6
-              if(money >= currentMaterialCost && filtermat6 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat6 != currentMaterial || filtermat6 == currentMaterial){
                 // get cost of filtermat6
                 let Material6Cost;
                 if (filtermat6 == 'none'){
@@ -760,9 +961,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat6 == 'fineSand'){
                   Material6Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material6Cost);
                 setfilter6(currentMaterialImg); 
                 setfiltermat6(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material6Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material6Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material6Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material6Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material6Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -807,7 +1031,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 7 */}
             <Pressable style = {styles.belowSpace} onPress={() => {
               // Adding filtermat7
-              if(money >= currentMaterialCost && filtermat7 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat7 != currentMaterial || filtermat7 == currentMaterial){
                 // get cost of filtermat7
                 let Material7Cost;
                 if (filtermat7 == 'none'){
@@ -831,9 +1055,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat7 == 'fineSand'){
                   Material7Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material7Cost);
                 setfilter7(currentMaterialImg); 
                 setfiltermat7(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material7Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material7Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material7Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material7Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material7Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -873,7 +1120,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 8 */}
             <Pressable style = {styles.belowSpace2} onPress={() => {
               // Adding filtermat8
-              if(money >= currentMaterialCost && filtermat8 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat8 != currentMaterial || filtermat8 == currentMaterial){
                 // get cost of filtermat8
                 let Material8Cost;
                 if (filtermat8 == 'none'){
@@ -897,9 +1144,32 @@ export default function Game({ route, navigation }) {
                 else if(filtermat8 == 'fineSand'){
                   Material8Cost = fineSandVal;
                 }
-                setMoney(money - currentMaterialCost + Material8Cost);
                 setfilter8(currentMaterialImg); 
                 setfiltermat8(currentMaterial);
+                if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
+                  var rand = Math.floor(Math.random() * 5) + 1 ;
+                  if(rand==1){
+                    var rand2 = Math.floor(Math.random() * 3) + 1 ;
+                    if(rand2 == 1){
+                      setModalVisible3(!modalVisible3);
+                      setMoney(money - currentMaterialCost + Material8Cost - 5);
+                    }
+                    else if(rand2 == 2){
+                      setModalVisible4(!modalVisible4);
+                      setMoney(money - currentMaterialCost + Material8Cost - 5);
+                    }
+                    else if(rand2 == 3){
+                      setModalVisible5(!modalVisible5);
+                      setMoney(money - currentMaterialCost + Material8Cost + 30);
+                    }
+                  }
+                  else{
+                      setMoney(money - currentMaterialCost + Material8Cost);
+                  }
+              }
+              else{
+                setMoney(money - currentMaterialCost + Material8Cost);
+              }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -941,6 +1211,10 @@ export default function Game({ route, navigation }) {
         {lackofFundsModal()}
         {/* Popup for Chance Cards */}
         {loseFundsModal()}
+        {/*Popup for midgame chance cards*/}
+        {loseFundsModalMid1()}
+        {loseFundsModalMid2()}
+        {loseFundsModalMid3()}
 
         {/* Material Scroll List */}
         <View style={styles.scroll}>
@@ -1155,7 +1429,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
-        flex: 6
+        flex: 12
     },
     buttonFilter:{
         backgroundColor: 'transparent',
@@ -1167,7 +1441,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
-        flex: 1
+        flex: 2
     },
     belowSpace: {
         backgroundColor: 'transparent',
@@ -1190,7 +1464,7 @@ const styles = StyleSheet.create({
         marginBottom: Dimensions.get('window').height / 20,
         paddingLeft: 10,
         paddingRight: 10,
-        flex: 2
+        flex: 4
     },
     textButton:{
         color: '#03DAC5',
