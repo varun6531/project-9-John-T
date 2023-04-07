@@ -489,7 +489,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 1 */}
             <Pressable style = {styles.upperSpace} onPress={() => {
               // Adding filtermat1
-              if(money >= currentMaterialCost && filtermat1 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat1 != currentMaterial || filtermat1 == currentMaterial){
                 // get cost of filtermat1
                 let Material1Cost;
                 if (filtermat1 == 'none'){
@@ -575,7 +575,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 2 */}
             <Pressable style = {styles.upperSpace}   onPress={() => {
               // Adding filtermat2
-              if(money >= currentMaterialCost && filtermat2 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat2 != currentMaterial || filtermat2 == currentMaterial){
                 // get cost of filtermat2
                 let Material2Cost;
                 if (filtermat2 == 'none'){
@@ -661,7 +661,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 3 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat3
-              if(money >= currentMaterialCost && filtermat3 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat3 != currentMaterial || filtermat3 == currentMaterial){
                 // get cost of filtermat3
                 let Material3Cost;
                 if (filtermat3 == 'none'){
@@ -746,7 +746,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 4 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat4
-              if(money >= currentMaterialCost && filtermat4 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat4 != currentMaterial || filtermat4 == currentMaterial){
                 // get cost of filtermat4
                 let Material4Cost;
                 if (filtermat4 == 'none'){
@@ -831,7 +831,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 5 */}
             <Pressable style = {styles.upperSpace}  onPress={() => {
               // Adding filtermat5
-              if(money >= currentMaterialCost && filtermat5 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat5 != currentMaterial || filtermat5 == currentMaterial){
                 // get cost of filtermat5
                 let Material5Cost;
                 if (filtermat5 == 'none'){
@@ -916,7 +916,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 6 */}
             <Pressable style = {styles.upperSpace2} onPress={() => {
               // Adding filtermat6
-              if(money >= currentMaterialCost && filtermat6 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat6 != currentMaterial || filtermat6 == currentMaterial){
                 // get cost of filtermat6
                 let Material6Cost;
                 if (filtermat6 == 'none'){
@@ -1006,7 +1006,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 7 */}
             <Pressable style = {styles.belowSpace} onPress={() => {
               // Adding filtermat7
-              if(money >= currentMaterialCost && filtermat7 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat7 != currentMaterial || filtermat7 == currentMaterial){
                 // get cost of filtermat7
                 let Material7Cost;
                 if (filtermat7 == 'none'){
@@ -1091,7 +1091,7 @@ export default function Game({ route, navigation }) {
             {/* Filter Layer 8 */}
             <Pressable style = {styles.belowSpace2} onPress={() => {
               // Adding filtermat8
-              if(money >= currentMaterialCost && filtermat8 != currentMaterial){
+              if(money >= currentMaterialCost && filtermat8 != currentMaterial || filtermat8 == currentMaterial){
                 // get cost of filtermat8
                 let Material8Cost;
                 if (filtermat8 == 'none'){
