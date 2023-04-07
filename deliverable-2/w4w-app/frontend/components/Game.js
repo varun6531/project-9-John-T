@@ -289,6 +289,8 @@ export default function Game({ route, navigation }) {
 	};
 
   // Popup for chance cards
+
+  // Canada donates $50 or a country from List B receives $35
   const loseFundsModal = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -316,6 +318,7 @@ export default function Game({ route, navigation }) {
 		);
 	};
 
+  // Loses $5 due to army checkpoint tax
   const loseFundsModalMid1 = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -342,6 +345,8 @@ export default function Game({ route, navigation }) {
 			</View>
 		);
 	};
+
+  // Loses $5 due to government diverting funds
   const loseFundsModalMid2 = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -368,6 +373,8 @@ export default function Game({ route, navigation }) {
 			</View>
 		);
 	};
+
+  // Receives $30 grant
   const loseFundsModalMid3 = () => {
 		return (
 			<View style={styles.centeredView}>
@@ -513,8 +520,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat1 == 'fineSand'){
                   Material1Cost = fineSandVal;
                 }
+
                 setfilter1(currentMaterialImg);
                 setfiltermat1(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                     if(rand==1){
@@ -603,8 +612,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat2 == 'fineSand'){
                   Material2Cost = fineSandVal;
                 }
+
                 setbuttonFilter(currentMaterialImg); 
                 setfiltermat2(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -625,11 +636,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material2Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material2Cost);
-              }
-                
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material2Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -694,8 +704,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat3 == 'fineSand'){
                   Material3Cost = fineSandVal;
                 }
+
                 setfilter3(currentMaterialImg); 
                 setfiltermat3(currentMaterial);
+                
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -716,10 +728,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material3Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material3Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material3Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -783,8 +795,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat4 == 'fineSand'){
                   Material4Cost = fineSandVal;
                 }
+
                 setfilter4(currentMaterialImg); 
                 setfiltermat4(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -805,10 +819,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material4Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material4Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material4Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -872,8 +886,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat5 == 'fineSand'){
                   Material5Cost = fineSandVal;
                 }
+
                 setfilter5(currentMaterialImg); 
                 setfiltermat5(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -894,10 +910,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material5Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material5Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material5Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -961,8 +977,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat6 == 'fineSand'){
                   Material6Cost = fineSandVal;
                 }
+
                 setfilter6(currentMaterialImg); 
                 setfiltermat6(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -983,10 +1001,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material6Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material6Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material6Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -1055,8 +1073,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat7 == 'fineSand'){
                   Material7Cost = fineSandVal;
                 }
+
                 setfilter7(currentMaterialImg); 
                 setfiltermat7(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -1077,10 +1097,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material7Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material7Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material7Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -1144,8 +1164,10 @@ export default function Game({ route, navigation }) {
                 else if(filtermat8 == 'fineSand'){
                   Material8Cost = fineSandVal;
                 }
+
                 setfilter8(currentMaterialImg); 
                 setfiltermat8(currentMaterial);
+
                 if(money >= 5 && (country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')){
                   var rand = Math.floor(Math.random() * 5) + 1 ;
                   if(rand==1){
@@ -1166,10 +1188,10 @@ export default function Game({ route, navigation }) {
                   else{
                       setMoney(money - currentMaterialCost + Material8Cost);
                   }
-              }
-              else{
-                setMoney(money - currentMaterialCost + Material8Cost);
-              }
+                }
+                else{
+                    setMoney(money - currentMaterialCost + Material8Cost);
+                }
               }
               else{
                 setModalVisible(!modalVisible);
@@ -1211,7 +1233,7 @@ export default function Game({ route, navigation }) {
         {lackofFundsModal()}
         {/* Popup for Chance Cards */}
         {loseFundsModal()}
-        {/*Popup for midgame chance cards*/}
+        {/* Popup for Midgame Chance Cards */}
         {loseFundsModalMid1()}
         {loseFundsModalMid2()}
         {loseFundsModalMid3()}
@@ -1220,6 +1242,7 @@ export default function Game({ route, navigation }) {
         <View style={styles.scroll}>
           <Text style={styles.caption}>{"\n"}Scroll for more {"\n"}</Text>
 
+          {/* Fine Sand */}
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <Pressable style={[styles.materialButton, {borderColor: fineSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(true);
@@ -1237,6 +1260,7 @@ export default function Game({ route, navigation }) {
               </Text>
             </Pressable>
 
+            {/* Coarse Sand */}
             <Pressable style={[styles.materialButton, {borderColor: coarseSand? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(true);
@@ -1253,6 +1277,7 @@ export default function Game({ route, navigation }) {
               </Text>
             </Pressable>
 
+            {/* Fine Gravel */}
             <Pressable style={[styles.materialButton, {borderColor: fineGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
@@ -1269,6 +1294,7 @@ export default function Game({ route, navigation }) {
               </Text>
             </Pressable>
 
+            {/* Coarse Gravel */}
             <Pressable style={[styles.materialButton, {borderColor: coarseGravel? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
@@ -1285,6 +1311,7 @@ export default function Game({ route, navigation }) {
               </Text>
             </Pressable>
 
+            {/* Cotton */}
             <Pressable style={[styles.materialButton, {borderColor: cotton? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
@@ -1301,6 +1328,7 @@ export default function Game({ route, navigation }) {
               </Text>
             </Pressable>
 
+            {/* Cheese Cloth */}
             <Pressable style={[styles.materialButton, {borderColor: cheeseCloth? '#03DAC5': 'transparent'}]} numberOfLines={1} onPress={() => {
               setFineSand(false);
               setCoarseSand(false);
