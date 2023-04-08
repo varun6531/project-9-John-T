@@ -456,6 +456,25 @@ export default function Game({ route, navigation }) {
     else if(country=='SA'){
       setMoney(65);
     }
+
+    // Random generator for Canada to donate money
+    if(country=='canada'){
+      var rand = Math.floor(Math.random() * 2) + 1 ;
+      if(rand%2==0){
+        setModalVisible2(true);
+        setMoney(money-50);
+      }
+    }
+
+    // Random generator for a List B country to gain money
+    if(country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi'){
+      var rand = Math.floor(Math.random() * 4) + 1 ;
+      if(rand == 1){
+        setModalVisible2(true);
+        setMoney(money+35);
+      }
+    }
+
   };
 
   return (
