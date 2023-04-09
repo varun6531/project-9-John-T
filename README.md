@@ -19,6 +19,10 @@ Water for the World (W4TW) is a mobile application for understanding issues arou
 * Teachers will receive a result of the most recent game via email automatically. An offline version of the app is available as well where this feature is turned off.
 
 ## Instructions
+ * Clear instructions for how to use the application from the end-user's perspective
+ * How do you access it? For example: Are accounts pre-created or does a user register? Where do you start? etc. 
+ * Provide clear steps for using each feature described in the previous section.
+ * This section is critical to testing your application and must be done carefully and thoughtfully.
  Our application is deployed on the Expo App Store which is accessible by the Expo Go App on the Google Play Store. The link for Android is https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA&gl=US. After installing the Expo Go App, our application can be accessed by inputting exp://exp.host/@albertwelong/WaterForTheWorld?release-channel=default in the URL input or with this QR code. Unfortunately, because of Apple's security measures against installing applications that are not verified by the iOS app store, this process will not work on iOS phones. Therefore, we will include instructions on how to run an Android emulator to boot up our app.
  
  ![expo go](https://user-images.githubusercontent.com/78889780/224879826-f3f7919a-df38-4c0e-951f-6745184b4812.png)
@@ -43,6 +47,9 @@ For iOS, use camera app to scan QR code (will then be redirected to the Expo app
 Testing of the front end functionality can also be seen by viewing this video: https://youtu.be/qfPpBfAvsxM
  
 ## Deployment and Github Workflow
+
+Describe your Git/GitHub workflow. Essentially, we want to understand how your team members share codebase, avoid conflicts and deploys the application.
+
 Naming conventions used in building the app include camelCase. To merge our code, we used a separate branch from the main branch called d2-test. This branch was the original branch that includes the merged codes from all 3 sub-teams: backend, frontend, and database. We did not use pull requests - we used our local machines and uploaded specific features from each sub-team to add to the backend's codebase. To add new features, we used pull requests complete with descriptions of such features and had other teammates review such pull requests to be approved. These features would be added to the same d2-test branch instead of the main branch. The overall development process from writing code to viewing a live application included extensive testing in each small feature to ensure that the codebase is extendable in the future for additional features. Other than tests, we tested the codebase with the railway database cloud service to ensure that the database is working. Finally, we used postman to connect the backend with the frontend app design and used expo react native to test the app. We decided to use this workflow because it made the most sense to us to use the backend's codebase and work from there. Moreover, we used descriptive pull requests to ensure that new codes can be easily checked by other teammates without mishaps.
 
 Backend Deployment: 
@@ -53,8 +60,16 @@ To deploy our frontend, which is a react native mobile app, we used the Expo App
 
 ## Licenses 
 
+Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
+
+ * What type of license will you apply to your codebase? And why?
+
 We will use the MIT open-source license - it is simple and permissive. It allows redistribution, modification, and commercial use while limiting liability and warranty. Thus, the MIT open-source license will allow us to hand over our work to our partner with protection from legal action. However, we have agreed with our partner that we will not share our code beyond the initial handover to our partner. 
 
+* What affect does it have on the development and use of your codebase?
+
 There will be no drastic differences in the development and use of our codebase. If our partner decides to share the codebase, the open-source license will allow other similar organizations (e.g., Engineers Without Borders) to develop similar apps that require a pre-game questionnaire, a game, and a post-game questionnaire to be developed at a lower cost.
+
+* Images used
 
 There are several unlicensed images in the game that have not been licensed yet. However since the product is not published yet, no legal actions can be taken. Thus until the imaging licenses have been sorted out, the product will not be used for commercial purposes. 
