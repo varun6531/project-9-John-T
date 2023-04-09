@@ -1499,7 +1499,7 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight: 'bold',
         flex: 5,
-        padding:5, 
+        padding:3, 
     },
     resetButton:{
         width:  Dimensions.get('window').width / 3,
@@ -1538,7 +1538,7 @@ const styles = StyleSheet.create({
         borderColor: 'transparent',
         borderRadius: 999,
         borderWidth: 2,
-        backgroundColor: '#2C2C2C'
+        backgroundColor: '#2C2C2C',
     },
     image:{
         height: '99%',
