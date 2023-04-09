@@ -1558,7 +1558,8 @@ const styles = StyleSheet.create({
         borderColor: 'transparent',
         borderRadius: 999,
         borderWidth: 2,
-        backgroundColor: '#2C2C2C'
+        backgroundColor: '#2C2C2C',
+        resizeMode: 'contain',
     },
     image:{
         height: '99%',
