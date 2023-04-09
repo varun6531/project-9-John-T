@@ -33,7 +33,7 @@ export default function Game({ route, navigation }) {
 
   // Messages for chance cards
   const messageCanada = 'Well done! You donated $50 to Engineers Without Borders/Water for the World which helped a country in need to access clean water. You still have more than enough money to build a great filter!';
-  // const messageListB = "You gained 35$";
+  const messageListB = "You gained 35$";
   const messageLose5 = "You are stopped by an army checkpoint which requires a 'tax'. The amount to spend on the filter is reduced by $5";
   const messageLose52 = "A government official 'diverts' funds for your project. Your funds are reduced by $5";
   const messageGain30 = "You receive a grant from Water for the World/Engineers without Borders - you have an extra $30 to spend on your filter";
@@ -251,13 +251,13 @@ export default function Game({ route, navigation }) {
     }
 
     // Random generator for a List B country to gain money
-    // if((country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')&& isNew){
-    //   var rand = Math.floor(Math.random() * 4) + 1 ;
-    //   if(rand == 1){
-    //     setModalVisible2(true);
-    //     setMoney(money+35);
-    //   }
-    // }
+    if((country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi')&& isNew){
+      var rand = Math.floor(Math.random() * 4) + 1 ;
+      if(rand == 1){
+        setModalVisible2(true);
+        setMoney(money+35);
+      }
+    }
   }, []);
 
   // Popup for Insufficient Funds
@@ -304,8 +304,7 @@ export default function Game({ route, navigation }) {
 				>
 					<View style={styles.centeredView}>
 						<View style={styles.modalView}>
-							{/* <Text style={styles.answerView}>{country=='canada'? messageCanada: messageListB}</Text> */}
-              <Text style={styles.answerView}>{country=='canada'? messageCanada : null}</Text>
+							<Text style={styles.answerView}>{country=='canada'? messageCanada: messageListB}</Text>
 							<Pressable
 								style={[styles.buttonAns, styles.buttonClose]}
 								onPress={() => setModalVisible2(!modalVisible2)}
@@ -468,13 +467,13 @@ export default function Game({ route, navigation }) {
     }
 
     // Random generator for a List B country to gain money
-    // if(country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi'){
-    //   var rand = Math.floor(Math.random() * 4) + 1 ;
-    //   if(rand == 1){
-    //     setModalVisible2(true);
-    //     setMoney(money+35);
-    //   }
-    // }
+    if(country== 'ghana' || country == 'SA' || country == 'kenya' || country=='malawi'){
+      var rand = Math.floor(Math.random() * 4) + 1 ;
+      if(rand == 1){
+        setModalVisible2(true);
+        setMoney(money+35);
+      }
+    }
 
   };
 
