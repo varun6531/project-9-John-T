@@ -1,11 +1,10 @@
 import React from "react";
 import { Dimensions, StyleSheet, View, Text, Image, Pressable, Linking, SafeAreaView } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-// Final Thank You Page
-export default function ThankYou({ navigation }){
+// Final Thank You Page, Not Logged In
+export default function TYNL({ navigation }){
     return(
         <SafeAreaView style={styles.background}>
             <Image source={require('../assets/EWB.png')}  style={styles.ewblogo}/>
@@ -22,7 +21,7 @@ export default function ThankYou({ navigation }){
                 Available for Android on Google Store and iPhone at the App Store
             </Text>
 
-            {/* Pressable Images to Play Store and App Store */}
+            {/* Pressable images to Play Store and App Store */}
             <Pressable onPress={() => Linking.openURL('https://play.google.com/store/games')}>
                 <Image source={require('../assets/googlePlay.png')} style={styles.googlelogo}/>
             </Pressable>
@@ -31,19 +30,8 @@ export default function ThankYou({ navigation }){
             </Pressable>
 
             <View style={styles.skipContainer}>
-                {/* Log Out */}
-                <Pressable style={styles.button} numberOfLines={1} onPress={async () => {await AsyncStorage.removeItem("user"); navigation.navigate("Home page")}}>
-                    <Text style={styles.textButton}>
-                        Log Out
-                    </Text>
-                    <View style={styles.arrow} >
-                        <FontAwesome5 name='angle-right' color='#03DAC5' size={15}/>
-                    </View>
-                </Pressable>
-
                 {/* Back to Home Page */}
-                <Pressable style={styles.button} numberOfLines={1} onPress={async () => {
-                    navigation.navigate("Home page");}}>
+                <Pressable style={styles.button} numberOfLines={1} onPress={async () => {navigation.navigate("Home page")}}>
                     <Text style={styles.textButton}>
                         Home
                     </Text>
@@ -52,7 +40,7 @@ export default function ThankYou({ navigation }){
                     </View>
                 </Pressable>
             </View>
-            
+
             <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
         </SafeAreaView>
     );
@@ -89,11 +77,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
         flexDirection: 'column',
         width: Dimensions.get('window').width / 1.5,
-        // height: Dimensions.get('window').height/6,
     },
     skipContainer: {
         flex: 2,
-        marginTop: Dimensions.get('window').height/40,
+        marginTop: Dimensions.get('window').height/12,
     },
     button: {
         width:  Dimensions.get('window').width / 2,

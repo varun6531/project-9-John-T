@@ -1,15 +1,15 @@
-import { Dimensions, StyleSheet, Text, View, Image, Button} from 'react-native';
+import { Dimensions, StyleSheet, Text, Image, Pressable} from 'react-native';
 import { useEffect } from 'react'
 
-
+// Introduction Page showing project partners
 export default function Intro({ navigation }) {
-  useEffect(() => {setTimeout(() => navigation.navigate("Sign in"), 1000);}, []);
+  useEffect(() => {setTimeout(() => navigation.navigate("Home page"), 3000);}, []);
   return (
-    <View style={styles.background}>
+    <Pressable onPress={() => {navigation.navigate("Home page");}} style={styles.background}>
       <Text  numberOfLines={1} adjustsFontSizeToFit style= {styles.text}>Presented by:</Text>
-      <Image source={require('../assets/WFTW.png')} style={styles.imageTop}/>
-      <Image source={require('../assets/EWB.png')} style={styles.imageBottom}/>
-    </View>
+      <Image source={require('../assets/WFTW.png')} style={styles.w4twlogo}/>
+      <Image source={require('../assets/EWB.png')} style={styles.ewblogo}/>
+    </Pressable>
   );
 }
 
@@ -26,17 +26,17 @@ const styles = StyleSheet.create({
     fontSize:30,
     fontWeight: 'bold'
   },
-  imageTop: {
+  w4twlogo: {
     height: Dimensions.get('window').height/4,
     width: Dimensions.get('window').height/2,
     marginTop: Dimensions.get('window').height/16,
     marginRight: Dimensions.get('window').width/10
   },
-  imageBottom: {
+  ewblogo: {
     height: Dimensions.get('window').height/4,
     width: Dimensions.get('window').height/2,
     marginTop: Dimensions.get('window').height/16,
-    marginLeft: Dimensions.get('window').width/10
+    right: 20
   },
 
 });
